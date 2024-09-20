@@ -8,20 +8,27 @@ interface MenuItem {
 }
 
 const Header: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-  useEffect(() => {
-    const fetchMenuItems = async () => {
-      try {
-        const response = await axios.get<MenuItem[]>('/api/menu-items');
-        setMenuItems(response.data);
-      } catch (error) {
-        console.error('Ошибка при загрузке меню:', error);
-      }
-    };
+    const [menuItems, setMenuItems] = useState<MenuItem[]>([
+        { id: 1, title: 'Главная', url: '/' },
+        { id: 2, title: 'Инструкции', url: '/instructions' },
+      ]);
 
-    fetchMenuItems();
-  }, []);
+//   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+
+//   useEffect(() => {
+//     const fetchMenuItems = async () => {
+//       try {
+//         const response = await axios.get<MenuItem[]>('/api/menu-items');
+//         setMenuItems(response.data);
+//         console.log('Ответ API:', response.data);
+//       } catch (error) {
+//         console.error('Ошибка при загрузке меню:', error);
+//       }
+//     };
+
+//     fetchMenuItems();
+//   }, []);
 
   return (
     <header className="app-header">
@@ -29,9 +36,11 @@ const Header: React.FC = () => {
         <nav>
             <ul>
                 {menuItems.map((item) => (
-                <li key={item.id}>
-                    <a href={item.url}>{item.title}</a>
-                </li>
+                    //{Array.isArray(menuItems) && menuItems.map((item) => (
+                        <li key={item.id}>
+                        <a href={item.url}>{item.title}</a>
+                        </li>
+                    //))}
                 ))}
             </ul>
         </nav>
