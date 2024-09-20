@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   return (
     <header className="app-header">
         <h3 className="logo">aedb</h3>
-        {/* <nav>
+        <nav>
             <ul>
                 {menuItems.map((item) => (
                 <li key={item.id}>
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                 </li>
                 ))}
             </ul>
-        </nav> */}
+        </nav>
     </header>
   );
 };
