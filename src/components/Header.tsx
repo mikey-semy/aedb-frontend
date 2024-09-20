@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get<MenuItem[]>('/api/menu-items');
+        const response = await axios.get<MenuItem[]>('https://api.aedb.ru/api/menu-items');
         setMenuItems(response.data);
         console.log('Ответ API:', response.data);
       } catch (error) {
