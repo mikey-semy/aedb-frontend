@@ -9,7 +9,7 @@ interface MenuItem {
 
 const Header: React.FC = () => {
 
-    const [menuItems, setMenuItems] = useState<MenuItem[]>([
+    const [menuItems] = useState<MenuItem[]>([
         { id: 1, title: 'Главная', url: '/' },
         { id: 2, title: 'Инструкции', url: '/instructions' },
       ]);
