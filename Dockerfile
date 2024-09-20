@@ -2,12 +2,16 @@ FROM node:21-alpine3.19
 
 WORKDIR /usr/src/app
 
-COPY yarn.lock package.json ./
+COPY package.json yarn.lock ./
 
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 COPY . ./
 
+RUN yarn build
+
+RUN yarn global add serve
+
 EXPOSE 3000
 
-CMD ["yarn", "dev", "--host", "0.0.0.0"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
