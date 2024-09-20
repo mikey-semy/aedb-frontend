@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import favicon from './assets/icons/favicons/favicon.ico';
 import './App.css'
+import Header from './components/Header';
+
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -12,12 +14,13 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
-      <header className="app-header">
-        <h3 className="logo">aedb</h3>
-      </header>
+
+      <Header />
+
       <main className="app-main"> 
         <h1>Main page</h1>
       </main>
+      
     </div>
   );
 };
