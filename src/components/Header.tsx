@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+import React, { useState } from 'react';
 interface MenuItem {
   id: number;
   title: string;
