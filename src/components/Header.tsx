@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import env from 'react-dotenv';
+
 // import React, { useState } from 'react';
+
+const apiUrl = env.API_URL;
+const apiUsername = env.API_USERNAME;
+const apiPassword = env.API_PASSWORD;
+
 interface MenuItem {
   id: number;
   title: string;
@@ -19,7 +26,11 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get<MenuItem[]>('https://api.aedb.ru/api/menu-items');
+        const response = await axios.get<MenuItem[]>(apiUrl + '/api/menu-items', {
+          headers: {
+            'Authorization': 'Basic ' + btoa(apiUsername + ':' + apiPassword),
+          }
+        });
         setMenuItems(response.data);
         console.log('Ответ API:', response.data);
       } catch (error) {
@@ -36,11 +47,9 @@ const Header: React.FC = () => {
         <nav>
             <ul>
                 {menuItems.map((item) => (
-                    //{Array.isArray(menuItems) && menuItems.map((item) => (
                         <li key={item.id}>
                         <a href={item.url}>{item.title}</a>
                         </li>
-                    //))}
                 ))}
             </ul>
         </nav>
