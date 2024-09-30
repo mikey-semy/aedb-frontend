@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import favicon from './assets/icons/favicons/favicon.ico';
-import './App.css'
-import Header from './components/Header';
+import { Outlet } from "react-router-dom";
+
+import favicon from '../assets/icons/favicons/favicon.ico';
+
+import Header from '../components/Header/Header';
 
 
 const App: React.FC = () => {
@@ -14,13 +16,10 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
-
       <Header />
-
       <main className="app-main"> 
-        <h1>Main page</h1>
-      </main>
-      
+        <Outlet />
+      </main>    
     </div>
   );
 };
