@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import env from 'react-dotenv';
+
 
 // import React, { useState } from 'react';
 
-const apiUrl = env.API_URL;
-const apiUsername = env.API_USERNAME;
-const apiPassword = env.API_PASSWORD;
-console.log('API URL:', apiUrl);
-console.log('API Username:', apiUsername);
-console.log('API Password:', apiPassword);
+const apiUrl = import.meta.env.VITE_API_URL;
+const apiUsername = import.meta.env.VITE_API_USERNAME;
+const apiPassword = import.meta.env.VITE_API_PASSWORD;
 
 interface MenuItem {
   id: number;
