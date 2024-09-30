@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 
 // import React, { useState } from 'react';
-
-const apiUrl = import.meta.env.VITE_API_URL;
-const apiUsername = import.meta.env.VITE_API_USERNAME;
-const apiPassword = import.meta.env.VITE_API_PASSWORD;
 
 interface MenuItem {
   id: number;
@@ -26,11 +22,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get<MenuItem[]>(apiUrl + '/api/menu-items', {
-          headers: {
-            'Authorization': 'Basic ' + btoa(apiUsername + ':' + apiPassword),
-          }
-        });
+        const response = await api.get<MenuItem[]>('/api/menu-items');
         setMenuItems(response.data);
         console.log('Ответ API:', response.data);
       } catch (error) {
