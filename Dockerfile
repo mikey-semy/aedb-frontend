@@ -14,4 +14,4 @@ RUN yarn global add serve
 
 EXPOSE 3000
 
-RUN yarn serve
+CMD ["serve", "-s", "dist", "-l", "3000"]
