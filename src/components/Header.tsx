@@ -7,6 +7,9 @@ import env from 'react-dotenv';
 const apiUrl = env.API_URL;
 const apiUsername = env.API_USERNAME;
 const apiPassword = env.API_PASSWORD;
+console.log('API URL:', apiUrl);
+console.log('API Username:', apiUsername);
+console.log('API Password:', apiPassword);
 
 interface MenuItem {
   id: number;
