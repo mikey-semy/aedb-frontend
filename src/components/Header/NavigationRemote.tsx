@@ -27,10 +27,10 @@ const NavigationRemote: React.FC = () => {
 
   return (
     <nav className='nav'>
-            <ul className='nav-items'>
+            <ul className='nav__items'>
                 {menuItems.map((item) => (
-                        <li className='nav-item' key={item.id}>
-                            <a className='nav-item__link' href={item.url}>{item.title}</a>
+                        <li className='nav__item' key={item.id}>
+                            <a className='nav__item--link' href={item.url}>{item.title}</a>
                         </li>
                 ))}
             </ul>

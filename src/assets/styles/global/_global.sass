@@ -11,29 +11,23 @@
     text-rendering: $text-rendering
     -webkit-font-smoothing: $webkit-font-smoothing
     -moz-osx-font-smoothing: $moz-osx-font-smoothing
-a
-  font-weight: 500
-  color: #646cff
-  text-decoration: inherit
-
-  &:hover
-    color: #535bf2
 
 #root
   width: 100%
 
+html, body
+  height: 100%
+  margin: 0
+  padding: 0
+
 html
-  // overflow-y: hidden
-  // overflow-x: hidden
+  overflow-y: hidden
+  overflow-x: hidden
 
 body
   height: 100%
   margin: 0
   padding: 0
-  display: flex
-  place-items: center
-  min-width: 320px
-  min-height: 100vh
 
   background-color: $color-background
   color: $color-text
@@ -54,6 +48,11 @@ body
     background-color: $color-secondary
     border-radius: 4px
 
+.app-container
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    min-width: 320px
 
 h1
   font-size: 3.2em
@@ -76,10 +75,7 @@ button
   &:focus, &:focus-visible
     outline: 4px auto -webkit-focus-ring-color
 
-.app-container
-    display: flex
-    flex-direction: column
-    min-height: 100vh
+
 
 .add-manual-form 
   display: flex 
@@ -111,3 +107,11 @@ button
 
   &:hover
     background-color: #0056b3
+
+a
+  font-weight: 500
+  color: #646cff
+  text-decoration: inherit
+
+  &:hover
+    color: #535bf2

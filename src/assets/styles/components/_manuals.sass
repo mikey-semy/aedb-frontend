@@ -3,64 +3,76 @@
         list-style: none
         padding: 0
         margin: 0
-        
+        border: 1px solid #ddd
+        border-radius: 5px
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        // background-color: #f7f7f7
+
     &__caption
         display: flex
-        flex-direction: row
         align-items: center
-        gap: 10px
+        // flex-direction: row
+        margin-bottom: 10px
 
     &__item
-        margin-bottom: 20px
+        padding: 20px
+        border-bottom: 1px solid #ddd
 
-    &:last-child
-        margin-bottom: 0
+        &:last-child
+            border-bottom: none
 
     &__logo
-        max-width: 100px
+        width: 40px
         height: auto
-        margin-bottom: 10px
-        object-fit: contain
+        margin-right: 10px
 
     &__title
         font-size: 10px
-        color: $color-secondary
         font-weight: bold
-        margin-bottom: 16px
+        color: $color-secondary
+        margin: 0
 
 .group
     &__items
+        // background-color: #f7f7f7
+        // padding: 20px
+        // border: 1px solid #ddd
+        // border-radius: 10px
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+
         list-style: none
         padding: 0
-        margin: 0 0 20px 20px
+        margin: 0
 
     &__item
-        margin-bottom: 10px
+        padding: 0
+        border-bottom: 1px solid #ddd
 
-    &:last-child
-        margin-bottom: 0
+        &:last-child
+            border-bottom: none
 
     &__title
-        font-size: 18px
+        font-size: 16px
         font-weight: bold
-        margin-bottom: 5px
+        margin: 0
 
 .manual
     &__items
         display: flex
         flex-direction: row
-        gap: 10px
+        gap: 20px
+
         list-style: none
         padding: 0
-        margin: 0 0 0 20px
+        margin: 0
 
     &__item
         width: 200px
         position: relative
         margin-bottom: 5px
 
-    &:last-child
-        margin-bottom: 0
+        // &:last-child
+        //     margin-bottom: 0
 
     &__link
         display: flex
@@ -68,8 +80,8 @@
         text-decoration: none
         color: inherit
 
-    &:hover
-        text-decoration: underline
+        &:hover
+            text-decoration: none
 
     &__cover
         display: block
@@ -77,6 +89,7 @@
         width: 200px
         height: 280px
         object-fit: contain
+        border-radius: 5px
 
     &__title
         position: absolute
@@ -94,3 +107,10 @@
         overflow: hidden
         display: -webkit-box
         -webkit-box-orient: vertical
+        border-radius: 5px
+
+        &__empty
+            font-size: 14px
+            color: $color-secondary
+            padding: 10px
+            text-align: center

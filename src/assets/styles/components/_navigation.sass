@@ -1,17 +1,22 @@
 .nav
   margin-left: 24px
   
-  &-items
+  &__icon
+    display: none
+    font-style: 24px
+    cursor: pointer
+    
+  &__items
     display: flex
 
-  &-item
+  &__item
     list-style: none
 
-  &-item__link
-    margin-right: 16px
-    color: #ffffff
-    font-size: 14px
-    text-transform: uppercase
-    text-decoration: none
-    &:hover
-      color: rgba(255, 255, 255, 0.7)
+    &--link
+      margin-right: 16px
+      color: #ffffff
+      font-size: 14px
+      text-transform: uppercase
+      text-decoration: none
+      &:hover
+        color: rgba(255, 255, 255, 0.7)
