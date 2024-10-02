@@ -7,8 +7,10 @@ import {
 import ErrorPage from './error-page.tsx';
 import App from './routes/App.tsx';
 import Es from './routes/Es.tsx';
-import Manuals from './routes/Manuals.tsx';
+import Instructions from './routes/Instructions.tsx';
+import AddInstruction from './routes/AddInstruction.tsx';
 import Main from './routes/Main.tsx'
+
 import './assets/styles/main.sass';
 
 
@@ -29,8 +31,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructions",
-        element: <Manuals />
-      }
+        element: <Instructions />
+      },
+      {
+        path: "/add_instruction",
+        element: <AddInstruction />
+      },
     ],
   },
   

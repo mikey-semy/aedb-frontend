@@ -5,7 +5,7 @@ interface ManualItem {
   id: number;
   title: string;
   file_url: string;
-  cover_image_url: string | null;
+  cover_image_url: string | undefined;
 }
 
 interface GroupItem {
@@ -21,14 +21,14 @@ interface CategoryItem {
   groups: GroupItem[];
 }
 
-const Category: React.FC = () => {
+const Manuals: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
 
   useEffect(() => {
    const fetchCategoryItems = async () => {
      try {
-       const response = await api.get<CategoryItem[]>('/api/nested_manuals');
+       const response = await api.get<CategoryItem[]>('/nested_manuals');
        setCategoryItems(
          response.data.map((category) => ({
            id: category.id,
@@ -60,7 +60,7 @@ const Category: React.FC = () => {
     <ul className='category__items'>
     {categoriesItems.map((category) => (
         <li className='category__item' key={category.id}>
-            <div>
+            <div className='category__caption'>
                 <img className='category__logo' src={category.logo_url} alt={category.name} />
                 <h2 className='category__title'>{category.name}</h2>
             </div>
@@ -68,6 +68,7 @@ const Category: React.FC = () => {
             {category.groups.map((group) => (
               <li className='group__item' key={group.id}>
                 <h3 className='group__title'>{group.name}</h3>
+                {group.manuals.length > 0 ? (
                 <ul className='manual__items'>
                   {group.manuals.map((manual) => (
                     <li className='manual__item'  key={manual.id}>
@@ -78,6 +79,9 @@ const Category: React.FC = () => {
                     </li>
                   ))}
                 </ul>
+                ) : (
+                  <p className='manual__empty'>Здесь пока пусто... :(</p>
+                )}
               </li>
             ))}
             </ul>
@@ -87,4 +91,4 @@ const Category: React.FC = () => {
   );
 };
 
-export default Category;
+export default Manuals;

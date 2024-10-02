@@ -23,8 +23,8 @@ a
   width: 100%
 
 html
-  overflow-y: hidden
-  overflow-x: hidden
+  // overflow-y: hidden
+  // overflow-x: hidden
 
 body
   height: 100%
@@ -80,3 +80,34 @@ button
     display: flex
     flex-direction: column
     min-height: 100vh
+
+.add-manual-form 
+  display: flex 
+  flex-direction: column 
+  max-width: 400px 
+  margin: 0 auto 
+  padding: 20px
+
+input 
+  margin-bottom: 10px 
+  padding: 8px 
+  border: 1px solid #ccc 
+  border-radius: 4px
+
+select 
+  margin-bottom: 10px 
+  padding: 8px 
+  border: 1px solid #ccc 
+  border-radius: 4px
+
+button 
+  background-color: #007bff 
+  color: white 
+  padding: 10px 
+  border: none 
+  border-radius: 4px 
+  cursor: pointer 
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: #0056b3
