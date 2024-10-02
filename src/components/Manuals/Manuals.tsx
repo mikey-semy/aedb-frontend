@@ -28,7 +28,8 @@ const Manuals: React.FC = () => {
   useEffect(() => {
    const fetchCategoryItems = async () => {
      try {
-       const response = await api.get<CategoryItem[]>('/nested_manuals');
+       const response = await api.get<CategoryItem[]>('/api/nested_manuals');
+       
        setCategoryItems(
          response.data.map((category) => ({
            id: category.id,
