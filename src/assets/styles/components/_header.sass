@@ -1,7 +1,7 @@
 .app-header
     display: flex
     align-items: center
-    justify-content: space-between
+    justify-content: space-evenly
     background-color: #24292e
     color: #ffffff
     padding: 1rem
@@ -9,8 +9,15 @@
     top: 0
     left: 0
     right: 0
-    z-index: 1000
+    z-index: 1
 
     background-color: #24292e
     padding: 4px 24px
     align-items: center
+
+    &--fixed-top
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        z-index: 1
