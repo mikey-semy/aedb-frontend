@@ -1,18 +1,10 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { createProxyMiddleware, RequestHandler } from 'http-proxy-middleware';
-import { URL } from 'url';
 
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), '')
-
-  const mediaProxy = createProxyMiddleware({
-    target: new URL('https://api.aedb.ru').href,
-    changeOrigin: true,
-    pathRewrite: { '^/media': '' },
-  }) as unknown as RequestHandler
 
   return {
     plugins: [react()],
@@ -31,7 +23,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           target: 'https://api.aedb.ru',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/media/, ''),
-          ...mediaProxy,
         },
       }
     },
