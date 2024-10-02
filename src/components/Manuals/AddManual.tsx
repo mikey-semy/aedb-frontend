@@ -52,14 +52,21 @@ const AddManual: React.FC = () => {
         placeholder="Название инструкции"
         required
       />
-      <input
+      <input 
+        name='files' 
+        type='file'
+        onChange={handleChange}
+        placeholder="URL файла инструкции" 
+        multiple
+      />
+      {/* <input
         type="url"
         name="file_url"
         value={manual.file_url}
         onChange={handleChange}
         placeholder="URL файла инструкции"
         required
-      />
+      /> */}
       <select
         name="group_id"
         value={manual.group_id}
