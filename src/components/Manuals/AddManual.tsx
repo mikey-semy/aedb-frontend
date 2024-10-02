@@ -67,7 +67,7 @@ const AddManual: React.FC = () => {
         required
       >
         <option value="">Выберите группу</option>
-        {groups.map(group => (
+        {groups.map((group: { id: number, name: string }) => (
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
