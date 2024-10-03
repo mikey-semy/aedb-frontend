@@ -61,22 +61,42 @@ h1
   line-height: 1.1
 
 button
-  border-radius: 8px
-  border: 1px solid transparent
-  padding: 0.6em 1.2em
-  font-size: 1em
-  font-weight: 500
-  font-family: inherit
-  background-color: #1a1a1a
+  display: inline-block
+  padding: 10px 20px
+  font-size: 14px
+  font-weight: bold
+  color: #000
+  background-color: #28a745 /* Зеленый цвет */
+  border: none
+  border-radius: 5px
+  text-align: center
+  text-decoration: none
   cursor: pointer
-  transition: border-color 0.25s
+  transition: background-color 0.3s ease
 
   &:hover
-    border-color: #646cff
+    background-color: #218838 /* Темнее при наведении */
+  
+  &:disabled
+    background-color: #6c757d /* Серый цвет для отключенной кнопки */
+    cursor: not-allowed
 
-  &:focus, &:focus-visible
-    outline: 4px auto -webkit-focus-ring-color
+.button
+  &--text
+    display: block
+    color: #000
+    background: none
+    font-size: 10px
+    font-weight: bold
+    color: #000
+    
+    text-transform: uppercase
+    transition: color 0.3s ease
 
+    &:hover
+      background: none
+      color: $color-secondary
+      text-decoration: underline
 
 
 .add-manual-form 

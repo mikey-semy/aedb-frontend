@@ -21,12 +21,12 @@ interface CategoryItem {
   groups: GroupItem[];
 }
 
-const Manuals: React.FC = () => {
+const ManualsCover: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
 
   useEffect(() => {
-   const fetchCategoryItems = async () => {
+    const fetchCategoryItems = async () => {
      try {
        const response = await api.get<CategoryItem[]>('/nested_manuals');
        
@@ -57,7 +57,45 @@ const Manuals: React.FC = () => {
    fetchCategoryItems();
   }, []);
 
+  
+  
+  const [isShortView, setIsShortView] = useState(() => {
+    const savedView = localStorage.getItem('isShortView');
+    return savedView === 'true' ? true : false;
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('isShortView', JSON.stringify(isShortView));
+  }, [isShortView]);
+  
+  useEffect(() => {
+    const classNames = [
+      'manual__item',
+      'manual__link',
+      'manual__icon',
+      'manual__cover',
+      'manual__title'
+    ];
+  
+    classNames.forEach(className => {
+      const elements = document.querySelectorAll(`.${className}`);
+      if (elements) {
+        elements.forEach(element => {
+          element.classList.toggle(`${className}--table`, !isShortView);
+        });
+      }
+    });
+  }, []);
+  
+  const toggleView = () => {
+    setIsShortView(!isShortView);
+  };
+
   return (
+    <div className='manual__container'>
+    <div className='manual__toolbar'>
+      <button className="button--text" onClick={toggleView}>{ isShortView ? 'Таблица' : 'Обложки'}</button>
+    </div>
     <ul className='category__items'>
     {categoriesItems.map((category) => (
         <li className='category__item' key={category.id}>
@@ -75,6 +113,7 @@ const Manuals: React.FC = () => {
                     <li className='manual__item'  key={manual.id}>
                       <a className='manual__link' href={manual.file_url} target='_blank'>
                         <img className='manual__cover' src={manual.cover_image_url} alt={manual.title} />
+                        <span className='manual__icon'>&#x1F4C4;</span>
                         <span className='manual__title'>{manual.title}</span>
                       </a>
                     </li>
@@ -89,7 +128,8 @@ const Manuals: React.FC = () => {
         </li>
     ))}
 </ul>
+</div>
   );
 };
 
-export default Manuals;
+export default ManualsCover;

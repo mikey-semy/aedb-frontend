@@ -1,7 +1,6 @@
 import React, { useState }  from 'react';
 
 
-
 const NavIcon: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
 
