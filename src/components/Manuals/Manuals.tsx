@@ -5,7 +5,6 @@ interface ManualItem {
   id: number;
   title: string;
   file_url: string;
-  cover_image_url: string | undefined;
 }
 
 interface GroupItem {
@@ -42,7 +41,6 @@ const ManualsCover: React.FC = () => {
                id: manual.id,
                title: manual.title,
                file_url: manual.file_url,
-               cover_image_url: manual.cover_image_url ?? '',
              })),
            })),
          }))
@@ -57,36 +55,10 @@ const ManualsCover: React.FC = () => {
    fetchCategoryItems();
   }, []);
   
-  const [isTableView, setTableView] = useState(false);
-  const toggleView = () => {
-    setTableView(!isTableView);
-
-    const classNames = [
-      'manual__item',
-      'manual__link',
-      'manual__icon',
-      'manual__cover',
-      'manual__title'
-    ];
-  
-    classNames.forEach(className => {
-      const elements = document.querySelectorAll(`.${className}`);
-      if (elements) {
-        elements.forEach(element => {
-          element.classList.toggle(`${className}--table`, !isTableView);
-        });
-      }
-    });
-
-  };
-
-
-
-
   return (
     <div className='manual__container'>
     <div className='manual__toolbar'>
-      <button className="button--text" onClick={toggleView}>{ isTableView ? 'Таблица' : 'Обложки'}</button>
+      {/* <button className="button--text" onClick={toggleView}>{ isTableView ? 'Таблица' : 'Обложки'}</button> */}
     </div>
     <ul className='category__items'>
     {categoriesItems.map((category) => (
@@ -104,7 +76,6 @@ const ManualsCover: React.FC = () => {
                   {group.manuals.map((manual) => (
                     <li className='manual__item'  key={manual.id}>
                       <a className='manual__link' href={manual.file_url} target='_blank'>
-                        <img className='manual__cover' src={manual.cover_image_url} alt={manual.title} />
                         <span className='manual__icon'>&#x1F4C4;</span>
                         <span className='manual__title'>{manual.title}</span>
                       </a>

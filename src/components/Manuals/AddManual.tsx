@@ -29,6 +29,7 @@ const AddManual: React.FC = () => {
     }
     const handleSubmit= async (e: React.FormEvent) => {
         e.preventDefault();
+        
         try {
             const response = await api.post('/manual', manual);
             console.log('Инструкция добавлена:', response.data);
@@ -52,21 +53,21 @@ const AddManual: React.FC = () => {
         placeholder="Название инструкции"
         required
       />
-      <input 
+      {/* <input 
         name='files' 
         type='file'
         onChange={handleChange}
-        placeholder="URL файла инструкции" 
+        placeholder="файл инструкции" 
         multiple
-      />
-      {/* <input
+      /> */}
+      <input
         type="url"
         name="file_url"
         value={manual.file_url}
         onChange={handleChange}
         placeholder="URL файла инструкции"
         required
-      /> */}
+      />
       <select
         name="group_id"
         value={manual.group_id}
