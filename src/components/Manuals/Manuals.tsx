@@ -74,10 +74,10 @@ const ManualsCover: React.FC = () => {
                 {group.manuals.length > 0 ? (
                 <ul className='manual__items'>
                   {group.manuals.map((manual) => (
-                    <li className='manual__item'  key={manual.id}>
-                      <a className='manual__link' href={manual.file_url} target='_blank'>
-                        <span className='manual__icon'>&#x1F4C4;</span>
-                        <span className='manual__title'>{manual.title}</span>
+                    <li className='manual__item--table'  key={manual.id}>
+                      <a className='manual__link--table' href={manual.file_url} target='_blank'>
+                        <span className='manual__icon--table'>&#x1F4C4;</span>
+                        <span className='manual__title--table'>{manual.title}</span>
                       </a>
                     </li>
                   ))}
