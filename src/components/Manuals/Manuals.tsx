@@ -56,19 +56,11 @@ const ManualsCover: React.FC = () => {
 
    fetchCategoryItems();
   }, []);
+  
+  const [isTableView, setTableView] = useState(false);
+  const toggleView = () => {
+    setTableView(!isTableView);
 
-  
-  
-  const [isShortView, setIsShortView] = useState(() => {
-    const savedView = localStorage.getItem('isShortView');
-    return savedView === 'true' ? true : false;
-  });
-  
-  useEffect(() => {
-    localStorage.setItem('isShortView', JSON.stringify(isShortView));
-  }, [isShortView]);
-  
-  useEffect(() => {
     const classNames = [
       'manual__item',
       'manual__link',
@@ -81,20 +73,20 @@ const ManualsCover: React.FC = () => {
       const elements = document.querySelectorAll(`.${className}`);
       if (elements) {
         elements.forEach(element => {
-          element.classList.toggle(`${className}--table`, !isShortView);
+          element.classList.toggle(`${className}--table`, !isTableView);
         });
       }
     });
-  }, []);
-  
-  const toggleView = () => {
-    setIsShortView(!isShortView);
+
   };
+
+
+
 
   return (
     <div className='manual__container'>
     <div className='manual__toolbar'>
-      <button className="button--text" onClick={toggleView}>{ isShortView ? 'Таблица' : 'Обложки'}</button>
+      <button className="button--text" onClick={toggleView}>{ isTableView ? 'Таблица' : 'Обложки'}</button>
     </div>
     <ul className='category__items'>
     {categoriesItems.map((category) => (
