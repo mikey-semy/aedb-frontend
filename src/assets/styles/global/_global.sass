@@ -92,11 +92,18 @@ button
     
     text-transform: uppercase
     transition: color 0.3s ease
-
+  
     &:hover
       background: none
       color: $color-secondary
       text-decoration: underline
+
+  &--icon
+    @extend .button--text
+    &:hover
+      text-decoration: none
+
+    
 
 
 .add-manual-form 

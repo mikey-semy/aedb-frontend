@@ -1,5 +1,5 @@
 import React from 'react';
-import AddManual from '../components/Manuals/AddManual';
+import AddManual from '../components/Manuals/Forms/FormAddManual';
 
 const AddInstruction: React.FC = () => {
 

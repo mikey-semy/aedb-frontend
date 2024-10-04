@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/axiosConfig';
 
+import ToolbarManuals from './Actions/ToolbarManual';
 interface ManualItem {
   id: number;
   title: string;
@@ -20,7 +21,7 @@ interface CategoryItem {
   groups: GroupItem[];
 }
 
-const ManualsCover: React.FC = () => {
+const ContentManual: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
 
@@ -57,9 +58,7 @@ const ManualsCover: React.FC = () => {
   
   return (
     <div className='manual__container'>
-    <div className='manual__toolbar'>
-      {/* <button className="button--text" onClick={toggleView}>{ isTableView ? 'Таблица' : 'Обложки'}</button> */}
-    </div>
+    <ToolbarManuals />
     <ul className='category__items'>
     {categoriesItems.map((category) => (
         <li className='category__item' key={category.id}>
@@ -95,4 +94,4 @@ const ManualsCover: React.FC = () => {
   );
 };
 
-export default ManualsCover;
+export default ContentManual;

@@ -1,10 +1,10 @@
 import React from 'react';
-import Manuals from '../components/Manuals/Manuals';
+import ContentManuals from '../components/Manuals/ContentManuals';
 
 const Instructions: React.FC = () => {
 
   return (
-      <Manuals />
+      <ContentManuals />
   );
 };
 

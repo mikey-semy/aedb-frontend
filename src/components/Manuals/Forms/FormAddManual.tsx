@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axiosConfig';
+import api from '../../../api/axiosConfig';
 
-const AddManual: React.FC = () => {
+const FormAddManual: React.FC = () => {
     
     const [manual, setManual] = useState({
         title: '',
@@ -53,13 +53,6 @@ const AddManual: React.FC = () => {
         placeholder="Название инструкции"
         required
       />
-      {/* <input 
-        name='files' 
-        type='file'
-        onChange={handleChange}
-        placeholder="файл инструкции" 
-        multiple
-      /> */}
       <input
         type="url"
         name="file_url"
@@ -79,8 +72,8 @@ const AddManual: React.FC = () => {
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <button type="submit">Добавить инструкцию</button>
+      <button type="submit">Добавить</button>
     </form>
     );
 };
-export default AddManual;
+export default FormAddManual;
