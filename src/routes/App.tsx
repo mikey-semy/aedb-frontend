@@ -18,7 +18,9 @@ const App: React.FC = () => {
     <div className="app-container">
       <Header />
       <main className="app-main"> 
-        <Outlet />
+        <div className='container'>
+          <Outlet />
+        </div>
       </main>    
     </div>
   );

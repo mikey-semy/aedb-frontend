@@ -3,7 +3,7 @@ import React from 'react';
 const Main: React.FC = () => {
 
   return (
-        <h1>Главная страница</h1>
+        <p>Сайт находится в разработке и наполнении...</p>
   );
 };
 

@@ -57,7 +57,7 @@ const ContentManual: React.FC = () => {
   }, []);
   
   return (
-    <div className='manual__container'>
+    <>
     <ToolbarManuals />
     <ul className='category__items'>
     {categoriesItems.map((category) => (
@@ -90,7 +90,7 @@ const ContentManual: React.FC = () => {
         </li>
     ))}
 </ul>
-</div>
+</>
   );
 };
 

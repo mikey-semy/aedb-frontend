@@ -7,8 +7,8 @@ import {
 import ErrorPage from './error-page.tsx';
 import App from './routes/App.tsx';
 import Es from './routes/Es.tsx';
-import Instructions from './routes/Instructions.tsx';
-import AddInstruction from './routes/AddInstruction.tsx';
+import Instructions from './routes/Manuals.tsx';
+import AddInstruction from './components/Manuals/AddManual.tsx';
 import Main from './routes/Main.tsx'
 
 import './assets/styles/main.sass';
