@@ -24,9 +24,11 @@ interface CategoryItem {
 const ContentManual: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Состояние загрузки
 
   useEffect(() => {
     const fetchCategoryItems = async () => {
+      setLoading(true); // Начинаем загрузку
      try {
        const response = await api.get<CategoryItem[]>('/nested_manuals');
        
@@ -50,11 +52,17 @@ const ContentManual: React.FC = () => {
        console.log('Ответ API:', response.data);
      } catch (error) {
        console.error('Ошибка при загрузке каталога:', error);
+     } finally {
+      setLoading(false); // Завершаем загрузку
      }
    };
 
    fetchCategoryItems();
   }, []);
+  
+  if (loading) {
+    return <div>Загрузка...</div>; // Индикатор загрузки
+  }
   
   return (
     <>
