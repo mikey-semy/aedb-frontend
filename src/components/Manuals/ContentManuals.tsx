@@ -61,9 +61,9 @@ const ContentManual: React.FC = () => {
   }, []);
   
   if (loading) {
-    return <div>Загрузка...</div>; // Индикатор загрузки
+    return <div className="loader"></div>; // Индикатор загрузки
   }
-  
+
   return (
     <>
     <ToolbarManuals />

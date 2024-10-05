@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../api/axiosConfig';
 
-interface FormAddManualProps {
-  onSubmit: () => void; // Колбэк для отправки данных
-}
-const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
-    
+const FormUpdateManual: React.FC = () => {
     
     const [manual, setManual] = useState({
         title: '',
@@ -42,7 +38,6 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
                 file_url: '',
                 group_id: 0 
             })
-            onSubmit();
         } catch (error) {
             console.error('Ошибка при добавлении инструкции:', error);
         }
@@ -77,8 +72,8 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <button type="submit">Добавить</button>
+      <button type="submit">Обновить</button>
     </form>
     );
 };
-export default FormAddManual;
+export default FormUpdateManual;

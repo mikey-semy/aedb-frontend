@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
-import FormAddManual from '../Forms/FormAddManual'; // Импортируйте ваш компонент
+import ModalWrapper from '../../Modal/ModalWrapper';
+import FormAddManual from '../Forms/FormAddManual';
 
-// Установите элемент приложения для модального окна
-Modal.setAppElement('#root');
+interface ModalAddManualProps {
+  onSuccess: () => void; // Колбэк для успешного выполнения действия
+}
 
-const ModalAddManual: React.FC = () => {
+const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,27 +17,31 @@ const ModalAddManual: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const handleFormSubmit = async () => {
+    // Здесь вы можете выполнить действие, например, отправить данные на сервер
+    // После успешного выполнения действия:
+    // await someAsyncFunction(data); // Замените на вашу функцию
+
+    // Закрыть модальное окно
+    closeModal();
+
+    // Вызвать колбэк для обновления элемента
+    onSuccess();
+  };
+  
   return (
     <div className='manual__toolbar'>
       <button className="button--text" onClick={openModal}>
         Добавить
       </button>
 
-      <Modal
+      <ModalWrapper
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        contentLabel="Добавить инструкцию"
-        className="modal"
-        overlayClassName="modal__overlay"
+        title="Добавить инструкцию"
       >
-        <div className='modal__content'>
-          <div className='modal__header'>
-            <h2 className='modal__title'>Добавить инструкцию</h2>
-          </div>
-          <FormAddManual />
-          <button className="button--icon modal__close" onClick={closeModal}>✖</button>
-        </div>
-      </Modal>
+          <FormAddManual onSubmit={handleFormSubmit}/>
+      </ModalWrapper>
     </div>
   );
 };
