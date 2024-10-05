@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
 import FormRemoveManual from '../Forms/FormRemoveManual';
-
-
-const ModalRemoveManual: React.FC = () => {
+import removeManual from '../../../api/Manuals/removeManual';
+interface ModalRemoveManualProps {
+  manualId: number;
+  onSuccess: () => void;
+}
+const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -14,9 +17,24 @@ const ModalRemoveManual: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const handleCancel = () => {
+    closeModal();
+  };
+
+  const handleSubmit = async () => {
+    try {
+      await removeManual(manualId)
+      closeModal();
+      onSuccess(); 
+    } catch (error) {
+      console.error('Ошибка при добавлении инструкции:', error);
+    }
+};
+  
+
   return (
     <div className='manual__toolbar'>
-      <button className="button--text" onClick={openModal}>
+      <button type="button" className="button--text" onClick={openModal}>
         Удалить
       </button>
 
@@ -25,7 +43,7 @@ const ModalRemoveManual: React.FC = () => {
         onRequestClose={closeModal}
         title="Вы уверены?"
       >
-          <FormRemoveManual />
+          <FormRemoveManual onSubmit={handleSubmit} onCancel={handleCancel}/>
       </ModalWrapper>
     </div>
   );

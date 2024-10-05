@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../../api/axiosConfig';
+import getGroups from '../../../api/Groups/getGroups';
 
 interface FormAddManualProps {
-  onSubmit: () => void; // Колбэк для отправки данных
+  onSubmit: (manual: { title: string; file_url: string; group_id: number }) => void;
+  onCancel: () => void;
 }
-const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
-    
-    
+const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => {
     const [manual, setManual] = useState({
         title: '',
         file_url: '',
@@ -16,36 +15,20 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
     const [groups, setGroups] = useState([])
 
     useEffect(() => {
-        const fetchGroups = async () => {
-          try {
-            const response = await api.get('/groups')
-            setGroups(response.data)
-          } catch (error) {
-            console.error('Ошибка при загрузке групп:', error)
-          }
-        }
-        fetchGroups()
-      }, [])
+      const fetchGroups = async () => {
+        const fetchedGroups = await getGroups();
+        setGroups(fetchedGroups);
+      };
+      fetchGroups();
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setManual(prev => ({ ...prev, [name]: value }));
     }
-    const handleSubmit= async (e: React.FormEvent) => {
-        e.preventDefault();
-        
-        try {
-            const response = await api.post('/manual', manual);
-            console.log('Инструкция добавлена:', response.data);
-            setManual({
-                title: '',
-                file_url: '',
-                group_id: 0 
-            })
-            onSubmit();
-        } catch (error) {
-            console.error('Ошибка при добавлении инструкции:', error);
-        }
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      onSubmit(manual);
     };
 
     return (
@@ -77,6 +60,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit }) => {
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
+      <button type="button" onClick={onCancel}>Отмена</button>
       <button type="submit">Добавить</button>
     </form>
     );

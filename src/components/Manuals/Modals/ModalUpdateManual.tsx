@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
 import FormUpdateManual from '../Forms/FormUpdateManual';
+import updateManual from '../../../api/Manuals/updateManual';
+import { Manual } from '../../../types/types';
 
-const ModalUpdateManual: React.FC = () => {
+interface ModalUpdateManualProps {
+  manual: Manual;
+  onSuccess: () => void;
+}
+
+const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -13,9 +20,24 @@ const ModalUpdateManual: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const handleCancel = () => {
+    closeModal();
+  };
+
+  const handleSubmit = async (updatedManual: Manual) => {
+    try {
+      await updateManual(updatedManual);
+      closeModal();
+      onSuccess(); 
+    } catch (error) {
+      console.error('Ошибка при обновлении инструкции:', error);
+      // Здесь можно добавить уведомление для пользователя
+    }
+  };
+  
   return (
     <div className='manual__toolbar'>
-      <button className="button--text" onClick={openModal}>
+      <button type="button" className="button--text" onClick={openModal}>
         Обновить
       </button>
 
@@ -24,7 +46,11 @@ const ModalUpdateManual: React.FC = () => {
         onRequestClose={closeModal}
         title="Обновить инструкцию"
       >
-        <FormUpdateManual />
+        <FormUpdateManual 
+          initialValues={manual}
+          onSubmit={handleSubmit} 
+          onCancel={handleCancel}
+        />
       </ModalWrapper>
     </div>
   );

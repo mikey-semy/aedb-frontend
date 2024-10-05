@@ -7,6 +7,7 @@ interface ManualItem {
   id: number;
   title: string;
   file_url: string;
+  group_id: number;
 }
 
 interface GroupItem {
@@ -45,6 +46,7 @@ const ContentManual: React.FC = () => {
                id: manual.id,
                title: manual.title,
                file_url: manual.file_url,
+               group_id: group.id,
              })),
            })),
          }))
@@ -87,7 +89,7 @@ const ContentManual: React.FC = () => {
                         <span className='manual__icon--table'>&#x1F4C4;</span>
                         <span className='manual__title--table'>{manual.title}</span>
                       </a>
-                      <ActionManual />
+                      <ActionManual manual={manual}/>
                     </li>
                   ))}
                 </ul>

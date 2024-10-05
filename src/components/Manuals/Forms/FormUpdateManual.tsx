@@ -1,50 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../../api/axiosConfig';
+import getGroups from '../../../api/Groups/getGroups';
+import { Manual } from '../../../types/types';
+interface Group {
+  id: number;
+  name: string;
+}
 
-const FormUpdateManual: React.FC = () => {
-    
-    const [manual, setManual] = useState({
-        title: '',
-        file_url: '',
-        group_id: 0 
-    })
+interface FormUpdateManualProps {
+  initialValues: Manual;
+  onSubmit: (manual: Manual) => void;
+  onCancel: () => void;
+}
 
-    const [groups, setGroups] = useState([])
+const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSubmit, onCancel }) => {
+  
+  const [manual, setManual] = useState<Manual>(initialValues);
+  const [groups, setGroups] = useState<Group[]>([]);
 
-    useEffect(() => {
-        const fetchGroups = async () => {
-          try {
-            const response = await api.get('/groups')
-            setGroups(response.data)
-          } catch (error) {
-            console.error('Ошибка при загрузке групп:', error)
-          }
-        }
-        fetchGroups()
-      }, [])
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setManual(prev => ({ ...prev, [name]: value }));
-    }
-    const handleSubmit= async (e: React.FormEvent) => {
-        e.preventDefault();
-        
-        try {
-            const response = await api.post('/manual', manual);
-            console.log('Инструкция добавлена:', response.data);
-            setManual({
-                title: '',
-                file_url: '',
-                group_id: 0 
-            })
-        } catch (error) {
-            console.error('Ошибка при добавлении инструкции:', error);
-        }
+  useEffect(() => {
+    const fetchGroups = async () => {
+      const fetchedGroups = await getGroups();
+      setGroups(fetchedGroups);
     };
+    fetchGroups();
+  }, []);
 
-    return (
-    <form className='add-manual-form' onSubmit={handleSubmit}>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setManual(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(manual);
+  };
+
+  return (
+    <form className='update-manual-form' onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
@@ -68,12 +60,14 @@ const FormUpdateManual: React.FC = () => {
         required
       >
         <option value="">Выберите группу</option>
-        {groups.map((group: { id: number, name: string }) => (
+        {groups.map((group) => (
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
+      <button type="button" onClick={onCancel}>Отмена</button>
       <button type="submit">Обновить</button>
     </form>
-    );
+  );
 };
+
 export default FormUpdateManual;

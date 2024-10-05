@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
 import FormAddManual from '../Forms/FormAddManual';
-
+import addManual from '../../../api/Manuals/addManual';
+interface Manual {
+  id?: number;
+  title: string;
+  file_url: string;
+  group_id: number;   
+}
 interface ModalAddManualProps {
-  onSuccess: () => void; // Колбэк для успешного выполнения действия
+  onSuccess: () => void;
 }
 
 const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
@@ -17,21 +23,23 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
     setIsModalOpen(false);
   };
 
-  const handleFormSubmit = async () => {
-    // Здесь вы можете выполнить действие, например, отправить данные на сервер
-    // После успешного выполнения действия:
-    // await someAsyncFunction(data); // Замените на вашу функцию
-
-    // Закрыть модальное окно
+  const handleCancel = () => {
     closeModal();
+  };
+  const handleSubmit = async (manual: Manual) => {
 
-    // Вызвать колбэк для обновления элемента
-    onSuccess();
+    try {
+      await addManual(manual);
+      closeModal();
+      onSuccess(); 
+    } catch (error) {
+      console.error('Ошибка при добавлении инструкции:', error);
+    }
   };
   
   return (
     <div className='manual__toolbar'>
-      <button className="button--text" onClick={openModal}>
+      <button type="button" className="button--text" onClick={openModal}>
         Добавить
       </button>
 
@@ -40,7 +48,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
         onRequestClose={closeModal}
         title="Добавить инструкцию"
       >
-          <FormAddManual onSubmit={handleFormSubmit}/>
+          <FormAddManual onSubmit={handleSubmit} onCancel={handleCancel} />
       </ModalWrapper>
     </div>
   );

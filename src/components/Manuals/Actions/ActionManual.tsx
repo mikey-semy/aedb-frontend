@@ -2,13 +2,21 @@ import React from 'react';
 import ModalUpdateManual from '../Modals/ModalUpdateManual';
 import ModalRemoveManual from '../Modals/ModalRemoveManual';
 
-const ActionManuals: React.FC = () => {
-
+interface ActionManualsProps {
+  manual: {
+    id: number;
+    title: string;
+    file_url: string;
+    group_id: number;
+  } 
+}
+const ActionManuals: React.FC<ActionManualsProps> = ({ manual }) => {
     return (
       <div className='manual__action'>
-        <ModalUpdateManual />
-        <ModalRemoveManual />
+        <ModalUpdateManual manual={manual} onSuccess={() => {}} />
+        <ModalRemoveManual manualId={manual.id} onSuccess={() => {}} />
       </div>
     );
 };
+
 export default ActionManuals;
