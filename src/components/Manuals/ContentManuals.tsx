@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../api/axiosConfig';
 
 import ToolbarManuals from './Actions/ToolbarManual';
+import ActionManual from './Actions/ActionManual'
 interface ManualItem {
   id: number;
   title: string;
@@ -86,6 +87,7 @@ const ContentManual: React.FC = () => {
                         <span className='manual__icon--table'>&#x1F4C4;</span>
                         <span className='manual__title--table'>{manual.title}</span>
                       </a>
+                      <ActionManual />
                     </li>
                   ))}
                 </ul>
