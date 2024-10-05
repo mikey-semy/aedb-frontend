@@ -10,7 +10,7 @@ const NavigationLocal: React.FC = () => {
 
 const [menuItems] = useState<MenuItem[]>([
     { id: 1, title: 'Электробезопасность', url: '/es' },
-    { id: 2, title: 'Инструкции', url: '/instructions' },
+    { id: 2, title: 'Инструкции', url: '/manuals' },
   ]);
 
   return (
