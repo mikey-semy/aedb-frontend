@@ -38,9 +38,9 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
   };
   
   return (
-    <div className='manual__toolbar'>
-      <button type="button" className="button--text" onClick={openModal}>
-        Добавить
+    <>
+      <button type="button" className="button__add button--icon" onClick={openModal}>
+        {/* Добавить */}
       </button>
 
       <ModalWrapper
@@ -50,7 +50,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
       >
           <FormAddManual onSubmit={handleSubmit} onCancel={handleCancel} />
       </ModalWrapper>
-    </div>
+      </>
   );
 };
 

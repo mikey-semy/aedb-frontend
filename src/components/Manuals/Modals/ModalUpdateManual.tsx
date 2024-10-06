@@ -36,9 +36,9 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
   };
   
   return (
-    <div className='manual__toolbar'>
-      <button type="button" className="button--text" onClick={openModal}>
-        Обновить
+    <>
+      <button type="button" className="button__update button--icon" onClick={openModal}>
+        {/* Обновить */}
       </button>
 
       <ModalWrapper
@@ -52,7 +52,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
           onCancel={handleCancel}
         />
       </ModalWrapper>
-    </div>
+    </>
   );
 };
 

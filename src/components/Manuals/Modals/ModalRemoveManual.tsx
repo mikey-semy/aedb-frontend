@@ -33,9 +33,9 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
   
 
   return (
-    <div className='manual__toolbar'>
-      <button type="button" className="button--text" onClick={openModal}>
-        Удалить
+<>
+      <button type="button" className="button__delete button--icon" onClick={openModal}>
+        {/* Удалить */}
       </button>
 
       <ModalWrapper
@@ -45,7 +45,7 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
       >
           <FormRemoveManual onSubmit={handleSubmit} onCancel={handleCancel}/>
       </ModalWrapper>
-    </div>
+    </>
   );
 };
 

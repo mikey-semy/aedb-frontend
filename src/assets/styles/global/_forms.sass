@@ -1,17 +1,17 @@
 form
-    display: flex 
-    flex-direction: column 
-    max-width: 400px 
-    margin: 0 auto 
-    padding: 20px
-    gap: 10px
+  display: flex 
+  flex-direction: column 
+  max-width: 400px 
+  margin: 0 auto 
+  padding: 20px
+  gap: 10px
 
-.form
+  .form
     &__action
-        display: flex
-        flex-direction: row
-        justify-content: end
-        gap: 10px
+      display: flex
+      flex-direction: row
+      justify-content: end
+      gap: 10px
 
 input, select
   margin-bottom: 10px 
@@ -44,15 +44,8 @@ input, select
     background-color: #6c757d
     cursor: not-allowed
 
-
-  &__submit
-    // если нужно добавить специфичные стили для submit кнопки
-
-
-  &__cancel
-    // если нужно добавить специфичные стили для cancel кнопки
-
-
+  
+  
   &--text
     display: block
     color: #000
@@ -63,11 +56,37 @@ input, select
     transition: color 0.3s ease
     border: none
 
-    &:hover
-      color: $color-secondary
-      text-decoration: underline
+  &:hover
+    color: $color-secondary
+    text-decoration: underline
 
   &--icon
     @extend .button--text
-    &:hover
-      text-decoration: none
+    cursor: pointer
+
+    &::before
+      font-size: 18px
+
+    &:hover, &:active
+      transform: scale(1.1)
+      transition: transform 0.3s ease
+
+  &__delete
+    &::before
+      content: "🗑️" 
+
+  &__add
+    &::before
+      content: "➕"
+
+  &__update
+    &::before
+      content: "✏️"
+
+  &__submit
+    &::before
+      content: "✔️"
+  
+  &__cancel
+    &::before
+      content: "❌"

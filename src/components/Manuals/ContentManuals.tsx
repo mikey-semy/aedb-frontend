@@ -82,12 +82,12 @@ const ContentManual: React.FC = () => {
               <li className='group__item' key={group.id}>
                 <h3 className='group__title'>{group.name}</h3>
                 {group.manuals.length > 0 ? (
-                <ul className='manual__items--table'>
+                <ul className='manual__items manual__items--table'>
                   {group.manuals.map((manual) => (
-                    <li className='manual__item--table'  key={manual.id}>
+                    <li className='manual__item manual__item--table'  key={manual.id}>
                       <a className='manual__link' href={manual.file_url} target='_blank'>
-                        <span className='manual__icon--table'>&#x1F4C4;</span>
-                        <span className='manual__title--table'>{manual.title}</span>
+                        <span className='manual__icon manual__icon--table'>&#x1F4C4;</span>
+                        <span className='manual__title manual__title--table'>{manual.title}</span>
                       </a>
                       <ActionManual manual={manual}/>
                     </li>

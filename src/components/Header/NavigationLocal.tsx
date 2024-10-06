@@ -9,8 +9,8 @@ interface MenuItem {
 const NavigationLocal: React.FC = () => {
 
 const [menuItems] = useState<MenuItem[]>([
-    { id: 1, title: 'Электробезопасность', url: '/es' },
-    { id: 2, title: 'Инструкции', url: '/manuals' },
+    { id: 1, title: '⚡️', url: '/es' },
+    { id: 2, title: '📄', url: '/manuals' },
   ]);
 
   return (
