@@ -1,48 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axiosConfig';
 
 import ToolbarManuals from './Actions/ToolbarManual';
 import ActionManual from './Actions/ActionManual'
-interface ManualItem {
-  id: number;
-  title: string;
-  file_url: string;
-  group_id: number;
-}
-
-interface GroupItem {
-  id: number;
-  name: string;
-  manuals: ManualItem[];
-}
-
-interface CategoryItem {
-  id: number;
-  name: string;
-  logo_url: string | undefined;
-  groups: GroupItem[];
-}
-
+import getManuals from '../../api/Manuals/getManuals';
+import { CategoryItem, GroupItem, ManualItem } from '../../types/nested_manuals';
 const ContentManual: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Состояние загрузки
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchCategoryItems = async () => {
-      setLoading(true); // Начинаем загрузку
+      setLoading(true);
      try {
-       const response = await api.get<CategoryItem[]>('/nested_manuals');
+      const data = await getManuals();
        
        setCategoryItems(
-         response.data.map((category) => ({
+         data.map((category: CategoryItem) => ({
            id: category.id,
            name: category.name,
            logo_url: category.logo_url ?? '',
-           groups: category.groups.map((group) => ({
+           groups: category.groups.map((group: GroupItem) => ({
              id: group.id,
              name: group.name,
-             manuals: group.manuals.map((manual) => ({
+             manuals: group.manuals.map((manual: ManualItem) => ({
                id: manual.id,
                title: manual.title,
                file_url: manual.file_url,
@@ -51,12 +32,12 @@ const ContentManual: React.FC = () => {
            })),
          }))
        );
-       setCategoryItems(response.data);
-       console.log('Ответ API:', response.data);
+       setCategoryItems(data);
+       console.log('Ответ API:', data);
      } catch (error) {
        console.error('Ошибка при загрузке каталога:', error);
      } finally {
-      setLoading(false); // Завершаем загрузку
+      setLoading(false);
      }
    };
 
@@ -64,7 +45,7 @@ const ContentManual: React.FC = () => {
   }, []);
   
   if (loading) {
-    return <div className="loader"></div>; // Индикатор загрузки
+    return <div className="loader"></div>;
   }
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import getGroups from '../../../api/Groups/getGroups';
 import FormAction from '../../Form/Action';
-import { Manual } from '../../../types/types';
+import { Manual } from '../../../types/manual';
 interface Group {
   id: number;
   name: string;

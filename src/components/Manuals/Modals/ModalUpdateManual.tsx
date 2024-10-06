@@ -3,7 +3,7 @@ import ModalWrapper from '../../Modal/ModalWrapper';
 import Button from '../../Form/Button';
 import FormUpdateManual from '../Forms/FormUpdateManual';
 import updateManual from '../../../api/Manuals/updateManual';
-import { Manual } from '../../../types/types';
+import { Manual } from '../../../types/manual';
 
 interface ModalUpdateManualProps {
   manual: Manual;
