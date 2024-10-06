@@ -25,11 +25,12 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
 
   const handleSubmit = async (manualId: number) => {
     try {
+      console.log(manualId)
       await removeManual(manualId)
       closeModal();
       onSuccess(); 
     } catch (error) {
-      console.error('Ошибка при добавлении инструкции:', error);
+      console.error('Ошибка при удалении инструкции:', error);
     }
 };
   return (

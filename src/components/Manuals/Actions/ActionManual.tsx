@@ -11,10 +11,13 @@ interface ActionManualsProps {
   } 
 }
 const ActionManuals: React.FC<ActionManualsProps> = ({ manual }) => {
+  const handleUpdateItems = () => {
+    // Логика для обновления элементов, например, запрос к серверу
+  };
     return ( 
       <div className='manual__action'>
-        <ModalUpdateManual manual={manual} onSuccess={() => {}} />
-        <ModalRemoveManual manualId={manual.id} onSuccess={() => {}} />
+        <ModalUpdateManual manual={manual} onSuccess={handleUpdateItems} />
+        <ModalRemoveManual manualId={manual.id} onSuccess={handleUpdateItems} />
       </div>
     );
 };

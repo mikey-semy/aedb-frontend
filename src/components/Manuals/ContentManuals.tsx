@@ -70,7 +70,7 @@ const ContentManual: React.FC = () => {
                         <span className='manual__icon manual__icon--table'>📄</span>
                         <span className='manual__title manual__title--table'>{manual.title}</span>
                       </a>
-                      <ActionManual manual={manual}/>
+                      <ActionManual manual={manual} />
                     </li>
                   ))}
                 </ul>
