@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
+import Button from '../../Form/Button';
 import FormAddManual from '../Forms/FormAddManual';
 import addManual from '../../../api/Manuals/addManual';
+
 interface Manual {
   id?: number;
   title: string;
@@ -39,16 +41,18 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
   
   return (
     <>
-      <button type="button" className="button__add button--icon" onClick={openModal}>
-        {/* Добавить */}
-      </button>
-
+      <Button
+        onClick={openModal} 
+        className="button button__add button--icon"
+      />
       <ModalWrapper
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         title="Добавить инструкцию"
       >
-          <FormAddManual onSubmit={handleSubmit} onCancel={handleCancel} />
+          <FormAddManual 
+            onSubmit={handleSubmit} 
+            onCancel={handleCancel} />
       </ModalWrapper>
       </>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
+import Button from '../../Form/Button';
 import FormRemoveManual from '../Forms/FormRemoveManual';
 import removeManual from '../../../api/Manuals/removeManual';
 interface ModalRemoveManualProps {
@@ -34,16 +35,19 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
 
   return (
 <>
-      <button type="button" className="button__delete button--icon" onClick={openModal}>
-        {/* Удалить */}
-      </button>
-
+      <Button 
+        onClick={openModal} 
+        className="button button__delete button--icon"
+      />
       <ModalWrapper
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         title="Вы уверены?"
       >
-          <FormRemoveManual onSubmit={handleSubmit} onCancel={handleCancel}/>
+        <FormRemoveManual 
+          onSubmit={handleSubmit} 
+          onCancel={handleCancel}
+        />
       </ModalWrapper>
     </>
   );

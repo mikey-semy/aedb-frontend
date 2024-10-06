@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
+import Button from '../../Form/Button';
 import FormUpdateManual from '../Forms/FormUpdateManual';
 import updateManual from '../../../api/Manuals/updateManual';
 import { Manual } from '../../../types/types';
@@ -37,10 +38,10 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
   
   return (
     <>
-      <button type="button" className="button__update button--icon" onClick={openModal}>
-        {/* Обновить */}
-      </button>
-
+      <Button 
+        onClick={openModal} 
+        className="button button__update button--icon"
+      />
       <ModalWrapper
         isOpen={isModalOpen}
         onRequestClose={closeModal}

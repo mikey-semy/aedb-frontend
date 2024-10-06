@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-
+import Button from '../Form/Button';
 Modal.setAppElement('#root');
 
 interface ModalWrapperProps {
@@ -22,7 +22,10 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ isOpen, onRequestClose, tit
       <div className='modal__content'>
         <div className='modal__header'>
           <h2 className='modal__title'>{title}</h2>
-          <button className="button--icon modal__close" onClick={onRequestClose}></button>
+          <Button 
+            onClick={onRequestClose} 
+            className="button--icon modal__close"
+          />
         </div>
         {children}
         

@@ -61,7 +61,11 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <FormAction onRequestCancel={onCancel} contentCancel='Отмена' contentSubmit='Добавить'/>
+      <FormAction 
+        onRequestCancel={onCancel} 
+        contentCancel={{icon: '', title: 'Отмена'}} 
+        contentSubmit={{icon: '', title: 'Добавить'}}
+      />
     </form>
     );
 };

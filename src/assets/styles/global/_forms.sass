@@ -23,20 +23,23 @@ input, select
 
 .button
   display: inline-block
-  padding: 10px 20px
+  padding: 5px 10px
   font-size: 14px
   font-weight: bold
   color: #000
   background-color: #ffffff
   border: none
   border-radius: 5px
+  box-shadow: 0 0 0 2px #000
   text-align: center
   text-decoration: none
   cursor: pointer
   transition: background-color 0.3s ease
-
+  -webkit-appearance: none
+  -moz-appearance: none
+  
   &:hover
-    background-color: #218838
+    background-color: #ddd
 
 
   &:disabled
@@ -53,9 +56,9 @@ input, select
     transition: color 0.3s ease
     border: none
 
-  &:hover
-    color: $color-secondary
-    text-decoration: underline
+    &:hover
+      color: $color-secondary
+      // text-decoration: underline
 
   &--icon
     @extend .button--text

@@ -1,16 +1,33 @@
 import React from 'react';
-
+import Button from './Button';
 interface FormActionProps {
   onRequestCancel: () => void;
-  contentCancel: string;
-  contentSubmit: string;
+  contentCancel: {
+    icon?: string | React.ReactNode;
+    title: string;
+  }
+  contentSubmit: {
+    icon?: string | React.ReactNode;
+    title: string;
+  }
 }
 
 const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel, contentSubmit }) => {
   return (
     <div className="form__action">
-      <button className="button__cancel" type="button" onClick={onRequestCancel}>{contentCancel}</button>
-      <button className="button__submit" type="submit">{contentSubmit}</button>
+      <Button 
+        type="button" 
+        onClick={onRequestCancel} 
+        icon={contentCancel.icon} 
+        title={contentCancel.title}  
+        className="button button__cancel  button--icon"
+      />
+      <Button 
+        type="submit" 
+        icon={contentSubmit.icon} 
+        title={contentSubmit.title}  
+        className="button button__submit  button--icon"
+      />
     </div>
   );
 };
