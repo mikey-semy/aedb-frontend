@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 interface MenuItem {
   id: number;
+  icon: string;
   title: string;
   url: string;
 }
@@ -9,8 +10,8 @@ interface MenuItem {
 const NavigationLocal: React.FC = () => {
 
 const [menuItems] = useState<MenuItem[]>([
-    { id: 1, title: '⚡️', url: '/es' },
-    { id: 2, title: '📄', url: '/manuals' },
+    { id: 1, icon: '⚡️', title: 'Электробезопасность', url: '/es' },
+    { id: 2, icon: '📄', title: ' Инструкции', url: '/manuals' },
   ]);
 
   return (
@@ -18,7 +19,10 @@ const [menuItems] = useState<MenuItem[]>([
             <ul className='nav__items'>
                 {menuItems.map((item) => (
                         <li className='nav__item' key={item.id}>
-                            <a className='nav__item--link' href={item.url}>{item.title}</a>
+                            <a className='nav__item--link' href={item.url}>
+                                <span className='nav__item--icon'>{item.icon}</span>
+                                <span className='nav__item--title'>{item.title}</span>
+                            </a>
                         </li>
                 ))}
             </ul>
