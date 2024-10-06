@@ -43,7 +43,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
     <>
       <Button
         onClick={openModal} 
-        className="button button__add button--icon"
+        className="button__icon button__icon-add"
       />
       <ModalWrapper
         isOpen={isModalOpen}

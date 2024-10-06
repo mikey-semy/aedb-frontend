@@ -37,7 +37,7 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
 <>
       <Button 
         onClick={openModal} 
-        className="button button__delete button--icon"
+        className="button__icon button__icon-remove"
       />
       <ModalWrapper
         isOpen={isModalOpen}

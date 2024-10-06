@@ -16,18 +16,18 @@ const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel,
   return (
     <div className="form__action">
       <Button 
+        type="submit" 
+        icon={contentSubmit.icon} 
+        title={contentSubmit.title}  
+        className="button__title button__icon button__icon-submit"
+      />
+      <Button 
         type="button" 
         onClick={onRequestCancel} 
         icon={contentCancel.icon} 
         title={contentCancel.title}  
-        className="button button__cancel  button--icon"
-      />
-      <Button 
-        type="submit" 
-        icon={contentSubmit.icon} 
-        title={contentSubmit.title}  
-        className="button button__submit  button--icon"
-      />
+        className="button__title button__icon button__icon-cancel"
+      />  
     </div>
   );
 };

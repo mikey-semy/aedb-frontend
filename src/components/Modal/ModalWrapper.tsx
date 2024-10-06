@@ -24,7 +24,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ isOpen, onRequestClose, tit
           <h2 className='modal__title'>{title}</h2>
           <Button 
             onClick={onRequestClose} 
-            className="button--icon modal__close"
+            className="button__icon button__icon-close button__icon-close--modal modal__close"
           />
         </div>
         {children}

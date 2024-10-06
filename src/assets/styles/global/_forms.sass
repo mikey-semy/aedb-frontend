@@ -12,81 +12,88 @@ form
       justify-content: end
       gap: 10px
 
+input, select, button
+  -webkit-appearance: none
+  -moz-appearance: none
+
 input, select
   margin-bottom: 10px 
   padding: 8px 
   border: 1px solid #ccc 
   border-radius: 4px
-  -webkit-appearance: none
-  -moz-appearance: none
 
-
-.button
-  display: inline-block
-  padding: 5px 10px
-  font-size: 14px
-  font-weight: bold
-  color: #000
-  background-color: #ffffff
+button
+  display: flex
+  align-items: center
+  width: 120px
   border: none
-  border-radius: 5px
+  border-radius: 4px
   box-shadow: 0 0 0 2px #000
-  text-align: center
-  text-decoration: none
+  background-color: #fff
+  padding: 5px 10px
   cursor: pointer
-  transition: background-color 0.3s ease
-  -webkit-appearance: none
-  -moz-appearance: none
   
+  transition: transform 0.3s ease
+  
+  font-weight: bold
+  text-transform: uppercase
+
   &:hover
     background-color: #ddd
-
 
   &:disabled
     background-color: #6c757d
     cursor: not-allowed
 
-  &--text
-    display: block
-    color: #000
-    background: none
-    font-size: 10px
-    font-weight: bold
-    text-transform: uppercase
-    transition: color 0.3s ease
-    border: none
+  &:hover, &:active
+    transform: scale(1.05)
 
-    &:hover
-      color: $color-secondary
-      // text-decoration: underline
+  &:not(:hover)
+    transform: scale(1)
 
-  &--icon
-    @extend .button--text
-    cursor: pointer
+.button
+  &__icon
+    width: 40px
 
     &::before
-      font-size: 18px
+    font-size: 14px
 
-    &:hover, &:active
-      transform: scale(1.1)
-      transition: transform 0.3s ease
+    &-close
+      &::before
+        content: "✖️"
+        
+      &--modal
+        border: none
+        box-shadow: none
+        font-size: 14px
 
-  &__delete
-    &::before
-      content: "🗑️" 
+    &-remove
+      &::before
+        content: "🗑️" 
 
-  &__add
-    &::before
-      content: "➕"
+    &-add
+      &::before
+        content: "➕"
 
-  &__update
-    &::before
-      content: "✏️"
+    &-update
+      &::before
+        content: "✏️"
 
-  &__submit
-    &::before
-      content: "✔️"
+    &-submit
+      &::before
+        content: "✔️"
+
+    &-cancel
+      &::before
+        content: "❌"
   
-  &__cancel
-    &::before
-      content: "❌"
+  &__title
+    width: 120px
+  
+  
+
+  
+
+  
+
+  

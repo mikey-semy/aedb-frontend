@@ -40,7 +40,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
     <>
       <Button 
         onClick={openModal} 
-        className="button button__update button--icon"
+        className="button__icon button__icon-update"
       />
       <ModalWrapper
         isOpen={isModalOpen}
