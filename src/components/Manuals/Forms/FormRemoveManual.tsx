@@ -1,14 +1,15 @@
 import React from 'react';
 import FormAction from '../../Form/Action';
 interface FormRemoveManualProps {
-  onSubmit: () => void;
+  manualId: number;
+  onSubmit: (manualId: number) => void;
   onCancel: () => void;
 }
-const FormRemoveManual: React.FC<FormRemoveManualProps> = ({ onSubmit, onCancel }) => {
+const FormRemoveManual: React.FC<FormRemoveManualProps> = ({ manualId, onSubmit, onCancel }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(manualId);
   };
 
     return (

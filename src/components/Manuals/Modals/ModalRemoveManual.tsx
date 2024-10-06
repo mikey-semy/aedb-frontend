@@ -3,6 +3,7 @@ import ModalWrapper from '../../Modal/ModalWrapper';
 import Button from '../../Form/Button';
 import FormRemoveManual from '../Forms/FormRemoveManual';
 import removeManual from '../../../api/Manuals/removeManual';
+
 interface ModalRemoveManualProps {
   manualId: number;
   onSuccess: () => void;
@@ -31,8 +32,6 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
       console.error('Ошибка при добавлении инструкции:', error);
     }
 };
-  
-
   return (
 <>
       <Button 
@@ -44,7 +43,8 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
         onRequestClose={closeModal}
         title="Вы уверены?"
       >
-        <FormRemoveManual 
+        <FormRemoveManual
+          manualId={manualId}
           onSubmit={handleSubmit} 
           onCancel={handleCancel}
         />
