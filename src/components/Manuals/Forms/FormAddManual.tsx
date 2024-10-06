@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import getGroups from '../../../api/Groups/getGroups';
+import FormAction from '../../Form/Action';
 
 interface FormAddManualProps {
   onSubmit: (manual: { title: string; file_url: string; group_id: number }) => void;
@@ -32,7 +33,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
     };
 
     return (
-    <form className='add-manual-form' onSubmit={handleSubmit}>
+    <form className='form form--manual-add' onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
@@ -60,8 +61,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <button type="button" onClick={onCancel}>Отмена</button>
-      <button type="submit">Добавить</button>
+      <FormAction onRequestCancel={onCancel} contentCancel='Отмена' contentSubmit='Добавить'/>
     </form>
     );
 };

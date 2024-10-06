@@ -1,0 +1,73 @@
+form
+    display: flex 
+    flex-direction: column 
+    max-width: 400px 
+    margin: 0 auto 
+    padding: 20px
+    gap: 10px
+
+.form
+    &__action
+        display: flex
+        flex-direction: row
+        justify-content: end
+        gap: 10px
+
+input, select
+  margin-bottom: 10px 
+  padding: 8px 
+  border: 1px solid #ccc 
+  border-radius: 4px
+  -webkit-appearance: none
+  -moz-appearance: none
+
+
+.button
+  display: inline-block
+  padding: 10px 20px
+  font-size: 14px
+  font-weight: bold
+  color: #000
+  background-color: #ffffff
+  border: none
+  border-radius: 5px
+  text-align: center
+  text-decoration: none
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: #218838
+
+
+  &:disabled
+    background-color: #6c757d
+    cursor: not-allowed
+
+
+  &__submit
+    // если нужно добавить специфичные стили для submit кнопки
+
+
+  &__cancel
+    // если нужно добавить специфичные стили для cancel кнопки
+
+
+  &--text
+    display: block
+    color: #000
+    background: none
+    font-size: 10px
+    font-weight: bold
+    text-transform: uppercase
+    transition: color 0.3s ease
+    border: none
+
+    &:hover
+      color: $color-secondary
+      text-decoration: underline
+
+  &--icon
+    @extend .button--text
+    &:hover
+      text-decoration: none

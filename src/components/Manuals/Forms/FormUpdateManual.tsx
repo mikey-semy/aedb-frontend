@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import getGroups from '../../../api/Groups/getGroups';
+import FormAction from '../../Form/Action';
 import { Manual } from '../../../types/types';
 interface Group {
   id: number;
@@ -36,7 +37,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSu
   };
 
   return (
-    <form className='update-manual-form' onSubmit={handleSubmit}>
+    <form className='form form--manual-update' onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
@@ -64,8 +65,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSu
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <button type="button" onClick={onCancel}>Отмена</button>
-      <button type="submit">Обновить</button>
+      <FormAction onRequestCancel={onCancel} contentCancel='Отмена' contentSubmit='Обновить'/>
     </form>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import FormAction from '../../Form/Action';
 interface FormRemoveManualProps {
   onSubmit: () => void;
   onCancel: () => void;
@@ -12,9 +12,8 @@ const FormRemoveManual: React.FC<FormRemoveManualProps> = ({ onSubmit, onCancel 
   };
 
     return (
-    <form className='remove-manual-form' onSubmit={handleSubmit}>
-      <button type="button" onClick={onCancel}>Отмена</button>
-      <button type="submit">Удалить</button>
+    <form className='form form--manual-remove' onSubmit={handleSubmit}>
+      <FormAction onRequestCancel={onCancel} contentCancel='Отмена' contentSubmit='Удалить'/>
     </form>
     );
 };

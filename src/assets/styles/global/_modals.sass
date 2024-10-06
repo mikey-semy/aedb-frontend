@@ -5,33 +5,39 @@
         left: 0
         right: 0
         bottom: 0
-        background-color: rgba(0, 0, 0, 0.7) // Полупрозрачный черный фон
+        background-color: rgba(0, 0, 0, 0.7)
         display: flex
         justify-content: center
         align-items: center
-        z-index: 1000 // Убедитесь, что оверлей выше других элементов
+        z-index: 1000
 
     &__content
-        background-color: #fff // Белый фон для модального окна
-        border-radius: 10px // Закругленные углы
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) // Тень для модального окна
-        padding: 20px // Отступы внутри модального окна
-        max-width: 500px // Максимальная ширина модального окна
-        width: 100% // Ширина 100% для адаптивности
-        position: relative // Для позиционирования внутренних элементов
+        background-color: #fff
+        border-radius: 10px
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+        padding: 20px
+        max-width: 500px
+        width: 100%
+        position: relative
 
     &__header
         display: flex
         justify-content: space-between
         align-items: center
-        margin-bottom: 5px // Отступ снизу
+        margin-bottom: 5px
 
     &__title
-        font-size: 18px // Размер шрифта заголовка
-        font-weight: bold // Жирный шрифт
-        color: #333 // Цвет заголовка
+        font-size: 18px
+        font-weight: bold
+        color: #333
+        margin: 0
 
     &__close
         position: absolute
-        top: 10px
-        right: 15px
+        top: 20px
+        right: 20px
+
+        &::before
+            content: "✖"
+            font-size: 15px
+
