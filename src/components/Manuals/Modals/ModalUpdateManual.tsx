@@ -12,7 +12,6 @@ interface ModalUpdateManualProps {
 
 const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => {
     setIsModalOpen(true);
   };

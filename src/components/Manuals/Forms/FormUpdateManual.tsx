@@ -56,7 +56,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSu
       />
       <select
         name="group_id"
-        value={groups.find(group => group.id === manual.group_id) ? manual.group_id : ''}
+        value={manual.group_id}
         onChange={handleChange}
         required
       >

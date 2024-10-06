@@ -86,7 +86,7 @@ const ContentManual: React.FC = () => {
                   {group.manuals.map((manual) => (
                     <li className='manual__item manual__item--table'  key={manual.id}>
                       <a className='manual__link' href={manual.file_url} target='_blank'>
-                        <span className='manual__icon manual__icon--table'>&#x1F4C4;</span>
+                        <span className='manual__icon manual__icon--table'>📄</span>
                         <span className='manual__title manual__title--table'>{manual.title}</span>
                       </a>
                       <ActionManual manual={manual}/>

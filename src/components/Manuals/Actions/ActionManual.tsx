@@ -11,7 +11,7 @@ interface ActionManualsProps {
   } 
 }
 const ActionManuals: React.FC<ActionManualsProps> = ({ manual }) => {
-    return (
+    return ( 
       <div className='manual__action'>
         <ModalUpdateManual manual={manual} onSuccess={() => {}} />
         <ModalRemoveManual manualId={manual.id} onSuccess={() => {}} />
