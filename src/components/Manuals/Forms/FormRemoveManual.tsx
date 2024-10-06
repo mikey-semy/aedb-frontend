@@ -13,7 +13,9 @@ const FormRemoveManual: React.FC<FormRemoveManualProps> = ({ manualId, onSubmit,
   };
 
     return (
+    
     <form className='form form--manual-remove' onSubmit={handleSubmit}>
+      <p>Вы уверены, что хотите удалить эту инструкцию?</p>
       <FormAction 
         onRequestCancel={onCancel} 
         contentCancel={{icon: '', title: 'Отмена'}} 

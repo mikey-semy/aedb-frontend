@@ -23,7 +23,7 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
     closeModal();
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (manualId: number) => {
     try {
       await removeManual(manualId)
       closeModal();
