@@ -65,7 +65,11 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSu
           <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
-      <FormAction onRequestCancel={onCancel} contentCancel='Отмена' contentSubmit='Обновить'/>
+      <FormAction 
+        onRequestCancel={onCancel} 
+        contentCancel={{icon: '', title: 'Отмена'}} 
+        contentSubmit={{icon: '', title: 'Обновить'}}
+      />
     </form>
   );
 };
