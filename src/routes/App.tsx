@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
+
 import { Outlet } from "react-router-dom";
 
 import favicon from '../assets/icons/favicons/favicon.ico';
 
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+
 
 
 const App: React.FC = () => {
+
   useEffect(() => {
     const link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']");
     if (link) {
@@ -21,7 +25,8 @@ const App: React.FC = () => {
         <div className='container'>
           <Outlet />
         </div>
-      </main>    
+      </main>
+      <Footer />
     </div>
   );
 };
