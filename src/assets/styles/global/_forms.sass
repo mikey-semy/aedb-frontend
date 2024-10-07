@@ -5,12 +5,18 @@ form
   margin: 0 auto
   gap: 10px
 
-  .form
-    &__action
-      display: flex
-      flex-direction: row
-      justify-content: end
-      gap: 10px
+.form
+  &__action
+    display: flex
+    flex-direction: row
+    justify-content: end
+    gap: 10px
+
+  &__title
+    align-self: end
+    overflow-wrap: break-word
+    white-space: pre-wrap
+
 
 input, select, button
   -webkit-appearance: none
@@ -63,7 +69,7 @@ button
     width: 40px
 
     &::before
-    font-size: 14px
+      font-size: 14px
 
     &-close
       &::before

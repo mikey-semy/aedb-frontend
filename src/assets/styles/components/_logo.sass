@@ -1,9 +1,16 @@
 .logo
+    position: relative
     font-size: 30px
-    font-weight: 400
+    font-weight: 500
     color: $color-logo
     text-transform: uppercase
     letter-spacing: 1px
 
+    &:before
+        position: absolute
+        bottom: 13%
+        left: 110%
+        font-size: 10px
+        content: "Автоматизированный электропривод - база"
     &:hover
-        color: $color-secondary
+        color: $color-logo
