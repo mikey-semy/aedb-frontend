@@ -9,48 +9,52 @@ const ContentManual: React.FC = () => {
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    const fetchCategoryItems = async () => {
-      setLoading(true);
-     try {
-      const data = await getManuals();
-       
-       setCategoryItems(
-         data.map((category: CategoryItem) => ({
-           id: category.id,
-           name: category.name,
-           logo_url: category.logo_url ?? '',
-           groups: category.groups.map((group: GroupItem) => ({
-             id: group.id,
-             name: group.name,
-             manuals: group.manuals.map((manual: ManualItem) => ({
-               id: manual.id,
-               title: manual.title,
-               file_url: manual.file_url,
-               group_id: group.id,
-             })),
+  const fetchCategoryItems = async () => {
+    setLoading(true);
+   try {
+    const data = await getManuals();
+     
+     setCategoryItems(
+       data.map((category: CategoryItem) => ({
+         id: category.id,
+         name: category.name,
+         logo_url: category.logo_url ?? '',
+         groups: category.groups.map((group: GroupItem) => ({
+           id: group.id,
+           name: group.name,
+           manuals: group.manuals.map((manual: ManualItem) => ({
+             id: manual.id,
+             title: manual.title,
+             file_url: manual.file_url,
+             group_id: group.id,
            })),
-         }))
-       );
-       setCategoryItems(data);
-       console.log('Ответ API:', data);
-     } catch (error) {
-       console.error('Ошибка при загрузке каталога:', error);
-     } finally {
-      setLoading(false);
-     }
-   };
+         })),
+       }))
+     );
+     setCategoryItems(data);
+     console.log('Ответ API:', data);
+   } catch (error) {
+     console.error('Ошибка при загрузке каталога:', error);
+   } finally {
+    setLoading(false);
+   }
+ };
 
-   fetchCategoryItems();
+  useEffect(() => {
+    fetchCategoryItems();
   }, []);
-  
+
+  const handleUpdateItems = () => {
+    fetchCategoryItems(); // Вызов функции для обновления данных
+    console.log("Обновление данных")
+  };
   if (loading) {
     return <div className="loader"></div>;
   }
 
   return (
     <>
-    <ToolbarManuals />
+    <ToolbarManuals onUpdate={handleUpdateItems}/>
     <ul className='category__items'>
     {categoriesItems.map((category) => (
         <li className='category__item' key={category.id}>
@@ -70,7 +74,7 @@ const ContentManual: React.FC = () => {
                         <span className='manual__icon manual__icon--table'>📄</span>
                         <span className='manual__title manual__title--table'>{manual.title}</span>
                       </a>
-                      <ActionManual manual={manual} />
+                      <ActionManual manual={manual} onUpdate={handleUpdateItems}/>
                     </li>
                   ))}
                 </ul>

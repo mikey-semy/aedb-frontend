@@ -8,11 +8,19 @@ interface ActionManualsProps {
     title: string;
     file_url: string;
     group_id: number;
-  } 
+  };
+  onUpdate: () => void;
 }
-const ActionManuals: React.FC<ActionManualsProps> = ({ manual }) => {
+const ActionManuals: React.FC<ActionManualsProps> = ({ manual, onUpdate }) => {
   const handleUpdateItems = () => {
     // Логика для обновления элементов, например, запрос к серверу
+    try {
+      // Предположим, у вас есть API-запрос для обновления мануала
+      // await updateManual(manual.id); // Замените на вашу фактическую логику обновления
+      onUpdate(); // Вызовите функцию для обновления данных
+    } catch (error) {
+      console.error('Ошибка при обновлении:', error);
+    }
   };
     return ( 
       <div className='manual__action'>
