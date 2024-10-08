@@ -12,6 +12,7 @@ api.interceptors.request.use((config) => {
     username: import.meta.env.VITE_API_USERNAME,
     password: import.meta.env.VITE_API_PASSWORD,
   };
+  config.withCredentials = true;
   return config;
 });
 
