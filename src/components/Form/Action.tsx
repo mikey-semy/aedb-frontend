@@ -29,7 +29,7 @@ const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel,
         icon={contentCancel.icon} 
         title={contentCancel.title}  
         className="button__title button__icon button__icon-cancel"
-        disabled={disabled}
+        disabled={false}
       />  
     </div>
   );

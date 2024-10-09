@@ -49,6 +49,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValues, onSu
         onRequestCancel={onCancel} 
         contentCancel={{icon: '', title: 'Отмена'}} 
         contentSubmit={{icon: '', title: 'Обновить'}}
+        disabled={!!error}
       />
     </form>
   );
