@@ -10,9 +10,10 @@ interface FormActionProps {
     icon?: string | React.ReactNode;
     title: string;
   }
+  disabled?: boolean;
 }
 
-const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel, contentSubmit }) => {
+const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel, contentSubmit, disabled }) => {
   return (
     <div className="form__action">
       <Button 
@@ -20,6 +21,7 @@ const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel,
         icon={contentSubmit.icon} 
         title={contentSubmit.title}  
         className="button__title button__icon button__icon-submit"
+        disabled={disabled}
       />
       <Button 
         type="button" 
@@ -27,6 +29,7 @@ const FormAction: React.FC<FormActionProps> = ({ onRequestCancel, contentCancel,
         icon={contentCancel.icon} 
         title={contentCancel.title}  
         className="button__title button__icon button__icon-cancel"
+        disabled={disabled}
       />  
     </div>
   );
