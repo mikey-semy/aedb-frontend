@@ -30,6 +30,7 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ manual, handleChange, onError
           } catch (err) {
             console.error('Ошибка при загрузке групп:', err);
             onError('Не удалось загрузить группы');
+            setError('Не удалось загрузить группы');
           }
         };
         fetchGroups();
