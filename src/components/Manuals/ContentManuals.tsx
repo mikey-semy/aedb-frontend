@@ -8,8 +8,10 @@ const ContentManual: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchCategoryItems = async () => {
+    setError(null);
     setLoading(true);
    try {
     const data = await getManuals();
@@ -34,8 +36,9 @@ const ContentManual: React.FC = () => {
      setCategoryItems(data);
      console.log('Ответ API:', data);
    } catch (error) {
-     console.error('Ошибка при загрузке каталога:', error);
-   } finally {
+      console.error('Ошибка при загрузке каталога:', error);
+      setError('Не удалось загрузить данные. Попробуйте позже.');
+} finally {
     setLoading(false);
    }
  };
@@ -48,6 +51,18 @@ const ContentManual: React.FC = () => {
     fetchCategoryItems(); // Вызов функции для обновления данных
     console.log("Обновление данных")
   };
+  if (error) {
+    return (
+      <div className="error__container">
+        <h1 className="error__oops">Оопс!</h1>
+        <p className="error__sorry">Извините, что-то пошло не так :(</p>
+        <div className="error__message">{error}</div>
+        <button className="button-retry" onClick={fetchCategoryItems}>
+          Попробовать снова
+        </button>
+      </div>
+    );
+  }
   if (loading) {
     return <div className="loader"></div>;
   }
