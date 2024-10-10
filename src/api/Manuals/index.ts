@@ -1,4 +1,4 @@
-export { addManual } from './addManual';
-export { updateManual } from './updateManual';
-export { removeManual } from './removeManual';
-export { getManuals } from './getManuals';
+export * from './getManuals';
+export * from './addManual';
+export * from './updateManual';
+export * from './removeManual';
