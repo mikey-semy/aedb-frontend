@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import ToolbarManuals from './Actions/ToolbarManual';
-import ActionManual from './Actions/ActionManual'
-import { manualsApi } from '../../api';
+import ActionManual from './Actions/ActionManual';
+import { getManuals } from '../../api';
+// import { manualsApi } from '../../api';
 import { CategoryItem, GroupItem, ManualItem } from '../../types/manuals/nestedManuals';
 const ContentManual: React.FC = () => {
 
@@ -14,7 +15,7 @@ const ContentManual: React.FC = () => {
     setError(null);
     setLoading(true);
    try {
-    const data = await manualsApi.getManuals();
+    const data = await getManuals();
      
      setCategoryItems(
        data.map((category: CategoryItem) => ({

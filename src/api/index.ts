@@ -1,2 +1,10 @@
-export * as manualsApi from './manuals';
-export * as groupsApi from './groups';
+export { 
+    getManuals, 
+    addManual, 
+    updateManual, 
+    removeManual 
+} from './manuals';
+
+export { 
+    getGroups 
+}  from './groups';

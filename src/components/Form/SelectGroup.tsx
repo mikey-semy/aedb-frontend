@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { groupsApi } from '../../api';
+import { getGroups } from '../../api';
 interface Group {
     id: number;
     name: string;
@@ -23,7 +23,7 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ manual, handleChange, onError
         
         const fetchGroups = async () => {
           try {
-            const fetchedGroups = await groupsApi.getGroups();
+            const fetchedGroups = await getGroups();
             setGroups(fetchedGroups);
             setLoading(true);
             onError(null);
