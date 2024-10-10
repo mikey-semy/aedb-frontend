@@ -18,19 +18,22 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ manual, handleChange, onError
 
     const [groups, setGroups] = useState<Group[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        setLoading(false);
+        
         const fetchGroups = async () => {
           try {
             const fetchedGroups = await getGroups();
             setGroups(fetchedGroups);
+            setLoading(true);
             onError(null);
-          } catch (err) {
-            console.error('Ошибка при загрузке групп:', err);
+          } catch (error) {
+            console.error('Ошибка при загрузке групп:', error);
             onError('Не удалось загрузить группы');
             setError('Не удалось загрузить группы');
+          } finally {
+            setLoading(false);
           }
         };
         fetchGroups();
