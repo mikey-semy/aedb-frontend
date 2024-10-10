@@ -2,7 +2,7 @@ import api from '../axiosConfig';
 
 const addManual = async(manual: any) => {
     try {
-        const response = await api.post('/manual', manual);
+        const response = await api.post('/api/v1/manuals/manual', manual);
         console.log('Инструкция добавлена:', response.data);
         return response.data;
     } catch (error) {

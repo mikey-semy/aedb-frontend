@@ -2,7 +2,7 @@ import api from '../axiosConfig';
 
 const removeManual = async(manualId: number) => {
     try {
-        const response = await api.delete(`/manual/${manualId}`);
+        const response = await api.delete(`/api/v1/manuals/manual/${manualId}`);
         console.log('Инструкция удалена:', response.data);
         return response.data;
     } catch (error) {
