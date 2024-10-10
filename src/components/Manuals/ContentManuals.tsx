@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import ToolbarManuals from './Actions/ToolbarManual';
 import ActionManual from './Actions/ActionManual'
-import getManuals from '../../api/Manuals/getManuals';
-import { CategoryItem, GroupItem, ManualItem } from '../../types/nested_manuals';
+import { manualsApi } from '../../api';
+import { CategoryItem, GroupItem, ManualItem } from '../../types/manuals/nestedManuals';
 const ContentManual: React.FC = () => {
 
   const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
@@ -14,7 +14,7 @@ const ContentManual: React.FC = () => {
     setError(null);
     setLoading(true);
    try {
-    const data = await getManuals();
+    const data = await manualsApi.getManuals();
      
      setCategoryItems(
        data.map((category: CategoryItem) => ({
@@ -64,7 +64,7 @@ const ContentManual: React.FC = () => {
     );
   }
   if (loading) {
-    return <div className="loader"></div>;
+    return <div className="loader--select"></div>;
   }
 
   return (

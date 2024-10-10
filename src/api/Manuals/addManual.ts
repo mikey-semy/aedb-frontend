@@ -1,14 +1,8 @@
 import api from '../axiosConfig';
+import { handleApiResponse, handleApiError } from '../utils';
+import { Manual } from '../../types/manuals/manual';
 
-const addManual = async(manual: any) => {
-    try {
-        const response = await api.post('/api/v1/manuals/manual', manual);
-        console.log('Инструкция добавлена:', response.data);
-        return response.data;
-    } catch (error) {
-        console.error('Ошибка при добавлении инструкции:', error);
-        throw error;
-    }
-};
-
-export default addManual;
+export const addManual = (manual:Manual): Promise<Manual> =>
+  api.post<Manual>('/api/v1/manuals/', manual)
+    .then(handleApiResponse)
+    .catch(handleApiError);

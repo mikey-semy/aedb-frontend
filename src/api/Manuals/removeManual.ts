@@ -1,14 +1,7 @@
 import api from '../axiosConfig';
+import { handleApiResponse, handleApiError } from '../utils';
 
-const removeManual = async(manualId: number) => {
-    try {
-        const response = await api.delete(`/api/v1/manuals/manual/${manualId}`);
-        console.log('Инструкция удалена:', response.data);
-        return response.data;
-    } catch (error) {
-        console.error('Ошибка при удалении инструкции:', error);
-        throw error;
-    }
-};
-
-export default removeManual;
+export const removeManual = (manualId: number): Promise<number> =>
+    api.delete<number>(`/api/v1/manuals/${manualId}`)
+      .then(handleApiResponse)
+      .catch(handleApiError);

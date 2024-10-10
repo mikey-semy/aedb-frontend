@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
 import Button from '../../Form/Button';
 import FormRemoveManual from '../Forms/FormRemoveManual';
-import removeManual from '../../../api/Manuals/removeManual';
+import { manualsApi } from '../../../api';
 
 interface ModalRemoveManualProps {
   manualId: number;
@@ -26,7 +26,7 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
   const handleSubmit = async (manualId: number) => {
     try {
       console.log(manualId)
-      await removeManual(manualId)
+      await manualsApi.removeManual(manualId)
       closeModal();
       onSuccess(); 
     } catch (error) {

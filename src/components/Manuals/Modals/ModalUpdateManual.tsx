@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import ModalWrapper from '../../Modal/ModalWrapper';
 import Button from '../../Form/Button';
 import FormUpdateManual from '../Forms/FormUpdateManual';
-import updateManual from '../../../api/Manuals/updateManual';
-import { Manual } from '../../../types/manual';
+import { manualsApi } from '../../../api';
+import { Manual } from '../../../types/manuals/manual';
 
 interface ModalUpdateManualProps {
   manual: Manual;
@@ -27,7 +27,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
 
   const handleSubmit = async (updatedManual: Manual) => {
     try {
-      await updateManual(updatedManual);
+      await manualsApi.updateManual(updatedManual);
       closeModal();
       onSuccess(); 
     } catch (error) {

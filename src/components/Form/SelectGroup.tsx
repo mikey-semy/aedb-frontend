@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getGroups from '../../api/Groups/getGroups';
-
+import { groupsApi } from '../../api';
 interface Group {
     id: number;
     name: string;
@@ -24,7 +23,7 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ manual, handleChange, onError
         
         const fetchGroups = async () => {
           try {
-            const fetchedGroups = await getGroups();
+            const fetchedGroups = await groupsApi.getGroups();
             setGroups(fetchedGroups);
             setLoading(true);
             onError(null);
@@ -43,7 +42,7 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ manual, handleChange, onError
         return <div className="error-message">{error}</div>;
       }
       if (loading) {
-        return <div className="loader">Загрузка...</div>;
+        return <div className="loader"></div>;
       }
   return (
     <select

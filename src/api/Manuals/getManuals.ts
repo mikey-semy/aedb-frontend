@@ -1,14 +1,8 @@
-import api from '../../api/axiosConfig';
-import { CategoryItem } from '../../types/nested_manuals';
+import api from '../axiosConfig';
+import { handleApiResponse, handleApiError } from '../utils';
+import { CategoryItem } from '../../types/manuals/nestedManuals';
 
-const getManuals = async (): Promise<CategoryItem[]> => {
-  try {
-    const response = await api.get<CategoryItem[]>('/api/v1/manuals/nested');
-    return response.data;
-  } catch (error) {
-    console.error('Ошибка при загрузке каталога:', error);
-    throw error;
-  }
-};
-
-export default getManuals;
+export const getManuals = (): Promise<CategoryItem[]> =>
+  api.get<CategoryItem[]>('/api/v1/manuals/nested')
+    .then(handleApiResponse)
+    .catch(handleApiError);

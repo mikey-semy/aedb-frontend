@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FormAction from '../../Form/Action';
 import SelectGroup from '../../Form/SelectGroup';
-import { Manual } from '../../../types/manual';
+import { Manual } from '../../../types/manuals/manual';
 
 
 interface FormUpdateManualProps {
