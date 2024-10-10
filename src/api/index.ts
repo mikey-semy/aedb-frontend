@@ -1,2 +1,2 @@
-export * as manualsApi from './manuals/index';
-export * as groupsApi from './groups/index';
+export * as manualsApi from './manuals';
+export * as groupsApi from './groups';
