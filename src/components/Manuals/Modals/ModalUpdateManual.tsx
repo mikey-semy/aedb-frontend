@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../Modal/ModalWrapper';
-import Button from '../../Form/Button';
+import ModalWrapper from '../../common/Modal/ModalWrapper';
+import Button from '../../common/Form/Button';
 import FormUpdateManual from '../Forms/FormUpdateManual';
 import { updateManual } from '../../../api';
-import { Manual } from '../../../types/manuals/manual';
+import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
 
 interface ModalUpdateManualProps {
-  manual: Manual;
+  manual: ManualItem;
+  category: CategoryItem;
   onSuccess: () => void;
 }
 
-const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess }) => {
+const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ category, manual, onSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -25,7 +26,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
     closeModal();
   };
 
-  const handleSubmit = async (updatedManual: Manual) => {
+  const handleSubmit = async (updatedManual: ManualItem) => {
     try {
       await updateManual(updatedManual);
       closeModal();
@@ -48,7 +49,8 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ manual, onSuccess
         title="Обновить инструкцию"
       >
         <FormUpdateManual 
-          initialValues={manual}
+          initialValuesCategory={category}
+          initialValuesManual={manual}
           onSubmit={handleSubmit} 
           onCancel={handleCancel}
         />

@@ -1,17 +1,13 @@
 import React from 'react';
 import ModalUpdateManual from '../Modals/ModalUpdateManual';
 import ModalRemoveManual from '../Modals/ModalRemoveManual';
-
+import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
 interface ActionManualsProps {
-  manual: {
-    id: number;
-    title: string;
-    file_url: string;
-    group_id: number;
-  };
+  category: CategoryItem;
+  manual: ManualItem;
   onUpdate: () => void;
 }
-const ActionManuals: React.FC<ActionManualsProps> = ({ manual, onUpdate }) => {
+const ActionManuals: React.FC<ActionManualsProps> = ({ category, manual, onUpdate }) => {
   const handleUpdateItems = () => {
     // Логика для обновления элементов, например, запрос к серверу
     try {
@@ -24,7 +20,7 @@ const ActionManuals: React.FC<ActionManualsProps> = ({ manual, onUpdate }) => {
   };
     return ( 
       <div className='manual__action'>
-        <ModalUpdateManual manual={manual} onSuccess={handleUpdateItems} />
+        <ModalUpdateManual category={category} manual={manual} onSuccess={handleUpdateItems} />
         <ModalRemoveManual manualId={manual.id} onSuccess={handleUpdateItems} />
       </div>
     );

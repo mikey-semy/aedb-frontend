@@ -34,7 +34,8 @@ const ContentManual: React.FC = () => {
          })),
        }))
      );
-     setCategoryItems(data);
+    //  setCategoryItems(data);
+
      console.log('Ответ API:', data);
    } catch (error) {
       console.error('Ошибка при загрузке каталога:', error);
@@ -90,7 +91,11 @@ const ContentManual: React.FC = () => {
                         <span className='manual__icon manual__icon--table'>📄</span>
                         <span className='manual__title manual__title--table'>{manual.title}</span>
                       </a>
-                      <ActionManual manual={manual} onUpdate={handleUpdateItems}/>
+                      <ActionManual 
+                        category={category}
+                        manual={manual}
+                        onUpdate={handleUpdateItems}
+                      />
                     </li>
                   ))}
                 </ul>
