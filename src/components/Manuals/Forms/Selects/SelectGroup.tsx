@@ -22,15 +22,15 @@ const SelectGroup: React.FC<SelectGroupProps> = ({ groups, value, onChange }) =>
     }
 };
   return (
-    <div>
+    <>
       <Select
         options={options}
         value={value}
         onChange={handleChange}
         placeholder='Выберите группу'
-    />
-    {error && <div style={{ color: 'red' }}>{error}</div>}
-    </div>
+      />
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+    </>
     
   );
 };

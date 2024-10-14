@@ -55,9 +55,21 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValuesCatego
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(manual);
+    if (selectedGroup && selectedCategory) {
+      setError(null);
+      onSubmit(manual);
+    } else {
+      // Обработка ошибки: группа или категория не выбраны
+      setError('Пожалуйста, выберите категорию и группу');
+    }
   };
 
+  useEffect(() => {
+    if (selectedCategory && selectedGroup) {
+      setError(null);
+    }
+  }, [selectedCategory, selectedGroup]);
+  
   return (
     <form className='form form--manual-update' onSubmit={handleSubmit}>
       <SelectCategory

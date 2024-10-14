@@ -23,7 +23,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({ categories, value, onCh
 };
 
   return (
-    <div>
+    <>
       <Select
         options={options}
         value={value}
@@ -31,7 +31,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({ categories, value, onCh
         placeholder='Выберите категорию'
       />
       {error && <div style={{ color: 'red' }}>{error}</div>}
-    </div>
+    </>
   );
 };
 
