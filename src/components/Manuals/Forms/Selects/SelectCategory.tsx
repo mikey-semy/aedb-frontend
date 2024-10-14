@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Select from '../../../common/Form/Select';
 import { Category } from '../../../../types/categories/category';
   
@@ -9,16 +9,29 @@ import { Category } from '../../../../types/categories/category';
   }
 
 const SelectCategory: React.FC<SelectCategoryProps> = ({ categories, value, onChange }) => {
-
+  const [error, setError] = useState<string | null>(null);
   const options = categories.map(cat => ({ value: cat.id.toString(), label: cat.name }))
+  
+  const handleChange = (selectedValue: number | null) => {
+    if (selectedValue === null) {
+        setError('Пожалуйста, выберите категорию');
+        onChange(null);
+    } else {
+        setError(null);
+        onChange(selectedValue);
+    }
+};
 
   return (
-    <Select
+    <div>
+      <Select
         options={options}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         placeholder='Выберите категорию'
-    />
+      />
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+    </div>
   );
 };
 

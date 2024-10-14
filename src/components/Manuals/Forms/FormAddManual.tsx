@@ -13,9 +13,9 @@ interface FormAddManualProps {
 const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => {
   const [error, setError] = useState<string | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [groups, setGroups] = useState<Group[]>([])
-  const [selectedGroup, setSelectedGroup] = useState<number>(0);
+  const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
   const [manual, setManual] = useState({
         title: '',
         file_url: '',
@@ -29,6 +29,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedGroup && selectedCategory) {
+      setError(null);
       onSubmit({
         title: manual.title,
         file_url: manual.file_url,
@@ -40,6 +41,12 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
       setError('Пожалуйста, выберите категорию и группу');
     }
   }
+
+  // useEffect(() => {
+  //   if (selectedCategory && selectedGroup) {
+  //     setError(null);
+  //   }
+  // }, [selectedCategory, selectedGroup]);
 
   useEffect(() => {
     getCategories()
@@ -64,12 +71,12 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
       <SelectCategory
         categories={categories}
         value={selectedCategory}
-        onChange={(value) => setSelectedCategory(value || 0)}
+        onChange={(value) => setSelectedCategory(value)}
       />
       <SelectGroup
         groups={groups}
         value={selectedGroup}
-        onChange={(value) => setSelectedGroup(value || 0)}
+        onChange={(value) => setSelectedGroup(value)}
       />
 
       <input
