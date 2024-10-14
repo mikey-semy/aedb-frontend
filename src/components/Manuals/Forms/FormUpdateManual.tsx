@@ -23,7 +23,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValuesCatego
   useEffect(() => {
     getCategories()
       .then(fetchedCategories => {
-        setCategories(prevCategories => {
+        setCategories(() => {
         const newCategories = fetchedCategories.filter(cat => cat.id !== initialValuesCategory.id);
         return [initialValuesCategory, ...newCategories];
         });
@@ -55,9 +55,21 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValuesCatego
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(manual);
+    if (selectedGroup && selectedCategory) {
+      setError(null);
+      onSubmit(manual);
+    } else {
+      // Обработка ошибки: группа или категория не выбраны
+      setError('Пожалуйста, выберите категорию и группу');
+    }
   };
 
+  useEffect(() => {
+    if (selectedCategory && selectedGroup) {
+      setError(null);
+    }
+  }, [selectedCategory, selectedGroup]);
+  
   return (
     <form className='form form--manual-update' onSubmit={handleSubmit}>
       <SelectCategory

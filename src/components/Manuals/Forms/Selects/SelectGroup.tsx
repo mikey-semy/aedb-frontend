@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import Select from '../../../common/Form/Select';
 import { Group } from '../../../../types/groups/group';
 
@@ -9,16 +9,29 @@ interface SelectGroupProps {
   }
 
 const SelectGroup: React.FC<SelectGroupProps> = ({ groups, value, onChange }) => {
-  
+  const [error, setError] = useState<string | null>(null);
   const options = groups.map(group => ({ value: group.id.toString(), label: group.name }));
   
+  const handleChange = (selectedValue: number | null) => {
+    if (selectedValue === null) {
+        setError('Пожалуйста, выберите группу');
+        onChange(null);
+    } else {
+        setError(null);
+        onChange(selectedValue);
+    }
+};
   return (
-    <Select
+    <>
+      <Select
         options={options}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         placeholder='Выберите группу'
-    />
+      />
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+    </>
+    
   );
 };
 

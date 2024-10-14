@@ -7,7 +7,7 @@ const { Content } = Layout;
 import favicon from '../assets/icons/favicons/favicon.ico';
 
 import HeaderComponent from '../components/Header/Header';
-import FooterComponent from '../components/Footer/FooterComponent';
+import FooterComponent from '../components/Footer/Footer';
 
 
 
