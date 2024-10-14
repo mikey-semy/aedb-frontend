@@ -42,11 +42,11 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
     }
   }
 
-  // useEffect(() => {
-  //   if (selectedCategory && selectedGroup) {
-  //     setError(null);
-  //   }
-  // }, [selectedCategory, selectedGroup]);
+  useEffect(() => {
+    if (selectedCategory && selectedGroup) {
+      setError(null);
+    }
+  }, [selectedCategory, selectedGroup]);
 
   useEffect(() => {
     getCategories()
