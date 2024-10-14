@@ -15,12 +15,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     server: {
       proxy: {
         '/api': {
-          target: 'https://api.aedb.ru',
+          target: 'https://api.aedb.online',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         },
         '/media': {
-          target: 'https://api.aedb.ru',
+          target: 'https://api.aedb.online',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/media/, ''),
         },

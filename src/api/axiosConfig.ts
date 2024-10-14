@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api.aedb.ru',
+  baseURL: 'https://api.aedb.online',
   headers: {
     'Content-Type': 'application/json',
   },
