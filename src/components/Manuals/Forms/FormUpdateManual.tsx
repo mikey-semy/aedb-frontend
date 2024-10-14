@@ -23,7 +23,7 @@ const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValuesCatego
   useEffect(() => {
     getCategories()
       .then(fetchedCategories => {
-        setCategories(prevCategories => {
+        setCategories(() => {
         const newCategories = fetchedCategories.filter(cat => cat.id !== initialValuesCategory.id);
         return [initialValuesCategory, ...newCategories];
         });
