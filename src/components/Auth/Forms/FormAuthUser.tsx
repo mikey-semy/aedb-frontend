@@ -31,26 +31,28 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <form className='form form--auth-user' onSubmit={handleSubmit}>
-            <label htmlFor="name">
+            {/* <label htmlFor="name">
                 Имя:
-            </label>
+            </label> */}
             <input 
                 type="text" 
                 name="name" 
                 value={auth_user.name} 
-                onChange={handleChange} 
+                onChange={handleChange}
+                placeholder="Имя"
+                required
             />
-            <br />
-            <label htmlFor="password">
+            {/* <label htmlFor="password">
                 Пароль:
-            </label>
+            </label> */}
             <input 
                 type="password" 
                 name="password" 
                 value={auth_user.password} 
                 onChange={handleChange} 
+                placeholder="Пароль"
+                required
             />
-            <br />
             <FormAction 
                 onRequestCancel={onCancel} 
                 contentCancel={{icon: '', title: 'Отмена'}} 

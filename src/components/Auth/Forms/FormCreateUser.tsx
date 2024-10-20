@@ -35,30 +35,34 @@ const FormCreateUser: React.FC<FormNewUserProps> = ({ onSubmit, onCancel }) => {
 
     return (
         <form className='form form--create-user' onSubmit={handleSubmit}>
-            <label htmlFor="name">Имя:</label>
+            {/* <label htmlFor="name">Имя:</label> */}
             <input 
                 type="text" 
                 name="name" 
                 value={new_user.name} 
-                onChange={handleChange} 
+                onChange={handleChange}
+                placeholder="Имя"
+                required
             />
-            <br />
-            <label htmlFor="email">Email:</label>
+            {/* <label htmlFor="email">Email:</label> */}
             <input 
                 type="email" 
                 name="email" 
                 value={new_user.email} 
-                onChange={handleChange} 
+                onChange={handleChange}
+                placeholder="email" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
             />
-            <br />
-            <label htmlFor="password">Пароль:</label>
+            {/* <label htmlFor="password">Пароль:</label> */}
             <input 
                 type="password" 
                 name="password" 
                 value={new_user.password} 
-                onChange={handleChange} 
+                onChange={handleChange}
+                placeholder="Пароль"
+                required
             />
-            <br />
             <FormAction 
                 onRequestCancel={onCancel} 
                 contentCancel={{icon: '', title: 'Отмена'}} 
