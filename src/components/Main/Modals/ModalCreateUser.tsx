@@ -48,6 +48,7 @@ const ModalCreateUser: React.FC<ModalCreateUserProps> = ({ onSuccess }) => {
         onRequestClose={closeModal}
         title="Создать пользователя"
       >
+        {errorMessage && <div className="error-message">{errorMessage}</div>} 
           <FormCreateUser 
             onSubmit={handleSubmit} 
             onCancel={handleCancel} />
