@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import NavIcon from './NavIcon';
 import Menu from './Menu';
-import ActionHeader from './Actions/ActionHeader';
+// import ActionHeader from './Actions/ActionHeader';
 
 const Header: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -26,10 +26,10 @@ const Header: React.FC = () => {
     fetchGetUser();
   }, []);
 
-  const handleUpdateItems = () => {
-    fetchGetUser(); // Вызов функции для обновления данных
-    console.log("Обновление данных о пользователе")
-  };
+  // const handleUpdateItems = () => {
+  //   fetchGetUser(); // Вызов функции для обновления данных
+  //   console.log("Обновление данных о пользователе")
+  // };
   if (error) {
     return (
       <div className="error__container">
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
         <Logo />
         <NavIcon />
         <Menu />
-        <ActionHeader onUpdate={handleUpdateItems} />
+        {/* <ActionHeader onUpdate={handleUpdateItems} /> */}
     </header>
   );
 };
