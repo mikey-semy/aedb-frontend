@@ -9,8 +9,6 @@ import App from './routes/App.tsx';
 import Es from './routes/Es.tsx';
 import Manuals from './routes/Manuals.tsx';
 import Main from './routes/Main.tsx'
-import FormAuthUser from './routes/Main.tsx'
-import FormCreateUser from './routes/Main.tsx'
 
 import './assets/styles/main.sass';
 
