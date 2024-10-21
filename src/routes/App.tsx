@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { Outlet } from "react-router-dom";
 
-import favicon from '../assets/icons/favicons/favicon.ico';
+import favicon from '../public/favicon.ico';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
