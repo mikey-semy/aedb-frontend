@@ -1,6 +1,6 @@
 import React from 'react';
-import ModalAuthUser from '../../Main/Modals/ModalAuthUser';
-import ModalCreateUser from '../../Main/Modals/ModalCreateUser';
+import ModalAuthUser from '../../main/modals/ModalAuthUser';
+import ModalCreateUser from '../../main/modals/ModalCreateUser';
 
 interface ActionHeaderProps {
   onUpdate: () => void;

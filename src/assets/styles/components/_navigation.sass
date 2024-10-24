@@ -10,7 +10,7 @@
     display: flex
 
   &__item
-    list-style: none
+    display: flex
 
     &--link
       margin-right: 16px
@@ -21,6 +21,8 @@
       
       &:hover
         color: rgba(255, 255, 255, 0.7)
+        transform: scale(1.1)
+        transition: transform 0.3s ease
 
       &:hover, &:active
         transform: scale(1.1)

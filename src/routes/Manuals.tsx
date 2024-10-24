@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentManuals from '../components/Manuals/ContentManuals';
+import ContentManuals from '../components/manuals/ContentManuals';
 
 const Manuals: React.FC = () => {
 

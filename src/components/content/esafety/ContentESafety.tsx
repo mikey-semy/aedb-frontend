@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContentEs: React.FC = () => {
+const ContentESafety: React.FC = () => {
 
 return (
 <>
@@ -432,4 +432,4 @@ return (
 );
 };
 
-export default ContentEs;
+export default ContentESafety;

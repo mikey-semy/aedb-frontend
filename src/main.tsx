@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import ErrorPage from './error-page.tsx';
 import App from './routes/App.tsx';
-import Es from './routes/Es.tsx';
+import ESafety from './routes/ESafety.tsx';
 import Manuals from './routes/Manuals.tsx';
 // import Main from './routes/Main.tsx'
 
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
         element: <Manuals /> //<Main />
       },
       {
-        path: "/es",
-        element: <Es />
+        path: "/esafety",
+        element: <ESafety />
       },
       {
         path: "/manuals",
