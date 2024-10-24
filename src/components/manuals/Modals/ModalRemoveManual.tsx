@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/Modal/ModalWrapper';
-import Button from '../../common/Form/Button';
-import FormRemoveManual from '../Forms/FormRemoveManual';
+import ModalWrapper from '../../common/modal/ModalWrapper';
+import Button from '../../common/form/Button';
+import FormRemoveManual from '../forms/FormRemoveManual';
 import { removeManual } from '../../../api';
 
 interface ModalRemoveManualProps {

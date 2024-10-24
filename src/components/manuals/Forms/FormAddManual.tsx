@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import FormAction from '../../common/Form/Action';
-import SelectCategory from './Selects/SelectCategory';
-import SelectGroup from './Selects/SelectGroup';
+import FormAction from '../../common/form/Action';
+import SelectCategory from './selects/SelectCategory';
+import SelectGroup from './selects/SelectGroup';
 import { getCategories, getGroupsByCategory } from '../../../api';
 import { Manual } from '../../../types/manuals/manual';
 import { Group } from '../../../types/groups/group';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/Modal/ModalWrapper';
-import Button from '../../common/Form/Button';
-import FormUpdateManual from '../Forms/FormUpdateManual';
+import ModalWrapper from '../../common/modal/ModalWrapper';
+import Button from '../../common/form/Button';
+import FormUpdateManual from '../forms/FormUpdateManual';
 import { updateManual } from '../../../api';
 import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
 

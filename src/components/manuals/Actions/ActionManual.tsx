@@ -1,6 +1,6 @@
 import React from 'react';
-import ModalUpdateManual from '../Modals/ModalUpdateManual';
-import ModalRemoveManual from '../Modals/ModalRemoveManual';
+import ModalUpdateManual from '../modals/ModalUpdateManual';
+import ModalRemoveManual from '../modals/ModalRemoveManual';
 import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
 interface ActionManualsProps {
   category: CategoryItem;

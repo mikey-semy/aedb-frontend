@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import Button from '../Form/Button';
+import Button from '../form/Button';
 Modal.setAppElement('#root');
 
 interface ModalWrapperProps {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/Modal/ModalWrapper';
-import Button from '../../common/Form/Button';
-import FormAddManual from '../Forms/FormAddManual';
+import ModalWrapper from '../../common/modal/ModalWrapper';
+import Button from '../../common/form/Button';
+import FormAddManual from '../forms/FormAddManual';
 
 import { addManual } from '../../../api';
 import { Manual } from '../../../types/manuals/manual'

@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import Select from '../../../common/Form/Select';
+import Select from '../../../common/form/Select';
 import { Group } from '../../../../types/groups/group';
 
 interface SelectGroupProps {

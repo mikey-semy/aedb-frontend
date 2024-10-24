@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import ToolbarManuals from './Actions/ToolbarManual';
-import ActionManual from './Actions/ActionManual';
+import ToolbarManuals from './actions/ToolbarManual';
+import ActionManual from './actions/ActionManual';
 import { getManuals } from '../../api';
 // import { manualsApi } from '../../api';
 import { CategoryItem, GroupItem, ManualItem } from '../../types/manuals/nestedManuals';
