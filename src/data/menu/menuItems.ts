@@ -2,17 +2,19 @@ import { MenuItem } from '../../types';
 
 export const menuItems: MenuItem[] = [
     {
-      label: 'Инструкции',
+      label: 'Файлы',
       icon: '📄',
       path: '/manuals',
     },
     {
-      label: 'Знания',
-      icon: '📖',
-      subItems: [
-        { label: 'Электробезопасность', icon: '⚡️', path: '/esafety' },
-        { label: 'Предсменный экзаменатор', icon: '📋', path: 'https://pse.aedb.online' },
-      ],
+      label: 'Электробезопасность',
+      icon: '⚡️',
+      path: '/esafety',
+    },
+    {
+      label: 'Предсменный',
+      icon: '📋',
+      path: 'https://pse.aedb.online',
     },
     {
       label: 'AI',

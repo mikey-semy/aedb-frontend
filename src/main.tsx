@@ -10,7 +10,7 @@ import ESafety from './routes/ESafety.tsx';
 import Manuals from './routes/Manuals.tsx';
 
 
-import './assets/styles/main.sass';
+import './assets/scss/main.scss';
 
 
 

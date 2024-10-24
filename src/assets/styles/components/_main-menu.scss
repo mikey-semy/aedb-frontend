@@ -1,0 +1,145 @@
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 262px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #ccc;
+    
+    transition: width 0.3s ease-in-out;
+}
+
+.main-menu.main-menu--collapsed {
+    width: 50px;
+    
+    .main-logo {
+        width: 50px;
+        
+        &__link {
+            width: 50px;
+            padding: 0;
+        }
+        
+        &__text {
+            display: none;
+        }
+    }
+    
+    .main-nav {
+        &__items {
+            padding: 0 4px;
+        }
+        
+        &__item {
+            padding: 0 8px;
+        }
+        
+        &__link {
+            justify-content: center;
+            width: 100%;
+        }
+        
+        &__lable {
+            display: none;
+        }
+        
+        &__icon {
+            margin: 0;
+        }
+    }
+}
+
+.main-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 83px;
+    width: 100%;
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0 auto;
+        width: 214px;
+        height: 59px;
+        padding: 12px 24px;
+
+    }
+
+    &__text {
+        display: inline-block;
+
+        vertical-align: middle;
+        position: relative;
+        font-family: 'Squada One', sans-serif;
+        font-size: 58px;
+        font-weight: 600;
+        color: #000;
+
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+.main-nav {
+
+    width: 100%;
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+    
+        padding: 0 12px;
+        margin: 0;
+
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+
+        height: 60px;
+
+        &.active {
+            background-color: #F1EEFE;
+            border-radius: 5px;
+
+            & .main-nav__lable {
+                color: #7839CD
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    &__icon {
+        font-size: 20px;
+    }
+
+    &__lable {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #474747
+    }
+    
+}
+
