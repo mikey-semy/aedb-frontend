@@ -1,10 +1,15 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
+
   return (
-    <footer>
-        AEDB ©{new Date().getFullYear()} Создано для удобства
-    </footer>
+    <>
+        <footer className='footer'>
+          <div className="footer-bottom">
+            ADEB ©{new Date().getFullYear()} Создано для удобства
+          </div>
+        </footer>    
+    </>
   );
 };
 

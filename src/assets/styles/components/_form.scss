@@ -1,0 +1,51 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    gap: 10px;
+    
+  }
+  
+  .form {
+    &--search {
+      flex-direction: row;
+    }
+  }
+  
+  .input {
+    &--search {
+      font-size: 16px;
+      height: 48px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.25s, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      &:hover {
+        box-shadow: 0 0 3px #a00;
+      }
+      &:focus,
+      &:focus-visible {
+        outline: none;
+    }
+    }
+  
+    
+  }
+  
+  .button {
+    &--search {
+  
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
