@@ -5,10 +5,10 @@ import {
   RouterProvider 
 } from 'react-router-dom';
 import ErrorPage from './error-page.tsx';
-import App from './routes/App.tsx';
+import App from './App.tsx';
 import ESafety from './routes/ESafety.tsx';
 import Manuals from './routes/Manuals.tsx';
-// import Main from './routes/Main.tsx'
+
 
 import './assets/styles/main.sass';
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Manuals /> //<Main />
+        element: <Manuals />
       },
       {
         path: "/esafety",

@@ -1,8 +1,22 @@
 import { MenuItem } from '../../types';
 
 export const menuItems: MenuItem[] = [
-    { id: 1, icon: '⚡️', title: 'Электробезопасность', url: '/esafety' },
-    { id: 2, icon: '📄', title: 'Инструкции', url: '/manuals' },
-    { id: 3, icon: '📋', title: 'Предсменный', url: 'https://pse.aedb.online' },
-    { id: 4, icon: '🦆', title: 'AI', url: 'https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1' },
-];
+    {
+      label: 'Инструкции',
+      icon: '📄',
+      path: '/manuals',
+    },
+    {
+      label: 'Знания',
+      icon: '📖',
+      subItems: [
+        { label: 'Электробезопасность', icon: '⚡️', path: '/esafety' },
+        { label: 'Предсменный экзаменатор', icon: '📋', path: 'https://pse.aedb.online' },
+      ],
+    },
+    {
+      label: 'AI',
+      icon: '🦆',
+      path: 'https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1',
+    },
+  ];

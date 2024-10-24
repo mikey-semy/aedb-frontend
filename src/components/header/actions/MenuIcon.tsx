@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 
-const NavIcon: React.FC = () => {
+const MenuIcon: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
     const handleClick = () => {
       setIsActive(!isActive);
@@ -14,4 +14,4 @@ const NavIcon: React.FC = () => {
   );
 };
 
-export default NavIcon;
+export default MenuIcon;

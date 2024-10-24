@@ -5,21 +5,18 @@
 
 header {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
-    background-color: variables.$color-header; // Цвет фона заголовка
-    color: #fff; // Цвет текста заголовка
+    background-color: variables.$color-header-bg; // Цвет фона заголовка
+    color: variables.$color-header-text; // Цвет текста заголовка
     padding: 4px 24px; // Отступы внутри заголовка
     text-align: center; // Центрирование текста
     font-size: 1.5rem; // Размер шрифта заголовка
     height: 60px;
-    width: 100%;
     
-  &--fixed-top {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1;
-  }
 }
