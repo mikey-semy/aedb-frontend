@@ -7,11 +7,14 @@ const Menu: React.FC = () => {
         <>
             <nav className='nav'>
                 <ul className='nav__items'>
-                    {items.map((item) => (
-                        <li className='nav__item' key={item.id}>
-                            <Link className='nav__item--link' to={item.url}>
+                    {items.map((item, index) => (
+                        <li className='nav__item' key={index}>
+                            <Link 
+                                className='nav__item--link' 
+                                to={`${typeof item.path == 'string' ? item.path : '#'}`}
+                            >
                                 <span className='nav__item--icon'>{item.icon}</span>
-                                <span className='nav__item--title'>{item.title}</span>
+                                <span className='nav__item--title'>{item.label}</span>
                             </Link>
                         </li>
                     ))}
