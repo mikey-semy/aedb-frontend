@@ -1,12 +1,18 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Logo: React.FC = () => {
 
   return (
-    <a id='logo' href="/" className="logo-link">
-      <span className="logo">aedb</span>
-    </a>
+    <Link 
+      id='logo' 
+      className="logo-link" 
+      to="/"
+    >
+      <span className="logo">
+        aedb
+      </span>
+    </Link>
   );
 };
 

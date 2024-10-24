@@ -1,33 +1,25 @@
 import React, { useState } from 'react';
-
-interface MenuItem {
-  id: number;
-  icon: string;
-  title: string;
-  url: string;
-}
+import { menuItems } from '../../data/menu';
+import { Link } from 'react-router-dom';
 
 const NavigationLocal: React.FC = () => {
 
-const [menuItems] = useState<MenuItem[]>([
-    { id: 1, icon: '⚡️', title: 'Электробезопасность', url: '/es' },
-    { id: 2, icon: '📄', title: ' Инструкции', url: '/manuals' },
-  ]);
+    const [items] = useState(menuItems);
 
-  return (
+    return (
         <nav className='nav'>
             <ul className='nav__items'>
-                {menuItems.map((item) => (
-                        <li className='nav__item' key={item.id}>
-                            <a className='nav__item--link' href={item.url}>
-                                <span className='nav__item--icon'>{item.icon}</span>
-                                <span className='nav__item--title'>{item.title}</span>
-                            </a>
-                        </li>
+                {items.map((item) => (
+                    <li className='nav__item' key={item.id}>
+                        <Link className='nav__item--link' to={item.url}>
+                            <span className='nav__item--icon'>{item.icon}</span>
+                            <span className='nav__item--title'>{item.title}</span>
+                        </Link>
+                    </li>
                 ))}
             </ul>
         </nav>
-  );
+    );
 };
 
 export default NavigationLocal;
