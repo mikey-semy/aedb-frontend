@@ -7,15 +7,21 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
     const menuRef = useRef<HTMLDivElement>(null);
 
     const handleToggle = () => {
-        setIsOpen(!isOpen);
+        setIsOpen((prev) => !prev);
     };
 
     const handleClickOutside = (event: MouseEvent) => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
           setIsOpen(false);
+          console.log('Я должен закрыться')
         }
       };
-    
+
+    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.stopPropagation(); // Предотвращаем всплытие события
+        setIsOpen(false);
+        console.log('Я должен закрыться')
+    };
       useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
@@ -24,11 +30,11 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
       }, []);
 
     return (
-    <>
-        <div className="menu-item" onClick={item.subItems ? handleToggle : undefined}>
+    <div ref={menuRef}>
+        <div  className="menu-item" onClick={item.subItems ? handleToggle : undefined}>
             {item.icon && <span className="menu-item__icon">{item.icon}</span>}
             {item.path ? (
-                <Link to={item.path}>
+                <Link to={item.path} onClick={handleLinkClick}>
                     {item.label}
                 </Link>
             ) : (
@@ -42,7 +48,7 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
                     <div key={index} className="sub-menu-item">
                         {subItem.icon && <span className="menu-item__icon">{subItem.icon}</span>}
                         {subItem.path ? (
-                            <Link to={subItem.path}>
+                            <Link to={subItem.path} onClick={handleLinkClick}>
                                 {subItem.label}
                             </Link>
                         ) : (
@@ -52,7 +58,7 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
                 ))}
             </div>
         )}
-    </>
+    </div>
     );
 };
 
