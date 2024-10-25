@@ -1,5 +1,5 @@
 import React from 'react';
-import MainMenu from './components/main-menu/MainMenu';
+import Menu from './components/Menu/Menu';
 // import { Outlet } from "react-router-dom";
 // import Header from './components/header/Header';
 // import Footer from './components/footer/Footer';
@@ -7,7 +7,7 @@ import MainMenu from './components/main-menu/MainMenu';
 const App: React.FC = () => {
   return (
     <div className="app-container">
-      <MainMenu />
+      <Menu />
       {/* <Header />
       <main className="app-main"> 
         <div className='container'>
