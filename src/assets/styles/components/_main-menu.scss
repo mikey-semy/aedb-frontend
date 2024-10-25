@@ -17,46 +17,6 @@
     transition: width 0.3s ease-in-out;
 }
 
-.main-menu.main-menu--collapsed {
-    width: 50px;
-    
-    .main-logo {
-        width: 50px;
-        
-        &__link {
-            width: 50px;
-            padding: 0;
-        }
-        
-        &__text {
-            display: none;
-        }
-    }
-    
-    .main-nav {
-        &__items {
-            padding: 0 4px;
-        }
-        
-        &__item {
-            padding: 0 8px;
-        }
-        
-        &__link {
-            justify-content: center;
-            width: 100%;
-        }
-        
-        &__lable {
-            display: none;
-        }
-        
-        &__icon {
-            margin: 0;
-        }
-    }
-}
-
 .main-logo {
     display: flex;
     justify-content: center;
