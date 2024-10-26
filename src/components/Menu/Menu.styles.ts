@@ -14,6 +14,8 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
+    overscroll-behavior: contain; // Запрещаем нативный свайп
+    touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
 
     @media (max-width: 1024px) {
         transform: translateX(${props => props.isCollapsed ? '-100%' : '0'});
@@ -22,7 +24,7 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     }
 
     @media (max-width: 768px) {
-        width: 80%;
+        width: 50%;
     }
 
     @media (max-width: 480px) {

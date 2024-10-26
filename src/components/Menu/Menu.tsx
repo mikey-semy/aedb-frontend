@@ -12,11 +12,17 @@ const MainMenu: React.FC = () => {
     const [touchEnd, setTouchEnd] = useState(0);
 
     const handleTouchStart = (e: React.TouchEvent) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('a')) return;
+        e.preventDefault();
         setTouchStart(e.targetTouches[0].clientX);
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        setTouchEnd(e.targetTouches[0].clientX);
+        e.preventDefault();
+        if (touchStart !== null) {
+            setTouchEnd(e.targetTouches[0].clientX);
+        }
     };
 
     const handleTouchEnd = () => {
