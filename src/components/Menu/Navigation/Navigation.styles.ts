@@ -33,6 +33,9 @@ export const ItemLink = styled(Link)`
     display: flex;
     align-items: center;
     gap: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
 `;
 
 export const ItemIcon = styled.span`
@@ -46,6 +49,8 @@ export const ItemLabel = styled.span<{ isCollapsed: boolean }>`
     font-size: 16px;
     color: #474747;
     opacity: 1;
+    user-select: none;
+    -webkit-user-drag: none;
 
     ${props => props.isCollapsed &&`
         & > span {

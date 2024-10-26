@@ -14,5 +14,18 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
-    transition: width .3s ease-in-out;
+
+    @media (max-width: 1024px) {
+        transform: translateX(${props => props.isCollapsed ? '-100%' : '0'});
+        transition: transform 0.3s ease-in-out;
+        width: 300px;
+    }
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+
+    @media (max-width: 480px) {
+        width: 50%;
+    }
 `;

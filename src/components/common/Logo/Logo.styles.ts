@@ -16,6 +16,9 @@ export const LogoLink = styled(Link)`
     width: 214px;
     height: 59px;
     padding: 12px 24px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
 `;
 
 export const LogoText = styled.span<{ isCollapsed: boolean }>`
@@ -28,6 +31,7 @@ export const LogoText = styled.span<{ isCollapsed: boolean }>`
     color: #000;
     text-transform: uppercase;
     user-select: none;
+    -webkit-user-drag: none;
     letter-spacing: 1px;
     transition: all 0.3s ease-in-out;
     transform-origin: left top;
