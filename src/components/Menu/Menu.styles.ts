@@ -12,8 +12,10 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     left: 0;
     height: 100%;
     width: ${props => props.isCollapsed ? 
-        'var(--menu-collapsed-width)' : 'var(--menu-width-desktop)'};
-    transition: width var(--transition-default); 
+        'var(--menu-collapsed-width)' : 'var(--menu-width)'};
+
+    transform: translateX(0);
+    transition: all var(--transition-default);
     
     background: var(--menu-background);
     box-shadow: var(--box-shadow-default);
@@ -21,17 +23,7 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     overscroll-behavior: contain; // Запрещаем нативный свайп
     touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
 
-    @media (max-width: var(--desktop)) {
+    @media (max-width: 1024px) {
         transform: translateX(${props => props.isCollapsed ? '-100%' : '0'});
-        transition: var(--transition-default);
-        width: var(--menu-width-desktop);
-    }
-
-    @media (max-width: var(--tablet)) {
-        width: var(--menu-width-tablet);
-    }
-
-    @media (max-width: var(--mobile)) {
-        width: var(--menu-width-mobile);
     }
 `;

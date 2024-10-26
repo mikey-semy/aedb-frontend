@@ -10,10 +10,7 @@ export const Variables = createGlobalStyle`
     --menu-background: ${({ theme }) => theme.colors.menuBackground};
 
     // Sizes
-    --menu-width-desktop: 262px;
-    --menu-width-tablet: 50%;
-    --menu-width-mobile: 50%;
-  
+    --menu-width: 262px;
     --menu-collapsed-width: 50px;
 
     // Fonts
@@ -24,11 +21,5 @@ export const Variables = createGlobalStyle`
 
     // Transitions
     --transition-default: 0.3s ease-in-out;
-
-    // Breakpoints
-    --desktop: 1024px;
-    --tablet: 768px;
-    --mobile: 480px;
-
   }
 `;
