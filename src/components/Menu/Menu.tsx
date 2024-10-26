@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
-import Logo from '../common/Logo/Logo';
-import Navigation from './Navigation/Navigation';
-import { MenuContainer } from './Menu.styles';
-import { CollapseButton } from './Button/CollapseButton';
 import { MdChevronLeft } from 'react-icons/md';
-import { EdgeTrigger } from './Button/CollapseButton.styles';
+// import { BsSun, BsMoon } from "react-icons/bs";
+
+// import { useTheme } from '../../assets/styles';
+import { MenuContainer } from './Menu.styles';
+
+import Logo from '../common/Logo';
+import Navigation from './Navigation';
+import {
+    CollapseButton,
+    EdgeTrigger,
+    // ThemeButton
+} from './Buttons';
+
+
 
 const MainMenu: React.FC = () => {
+    // const { isDark, toggleTheme } = useTheme();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
@@ -36,7 +46,7 @@ const MainMenu: React.FC = () => {
 
     return (
         <>
-            <MenuContainer 
+            <MenuContainer
                 isCollapsed={isCollapsed}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -44,13 +54,18 @@ const MainMenu: React.FC = () => {
             >
                 <Logo isCollapsed={isCollapsed} />
                 <Navigation isCollapsed={isCollapsed} />
-                <CollapseButton 
+                {/* <ThemeButton
+                    onClick={toggleTheme}
+                    isCollapsed={isCollapsed}
+                    icon={isDark ? BsSun : BsMoon}
+                /> */}
+                <CollapseButton
                     onClick={() => setIsCollapsed(!isCollapsed)}
                     isCollapsed={isCollapsed}
-                    icon={ MdChevronLeft }
+                    icon={MdChevronLeft}
                 />
             </MenuContainer>
-            <EdgeTrigger 
+            <EdgeTrigger
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}

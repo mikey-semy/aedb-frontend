@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
+export const Global = createGlobalStyle`
     html, body {
         overscroll-behavior-x: none;
         touch-action: pan-y pinch-zoom;

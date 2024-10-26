@@ -1,4 +1,4 @@
-import { ButtonProps } from '../../common/Button/Button.props';
+import { ButtonProps } from '../../../common/Button/Button.props';
 
 export interface CollapseButtonProps extends ButtonProps {
     isCollapsed: boolean;

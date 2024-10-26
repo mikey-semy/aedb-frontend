@@ -1,16 +1,16 @@
-import { 
-    CollapseButtonContainer, 
-    CollapseButtonIcon 
+import {
+    CollapseButtonContainer,
+    CollapseButtonIcon
 } from './CollapseButton.styles';
-import { CollapseButtonProps } from "./CollapseButton.props";
+import { CollapseButtonProps } from "./CollapseButton.types";
 
-export const CollapseButton: React.FC<CollapseButtonProps> = ({ 
+export const CollapseButton: React.FC<CollapseButtonProps> = ({
     isCollapsed,
     icon: Icon,
-    ...props 
+    ...props
 }) => (
-    <CollapseButtonContainer 
-        isCollapsed={isCollapsed} 
+    <CollapseButtonContainer
+        isCollapsed={isCollapsed}
         {...props}
     >
         <CollapseButtonIcon isCollapsed={isCollapsed}>

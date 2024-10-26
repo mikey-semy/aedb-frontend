@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { 
-  createBrowserRouter, 
-  RouterProvider 
+import {
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom';
-import ErrorPage from './error-page.tsx';
-import App from './App.tsx';
+import ErrorPage from './pages/Error';
+import App from './App/App.tsx';
 import ESafety from './routes/ESafety.tsx';
 import Manuals from './routes/Manuals.tsx';
 
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
+
 ]);
 
 createRoot(document.getElementById('root')!).render(

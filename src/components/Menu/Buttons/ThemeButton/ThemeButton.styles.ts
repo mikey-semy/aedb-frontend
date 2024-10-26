@@ -1,18 +1,7 @@
 import styled from 'styled-components';
-import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../common/Button/Button.styles';
+import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../common/Button/Button.styles';
 
-export const EdgeTrigger = styled.div`
-    @media (max-width: 1024px) {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 100%;
-        z-index: 999;
-    }
-`;
-
-export const CollapseButtonContainer = styled(ButtonContainer)<{ isCollapsed: boolean }>`
+export const ThemeButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
     
 
     position: relative;
@@ -36,14 +25,12 @@ export const CollapseButtonContainer = styled(ButtonContainer)<{ isCollapsed: bo
     }
 `;
 
-export const CollapseButtonTitle = styled(ButtonTitle)<{ isCollapsed: boolean }>`
+export const ThemeButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }>`
     display: ${props => props.isCollapsed ? 'none' : 'block'};
 `;
 
-export const CollapseButtonIcon = styled(ButtonIcon)<{ isCollapsed: boolean }>`
-    font-size: 24px;
-    transform: ${props => props.isCollapsed ? 'rotate(180deg)' : 'none'};
-    transition: transform 0.3s ease;
+export const ThemeButtonIcon = styled(ButtonIcon)`
+    font-size: 26px;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
