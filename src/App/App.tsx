@@ -10,11 +10,11 @@ import {
 
 } from '../assets/styles';
 import { AppContainer } from './App.styles';
-
+import Header from '../components/_Header';
 import Menu from '../components/Menu';
 
 // import { Outlet } from "react-router-dom";
-// import Header from './components/header/Header';
+
 // import Footer from './components/footer/Footer';
 
 const AppContent: React.FC = () => {
@@ -26,8 +26,10 @@ const AppContent: React.FC = () => {
       <Variables />
       <Global />
       <AppContainer>
+        <Header />
         <Menu />
-        {/* <Header />
+
+        {/* 
           <main className="app-main"> 
             <div className='container'>
               <Outlet />

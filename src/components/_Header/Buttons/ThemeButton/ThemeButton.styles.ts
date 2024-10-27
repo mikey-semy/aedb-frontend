@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../common/Button/Button.styles';
 
-export const ThemeButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
+export const ThemeButtonContainer = styled(ButtonContainer)`
     margin-top: auto;
-    width: ${props => props.isCollapsed ? '40px' : '100%'};
+    width: '40px';
     text-align: center;
     transition: all var(--transition-default);
 `;
 
-export const ThemeButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }>`
-    display: ${props => props.isCollapsed ? 'none' : 'block'};
+export const ThemeButtonTitle = styled(ButtonTitle)`
+    display: 'none';
 `;
 
 export const ThemeButtonIcon = styled(ButtonIcon)`

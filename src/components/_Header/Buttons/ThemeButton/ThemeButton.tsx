@@ -5,12 +5,10 @@ import {
 import { ThemeButtonProps } from "./ThemeButton.types";
 
 export const ThemeButton: React.FC<ThemeButtonProps> = ({
-    isCollapsed,
     icon: Icon,
     ...props
 }) => (
     <ThemeButtonContainer
-        isCollapsed={isCollapsed}
         {...props}
     >
         <ThemeButtonIcon>
