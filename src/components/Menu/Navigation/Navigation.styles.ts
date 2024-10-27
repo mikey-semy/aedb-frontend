@@ -32,7 +32,6 @@ export const ItemLink = styled(NavLink)`
     gap: 10px;
     width: 100%;
     height: 100%;
-    
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
@@ -45,8 +44,8 @@ export const ItemLink = styled(NavLink)`
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--nav-active-bg, #F1EEFE);
-            border-radius: 5px;
+            background-color: var(--nav-link-active-bg, #F1EEFE);
+            border-radius: var(--border-radius-default, 5px);
             z-index: -1;
         }
         
@@ -61,12 +60,13 @@ export const ItemLink = styled(NavLink)`
     }
 
     &:hover {
-        /* opacity: var(--link-hover-opacity, 0.8); */
-        ${ItemLabel} {
-            color: var(--nav-label-hover-color, #000);
-        }
-        ${ItemIcon} {
-            color: var(--nav-icon-hover-color, #000);
+        @media (min-width: 1024px) {
+            ${ItemLabel} {
+                color: var(--nav-label-hover-color, #000);
+            }
+            ${ItemIcon} {
+                color: var(--nav-icon-hover-color, #000);
+            }
         }
     }
     
@@ -75,7 +75,9 @@ export const ItemLink = styled(NavLink)`
     }
     
     &:active {
-        transform: scale(0.98);
+        @media (min-width: 1024px) {
+            transform: scale(0.98);
+        }
     }
 `;
 
@@ -83,15 +85,17 @@ export const NavigationItem = styled.li<{ isCollapsed: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
-    padding: ${props => props.isCollapsed ? '4px' : '0 12px'};
+    padding: ${props => props.isCollapsed ? 
+        'var(--nav-item-collapsed-padding, 4px)' : 
+        'var(--nav-item-padding, 0 12px)'
+    };
     height: 60px;
-    transition: padding .3s ease-in-out;
+    transition: padding var(--transition-default);
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--border-radius-default, 5px);
 
-    // Изменение фона NavigationItem при наведении
     &:hover {
-        background-color: var(--nav-hover-bg, rgba(0,0,0,0.05));
+        background-color: var(--nav-item-hover-bg, rgba(0,0,0,0.05));
     }
 `;
 

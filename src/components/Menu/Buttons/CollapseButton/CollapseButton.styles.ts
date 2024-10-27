@@ -6,10 +6,9 @@ export const EdgeTrigger = styled.div`
         position: fixed;
         top: 0;
         left: 0;
-        width: 20px;
+        width: 10px;
         height: 100%;
-        z-index: 999;
-        pointer-events: none;
+        z-index: 998;
     }
 `;
 
@@ -32,11 +31,11 @@ export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: b
         top: 50%;
         left: 100%;
         transform: translateY(-50%);
-        width: 30px;
-        height: 60px;
-        background: white;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        border-radius: 0 5px 5px 0;
+        width: var(--nav-collapse-button-width, 30px);
+        height: var(--nav-collapse-button-height, 60px);
+        background: var(--menu-background);
+        box-shadow: var(--nav-collapse-button-box-shadow);
+        border-radius: var(--nav-collapse-button-border-radius);
         z-index: 1000; 
         pointer-events: all;
     }
@@ -47,11 +46,12 @@ export const CollapseButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }
 `;
 
 export const CollapseButtonIcon = styled(ButtonIcon) <{ isCollapsed: boolean }>`
-    font-size: 26px;
+    color: var(--nav-icon-color);
+    font-size: var(--nav-collapse-button-font-size, 26px);
     transform: ${props => props.isCollapsed ? 'rotate(180deg)' : 'none'};
     transition: transform var(--transition-default);
-    min-width: 26px;
-    min-height: 26px;
+    min-width: var(--nav-collapse-button-font-size, 26px);
+    min-height: var(--nav-collapse-button-font-size, 26px);
     display: flex;
     align-items: center;
     justify-content: center;

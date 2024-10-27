@@ -47,18 +47,18 @@ const MainMenu: React.FC = () => {
     return (
         <>
             <MenuContainer
-                isCollapsed={isCollapsed}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
+                isCollapsed={isCollapsed}
             >
                 <Logo isCollapsed={isCollapsed} />
                 <Navigation isCollapsed={isCollapsed} />
-                {/* <ThemeButton
-                    onClick={toggleTheme}
-                    isCollapsed={isCollapsed}
-                    icon={isDark ? BsSun : BsMoon}
-                /> */}
+            {/* <ThemeButton
+                onClick={toggleTheme}
+                isCollapsed={isCollapsed}
+                icon={isDark ? BsSun : BsMoon}
+            /> */}
                 <CollapseButton
                     onClick={() => setIsCollapsed(!isCollapsed)}
                     isCollapsed={isCollapsed}

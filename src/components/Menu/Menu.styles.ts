@@ -24,6 +24,6 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
 
     @media (max-width: 1024px) {
-        transform: translateX(${props => props.isCollapsed ? '-100%' : '0'});
+        transform: translateX(${props => props.isCollapsed ? '-80%' : '0'});
     }
 `;

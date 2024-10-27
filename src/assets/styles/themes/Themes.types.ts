@@ -14,6 +14,9 @@ export type ThemeType = {
         navIconActiveColor: string;
         navLabelHoverColor: string;
         navIconHoverColor: string;
+        navLinkActiveColor: string;
+        navLinkActiveColorBackground: string;
+        navItemHoverColorBackground: string;
     }
 }
 

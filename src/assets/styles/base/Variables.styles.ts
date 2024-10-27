@@ -15,7 +15,10 @@ export const Variables = createGlobalStyle`
     --nav-icon-active-color: ${({ theme }) => theme.colors.navIconActiveColor};
     --nav-label-hover-color: ${({ theme }) => theme.colors.navLabelHoverColor};
     --nav-icon-hover-color: ${({ theme }) => theme.colors.navIconHoverColor};
-
+    --nav-link-active-color: ${({ theme }) => theme.colors.navLinkActiveColor};
+    --nav-link-active-bg: ${({ theme }) => theme.colors.navLinkActiveColorBackground};
+    --nav-item-hover-hover-bg: ${({ theme }) => theme.colors.navItemHoverColorBackground};
+    
     // Sizes
     --menu-width: 262px;
     --menu-collapsed-width: 50px;
@@ -28,6 +31,11 @@ export const Variables = createGlobalStyle`
     --nav-icon-size: 20px;
     --nav-label-font-size: 16px;
     --nav-label-max-width: 200px;
+    --nav-item-collapsed-padding: 4px;
+    --nav-item-padding: 0 12px;
+    --nav-collapse-button-width: 30px;
+    --nav-collapse-button-height: 60px;
+    --nav-collapse-button-font-size: 26px;
 
     // Fonts
     --logo-font: 'Squada One', sans-serif;
@@ -40,7 +48,8 @@ export const Variables = createGlobalStyle`
 
     // Shadows
     --box-shadow-default: 0 0 0 1px #ccc;
-
+    --nav-collapse-button-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    
     // Transitions
     --transition-default: 0.3s ease-in-out;
 
@@ -48,8 +57,7 @@ export const Variables = createGlobalStyle`
     --logo-translate-x: -50px;
     --logo-translate-y: 10px;
     --link-hover-opacity: 0.8;
-    --nav-hover-bg: rgba(0,0,0,0.05);
-    --nav-active-bg: #F1EEFE;
-    --nav-active-color: #7839CD;
+    --border-radius-default: 5px;
+    --nav-collapse-button-border-radius: 0 5px 5px 0;
   }
 `;
