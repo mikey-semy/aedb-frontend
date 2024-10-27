@@ -7,6 +7,13 @@ export type ThemeType = {
         accent: string;
         background: string;
         menuBackground: string;
+        logoColor: string;
+        navLabelColor: string;
+        navIconColor: string;
+        navLabelActiveColor: string;
+        navIconActiveColor: string;
+        navLabelHoverColor: string;
+        navIconHoverColor: string;
     }
 }
 

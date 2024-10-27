@@ -5,7 +5,7 @@ export const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 83px;
+    height: var(--logo-container-height, 83px);
     width: 100%;
 `;
 export const LogoLink = styled(Link) <{ isCollapsed: boolean }>`
@@ -13,9 +13,9 @@ export const LogoLink = styled(Link) <{ isCollapsed: boolean }>`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    width: 214px;
-    height: 59px;
-    padding: ${props => props.isCollapsed ? 0 : '12px 24px'};
+    width: var(--logo-width, 214px);
+    height: var(--logo-height, 59px);
+    padding: ${props => props.isCollapsed ? 0 : 'var(--logo-padding, 12px 24px)'};
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
@@ -25,18 +25,21 @@ export const LogoText = styled.span<{ isCollapsed: boolean }>`
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    font-family: 'Squada One', sans-serif;
-    font-size: ${props => props.isCollapsed ? '24px' : '58px'};
-    font-weight: 600;
-    color: #000;
+    font-family: var(--logo-font, 'Squada One');
+    font-size: ${props => props.isCollapsed ?   
+        'var(--logo-font-size-small, 24px)' : 
+        'var(--logo-font-size-large, 58px)'
+    };
+    font-weight: var(--logo-font-weight, 600);
+    color: var(--logo-color);
     text-transform: uppercase;
     user-select: none;
     -webkit-user-drag: none;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
+    letter-spacing: var(--logo-letter-spacing, 1px);
+    transition: all var(--transition-default);
     transform-origin: left top;
     transform: ${props => props.isCollapsed ?
-        'rotate(-90deg) translateX(-50px) translateY(10px)'
+        'rotate(-90deg) translateX(var(--logo-translate-x, -50px)) translateY(var(--logo-translate-y, 10px))'
         : 'rotate(0)'};
     white-space: nowrap;
 `;
