@@ -1,5 +1,7 @@
-export * from './categories';
-export * from './groups';
-export * from './manuals';
-export * from './users';
+import api from './api';
+export default api;
+export {
+    handleApiError,
+    handleApiResponse
+ } from '../utils/apiUtils';
 

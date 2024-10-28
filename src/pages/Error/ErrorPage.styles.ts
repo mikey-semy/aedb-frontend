@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ErrorContainer = styled.div`
+export const ErrorPageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,16 +9,16 @@ export const ErrorContainer = styled.div`
     text-align: center;
 `;
 
-export const ErrorTitle = styled.h1`
+export const ErrorPageTitle = styled.h1`
     font-size: 48px;
     margin-bottom: 20px;
 `;
 
-export const ErrorText = styled.p`
+export const ErrorPageText = styled.p`
     font-size: 24px;
     margin-bottom: 16px;
 `;
 
-export const ErrorMessage = styled.i`
+export const ErrorPageMessage = styled.i`
     color: var(--accent-color);
 `;

@@ -6,13 +6,8 @@ import {
 } from 'react-router-dom';
 import ErrorPage from './pages/Error';
 import App from './App/App.tsx';
-import ESafety from './routes/ESafety.tsx';
-import Manuals from './routes/Manuals.tsx';
-
-
-import './assets/scss/main.scss';
-
-
+import ESafety from './pages/ESafety/ESafetyPage.tsx';
+import Manuals from './pages/Manuals/ManualsPage.tsx';
 
 const router = createBrowserRouter([
   {

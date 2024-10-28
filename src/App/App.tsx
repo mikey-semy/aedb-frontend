@@ -1,16 +1,15 @@
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+export { ThemeProvider, useTheme } from '../contexts';
 import {
-  Reset,
+  ResetStyles,
   Variables,
-  Global,
-  lightTheme,
-  darkTheme,
-  ThemeProvider, useTheme
-
-} from '../assets/styles';
+  GlobalStyles,
+  LightTheme,
+  DarkTheme,
+} from '../styles';
 import { AppContainer } from './App.styles';
-import Header from '../components/_Header';
+import Header from '../components/Header';
 import Menu from '../components/Menu';
 
 // import { Outlet } from "react-router-dom";
@@ -21,10 +20,10 @@ const AppContent: React.FC = () => {
   const { isDark } = useTheme();
 
   return (
-    <StyledThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <Reset />
+    <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
+      <ResetStyles />
       <Variables />
-      <Global />
+      <GlobalStyles />
       <AppContainer>
         <Header />
         <Menu />
