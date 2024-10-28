@@ -1,40 +1,23 @@
 import React from 'react';
+import { Outlet } from "react-router-dom";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-export { ThemeProvider, useTheme } from '../contexts';
-import {
-  ResetStyles,
-  Variables,
-  GlobalStyles,
-  LightTheme,
-  DarkTheme,
-} from '../styles';
+import { ThemeProvider, useTheme } from '../contexts';
+import { Header, Menu } from '../components';
+import { ResetStyles, Variables, GlobalStyles, TypographyStyles, LightTheme, DarkTheme } from '../styles';
 import { AppContainer } from './App.styles';
-import Header from '../components/Header';
-import Menu from '../components/Menu';
-
-// import { Outlet } from "react-router-dom";
-
-// import Footer from './components/footer/Footer';
 
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
-
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
       <ResetStyles />
       <Variables />
       <GlobalStyles />
+      <TypographyStyles />
       <AppContainer>
         <Header />
         <Menu />
-
-        {/* 
-          <main className="app-main"> 
-            <div className='container'>
-              <Outlet />
-            </div>
-          </main>
-          <Footer /> */}
+        <Outlet />
       </AppContainer>
     </StyledThemeProvider>
   );
