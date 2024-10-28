@@ -29,6 +29,10 @@ export const Reset = createGlobalStyle`
         list-style: none;
     }
 
+    a {
+        text-decoration: none;
+    }
+    
     blockquote, q{
         quotes: none;
     }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalWrapper from '../../common/modal/ModalWrapper';
 import Button from '../../common/form/Button';
-import FormAuthUser from '../forms/FormAuthUser';
+import FormAuthUser from '../Forms/AuthUserForm';
 import { authUser as apiAuthUser } from '../../../api';
 import { User } from '../../../types/users/users';
 

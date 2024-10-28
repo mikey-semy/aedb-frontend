@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FormAction from '../../common/form/Action';
-import { NewUser } from '../../../types/users/users';
+import { NewUser } from '../Auth.types';
 
 interface FormNewUserProps {
     onSubmit: (new_user: NewUser) => void;

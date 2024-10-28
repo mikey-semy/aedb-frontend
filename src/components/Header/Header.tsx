@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsSun, BsMoon } from "react-icons/bs";
-import { useTheme } from '../../styles';
+import { useTheme } from '../../contexts';
 import { HeaderContainer } from './Header.styles';
 import {
     ThemeButton

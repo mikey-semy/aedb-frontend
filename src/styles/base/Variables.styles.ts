@@ -36,7 +36,7 @@ export const Variables = createGlobalStyle`
     --nav-collapse-button-width: 30px;
     --nav-collapse-button-height: 60px;
     --nav-collapse-button-font-size: 26px;
-
+   
     // Fonts
     --logo-font: 'Squada One', sans-serif;
     --nav-label-font: 'Inter', sans-serif;
