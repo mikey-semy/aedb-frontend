@@ -23,8 +23,8 @@ export const Variables = createGlobalStyle`
     --menu-width: 262px;
     --menu-collapsed-width: 50px;
     --logo-container-height: 83px;
-    --logo-width: 214px;
-    --logo-height: 59px;
+    --logo-width: 50px;
+    --logo-height: 80px;
     --logo-padding: 12px 24px;
     --logo-font-size-small: 24px;
     --logo-font-size-large: 58px;
@@ -36,16 +36,15 @@ export const Variables = createGlobalStyle`
     --nav-collapse-button-width: 30px;
     --nav-collapse-button-height: 60px;
     --nav-collapse-button-font-size: 26px;
-   
+
     // Fonts
     --logo-font: 'Squada One', sans-serif;
     --nav-label-font: 'Inter', sans-serif;
 
     // Font params
-    --logo-font-weight: 400;
+    --logo-font-weight: 600;
     --logo-letter-spacing: 1px;
-    --nav-label-font-weight: 400;
-    --nav-label-font-weight: 400;
+    --nav-label-font-weight: 600;
 
     // Shadows
     --box-shadow-default: 0 0 0 1px #ccc;

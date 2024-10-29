@@ -30,7 +30,7 @@ export const LogoText = styled.span<{ isCollapsed: boolean }>`
         'var(--logo-font-size-small, 24px)' : 
         'var(--logo-font-size-large, 58px)'
     };
-    font-weight: var(--logo-font-weight, 400);
+    font-weight: var(--logo-font-weight, 600);
     color: var(--logo-color);
     text-transform: uppercase;
     user-select: none;

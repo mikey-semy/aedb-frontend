@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const AppContainer = styled.div`
     overscroll-behavior-x: none;
     touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
-
+/* 
 //! Ниже нужно отредактировать
     #root {
     width: 100%;
@@ -28,5 +28,5 @@ export const AppContainer = styled.div`
     background-color: #fff; // Цвет фона для содержимого
     border-radius: 8px; // Скругление углов
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Тень для эффекта поднятости
-  }
+  } */
 `;

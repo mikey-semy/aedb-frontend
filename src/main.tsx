@@ -7,7 +7,7 @@ import {
 import ErrorPage from './pages/Error';
 import App from './App/App.tsx';
 import ESafety from './pages/ESafety/ESafetyPage.tsx';
-import Manuals from './pages/Manuals/ManualsPage.tsx';
+// import Manuals from './pages/Manuals/ManualsPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -15,18 +15,18 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
-        element: <Manuals />
-      },
+      // {
+      //   path: "/",
+      //   element: <Manuals />
+      // },
       {
         path: "/esafety",
         element: <ESafety />
       },
-      {
-        path: "/manuals",
-        element: <Manuals />
-      },
+      // {
+      //   path: "/manuals",
+      //   element: <Manuals />
+      // },
     ],
   },
 

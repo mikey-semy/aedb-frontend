@@ -3,7 +3,7 @@ import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeProvider, useTheme } from '../contexts';
 import { Header, Menu } from '../components';
-import { GlobalStyles, ResetStyles, TypographyStyles, Variables, LightTheme, DarkTheme } from '../styles';
+import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '../styles';
 import { AppContainer } from './App.styles';
 
 const AppContent: React.FC = () => {
@@ -12,7 +12,6 @@ const AppContent: React.FC = () => {
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
       <GlobalStyles />
       <ResetStyles />
-      <TypographyStyles />
       <Variables />
       <AppContainer>
         <Header />
