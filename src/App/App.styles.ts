@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const AppContainer = styled.div`
     overscroll-behavior-x: none;
     touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
-/* 
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 800px;
+    /* 
 //! Ниже нужно отредактировать
     #root {
     width: 100%;

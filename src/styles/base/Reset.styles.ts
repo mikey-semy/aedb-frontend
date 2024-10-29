@@ -10,7 +10,7 @@ export const Reset = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 100%;
-        /* font: inherit; */
+        font: inherit;
         vertical-align: baseline;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -48,6 +48,7 @@ export const Reset = createGlobalStyle`
     }
 
     input{
+        appearance: none;
         -webkit-appearance: none;
         border-radius: 0;
     }

@@ -6,7 +6,7 @@ export const MenuContainer = styled.div<{ isCollapsed: boolean }>`
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
-    
+    margin-right: ${props => props.isCollapsed ? 'calc(100% - 50px - 24px)' : 'calc(100% - 262px - 24px)'};
     position: fixed;
     top: 0;
     left: 0;

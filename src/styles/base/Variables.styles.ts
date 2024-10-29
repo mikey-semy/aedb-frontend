@@ -18,8 +18,10 @@ export const Variables = createGlobalStyle`
     --nav-link-active-color: ${({ theme }) => theme.colors.navLinkActiveColor};
     --nav-link-active-bg: ${({ theme }) => theme.colors.navLinkActiveColorBackground};
     --nav-item-hover-hover-bg: ${({ theme }) => theme.colors.navItemHoverColorBackground};
-    
+    --content-background: #FFFFFF;
+
     // Sizes
+    --header-height: 80px;
     --menu-width: 262px;
     --menu-collapsed-width: 50px;
     --logo-container-height: 83px;
