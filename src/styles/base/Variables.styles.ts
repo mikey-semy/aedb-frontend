@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Variables = createGlobalStyle`
   :root {
+    
     // Colors
     --primary-color: ${({ theme }) => theme.colors.primary};
     --secondary-color: ${({ theme }) => theme.colors.secondary};
@@ -42,10 +43,9 @@ export const Variables = createGlobalStyle`
     --nav-label-font: 'Inter', sans-serif;
 
     // Font params
-    --logo-font-weight: 400;
+    --logo-font-weight: 600;
     --logo-letter-spacing: 1px;
-    --nav-label-font-weight: 400;
-    --nav-label-font-weight: 400;
+    --nav-label-font-weight: 600;
 
     // Shadows
     --box-shadow-default: 0 0 0 1px #ccc;
