@@ -42,9 +42,10 @@ export const Variables = createGlobalStyle`
     --nav-label-font: 'Inter', sans-serif;
 
     // Font params
-    --logo-font-weight: 600;
+    --logo-font-weight: 400;
     --logo-letter-spacing: 1px;
-    --nav-label-font-weight: 600;
+    --nav-label-font-weight: 400;
+    --nav-label-font-weight: 400;
 
     // Shadows
     --box-shadow-default: 0 0 0 1px #ccc;

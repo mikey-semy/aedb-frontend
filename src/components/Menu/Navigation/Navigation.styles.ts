@@ -9,7 +9,7 @@ export const ItemIcon = styled.span`
 export const ItemLabel = styled.span<{ isCollapsed: boolean }>`
     display: block;
     font-family: var(--nav-label-font, 'Inter');
-    font-weight: var(--nav-label-font-weight, 600);
+    font-weight: var(--nav-label-font-weight, 400);
     font-size: var(--nav-label-font-size, 16px);
     color: var(--nav-label-color, #474747);
     opacity: 1;
