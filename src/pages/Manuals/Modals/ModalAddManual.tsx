@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/modal/ModalWrapper';
-import Button from '../../common/form/Button';
-import FormAddManual from '../forms/FormAddManual';
+import ModalWrapper from '../../../components/Common/Modal/ModalWrapper';
+import Button from '../../../components/Common/Form/Button';
+import FormAddManual from '../Forms/FormAddManual';
 
-import { addManual } from '../../../api';
-import { Manual } from '../../../types/manuals/manual'
+import { addManual } from '../Manuals/Manual.api';
+import { ManualTypes } from '../Manuals/Manual.types'
 
 interface ModalAddManualProps {
   onSuccess: () => void;
@@ -24,7 +24,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
   const handleCancel = () => {
     closeModal();
   };
-  const handleSubmit = async (manual: Manual) => {
+  const handleSubmit = async (manual: ManualTypes) => {
 
     try {
       await addManual(manual);

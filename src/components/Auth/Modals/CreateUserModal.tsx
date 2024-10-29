@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/modal/ModalWrapper';
-import Button from '../../common/form/Button';
+
 import FormCreateUser from '../Forms/CreateUserForm';
-import { createUser as apiCreateUser } from '../../../api';
-import { NewUser } from '../../../types/users/users';
+
+import ModalWrapper from '../../Common/Modal/ModalWrapper';
+import Button from '../../Common/Button/Button';
+
+import { createUser as apiCreateUser } from '../Auth.api';
+import { NewUser } from '../Auth.types';
 
 interface ModalCreateUserProps {
   onSuccess: () => void;
@@ -40,8 +43,7 @@ const ModalCreateUser: React.FC<ModalCreateUserProps> = ({ onSuccess }) => {
   return (
     <>
       <Button
-        onClick={openModal} 
-        className="button__icon button__icon-create-user"
+        onClick={openModal}
       />
       <ModalWrapper
         isOpen={isModalOpen}

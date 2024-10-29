@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Select from '../../../common/form/Select';
-import { Category } from '../../../../types/categories/category';
+import Select from '../../../../components/Common/Form/Select';
+import { CategoryTypes } from '../../Categories/Category.types';
   
   interface SelectCategoryProps {
-    categories: Category[];
+    categories: CategoryTypes[];
     value: number | null;
     onChange: (value: number | null) => void;
   }
 
 const SelectCategory: React.FC<SelectCategoryProps> = ({ categories, value, onChange }) => {
   const [error, setError] = useState<string | null>(null);
-  const options = categories.map(cat => ({ value: cat.id.toString(), label: cat.name }))
+  const options = categories.map(cat => ({ value: cat.id?.toString() ?? '', label: cat.name }))
   
   const handleChange = (selectedValue: number | null) => {
     if (selectedValue === null) {

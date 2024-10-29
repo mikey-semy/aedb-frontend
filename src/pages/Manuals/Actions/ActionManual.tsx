@@ -1,10 +1,12 @@
 import React from 'react';
-import ModalUpdateManual from '../modals/ModalUpdateManual';
-import ModalRemoveManual from '../modals/ModalRemoveManual';
-import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
+import ModalUpdateManual from '../Modals/ModalUpdateManual';
+import ModalRemoveManual from '../Modals/ModalRemoveManual';
+import { ManualTypes } from '../Manuals/Manual.types';
+import { CategoryTypes } from '../Categories/Category.types';
+
 interface ActionManualsProps {
-  category: CategoryItem;
-  manual: ManualItem;
+  category: CategoryTypes;
+  manual: ManualTypes;
   onUpdate: () => void;
 }
 const ActionManuals: React.FC<ActionManualsProps> = ({ category, manual, onUpdate }) => {
@@ -21,7 +23,8 @@ const ActionManuals: React.FC<ActionManualsProps> = ({ category, manual, onUpdat
     return ( 
       <div className='manual__action'>
         <ModalUpdateManual category={category} manual={manual} onSuccess={handleUpdateItems} />
-        <ModalRemoveManual manualId={manual.id} onSuccess={handleUpdateItems} />
+        //! Временный костыль с ?? 0 - из-за объединения типа ManualTypes с ...Nested...
+        <ModalRemoveManual manualId={manual.id ?? 0} onSuccess={handleUpdateItems} /> 
       </div>
     );
 };

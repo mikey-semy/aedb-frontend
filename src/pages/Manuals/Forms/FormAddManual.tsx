@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import FormAction from '../../common/form/Action';
-import SelectCategory from './selects/SelectCategory';
-import SelectGroup from './selects/SelectGroup';
-import { getCategories, getGroupsByCategory } from '../../../api';
-import { Manual } from '../../../types/manuals/manual';
-import { Group } from '../../../types/groups/group';
-import { Category } from '../../../types/categories/category';
+
+import FormAction from '../../../components/Common/Form/Action';
+import SelectCategory from './Selects/SelectCategory';
+import SelectGroup from './Selects/SelectGroup';
+
+import { getCategories } from '../Categories/Category.api';
+import { getGroupsByCategory } from '../Groups/Group.api';
+
+import { ManualTypes } from '../Manuals/Manual.types';
+import { GroupTypes } from '../Groups/Group.types';
+import { CategoryTypes } from '../Categories/Category.types';
+
 interface FormAddManualProps {
-  onSubmit: (manual: Manual) => void;
+  onSubmit: (manual: ManualTypes) => void;
   onCancel: () => void;
 }
+
 const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => {
   const [error, setError] = useState<string | null>(null);
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<CategoryTypes[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-  const [groups, setGroups] = useState<Group[]>([])
+  const [groups, setGroups] = useState<GroupTypes[]>([])
   const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
   const [manual, setManual] = useState({
         title: '',

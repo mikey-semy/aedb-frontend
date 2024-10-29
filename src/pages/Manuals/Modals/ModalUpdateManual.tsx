@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../common/modal/ModalWrapper';
-import Button from '../../common/form/Button';
-import FormUpdateManual from '../forms/FormUpdateManual';
-import { updateManual } from '../../../api';
-import { CategoryItem, ManualItem } from '../../../types/manuals/nestedManuals';
+import ModalWrapper from '../../../components/Common/Modal/ModalWrapper';
+import Button from '../../../components/Common/Form/Button';
+import FormUpdateManual from '../Forms/FormUpdateManual';
+import { updateManual } from '../Manuals/Manual.api';
+import { CategoryTypes } from '../Categories/Category.types';
+import { ManualTypes } from '../Manuals/Manual.types';
 
 interface ModalUpdateManualProps {
-  manual: ManualItem;
-  category: CategoryItem;
+  manual: ManualTypes;
+  category: CategoryTypes;
   onSuccess: () => void;
 }
 
@@ -26,7 +27,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ category, manual,
     closeModal();
   };
 
-  const handleSubmit = async (updatedManual: ManualItem) => {
+  const handleSubmit = async (updatedManual: ManualTypes) => {
     try {
       await updateManual(updatedManual);
       closeModal();

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../common/Button/Button.styles';
+import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button/Button.styles';
 
 export const EdgeTrigger = styled.div`
     @media (max-width: 1024px) {

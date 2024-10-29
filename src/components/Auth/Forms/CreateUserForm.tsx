@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import FormAction from '../../common/form/Action';
+
+import FormAction from '../../Common/Form/Action';
+
 import { NewUser } from '../Auth.types';
 
 interface FormNewUserProps {

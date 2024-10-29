@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import ToolbarManuals from './Actions/ToolbarManual';
 import ActionManual from './Actions/ActionManual';
-import { getManuals } from '../../api';
+import { getManuals } from './ManualsPage.api';
 // import { manualsApi } from '../../api';
-import { CategoryItem, GroupItem, ManualItem } from '../../types/manuals/nestedManuals';
+import { CategoryTypes } from './Categories/Category.types';
+import { GroupTypes } from './Groups/Group.types';
+import { ManualTypes } from './Manuals/Manual.types';
 const ContentManual: React.FC = () => {
 
-  const [categoriesItems, setCategoryItems] = useState<CategoryItem[]>([]);
+  const [categoriesItems, setCategoryItems] = useState<CategoryTypes[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,21 +20,22 @@ const ContentManual: React.FC = () => {
     const data = await getManuals();
      
      setCategoryItems(
-       data.map((category: CategoryItem) => ({
-         id: category.id,
-         name: category.name,
-         logo_url: category.logo_url ?? '',
-         groups: category.groups.map((group: GroupItem) => ({
-           id: group.id,
-           name: group.name,
-           manuals: group.manuals.map((manual: ManualItem) => ({
-             id: manual.id,
-             title: manual.title,
-             file_url: manual.file_url,
-             group_id: group.id,
-           })),
-         })),
-       }))
+      data.map((category: CategoryTypes) => ({
+        id: category.id,
+        name: category.name,
+        logo_url: category.logo_url ?? '',
+        groups: category.groups.map((group: GroupTypes) => ({
+          id: group.id,
+          name: group.name,
+          manuals: group.manuals.map((manual: ManualTypes) => ({
+            id: manual.id,
+            title: manual.title,
+            file_url: manual.file_url,
+            group_id: group.id ?? 0,
+            category_id: manual.category_id,
+          })),
+        })),
+      }))
      );
     //  setCategoryItems(data);
 

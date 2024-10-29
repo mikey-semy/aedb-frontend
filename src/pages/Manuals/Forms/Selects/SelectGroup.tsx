@@ -1,16 +1,16 @@
 import React, { useState }  from 'react';
-import Select from '../../../common/form/Select';
-import { Group } from '../../../../types/groups/group';
+import Select from '../../../../components/Common/Form/Select';
+import { GroupTypes } from '../../Groups/Group.types';
 
 interface SelectGroupProps {
-    groups: Group[];
+    groups: GroupTypes[];
     value: number | null;
     onChange: (value: number | null) => void;
   }
 
 const SelectGroup: React.FC<SelectGroupProps> = ({ groups, value, onChange }) => {
   const [error, setError] = useState<string | null>(null);
-  const options = groups.map(group => ({ value: group.id.toString(), label: group.name }));
+  const options = groups.map(group => ({ value: group.id?.toString() ?? '', label: group.name }));
   
   const handleChange = (selectedValue: number | null) => {
     if (selectedValue === null) {

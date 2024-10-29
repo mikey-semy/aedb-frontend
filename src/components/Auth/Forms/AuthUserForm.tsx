@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import FormAction from '../../common/form/Action';
+
+import FormAction from '../../Common/Form/Action';
+
 import { User } from '../Auth.types';
+
 interface FormAuthUserProps {
     onSubmit: (auth_user: User) => void;
     onCancel: () => void;

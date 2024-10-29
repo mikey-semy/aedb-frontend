@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalAddManual from '../modals/ModalAddManual';
+import ModalAddManual from '../Modals/ModalAddManual';
 
 interface ToolbarManualsProps {
   onUpdate: () => void;

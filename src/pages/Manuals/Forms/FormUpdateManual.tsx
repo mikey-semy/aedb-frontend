@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import FormAction from '../../common/form/Action';
-import SelectCategory from './selects/SelectCategory';
-import SelectGroup from './selects/SelectGroup';
-import { CategoryItem, GroupItem, ManualItem } from '../../../types/manuals/nestedManuals';
-import { getCategories, getGroupsByCategory } from '../../../api';
+
+import FormAction from '../../../components/Common/Form/Action';
+
+import SelectCategory from './Selects/SelectCategory';
+import SelectGroup from './Selects/SelectGroup';
+
+import { CategoryTypes } from '../Categories/Category.types';
+import { GroupTypes } from '../Groups/Group.types';
+import { ManualTypes } from '../Manuals/Manual.types';
+
+import { getCategories } from '../Categories/Category.api';
+import { getGroupsByCategory } from '../Groups/Group.api';
 
 interface FormUpdateManualProps {
-  initialValuesCategory: CategoryItem;
-  initialValuesManual: ManualItem;
-  onSubmit: (manual: ManualItem) => void;
+  initialValuesCategory: CategoryTypes;
+  initialValuesManual: ManualTypes;
+  onSubmit: (manual: ManualTypes) => void;
   onCancel: () => void;
 }
 
 const FormUpdateManual: React.FC<FormUpdateManualProps> = ({ initialValuesCategory, initialValuesManual, onSubmit, onCancel }) => {
   const [error, setError] = useState<string | null>(null);
-  const [manual, setManual] = useState<ManualItem>(initialValuesManual);
+  const [manual, setManual] = useState<ManualTypes>(initialValuesManual);
   const [selectedGroup, setSelectedGroup] = useState<number | null>(initialValuesManual.group_id);
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(initialValuesCategory.id);
-  const [categories, setCategories] = useState<CategoryItem[]>([initialValuesCategory])
-  const [groups, setGroups] = useState<GroupItem[]>(initialValuesCategory.groups)
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(initialValuesCategory.id ?? 0);
+  const [categories, setCategories] = useState<CategoryTypes[]>([initialValuesCategory])
+  const [groups, setGroups] = useState<GroupTypes[]>(initialValuesCategory.groups)
 
   useEffect(() => {
     getCategories()

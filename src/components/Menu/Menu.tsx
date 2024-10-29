@@ -5,7 +5,7 @@ import { MdChevronLeft } from 'react-icons/md';
 // import { useTheme } from '../../assets/styles';
 import { MenuContainer } from './Menu.styles';
 
-import Logo from '../common/Logo';
+import Logo from '../Common/Logo';
 import Navigation from './Navigation';
 import {
     CollapseButton,
