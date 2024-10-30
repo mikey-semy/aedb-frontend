@@ -6,6 +6,7 @@ import {
 import { AddButtonTypes } from "./AddButton.types";
 
 export const AddButton: React.FC<AddButtonTypes> = ({
+    onClick,
     icon: Icon,
     title: string,
     ...props
@@ -16,7 +17,6 @@ export const AddButton: React.FC<AddButtonTypes> = ({
         <AddButtonTitle>{string}</AddButtonTitle>
         <AddButtonIcon>
             {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)} 
-            
         </AddButtonIcon>
     </AddButtonContainer>
 );

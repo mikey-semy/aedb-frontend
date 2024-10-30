@@ -1,7 +1,6 @@
-export interface ContentHeaderContainerProps {
-    contentData: {
-        caption: string;
-        buttonTitle: string;
-    }
-  }
-  
+// ContentHeader.types.ts
+import { ContentContextTypes } from '../../../contexts/Content/ContentContext.types';
+
+export interface ContentHeaderContainerTypes {
+    contentData: ContentContextTypes['contentData']; // Указываем только contentData
+}

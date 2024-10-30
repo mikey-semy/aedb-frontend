@@ -1,9 +1,9 @@
 import React from 'react';
 import { ContentHeaderContainer, ContentCaptionContainer, ContentActionContainer, ContentCaption } from './ContentHeader.styles';
-import { ContentHeaderContainerProps } from './ContentHeader.types';
+import { ContentHeaderContainerTypes } from './ContentHeader.types';
 import { AddButton } from './Buttons/AddButton/AddButton';
-import { MdAdd } from 'react-icons/md';
-const ContentHeader: React.FC<ContentHeaderContainerProps> = ({ contentData }) => {
+
+const ContentHeader: React.FC<ContentHeaderContainerTypes> = ({ contentData }) => {
   return (
     <ContentHeaderContainer>
         <ContentCaptionContainer>
@@ -11,9 +11,9 @@ const ContentHeader: React.FC<ContentHeaderContainerProps> = ({ contentData }) =
         </ContentCaptionContainer>
         <ContentActionContainer>
             <AddButton
-                onClick={() => console.log('Добавить вопрос')}
-                icon={MdAdd}
-                title={contentData.buttonTitle}
+                onClick={contentData.onClick}
+                icon={contentData.icon}
+                title={contentData.title}
                 />
         </ContentActionContainer>
     </ContentHeaderContainer>

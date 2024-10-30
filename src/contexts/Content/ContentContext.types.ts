@@ -1,10 +1,11 @@
-export interface ContentContextType {
+import { IconType } from 'react-icons';
+
+export interface ContentContextTypes {
     contentData: {
-        caption: string;
-        buttonTitle: string;
+        caption?: string;
+        title?: string;
+        icon?: IconType;
+        onClick?: () => void;
     };
-    setContentData: React.Dispatch<React.SetStateAction<{ 
-        caption: string; 
-        buttonTitle: string;
-    }>>;
+    setContentData: React.Dispatch<React.SetStateAction<ContentContextTypes>>;
 }

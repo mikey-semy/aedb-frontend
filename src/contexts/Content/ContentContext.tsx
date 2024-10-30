@@ -1,9 +1,10 @@
 import { createContext, useContext, useState } from 'react';
-import { ContentContextType } from './ContentContext.types';
+import { ContentContextTypes } from './ContentContext.types';
 
-const ContentDataContext = createContext<ContentContextType>({} as ContentContextType);
+const ContentDataContext = createContext<ContentContextTypes>({} as ContentContextTypes);
+
 export const ContentDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [contentData, setContentData] = useState({ caption: 'Заголовок контента' });
+    const [contentData, setContentData] = useState<ContentContextTypes>({});
 
     return (
         <ContentDataContext.Provider value={{ contentData, setContentData }}>
@@ -12,4 +13,10 @@ export const ContentDataProvider: React.FC<{ children: React.ReactNode }> = ({ c
     );
 };
 
-export const useContentData = () => useContext(ContentDataContext);
+export const useContentData = () => {
+    const context = useContext(ContentDataContext);
+    if (!context) {
+        throw new Error('useContentData must be used within a ContentDataProvider');
+    }
+    return context;
+};
