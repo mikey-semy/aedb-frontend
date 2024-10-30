@@ -3,7 +3,7 @@ import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button
 
 export const EdgeTrigger = styled.div`
     @media (max-width: 1024px) {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 10px;
@@ -33,7 +33,7 @@ export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: b
         transform: translateY(-50%);
         width: var(--nav-collapse-button-width, 30px);
         height: var(--nav-collapse-button-height, 60px);
-        background: var(--menu-background);
+        background: var(--sidebar-background);
         box-shadow: var(--nav-collapse-button-box-shadow);
         border-radius: var(--nav-collapse-button-border-radius);
         z-index: 1000; 

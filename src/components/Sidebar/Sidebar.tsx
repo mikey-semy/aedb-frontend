@@ -3,7 +3,7 @@ import { MdChevronLeft } from 'react-icons/md';
 // import { BsSun, BsMoon } from "react-icons/bs";
 
 // import { useTheme } from '../../assets/styles';
-import { MenuContainer } from './Menu.styles';
+import { SidebarContainer } from './Sidebar.styles';
 
 import Logo from '../Common/Logo';
 import Navigation from './Navigation';
@@ -15,7 +15,7 @@ import {
 
 
 
-const MainMenu: React.FC = () => {
+const Sidebar: React.FC = () => {
     // const { isDark, toggleTheme } = useTheme();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [touchStart, setTouchStart] = useState(0);
@@ -46,7 +46,7 @@ const MainMenu: React.FC = () => {
 
     return (
         <>
-            <MenuContainer
+            <SidebarContainer
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -64,7 +64,7 @@ const MainMenu: React.FC = () => {
                     isCollapsed={isCollapsed}
                     icon={MdChevronLeft}
                 />
-            </MenuContainer>
+            </SidebarContainer>
             <EdgeTrigger
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -73,4 +73,4 @@ const MainMenu: React.FC = () => {
         </>
     )
 }
-export default MainMenu;
+export default Sidebar;

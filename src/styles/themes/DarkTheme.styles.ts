@@ -1,3 +1,4 @@
+import { Content } from "../../components";
 
 
 export const darkTheme = {
@@ -6,7 +7,7 @@ export const darkTheme = {
         secondary: '#FFFFFF', // Белый для фона
         accent: '#9B6BE3', // Оставим акцентный цвет
         background: '#1A1A1A', // Темный фон
-        menuBackground: '#2A2A2A', // Темный фон для меню
+        sidebarBackground: '#2A2A2A', // Темный фон для меню
         logoColor: '#FFFFFF', // Белый для логотипа
         navLabelColor: '#FFFFFF', // Белый для меток навигации
         navIconColor: '#FFFFFF', // Белый для иконок навигации
@@ -15,8 +16,22 @@ export const darkTheme = {
         navLabelHoverColor: '#FFFFFF', // Белый при наведении на метки
         navIconHoverColor: '#FFFFFF', // Белый при наведении на иконки
         navLinkActiveColor: '#7839CD', // Активная ссылка навигации
-        navLinkActiveColorBackground: '#2A2A2A', // Фон активной ссылки
+        navLinkActiveColorBackground: '#1A1A1A', // Фон активной ссылки
         navItemHoverColorBackground: 'rgba(255, 255, 255, 0.1)', // Полупрозрачный белый при наведении
+        headerBackground: '#2A2A2A',
+        // headerColor:
+        // headerLinkColor: 
+        // headerLinkHoverColor: 
+        // headerLinkActiveColor: 
+        // headerLinkActiveColorBackground: 
+        // headerItemHoverColorBackground: 
+        // headerButtonColor: 
+        contentBackground: '#2A2A2A',
+        // contentColor: 
+        contentHeaderColor: '#FFFFFF',
+        contentHeaderBackground: '#2A2A2A',
+        footerBackground: '#2A2A2A',
+        boxShadowColor: '#CCCCCC',
     }
 };
 export default darkTheme;

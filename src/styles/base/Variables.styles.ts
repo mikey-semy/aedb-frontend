@@ -7,7 +7,7 @@ export const Variables = createGlobalStyle`
     --secondary-color: ${({ theme }) => theme.colors.secondary};
     --accent-color: ${({ theme }) => theme.colors.accent};
     --background: ${({ theme }) => theme.colors.background};
-    --menu-background: ${({ theme }) => theme.colors.menuBackground};
+    --sidebar-background: ${({ theme }) => theme.colors.sidebarBackground};
     --logo-color: ${({ theme }) => theme.colors.logoColor};
     --nav-label-color: ${({ theme }) => theme.colors.navLabelColor};
     --nav-icon-color: ${({ theme }) => theme.colors.navIconColor};
@@ -18,12 +18,18 @@ export const Variables = createGlobalStyle`
     --nav-link-active-color: ${({ theme }) => theme.colors.navLinkActiveColor};
     --nav-link-active-bg: ${({ theme }) => theme.colors.navLinkActiveColorBackground};
     --nav-item-hover-hover-bg: ${({ theme }) => theme.colors.navItemHoverColorBackground};
-    --content-background: #FFFFFF;
+    --header-background: ${({ theme }) => theme.colors.headerBackground};
+    --content-header-background: ${({ theme }) => theme.colors.contentHeaderBackground};
+    --content-header-color: ${({ theme }) => theme.colors.contentHeaderColor};
+    --content-background: ${({ theme }) => theme.colors.contentBackground};
+    --footer-background: ${({ theme }) => theme.colors.footerBackground};
+    --box-shadow-color: ${({ theme }) => theme.colors.boxShadowColor};
+
 
     // Sizes
     --header-height: 80px;
-    --menu-width: 262px;
-    --menu-collapsed-width: 50px;
+    --sidebar-width: 262px;
+    --sidebar-collapsed-width: 50px;
     --logo-container-height: 83px;
     --logo-width: 50px;
     --logo-height: 80px;
@@ -42,14 +48,16 @@ export const Variables = createGlobalStyle`
     // Fonts
     --logo-font: 'Squada One', sans-serif;
     --nav-label-font: 'Inter', sans-serif;
-
+    --content-header-font: 'Inter', sans-serif;
+    --button-add-font: 'Inter', sans-serif;
+    
     // Font params
     --logo-font-weight: 600;
     --logo-letter-spacing: 1px;
     --nav-label-font-weight: 600;
 
     // Shadows
-    --box-shadow-default: 0 0 0 1px #ccc;
+    --box-shadow-default: 0 0 0 1px var(--box-shadow-color);
     --nav-collapse-button-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     
     // Transitions

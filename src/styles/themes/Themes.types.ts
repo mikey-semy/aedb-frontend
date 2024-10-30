@@ -6,7 +6,7 @@ export type ThemeType = {
         secondary: string;
         accent: string;
         background: string;
-        menuBackground: string;
+        sidebarBackground: string;
         logoColor: string;
         navLabelColor: string;
         navIconColor: string;
@@ -17,6 +17,20 @@ export type ThemeType = {
         navLinkActiveColor: string;
         navLinkActiveColorBackground: string;
         navItemHoverColorBackground: string;
+        headerBackground: string;
+        // headerColor: string;
+        // headerLinkColor: string;
+        // headerLinkHoverColor: string;
+        // headerLinkActiveColor: string;
+        // headerLinkActiveColorBackground: string;
+        // headerItemHoverColorBackground: string;
+        // headerButtonColor: string;
+        contentBackground: string;
+        // contentColor: string;
+        contentHeaderBackground: string;
+        contentHeaderColor: string;
+        boxShadowColor: string;
+        footerBackground: string;
     }
 }
 
