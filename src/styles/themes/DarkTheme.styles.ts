@@ -1,6 +1,3 @@
-import { Content } from "../../components";
-
-
 export const darkTheme = {
     colors: {
         primary: '#000000', // Черный для текста

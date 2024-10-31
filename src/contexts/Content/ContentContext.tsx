@@ -1,10 +1,29 @@
-import { createContext, useContext, useState } from 'react';
-import { ContentContextTypes } from './ContentContext.types';
+import { createContext, useContext, useState, ReactNode } from 'react';
+import { IconType } from 'react-icons';
 
-const ContentDataContext = createContext<ContentContextTypes>({} as ContentContextTypes);
+export interface ContentData {
+    caption?: string;
+    title?: string;
+    icon?: IconType;
+    onClick?: () => void;
+}
 
-export const ContentDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [contentData, setContentData] = useState<ContentContextTypes>({});
+export interface ContentContextTypes {
+    contentData: ContentData;
+    setContentData: React.Dispatch<React.SetStateAction<ContentData>>;
+}
+
+const defaultContentData: ContentData = {
+    caption: '',
+    title: '',
+    icon: undefined,
+    onClick: undefined,
+};
+
+const ContentDataContext = createContext<ContentContextTypes | undefined>(undefined);
+
+export const ContentDataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [contentData, setContentData] = useState<ContentData>(defaultContentData);
 
     return (
         <ContentDataContext.Provider value={{ contentData, setContentData }}>

@@ -18,6 +18,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     //   }
     // },
     server: {
+      host: '0.0.0.0',
+        hmr: {
+            clientPort: 5173,
+            host: 'localhost',
+        },
       proxy: {
         '/api': {
           target: 'https://api.aedb.online',
@@ -30,6 +35,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           rewrite: (path) => path.replace(/^\/media/, ''),
         },
       }
+        
     },
     css: {
       preprocessorOptions: {

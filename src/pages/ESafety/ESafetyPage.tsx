@@ -5,21 +5,18 @@ import TestsList from './Tests/Tests';
 import QuestionsList from './Questions/Questions';
 import { MdQuiz } from 'react-icons/md';
 import { useContentData } from '../../contexts';
-import { ContentContextTypes } from '../../contexts/Content/ContentContext.types'; 
+
 const ESafety: React.FC = () => {
   const { setContentData } = useContentData();
 
   useEffect(() => {
-    setContentData((prevState) => ({
-      ...prevState, // Сохраняем предыдущее состояние
-      contentData: { // Обновляем только contentData
+    setContentData({
         caption: 'Электробезопасность',
         title: 'Добавить',
         icon: MdQuiz,
         onClick: () => console.log('Добавить'),
-      },
-    } as ContentContextTypes));
-  }, [setContentData]);
+    });
+}, [setContentData]);
 
   return (
     <ESafetyPageContainer>
