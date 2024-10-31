@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContentHeaderContainer = styled.main`
+export const ContentHeaderContainer = styled.div`
     padding: 0 24px;
     height: 100px;
     width: 100%;
@@ -21,6 +21,10 @@ export const ContentCaption = styled.h3`
     font-size: 24px;
     font-weight: 600;
     color: var(--content-header-color, #000000);
+
+    @media (max-width: 1024px) {
+        font-size: 18px;
+    }
 `;
 export const ContentActionContainer = styled.div`
     display: flex;

@@ -24,11 +24,19 @@ export const lightTheme = {
         // headerItemHoverColorBackground: 
         // headerButtonColor: 
         contentBackground: '#FFFFFF',
-        // contentColor:
+        contentColor: '#000000',
         contentHeaderColor: '#000000',
         contentHeaderBackground: '#FFFFFF',
         footerBackground: '#FFFFFF',
         boxShadowColor: '#CCCCCC', 
+
+        linkColor: '#474747',
+        linkHoverColor: '#666666',
+        linkActiveColor: '#888888',
+        linkBackground: '#FFFFFF',
+        tabColor: '#474747',
+        tabActiveColor: '#7839CD',
+        tabHoverColor: '#666666',
     }
 };
 export default lightTheme;

@@ -22,10 +22,17 @@ export const Variables = createGlobalStyle`
     --content-header-background: ${({ theme }) => theme.colors.contentHeaderBackground};
     --content-header-color: ${({ theme }) => theme.colors.contentHeaderColor};
     --content-background: ${({ theme }) => theme.colors.contentBackground};
+    --content-color: ${({ theme }) => theme.colors.contentColor};
     --footer-background: ${({ theme }) => theme.colors.footerBackground};
     --box-shadow-color: ${({ theme }) => theme.colors.boxShadowColor};
 
-
+    --link-color: ${({ theme }) => theme.colors.linkColor};
+    --link-hover-color: ${({ theme }) => theme.colors.linkHoverColor};
+    --link-active-color: ${({ theme }) => theme.colors.linkActiveColor};
+    --link-background: ${({ theme }) => theme.colors.linkBackground};
+    --tab-color: ${({ theme }) => theme.colors.tabColor};
+    --tab-active-color: ${({ theme }) => theme.colors.tabActiveColor};
+    --tab-hover-color: ${({ theme }) => theme.colors.tabHoverColor};
     // Sizes
     --header-height: 80px;
     --sidebar-width: 262px;
@@ -44,12 +51,17 @@ export const Variables = createGlobalStyle`
     --nav-collapse-button-width: 30px;
     --nav-collapse-button-height: 60px;
     --nav-collapse-button-font-size: 26px;
+    --tab-font-size: 16px;
+    --tab-font-weight: 600;
 
     // Fonts
+    --font-default: 'Inter', sans-serif;
     --logo-font: 'Squada One', sans-serif;
-    --nav-label-font: 'Inter', sans-serif;
-    --content-header-font: 'Inter', sans-serif;
-    --button-add-font: 'Inter', sans-serif;
+    --nav-label-font: var(--font-default);
+    --content-header-font: var(--font-default);
+    --content-font: var(--font-default);
+    --content-header-button-font: var(--font-default);
+    --tab-font: var(--font-default);
     
     // Font params
     --logo-font-weight: 600;
@@ -59,7 +71,7 @@ export const Variables = createGlobalStyle`
     // Shadows
     --box-shadow-default: 0 0 0 1px var(--box-shadow-color);
     --nav-collapse-button-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    
+    --tab-active-border: 2px solid var(--tab-active-color);
     // Transitions
     --transition-default: 0.3s ease-in-out;
 

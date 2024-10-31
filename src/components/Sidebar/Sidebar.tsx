@@ -24,12 +24,12 @@ const Sidebar: React.FC = () => {
     const handleTouchStart = (e: React.TouchEvent) => {
         const target = e.target as HTMLElement;
         if (target.closest('a')) return;
-        e.preventDefault();
+        e.cancelable = false;
         setTouchStart(e.targetTouches[0].clientX);
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        e.preventDefault();
+        e.cancelable = false;
         if (touchStart !== null) {
             setTouchEnd(e.targetTouches[0].clientX);
         }
@@ -54,11 +54,6 @@ const Sidebar: React.FC = () => {
             >
                 <Logo isCollapsed={isCollapsed} />
                 <Navigation isCollapsed={isCollapsed} />
-            {/* <ThemeButton
-                onClick={toggleTheme}
-                isCollapsed={isCollapsed}
-                icon={isDark ? BsSun : BsMoon}
-            /> */}
                 <CollapseButton
                     onClick={() => setIsCollapsed(!isCollapsed)}
                     isCollapsed={isCollapsed}

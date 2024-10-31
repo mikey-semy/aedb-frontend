@@ -1,5 +1,7 @@
 import React from 'react';
 import { ContentData } from '../../../contexts/Content/ContentContext';
+import { ContentHeaderContainer, ContentCaptionContainer, ContentActionContainer,ContentCaption } from './ContentHeader.styles';
+import { ContentHeaderButton } from './Buttons/ContentHeaderButton/ContentHeaderButton';
 
 interface ContentHeaderProps {
     contentData: ContentData;
@@ -7,10 +9,21 @@ interface ContentHeaderProps {
 
 const ContentHeader: React.FC<ContentHeaderProps> = ({ contentData }) => {
     return (
-        <header>
-            <p>{contentData.caption}</p>
-            {contentData.onClick && <button onClick={contentData.onClick}>{contentData.title}{contentData.icon && <contentData.icon />}</button>}
-        </header>
+        <ContentHeaderContainer>
+            <ContentCaptionContainer>
+                <ContentCaption>{contentData.caption}</ContentCaption>
+            </ContentCaptionContainer>
+            <ContentActionContainer>
+                {contentData.onClick &&
+                <ContentHeaderButton
+                    onClick={contentData.onClick}
+                    icon={ contentData.icon }
+                    title={contentData.title}
+                /> 
+                }
+            </ContentActionContainer>
+            
+        </ContentHeaderContainer>
     );
 };
 

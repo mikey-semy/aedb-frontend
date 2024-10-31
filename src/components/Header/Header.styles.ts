@@ -15,9 +15,6 @@ export const HeaderContainer = styled.div`
     z-index: 999;
 
     @media (max-width: 1024px) {
-        position: fixed;
-        top: 0;
-        left: 2px;
-        margin-left: 10px;
+        padding-left: 10px; 
     }
 `;

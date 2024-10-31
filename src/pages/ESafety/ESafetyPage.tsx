@@ -1,29 +1,34 @@
 import React, {useEffect} from 'react';
-import { ESafetyPageContainer } from './ESafetyPage.styles';
 import DocumentsList from './Documents/Documents';
 import TestsList from './Tests/Tests';
 import QuestionsList from './Questions/Questions';
 import { MdQuiz } from 'react-icons/md';
 import { useContentData } from '../../contexts';
+import { Tabs } from '../../components';
+import { TestsData } from './Tests/Tests.data';
 
 const ESafety: React.FC = () => {
   const { setContentData } = useContentData();
 
+  const handleLinkClick = () => {
+    window.open(TestsData[0].link, '_blank');
+  };
+
   useEffect(() => {
     setContentData({
         caption: 'Электробезопасность',
-        title: 'Добавить',
+        title: 'Экзамен',
         icon: MdQuiz,
-        onClick: () => console.log('Добавить'),
+        onClick: () => handleLinkClick(),
     });
 }, [setContentData]);
 
   return (
-    <ESafetyPageContainer>
-      <DocumentsList />
-      <TestsList />
-      <QuestionsList />
-    </ESafetyPageContainer>
+    <Tabs tabs={[
+      { label: 'Документы', content: <DocumentsList /> }, 
+      { label: 'Тесты', content: <TestsList /> }, 
+      { label: 'Вопросы', content: <QuestionsList /> }
+    ]} />
   );
 };
 

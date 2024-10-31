@@ -24,11 +24,18 @@ export const darkTheme = {
         // headerItemHoverColorBackground: 
         // headerButtonColor: 
         contentBackground: '#2A2A2A',
-        // contentColor: 
+        contentColor: '#FFFFFF',
         contentHeaderColor: '#FFFFFF',
         contentHeaderBackground: '#2A2A2A',
         footerBackground: '#2A2A2A',
-        boxShadowColor: '#CCCCCC',
+        boxShadowColor: '#1A1A1A',
+        linkColor: '#FFFFFF',
+        linkHoverColor: '#CCCCCC',
+        linkActiveColor: '#AAAAAA',
+        linkBackground: '#333333',
+        tabColor: '#474747',
+        tabActiveColor: '#7839CD',
+        tabHoverColor: '#CCCCCC',
     }
 };
 export default darkTheme;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button/Button.styles';
 
 export const ThemeButtonContainer = styled(ButtonContainer)`
-    margin-top: auto;
+    height: '40px';
     width: '40px';
     text-align: center;
     transition: all var(--transition-default);

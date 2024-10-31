@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../../Common/Button/Button.styles';
 
-export const AddButtonContainer = styled(ButtonContainer)`
+export const ContentHeaderButtonContainer = styled(ButtonContainer)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,16 +15,25 @@ export const AddButtonContainer = styled(ButtonContainer)`
     cursor: pointer;
     user-select: none;
 
+    @media (max-width: 1024px) {
+        width: 140px;
+        height: 40px;
+        padding: 12px 8px;
+    }
 `;
 
-export const AddButtonTitle = styled(ButtonTitle)`
+export const ContentHeaderButtonTitle = styled(ButtonTitle)`
     color: var(--button-add-color, #FFFFFF);
-    font-family: var(--button-add-font, 'Inter');
+    font-family: var(--content-header-button-font, 'Inter');
     font-size: var(--button-add-font-size, 14px);
     text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+        font-size: 12px;
+    }
 `;
 
-export const AddButtonIcon = styled(ButtonIcon)`
+export const ContentHeaderButtonIcon = styled(ButtonIcon)`
     color: var(--button-add-color, #FFFFFF);
     font-size: var(--button-add-font-size, 14px);
     min-width: var(--button-add-font-size, 14px);
@@ -33,4 +42,8 @@ export const AddButtonIcon = styled(ButtonIcon)`
     align-items: center;
     justify-content: center;
     user-select: none;
+
+    @media (max-width: 1024px) {
+        font-size: 12px;
+    }
 `;

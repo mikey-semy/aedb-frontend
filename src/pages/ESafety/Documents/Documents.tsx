@@ -1,18 +1,26 @@
 import React from 'react';
 import { DocumentsData } from './Documents.data';
+import { Lists } from '../../../components';
 
 const DocumentsList: React.FC = () => {
     return (
-        <>
-            <p>Перечень документов для проверки знаний:</p>
-            <ol>
-                {DocumentsData.map((doc, index) => (
-                    <li key={index}>
-                        {doc.title} {doc.link && <a href={doc.link}>{doc.label}</a>}
-                    </li>
-                ))}
-            </ol>
-        </>
+        <Lists
+            listItems={DocumentsData.map((item) => ({
+                content: (
+                    <>
+                        {item.link && (
+                            <a href={item.link} target="_blank">
+                                <span>{item.title} ({item.label})</span>
+                            </a>
+                        )}
+                        {!item.link && (
+                            <span>{item.title} ({item.label})</span>
+                        )}
+                    </>
+                ),
+            }))}
+            bordered
+        />
     );
 };
 

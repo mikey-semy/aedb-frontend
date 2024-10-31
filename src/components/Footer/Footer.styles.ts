@@ -11,4 +11,8 @@ export const FooterContainer = styled.div`
     width: 100%;
 
     background: var(--footer-background, #FFFFFF);
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
 `;

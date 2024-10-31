@@ -26,11 +26,19 @@ export type ThemeType = {
         // headerItemHoverColorBackground: string;
         // headerButtonColor: string;
         contentBackground: string;
-        // contentColor: string;
+        contentColor: string;
         contentHeaderBackground: string;
         contentHeaderColor: string;
         boxShadowColor: string;
         footerBackground: string;
+
+        linkColor: string,
+        linkHoverColor: string,
+        linkActiveColor: string,
+        linkBackground: string,
+        tabColor: string,
+        tabActiveColor: string,
+        tabHoverColor: string,
     }
 }
 
