@@ -13,7 +13,9 @@ export const EdgeTrigger = styled.div`
 `;
 
 export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
-    position: relative;
+
+    margin-right: auto;
+    /* transform: ${props => props.isCollapsed ? '' : 'translateX(var(--sidebar-width))' }; */
     /* width: ${props => props.isCollapsed ? '40px' : '100%'}; */
     text-align: center;
     transition: all var(--transition-default);

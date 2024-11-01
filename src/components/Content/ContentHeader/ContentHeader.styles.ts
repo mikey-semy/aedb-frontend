@@ -10,6 +10,9 @@ export const ContentHeaderContainer = styled.div`
     background-color: var(--content-header-background, #FFFFFF);
     color: var(--content-header-color, #000000);
     box-shadow: var(--box-shadow-default);
+    @media (max-width: 1024px) {
+        height: 80px;
+    }
 `;
 export const ContentCaptionContainer = styled.div`
     display: flex;

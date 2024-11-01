@@ -19,7 +19,7 @@ export const SidebarContainer = styled.div<{ isCollapsed: boolean }>`
     
     overscroll-behavior: contain; // Запрещаем нативный свайп
     touch-action: pan-y pinch-zoom; // Разрешаем только вертикальный скролл
-    
+    pointer-events: ${props => props.isCollapsed ? 'none' : 'auto'};
     z-index: 1000;
     @media (max-width: 1024px) {
         position: fixed;
