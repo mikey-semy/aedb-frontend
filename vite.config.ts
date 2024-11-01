@@ -7,6 +7,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
+    base: './',
     plugins: [react()],
     define: {
       'process.env.VITE_API_USERNAME': JSON.stringify(env.VITE_API_USERNAME),
@@ -17,12 +18,19 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     //     '@': path.resolve(__dirname, './src')
     //   }
     // },
+    publicDir: 'public',
+    build: {
+      outDir: 'dist',
+    },
     server: {
-      host: '0.0.0.0',
-        hmr: {
-            clientPort: 5173,
-            host: 'localhost',
-        },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+      },
+      origin: 'http://localhost:8080',
+      strictPort: true,
+      open: './index.html',
       proxy: {
         '/api': {
           target: 'https://api.aedb.online',
@@ -41,8 +49,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler'
-        }
-      }
+        },
+      },
+      
     }
   }
 });

@@ -10,3 +10,4 @@ export { default as Footer } from './Footer';
 // export { default as AuthModals } from './Auth/Modals';
 export { default as Tabs } from './Common/Tabs/Tabs';
 export { default as Lists } from './Common/List/List';
+export { default as Spinner } from './Common/Spinner/Spinner';  
