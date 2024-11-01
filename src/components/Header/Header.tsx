@@ -16,11 +16,11 @@ const Header: React.FC = () => {
                 <CollapseButton
                     onClick={toggleSidebar}
                     isCollapsed={isCollapsed}
-                    icon={MdChevronLeft}
+                    icon={MdChevronLeft} //! Убрать иконку во внутрь
                 />   
                 <ThemeButton
                     onClick={toggleTheme}
-                    icon={isDark ? BsSun : BsMoon}
+                    icon={isDark ? BsMoon : BsSun } //! Убрать иконку во внутрь
                 />
             </HeaderContainer>
         </>

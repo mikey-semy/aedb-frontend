@@ -9,9 +9,16 @@ import {
     ItemIcon,
     ItemLabel 
 } from './Navigation.styles';
-
-const Navigation: React.FC<{ isCollapsed: boolean }> = ({ isCollapsed }) => {
+import { useSidebar } from '../../../contexts';
+const Navigation: React.FC = () => {
     const [items] = useState(NavigationData);
+    const { isCollapsed, toggleSidebar } = useSidebar();
+
+    const handleItemClick = () => {
+        if (window.innerWidth < 768) {
+            toggleSidebar();
+        }
+    }
     return (
             <NavigationContainer>
                 <NavigationItems>
@@ -24,6 +31,7 @@ const Navigation: React.FC<{ isCollapsed: boolean }> = ({ isCollapsed }) => {
                                 as={item.path?.startsWith('http') ? 'a' : NavLink}
                                 to={item.path && !item.path.startsWith('http') ? item.path : '#'}
                                 href={item.path?.startsWith('http') ? item.path : undefined }
+                                onClick={ handleItemClick }
                             >
                                 <ItemIcon>
                                     {item.icon && (typeof item.icon === 'function' ? 

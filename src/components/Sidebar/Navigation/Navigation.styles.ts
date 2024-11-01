@@ -75,9 +75,9 @@ export const ItemLink = styled(NavLink)`
     }
     
     &:active {
-        @media (min-width: 1024px) {
+        /* @media (min-width: 1024px) {
             transform: scale(0.98);
-        }
+        } */
     }
 `;
 

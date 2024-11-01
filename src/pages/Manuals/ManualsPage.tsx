@@ -1,4 +1,10 @@
-// import React from 'react';
+import React, { /*useState,*/useEffect } from 'react';
+// import Tree from '../../components/Common/Tree/Tree';
+// import { getManuals } from './ManualsPage.api';
+// import { CategoryTypes } from './Categories/Category.types';
+// import { GroupTypes } from './Groups/Group.types';
+// import { ManualTypes } from './Manuals/Manual.types';
+
 // import { 
 //   ManualsPageContainer,
 //   ToolbarManualsStyled,
@@ -17,10 +23,63 @@
 //   ActionManualStyled
 
 // } from './ManualsPage.styles';
+import { useContentData } from '../../contexts';
+import { MdAdd } from 'react-icons/md';
+const Manuals: React.FC = () => {
+    const { setContentData } = useContentData();
+    useEffect(() => {
+        setContentData({
+            caption: 'Инструкции',
+            title: 'Добавить',
+            icon: MdAdd,
+            onClick: () => console.log('click'),
+        });
+    }, [setContentData]);
+    // const [manuals, setManualItems] = useState<CategoryTypes[]>([]);
 
-// const Manuals: React.FC = ({ categoriesItems, handleUpdateItems }) => {
+    // const fetchManualItems = async () => {
+    //    try {
+    //     const manuals = await getManuals();
+         
+    //      setManualItems(
+    //       manuals.map((category: CategoryTypes) => ({
+    //         id: category.id,
+    //         name: category.name,
+    //         logo_url: category.logo_url ?? '',
+    //         groups: category.groups.map((group: GroupTypes) => ({
+    //           id: group.id,
+    //           name: group.name,
+    //           manuals: group.manuals.map((manual: ManualTypes) => ({
+    //             id: manual.id,
+    //             title: manual.title,
+    //             file_url: manual.file_url,
+    //             group_id: group.id ?? 0,
+    //             category_id: manual.category_id,
+    //           })),
+    //         })),
+    //       }))
+    //      );
+   
+    //      console.log('Ответ API:', manuals);
+    //     } catch (error) {
+    //         console.error('Ошибка при загрузке каталога:', error);
+    //     } 
+    // };
+    // const mapToTreeItem = (item: CategoryTypes | GroupTypes | ManualTypes): TreeItem => {
+    //     return {
+    //       id: String(item.id),
+    //       name: item.name,
+    //       children: item.groups || item.manuals ? item.groups.map(mapToTreeItem) || item.manuals.map(mapToTreeItem) : undefined,
+    //     };
+    //   };
+    // useEffect(() => {
+    //     fetchManualItems();
+    //   }, []);
 
-//   return (
+    return (
+        <>
+            {/* <Tree items={manuals} /> */}
+        </>
 //     <ManualsPageContainer>
 //     <ToolbarManualsStyled onUpdate={handleUpdateItems}>
     
@@ -70,7 +129,7 @@
 //     </CategoryItems>
 //   </ToolbarManualsStyled>
 //   </ManualsPageContainer>
-//   );
-// };
+    );
+};
 
-// export default Manuals;
+export default Manuals;

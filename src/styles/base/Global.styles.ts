@@ -24,7 +24,7 @@ export const Global = createGlobalStyle`
 
     a:active {
         color: var(--link-active-color, #888888);
-        background-color: var(--link-background, #FFFFFF);
+        /* background-color: var(--link-background, #FFFFFF); */
     }
 
 `;

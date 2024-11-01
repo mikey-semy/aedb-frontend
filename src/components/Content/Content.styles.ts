@@ -34,7 +34,7 @@ export const ContentContainer = styled.main`
     }
 
     @media (max-width: 1024px) {
-        margin: 0 0 0 10px;
+        margin: 140px 0 0 10px;
         border-radius: 0;
     }
 `;

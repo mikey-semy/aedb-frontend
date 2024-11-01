@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SidebarContainer } from './Sidebar.styles';
+import { SidebarContainer, Overlay } from './Sidebar.styles';
 import Logo from '../Common/Logo';
 import Navigation from './Navigation';
 import {
@@ -9,7 +9,7 @@ import {
 import { useSidebar } from '../../contexts';
 
 const Sidebar: React.FC = () => {
-    const { isCollapsed } = useSidebar();
+    const { isCollapsed, toggleSidebar } = useSidebar();
     
     // const [touchStart, setTouchStart] = useState(0);
     // const [touchEnd, setTouchEnd] = useState(0);
@@ -39,6 +39,7 @@ const Sidebar: React.FC = () => {
 
     return (
         <>
+            <Overlay isVisible={!isCollapsed} onClick={toggleSidebar}/>
             <SidebarContainer
                 // onTouchStart={handleTouchStart}
                 // onTouchMove={handleTouchMove}
@@ -46,7 +47,7 @@ const Sidebar: React.FC = () => {
                 isCollapsed={isCollapsed}
             >
                 <Logo isCollapsed={isCollapsed} />
-                <Navigation isCollapsed={isCollapsed} />
+                <Navigation />
                 
             </SidebarContainer>
             <EdgeTrigger

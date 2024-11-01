@@ -11,6 +11,10 @@ export const ContentHeaderContainer = styled.div`
     color: var(--content-header-color, #000000);
     box-shadow: var(--box-shadow-default);
     @media (max-width: 1024px) {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
         height: 80px;
     }
 `;

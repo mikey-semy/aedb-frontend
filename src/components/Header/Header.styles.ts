@@ -16,6 +16,10 @@ export const HeaderContainer = styled.div`
     z-index: 999;
 
     @media (max-width: 1024px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 60px;
         padding-left: 10px; 
     }

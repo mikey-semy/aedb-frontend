@@ -8,7 +8,7 @@ import ErrorPage from './pages/Error';
 import App from './App/App.tsx';
 import Dashboard from './pages/Dashboard/DashboardPage.tsx';
 import ESafety from './pages/ESafety/ESafetyPage.tsx';
-// import Manuals from './pages/Manuals/ManualsPage.tsx';
+import Manuals from './pages/Manuals/ManualsPage.tsx';
 
 
 const router = createBrowserRouter([
@@ -25,10 +25,10 @@ const router = createBrowserRouter([
         path: "/esafety",
         element: <ESafety />
       },
-      // {
-      //   path: "/manuals",
-      //   element: <Manuals />
-      // },
+      {
+        path: "/manuals",
+        element: <Manuals />
+      },
     ],
   },
 
