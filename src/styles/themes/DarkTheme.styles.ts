@@ -14,8 +14,9 @@ export const darkTheme = {
         navIconHoverColor: '#FFFFFF', // Белый при наведении на иконки
         navLinkActiveColor: '#7839CD', // Активная ссылка навигации
         navLinkActiveColorBackground: '#1A1A1A', // Фон активной ссылки
-        navItemHoverColorBackground: 'rgba(255, 255, 255, 0.1)', // Полупрозрачный белый при наведении
+        navItemHoverColorBackground: '#2A2A2A', // Полупрозрачный белый при наведении
         headerBackground: '#2A2A2A',
+        listItemHoverBackground: '#2A2A2A',
         // headerColor:
         // headerLinkColor: 
         // headerLinkHoverColor: 

@@ -16,6 +16,7 @@ export const lightTheme = {
         navLinkActiveColorBackground:'#F1EEFE',
         navItemHoverColorBackground: 'rgba(0,0,0,0.05)',
         headerBackground: '#FFFFFF',
+        listItemHoverBackground: 'rgba(0,0,0,0.05)',
         // headerColor:
         // headerLinkColor: 
         // headerLinkHoverColor: 

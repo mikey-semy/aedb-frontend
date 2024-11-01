@@ -14,16 +14,17 @@ export const EdgeTrigger = styled.div`
 
 export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
     position: relative;
-    margin-top: auto;
-    width: ${props => props.isCollapsed ? '40px' : '100%'};
+    /* width: ${props => props.isCollapsed ? '40px' : '100%'}; */
     text-align: center;
     transition: all var(--transition-default);
     cursor: pointer;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
-
     @media (max-width: 1024px) {
+        transform: ${props => props.isCollapsed ? '' : 'translateX(var(--sidebar-width))' };
+    }
+    /* @media (max-width: 1024px) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -38,7 +39,7 @@ export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: b
         border-radius: var(--nav-collapse-button-border-radius);
         z-index: 1000; 
         pointer-events: all;
-    }
+    } */
 `;
 
 export const CollapseButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }>`

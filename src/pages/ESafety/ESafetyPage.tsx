@@ -10,8 +10,9 @@ import { TestsData } from './Tests/Tests.data';
 const ESafety: React.FC = () => {
   const { setContentData } = useContentData();
 
-  const handleLinkClick = () => {
+  const handleClick = () => {
     window.open(TestsData[0].link, '_blank');
+    console.log(TestsData[0].link);
   };
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const ESafety: React.FC = () => {
         caption: 'Электробезопасность',
         title: 'Экзамен',
         icon: MdQuiz,
-        onClick: () => handleLinkClick(),
+        onClick: () => handleClick(),
     });
 }, [setContentData]);
 

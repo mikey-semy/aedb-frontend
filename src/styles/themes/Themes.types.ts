@@ -31,7 +31,7 @@ export type ThemeType = {
         contentHeaderColor: string;
         boxShadowColor: string;
         footerBackground: string;
-
+        listItemHoverBackground: string;
         linkColor: string,
         linkHoverColor: string,
         linkActiveColor: string,

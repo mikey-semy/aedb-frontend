@@ -1,14 +1,14 @@
 import React from 'react';
 import { Outlet } from "react-router-dom";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { ThemeProvider, useTheme, ContentDataProvider } from '../contexts';
+import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider } from '../contexts';
 import { Header, Sidebar, Footer, Content } from '../components';
-
 import { TypographyStyles, GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '../styles';
 import { AppContainer, MainContainer } from './App.styles';
 
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
+
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
       <TypographyStyles />
@@ -26,7 +26,6 @@ const AppContent: React.FC = () => {
           </ContentDataProvider>
           <Footer />
         </MainContainer>
-        
       </AppContainer>
     </StyledThemeProvider>
   );
@@ -35,7 +34,10 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <AppContent />
+      <SidebarProvider>
+        <AppContent />
+      </SidebarProvider>
+      
     </ThemeProvider>
   );
 };

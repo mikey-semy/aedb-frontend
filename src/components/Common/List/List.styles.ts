@@ -22,7 +22,7 @@ export const ListItem = styled.li<{ bordered?: boolean }>`
     }
 
     &:hover {
-        background-color: var(--nav-item-hover-background, #f5f5f5);
+        background-color: var(--list-item-hover-background, #f5f5f5);
     }
 
     //media

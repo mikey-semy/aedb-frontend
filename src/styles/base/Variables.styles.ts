@@ -25,7 +25,7 @@ export const Variables = createGlobalStyle`
     --content-color: ${({ theme }) => theme.colors.contentColor};
     --footer-background: ${({ theme }) => theme.colors.footerBackground};
     --box-shadow-color: ${({ theme }) => theme.colors.boxShadowColor};
-
+    --list-item-hover-background: ${({ theme }) => theme.colors.listItemHoverBackground};
     --link-color: ${({ theme }) => theme.colors.linkColor};
     --link-hover-color: ${({ theme }) => theme.colors.linkHoverColor};
     --link-active-color: ${({ theme }) => theme.colors.linkActiveColor};
