@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button/Button.styles';
 
+const { isCollapsed } = useSidebar();
+
 export const EdgeTrigger = styled.div`
     @media (max-width: 1024px) {
         position: absolute;
@@ -12,7 +14,7 @@ export const EdgeTrigger = styled.div`
     }
 `;
 
-export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
+export const CollapseButtonContainer = styled(ButtonContainer)`
 
     margin-right: auto;
     /* transform: ${props => props.isCollapsed ? '' : 'translateX(var(--sidebar-width))' }; */
@@ -44,11 +46,11 @@ export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: b
     } */
 `;
 
-export const CollapseButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }>`
+export const CollapseButtonTitle = styled(ButtonTitle)`
     display: ${props => props.isCollapsed ? 'none' : 'block'};
 `;
 
-export const CollapseButtonIcon = styled(ButtonIcon) <{ isCollapsed: boolean }>`
+export const CollapseButtonIcon = styled(ButtonIcon)`
     color: var(--nav-icon-color);
     font-size: var(--nav-collapse-button-font-size, 26px);
     transform: ${props => props.isCollapsed ? 'rotate(180deg)' : 'none'};
