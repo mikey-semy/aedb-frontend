@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button/Button.styles';
+import { useSidebar} from '../../../../contexts';
 
 const { isCollapsed } = useSidebar();
 
