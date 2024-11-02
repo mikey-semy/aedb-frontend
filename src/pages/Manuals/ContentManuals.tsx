@@ -23,7 +23,7 @@ const ContentManual: React.FC = () => {
       data.map((category: CategoryTypes) => ({
         id: category.id,
         name: category.name,
-        logo_url: category.logo_url ?? '',
+        // logo_url: category.logo_url ?? '',
         groups: category.groups.map((group: GroupTypes) => ({
           id: group.id,
           name: group.name,
@@ -79,7 +79,7 @@ const ContentManual: React.FC = () => {
     {categoriesItems.map((category) => (
         <li className='category__item' key={category.id}>
             <div className='category__caption'>
-                <img className='category__logo' src={category.logo_url} alt={category.name} />
+                {/* <img className='category__logo' src={category.logo_url} alt={category.name} /> */}
                 <h2 className='category__title'>{category.name}</h2>
             </div>
             <ul className='group__items'>

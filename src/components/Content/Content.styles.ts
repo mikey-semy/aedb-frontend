@@ -12,7 +12,8 @@ export const ContentContainer = styled.main`
     flex-direction: column;
     flex: 1;
     height: calc(100% - 56px);
-    overflow: hidden;
+    min-height: 80vh;
+    overflow-y: auto;
 
     ::-webkit-scrollbar {
         width: 8px;

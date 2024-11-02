@@ -1,5 +1,5 @@
 export interface ManualTypes {
-    id?: number;
+    id: number;
     title: string;
     file_url: string;
     group_id: number;

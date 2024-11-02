@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalWrapper from '../../../components/Common/Modal/ModalWrapper';
+import ModalWrapper from '../../../components/Common/Modal/Modal';
 import Button from '../../../components/Common/Form/Button';
 import FormRemoveManual from '../Forms/FormRemoveManual';
 import { removeManual } from '../Manuals/Manual.api';

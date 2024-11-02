@@ -1,23 +1,29 @@
 import React from 'react';
-import { ButtonProps } from './Button.types';
+import { ButtonTypes } from './Button.types';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from './Button.styles';
-const Button: React.FC<ButtonProps> = ({ 
+const Button: React.FC<ButtonTypes> = ({ 
     type = "button", 
     onClick, 
     icon: Icon, 
     title, 
-    disabled = false
+    disabled = false,
+    as,
+    iconAs,
+    titleAs,
   }) => {
   return (
-    <ButtonContainer 
+    <ButtonContainer
+      as={as}
       type={type} 
       onClick={onClick} 
       disabled={disabled}
     >
-        <ButtonIcon>
-          {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)}
-        </ButtonIcon>
-        <ButtonTitle>{title}</ButtonTitle>
+      <ButtonIcon as={iconAs}>
+        {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)}
+      </ButtonIcon>
+      <ButtonTitle as={titleAs}>
+        {title}
+      </ButtonTitle>
     </ButtonContainer>
   );
 };

@@ -1,20 +1,23 @@
-import {
-    CollapseButtonContainer,
-    CollapseButtonIcon
-} from './CollapseButton.styles';
-import { CollapseButtonProps } from "./CollapseButton.types";
+import React from 'react';
+import { Button } from '../../../../components';
+import { useSidebar} from '../../../../contexts';
+import { MdChevronLeft } from 'react-icons/md';
+import { CollapseButtonContainer, CollapseButtonIcon } from './CollapseButton.styles';
+import { CollapseButtonTypes } from './CollapseButton.types';
 
-export const CollapseButton: React.FC<CollapseButtonProps> = ({
-    isCollapsed,
-    icon: Icon,
-    ...props
-}) => (
-    <CollapseButtonContainer
-        isCollapsed={isCollapsed}
-        {...props}
-    >
-        <CollapseButtonIcon isCollapsed={isCollapsed}>
-            {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)}
-        </CollapseButtonIcon>
-    </CollapseButtonContainer>
-);
+const ButtonWithCollapseType = Button as React.ComponentType<CollapseButtonTypes>;
+
+const CollapseButton: React.FC<CollapseButtonTypes> = ({ isCollapsed }) => {
+    const { toggleSidebar } = useSidebar();
+
+    return (
+        <ButtonWithCollapseType
+            as={CollapseButtonContainer}
+            iconAs={CollapseButtonIcon}
+            onClick={toggleSidebar}
+            icon={MdChevronLeft}
+            isCollapsed={isCollapsed}
+        />
+    );
+};
+export default CollapseButton;

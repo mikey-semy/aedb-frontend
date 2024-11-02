@@ -1,5 +1,5 @@
 export interface TreeItem {
-    id: string;
+    id: number;
     name: string;
     children?: TreeItem[];
 }

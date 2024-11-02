@@ -1,9 +1,7 @@
-import React, { /*useState,*/useEffect } from 'react';
-// import Tree from '../../components/Common/Tree/Tree';
-// import { getManuals } from './ManualsPage.api';
-// import { CategoryTypes } from './Categories/Category.types';
-// import { GroupTypes } from './Groups/Group.types';
-// import { ManualTypes } from './Manuals/Manual.types';
+import React, { useState, useEffect } from 'react';
+import Tree from '../../components/Common/Tree/Tree';
+import { getManuals } from './ManualsPage.api';
+import { CategoryTypes } from './Categories/Category.types';
 
 // import { 
 //   ManualsPageContainer,
@@ -25,6 +23,7 @@ import React, { /*useState,*/useEffect } from 'react';
 // } from './ManualsPage.styles';
 import { useContentData } from '../../contexts';
 import { MdAdd } from 'react-icons/md';
+import { ExtendedTreeItem } from './ManualsPage.types';
 const Manuals: React.FC = () => {
     const { setContentData } = useContentData();
     useEffect(() => {
@@ -35,50 +34,44 @@ const Manuals: React.FC = () => {
             onClick: () => console.log('click'),
         });
     }, [setContentData]);
-    // const [manuals, setManualItems] = useState<CategoryTypes[]>([]);
+    const [manuals, setManualItems] = useState<ExtendedTreeItem[]>([]);
 
-    // const fetchManualItems = async () => {
-    //    try {
-    //     const manuals = await getManuals();
-         
-    //      setManualItems(
-    //       manuals.map((category: CategoryTypes) => ({
-    //         id: category.id,
-    //         name: category.name,
-    //         logo_url: category.logo_url ?? '',
-    //         groups: category.groups.map((group: GroupTypes) => ({
-    //           id: group.id,
-    //           name: group.name,
-    //           manuals: group.manuals.map((manual: ManualTypes) => ({
-    //             id: manual.id,
-    //             title: manual.title,
-    //             file_url: manual.file_url,
-    //             group_id: group.id ?? 0,
-    //             category_id: manual.category_id,
-    //           })),
-    //         })),
-    //       }))
-    //      );
-   
-    //      console.log('Ответ API:', manuals);
-    //     } catch (error) {
-    //         console.error('Ошибка при загрузке каталога:', error);
-    //     } 
-    // };
-    // const mapToTreeItem = (item: CategoryTypes | GroupTypes | ManualTypes): TreeItem => {
-    //     return {
-    //       id: String(item.id),
-    //       name: item.name,
-    //       children: item.groups || item.manuals ? item.groups.map(mapToTreeItem) || item.manuals.map(mapToTreeItem) : undefined,
-    //     };
-    //   };
-    // useEffect(() => {
-    //     fetchManualItems();
-    //   }, []);
-
+    const fetchManualItems = async () => {
+        try {
+            const manuals: CategoryTypes[] = await getManuals(); // Убедитесь, что getManuals возвращает CategoryTypes[]
+            
+            // Преобразуем данные в формат CategoryTypes[]
+            const categoryItems: ExtendedTreeItem[] = manuals.map((category) => ({
+                id: category.id,
+                name: category.name,
+                groups: category.groups.map((group) => ({
+                    id: group.id,
+                    name: group.name,
+                    manuals: group.manuals.map((manual) => ({
+                        id: manual.id,
+                        name: manual.title,
+                        file_url: manual.file_url,
+                        group_id: group.id ?? 0,
+                        category_id: manual.category_id,
+                    })),
+                })),
+            }));
+            console.log(categoryItems);
+            // Убедитесь, что setManualItems принимает CategoryTypes[]
+            setManualItems(categoryItems);
+    
+            console.log('Ответ API:', manuals);
+        } catch (error) {
+            console.error('Ошибка при загрузке каталога:', error);
+        } 
+    };
+    
+    useEffect(() => {
+        fetchManualItems();
+      }, []);
     return (
         <>
-            {/* <Tree items={manuals} /> */}
+            <Tree items={manuals} />
         </>
 //     <ManualsPageContainer>
 //     <ToolbarManualsStyled onUpdate={handleUpdateItems}>

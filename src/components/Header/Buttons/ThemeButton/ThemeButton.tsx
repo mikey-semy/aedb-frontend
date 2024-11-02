@@ -1,18 +1,20 @@
-import {
-    ThemeButtonContainer,
-    ThemeButtonIcon
-} from './ThemeButton.styles';
-import { ThemeButtonProps } from "./ThemeButton.types";
+import React from 'react';
+import { Button } from '../../../../components';
+import { useTheme } from '../../../../contexts';
+import { BsSun, BsMoon } from "react-icons/bs";
+import { ThemeButtonContainer, ThemeButtonIcon } from './ThemeButton.styles';
 
-export const ThemeButton: React.FC<ThemeButtonProps> = ({
-    icon: Icon,
-    ...props
-}) => (
-    <ThemeButtonContainer
-        {...props}
-    >
-        <ThemeButtonIcon>
-            {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)}
-        </ThemeButtonIcon>
-    </ThemeButtonContainer>
-);
+const ThemeButton: React.FC = () => {
+    const { isDark, toggleTheme } = useTheme();
+
+    return (
+        <Button 
+            as={ThemeButtonContainer}
+            iconAs={ThemeButtonIcon}
+            onClick={toggleTheme}
+            icon={isDark ? BsMoon : BsSun }
+        />
+    );
+
+};
+export default ThemeButton;

@@ -1,27 +1,14 @@
 import React from 'react';
-import { BsSun, BsMoon } from "react-icons/bs";
-import { MdChevronLeft } from 'react-icons/md';
-import { useTheme, useSidebar} from '../../contexts';
 import { HeaderContainer } from './Header.styles';
-import {
-    ThemeButton, CollapseButton,
-} from './Buttons';
-
+import { ThemeButton, CollapseButton } from './Buttons';
+import { useSidebar} from '../../contexts';
 const Header: React.FC = () => {
-    const { isDark, toggleTheme } = useTheme();
-    const { toggleSidebar, isCollapsed } = useSidebar();
+    const { isCollapsed } = useSidebar();
     return (
         <>
             <HeaderContainer>
-                <CollapseButton
-                    onClick={toggleSidebar}
-                    isCollapsed={isCollapsed}
-                    icon={MdChevronLeft} //! Убрать иконку во внутрь
-                />   
-                <ThemeButton
-                    onClick={toggleTheme}
-                    icon={isDark ? BsMoon : BsSun } //! Убрать иконку во внутрь
-                />
+                <CollapseButton isCollapsed={isCollapsed}/>   
+                <ThemeButton />
             </HeaderContainer>
         </>
     )

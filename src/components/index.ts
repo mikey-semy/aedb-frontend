@@ -1,5 +1,5 @@
 export { default as Button } from './Common/Button/Button';
-export { default as ModalWrapper } from './Common/Modal/ModalWrapper';
+export { default as ModalWrapper } from './Common/Modal/Modal';
 export { default as Sidebar } from './Sidebar';
 
 export { default as Header } from './Header';

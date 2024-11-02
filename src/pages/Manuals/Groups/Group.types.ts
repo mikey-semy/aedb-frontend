@@ -1,7 +1,7 @@
 import { ManualTypes } from "../Manuals/Manual.types";
 
 export interface GroupTypes {
-    id?: number;
+    id: number;
     name: string;
     manuals: ManualTypes[];
   }
