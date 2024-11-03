@@ -33,6 +33,7 @@ export const Variables = createGlobalStyle`
     --tab-color: ${({ theme }) => theme.colors.tabColor};
     --tab-active-color: ${({ theme }) => theme.colors.tabActiveColor};
     --tab-hover-color: ${({ theme }) => theme.colors.tabHoverColor};
+    
     // Sizes
     --header-height: 80px;
     --sidebar-width: 262px;
@@ -72,6 +73,7 @@ export const Variables = createGlobalStyle`
     --box-shadow-default: 0 0 0 1px var(--box-shadow-color);
     --nav-collapse-button-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     --tab-active-border: 2px solid var(--tab-active-color);
+    
     // Transitions
     --transition-default: 0.3s ease-in-out;
 

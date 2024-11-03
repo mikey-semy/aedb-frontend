@@ -1,43 +1,53 @@
-import React, { useState } from 'react';
-import ModalWrapper from '../../../components/Common/Modal/Modal';
-import Button from '../../../components/Common/Form/Button';
-import FormAddManual from '../Forms/FormAddManual';
+import React/*, { useState } */from 'react';
+import Modal from '../../../components/Common/Modal/Modal';
+// import ModalWrapper from '../../../components/Common/Modal/Modal';
+// import Button from '../../../components/Common/Form/Button';
+// import FormAddManual from '../Forms/FormAddManual';
 
-import { addManual } from '../Manuals/Manual.api';
-import { ManualTypes } from '../Manuals/Manual.types'
+// import { addManual } from '../Manuals/Manual.api';
+// import { ManualTypes } from '../Manuals/Manual.types'
 
-interface ModalAddManualProps {
-  onSuccess: () => void;
-}
+// interface ModalAddManualProps {
+//   onSuccess: () => void;
+// }
 
-const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const ModalAddManual: React.FC/*<ModalAddManualProps>*/ = (/*{ onSuccess }*/) => {
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
-  const handleCancel = () => {
-    closeModal();
-  };
-  const handleSubmit = async (manual: ManualTypes) => {
+  // const handleCancel = () => {
+  //   closeModal();
+  // };
+  // const handleSubmit = async (manual: ManualTypes) => {
 
-    try {
-      await addManual(manual);
-      closeModal();
-      onSuccess(); 
-    } catch (error) {
-      console.error('Ошибка при добавлении инструкции:', error);
+  //   try {
+  //     await addManual(manual);
+  //     closeModal();
+  //     onSuccess(); 
+  //   } catch (error) {
+  //     console.error('Ошибка при добавлении инструкции:', error);
+  //   }
+  // };
+    const handleSubmit = async () => {
+      console.log("Добавление инструкции")
     }
-  };
-  
   return (
     <>
-      <Button
+      <Modal 
+        title="Добавить инструкцию"
+        openButtonTitle="Добавить инструкцию"
+        onSubmit={handleSubmit}
+      >
+        <h1>Инструкция</h1>
+      </Modal>
+      {/* <Button
         onClick={openModal} 
         className="button__icon button__icon-add"
       />
@@ -49,7 +59,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
           <FormAddManual 
             onSubmit={handleSubmit} 
             onCancel={handleCancel} />
-      </ModalWrapper>
+      </ModalWrapper> */}
       </>
   );
 };

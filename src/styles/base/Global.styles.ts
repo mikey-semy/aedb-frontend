@@ -9,6 +9,9 @@ export const Global = createGlobalStyle`
 
     body {
         background-color: var(--background); //! Нужно создать переменную для тем
+        &.no-scroll {
+            overflow: hidden;
+        }
     }
     
     a {

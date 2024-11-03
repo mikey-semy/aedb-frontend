@@ -1,4 +1,4 @@
-import { ButtonProps } from '../../../../Common/Button/Button.types';
+import { ButtonTypes } from '../../../../Common/Button/Button.types';
 
-export interface ContentHeaderButtonTypes extends ButtonProps {
+export interface ContentHeaderButtonTypes extends ButtonTypes {
 }

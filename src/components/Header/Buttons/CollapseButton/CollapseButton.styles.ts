@@ -1,54 +1,44 @@
 import styled from 'styled-components';
-import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../Common/Button/Button.styles';
 
-export const EdgeTrigger = styled.div`
-    @media (max-width: 1024px) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 10px;
-        height: 100%;
-        z-index: 998;
-    }
-`;
-
-export const CollapseButtonContainer = styled(ButtonContainer) <{ isCollapsed: boolean }>`
-
+export const CollapseButtonContainer = styled.button<{ isCollapsed: boolean }>`
+    background-color: transparent;
+    box-shadow: var(--box-shadow-default);
+    border-radius: var(--border-radius-default);
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
     margin-right: auto;
-    /* transform: ${props => props.isCollapsed ? '' : 'translateX(var(--sidebar-width))' }; */
-    /* width: ${props => props.isCollapsed ? '40px' : '100%'}; */
     text-align: center;
     transition: all var(--transition-default);
     cursor: pointer;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
+
+    /* position: absolute;
+    top: 3%;
+
+    left: ${({ isCollapsed }) => (isCollapsed ? '40px' : 'calc(var(--sidebar-width, 262px) + 10px)')}; */
+
     @media (max-width: 1024px) {
-        transform: ${props => props.isCollapsed ? '' : 'translateX(var(--sidebar-width))' };
-    }
-    /* @media (max-width: 1024px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         position: absolute;
         top: 50%;
-        left: 100%;
         transform: translateY(-50%);
-        width: var(--nav-collapse-button-width, 30px);
-        height: var(--nav-collapse-button-height, 60px);
-        background: var(--sidebar-background);
-        box-shadow: var(--nav-collapse-button-box-shadow);
-        border-radius: var(--nav-collapse-button-border-radius);
-        z-index: 1000; 
-        pointer-events: all;
-    } */
+        left: ${({ isCollapsed }) => (isCollapsed ? '20px' : 'calc(var(--sidebar-width, 262px) + 10px)')};
+    }
 `;
 
-export const CollapseButtonTitle = styled(ButtonTitle) <{ isCollapsed: boolean }>`
-    display: ${props => props.isCollapsed ? 'none' : 'block'};
-`;
+export const CollapseButtonTitle = styled.span <{ isCollapsed: boolean }>``;
 
-export const CollapseButtonIcon = styled(ButtonIcon) <{ isCollapsed: boolean }>`
+export const CollapseButtonIcon = styled.span <{ isCollapsed: boolean }>`
     color: var(--nav-icon-color);
     font-size: var(--nav-collapse-button-font-size, 26px);
     transform: ${props => props.isCollapsed ? 'rotate(180deg)' : 'none'};
@@ -62,3 +52,4 @@ export const CollapseButtonIcon = styled(ButtonIcon) <{ isCollapsed: boolean }>`
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
 `;
+

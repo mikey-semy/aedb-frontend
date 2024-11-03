@@ -9,8 +9,11 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
-
+    const toggleScroll = () => {
+        document.body.classList.toggle('no-scroll');
+      };
     const toggleSidebar = () => {
+        toggleScroll();
         setIsCollapsed(prev => !prev);
     };
 

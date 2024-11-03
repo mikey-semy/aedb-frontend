@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tree from '../../components/Common/Tree/Tree';
 import { getManuals } from './ManualsPage.api';
 import { CategoryTypes } from './Categories/Category.types';
-
+import ModalAddManual from '../../pages/Manuals/Modals/ModalAddManual';
 // import { 
 //   ManualsPageContainer,
 //   ToolbarManualsStyled,
@@ -71,6 +71,7 @@ const Manuals: React.FC = () => {
       }, []);
     return (
         <>
+            <ModalAddManual />
             <Tree items={manuals} />
         </>
 //     <ManualsPageContainer>

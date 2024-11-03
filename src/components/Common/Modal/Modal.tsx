@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ModalTypes } from './Modal.types';
 import { Overlay, ModalContainer, ModalHeader, ModalBody, ModalFooter, ModalTitle } from './Modal.styles';
 import { OpenButton, CloseButton, CancelButton, SubmitButton } from './Buttons';
-import { setAppElement } from 'react-modal';
+
 const Modal: React.FC<ModalTypes> = ({   
   title, 
   children,
@@ -11,24 +11,22 @@ const Modal: React.FC<ModalTypes> = ({
   openButtonStyle,
   openButtonIconStyle,
   openButtonTitleStyle,
-  appendTo = 'root',
   onSubmit,
 }) => {
   const [isOpen, setIsModalOpen] = useState(false);
   const [data] = useState({});
 
-  useEffect(() => {
-    setAppElement(`#${appendTo}`); // устанавливаем элемент при подключении компонента
-    return () => {
-      setAppElement(``); // сбрасываем элемент при отключении компонента
-    };
-  }, [appendTo]);
-
+  const toggleScroll = () => {
+    document.body.classList.toggle('no-scroll');
+  };
+  
   const onOpen = () => {
+    toggleScroll();
     setIsModalOpen(true);
   }
 
   const onClose = () => {
+    toggleScroll();
     setIsModalOpen(false);
   }
 
@@ -51,7 +49,7 @@ const Modal: React.FC<ModalTypes> = ({
         icon={openButtonIcon}
         title={openButtonTitle}
       />
-      <Overlay isOpen={!isOpen} onClick={onClose}/>
+      <Overlay isOpen={isOpen} onClick={onClose}/>
       <ModalContainer
         isOpen={isOpen}
       >

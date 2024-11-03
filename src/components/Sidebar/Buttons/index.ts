@@ -1,1 +1,1 @@
-export { EdgeTrigger } from '../../Header/Buttons/CollapseButton/CollapseButton.styles';
+export { default } from './EdgeTrigger';

@@ -4,19 +4,18 @@ import {
     ContentHeaderButtonTitle
 } from './ContentHeaderButton.styles';
 import { ContentHeaderButtonTypes } from "./ContentHeaderButton.types";
-
-export const ContentHeaderButton: React.FC<ContentHeaderButtonTypes> = ({
-    onClick,
-    icon: Icon,
-    title: string,
-    ...props
-}) => (
-    <ContentHeaderButtonContainer
-        {...props}
-    >
-        <ContentHeaderButtonTitle>{string}</ContentHeaderButtonTitle>
-        <ContentHeaderButtonIcon>
-            {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)} 
-        </ContentHeaderButtonIcon>
-    </ContentHeaderButtonContainer>
-);
+import { Button } from '../../../../../components';
+export const ContentHeaderButton: React.FC<ContentHeaderButtonTypes> = (
+    { icon, title, onClick }
+) => {
+    return (
+        <Button
+            as={ContentHeaderButtonContainer}
+            iconAs={ContentHeaderButtonIcon}
+            titleAs={ContentHeaderButtonTitle}
+            icon={icon}
+            title={title}
+            onClick={onClick}
+        />
+    )
+};

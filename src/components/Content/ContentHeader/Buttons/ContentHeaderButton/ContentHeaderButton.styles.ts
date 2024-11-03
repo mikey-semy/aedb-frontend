@@ -35,7 +35,7 @@ export const ContentHeaderButtonTitle = styled(ButtonTitle)`
 
 export const ContentHeaderButtonIcon = styled(ButtonIcon)`
     color: var(--button-add-color, #FFFFFF);
-    font-size: var(--button-add-font-size, 14px);
+    font-size: var(--button-add-font-size, 18px);
     min-width: var(--button-add-font-size, 14px);
     min-height: var(--button-add-font-size, 14px);
     display: flex;

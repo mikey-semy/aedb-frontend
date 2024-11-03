@@ -1,4 +1,3 @@
-// ContentHeader.types.ts
 import { ContentContextTypes } from '../../../contexts/Content/ContentContext.types';
 
 export interface ContentHeaderContainerTypes {

@@ -2,7 +2,6 @@ import React, {useEffect}  from 'react';
 import { useContentData } from '../../contexts';
 import { MdAdd } from 'react-icons/md';
 
-
 const Dashboard: React.FC = () => {
   const { setContentData } = useContentData();
   useEffect(() => {
