@@ -46,7 +46,7 @@ const ModalUpdateManual: React.FC<ModalUpdateManualProps> = ({ category, manual,
       />
       <ModalWrapper
         isOpen={isModalOpen}
-        onRequestClose={closeModal}
+        onClose={closeModal}
         title="Обновить инструкцию"
       >
         <FormUpdateManual 

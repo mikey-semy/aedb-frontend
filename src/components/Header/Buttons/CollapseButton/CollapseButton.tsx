@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../../../../components';
-import { useSidebar} from '../../../../contexts';
+import { useSidebar } from '../../../../contexts';
 import { MdChevronLeft } from 'react-icons/md';
 import { CollapseButtonContainer, CollapseButtonIcon } from './CollapseButton.styles';
 import { CollapseButtonTypes } from './CollapseButton.types';

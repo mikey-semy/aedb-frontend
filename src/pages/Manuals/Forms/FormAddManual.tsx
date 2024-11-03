@@ -23,6 +23,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
   const [groups, setGroups] = useState<GroupTypes[]>([])
   const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
   const [manual, setManual] = useState({
+        id: 0,
         title: '',
         file_url: '',
         group_id: 0 
@@ -37,6 +38,7 @@ const FormAddManual: React.FC<FormAddManualProps> = ({ onSubmit, onCancel }) => 
     if (selectedGroup && selectedCategory) {
       setError(null);
       onSubmit({
+        id: manual.id,
         title: manual.title,
         file_url: manual.file_url,
         group_id: selectedGroup,

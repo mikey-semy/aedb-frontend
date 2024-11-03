@@ -42,7 +42,7 @@ const ModalRemoveManual: React.FC<ModalRemoveManualProps> = ({ manualId, onSucce
       />
       <ModalWrapper
         isOpen={isModalOpen}
-        onRequestClose={closeModal}
+        onClose={closeModal}
         title="Вы уверены?"
       >
         <FormRemoveManual

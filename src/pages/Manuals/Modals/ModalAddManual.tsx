@@ -43,7 +43,7 @@ const ModalAddManual: React.FC<ModalAddManualProps> = ({ onSuccess }) => {
       />
       <ModalWrapper
         isOpen={isModalOpen}
-        onRequestClose={closeModal}
+        onClose={closeModal}
         title="Добавить инструкцию"
       >
           <FormAddManual 
