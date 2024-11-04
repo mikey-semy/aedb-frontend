@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SidebarContainer = styled.div<{ isCollapsed: boolean }>`
+export const SidebarContainer = styled.aside<{ isCollapsed: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

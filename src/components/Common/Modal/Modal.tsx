@@ -1,58 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { ModalTypes } from './Modal.types';
 import { Overlay, ModalContainer, ModalHeader, ModalBody, ModalFooter, ModalTitle } from './Modal.styles';
 import { OpenButton, CloseButton, CancelButton, SubmitButton } from './Buttons';
 
-const Modal: React.FC<ModalTypes> = ({   
-  title, 
-  children,
-  openButtonTitle,
-  openButtonIcon,
-  openButtonStyle,
-  openButtonIconStyle,
-  openButtonTitleStyle,
-  onSubmit,
-}) => {
+const MyModal = forwardRef(function MyModal(
+  { title, children, onSubmit, renderOpenButton, ...props }: ModalTypes,
+  ref
+) {
   const [isOpen, setIsModalOpen] = useState(false);
   const [data] = useState({});
+
+  useImperativeHandle(ref, () => ({
+    open: () => {
+      setIsModalOpen(true);
+    },
+    close: () => {
+      setIsModalOpen(false);
+    },
+  }));
 
   const toggleScroll = () => {
     document.body.classList.toggle('no-scroll');
   };
-  
+
   const onOpen = () => {
     toggleScroll();
     setIsModalOpen(true);
-  }
+  };
 
   const onClose = () => {
     toggleScroll();
     setIsModalOpen(false);
-  }
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    onSubmit(data); // вызов функции onSubmit с данными
+    onSubmit(data);
   };
 
   const handleCancel = () => {
     onClose();
-  }
+  };
 
   return (
     <>
-      <OpenButton
-        as={openButtonStyle} 
-        iconAs={openButtonIconStyle} 
-        titleAs={openButtonTitleStyle} 
-        onClick={onOpen}
-        icon={openButtonIcon}
-        title={openButtonTitle}
-      />
-      <Overlay isOpen={isOpen} onClick={onClose}/>
-      <ModalContainer
-        isOpen={isOpen}
-      >
+      {renderOpenButton && (
+        <OpenButton
+          as={props.openButtonStyle}
+          iconAs={props.openButtonIconStyle}
+          titleAs={props.openButtonTitleStyle}
+          onClick={onOpen}
+          icon={props.openButtonIcon}
+          title={props.openButtonTitle}
+        />
+      )}
+      <Overlay isOpen={isOpen} onClick={onClose} />
+      <ModalContainer isOpen={isOpen}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
           <CloseButton onClick={onClose} />
@@ -61,12 +64,12 @@ const Modal: React.FC<ModalTypes> = ({
           {children}
         </ModalBody>
         <ModalFooter>
-          <SubmitButton onClick={handleSubmit}/>
+          <SubmitButton onClick={handleSubmit} />
           <CancelButton onClick={handleCancel} />
         </ModalFooter>
       </ModalContainer>
     </>
   );
-};
+});
 
-export default Modal;
+export default MyModal;

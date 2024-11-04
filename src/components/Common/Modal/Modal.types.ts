@@ -1,8 +1,13 @@
+import React from 'react';
+
 import { IconType } from 'react-icons';
 
+export interface ModalRef {
+  open: () => void;
+  close: () => void;
+}
 export interface ModalTypes {
     isOpen?: boolean;
-    onClose?: () => void;
     title?: string;
     openButtonTitle?: string;
     openButtonIcon?: IconType;
@@ -11,5 +16,10 @@ export interface ModalTypes {
     openButtonTitleStyle?: React.ComponentType;
     children: React.ReactNode;
     appendTo?: HTMLElement; // корневой элемент, к которому будет присоединено модальное окно
-    onSubmit: (data: any) => void; // функция, которая будет вызываться при submit
+    onSubmit: (data: any) => void;
+    renderOpenButton?: boolean;
+
+    ref?: React.RefObject<ModalRef>;
 }
+
+

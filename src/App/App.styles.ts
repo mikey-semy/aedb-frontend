@@ -14,7 +14,7 @@ export const AppContainer = styled.div`
     }
 `;
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
