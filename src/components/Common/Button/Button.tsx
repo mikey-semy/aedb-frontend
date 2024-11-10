@@ -31,7 +31,7 @@ const Button: React.FC<ButtonTypes> = ({
     <ButtonContainer
       as={as}
       type={type} 
-      onClick={onClick} 
+      onClick={onClick as any} 
       disabled={disabled}
     >
       <ButtonIcon as={iconAs}>

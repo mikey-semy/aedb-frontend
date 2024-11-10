@@ -17,7 +17,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ contentData }) => {
                 {contentData.onClick &&
                 <ContentHeaderButton
                     onClick={contentData.onClick}
-                    icon={ contentData.icon }
+                    icon={contentData.icon}
                     title={contentData.title}
                 /> 
                 }

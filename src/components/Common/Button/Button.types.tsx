@@ -9,7 +9,7 @@ export interface ButtonTypes {
     icon?: IconType | React.ReactNode;
     title?: string | React.ReactNode;
     disabled?: boolean;
-    as?: React.ComponentType | React.ReactNode;
-    iconAs?: React.ComponentType;
-    titleAs?: React.ComponentType;
+    as?: any;
+    iconAs?: any;
+    titleAs?: any;
 }
