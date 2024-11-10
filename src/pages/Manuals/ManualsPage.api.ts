@@ -1,4 +1,4 @@
-import api, { handleApiResponse, handleApiError}  from '../../api';
+import api, { handleApiResponse, handleApiError}  from '@/api';
 import { CategoryTypes } from './Categories/Category.types'; //! Создать новый тип
 
 export const getManuals = (): Promise<CategoryTypes[]> =>

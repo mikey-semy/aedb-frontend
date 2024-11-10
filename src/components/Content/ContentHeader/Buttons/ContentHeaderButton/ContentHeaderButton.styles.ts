@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonContainer, ButtonIcon, ButtonTitle } from '../../../../Common/Button/Button.styles';
+import { ButtonContainer, ButtonIcon, ButtonTitle } from '@/components/Common/Button/Button.styles';
 
 export const ContentHeaderButtonContainer = styled(ButtonContainer)`
     display: flex;

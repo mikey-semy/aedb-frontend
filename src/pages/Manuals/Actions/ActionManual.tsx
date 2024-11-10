@@ -1,8 +1,8 @@
 // import React from 'react';
-// import ModalUpdateManual from '../Modals/ModalUpdateManual';
-// import ModalRemoveManual from '../Modals/ModalRemoveManual';
-// import { ManualTypes } from '../Manuals/Manual.types';
-// import { CategoryTypes } from '../Categories/Category.types';
+// import ModalUpdateManual from '@/Modals/ModalUpdateManual';
+// import ModalRemoveManual from '@/Modals/ModalRemoveManual';
+// import { ManualTypes } from '@/Manuals/Manual.types';
+// import { CategoryTypes } from '@/Categories/Category.types';
 
 // interface ActionManualsProps {
 //   category: CategoryTypes;

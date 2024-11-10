@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-import FormAction from '../../../components/Common/Form/Action';
+import FormAction from '@/components/Common/Form/Action';
 import SelectCategory from './Selects/SelectCategory';
 import SelectGroup from './Selects/SelectGroup';
 
-import { getCategories } from '../Categories/Category.api';
-import { getGroupsByCategory } from '../Groups/Group.api';
+import { getCategories } from '@/pages/Manuals/Categories/Category.api';
+import { getGroupsByCategory } from '@/pages/Manuals/Groups/Group.api';
 
-import { ManualTypes } from '../Manuals/Manual.types';
-import { GroupTypes } from '../Groups/Group.types';
-import { CategoryTypes } from '../Categories/Category.types';
+import { ManualTypes } from '@/pages/Manuals/Manuals/Manual.types';
+import { GroupTypes } from '@/pages/Manuals/Groups/Group.types';
+import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
 
 interface FormAddManualProps {
   onSubmit: (manual: ManualTypes) => void;

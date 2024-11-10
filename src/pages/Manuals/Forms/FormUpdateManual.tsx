@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import FormAction from '../../../components/Common/Form/Action';
+import FormAction from '@/components/Common/Form/Action';
 
 import SelectCategory from './Selects/SelectCategory';
 import SelectGroup from './Selects/SelectGroup';
 
-import { CategoryTypes } from '../Categories/Category.types';
-import { GroupTypes } from '../Groups/Group.types';
-import { ManualTypes } from '../Manuals/Manual.types';
+import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
+import { GroupTypes } from '@/pages/Manuals/Groups/Group.types';
+import { ManualTypes } from '@/pages/Manuals/Manuals/Manual.types';
 
-import { getCategories } from '../Categories/Category.api';
-import { getGroupsByCategory } from '../Groups/Group.api';
+import { getCategories } from '@/pages/Manuals/Categories/Category.api';
+import { getGroupsByCategory } from '@/pages/Manuals/Groups/Group.api';
 
 interface FormUpdateManualProps {
   initialValuesCategory: CategoryTypes;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentData } from '../../../contexts/Content/ContentContext';
+import { ContentData } from '@/contexts/Content/ContentContext';
 import { ContentHeaderContainer, ContentCaptionContainer, ContentActionContainer,ContentCaption } from './ContentHeader.styles';
 import { ContentHeaderButton } from './Buttons/ContentHeaderButton/ContentHeaderButton';
 

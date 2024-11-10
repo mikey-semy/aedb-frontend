@@ -1,10 +1,10 @@
 // import React, { useState } from 'react';
-// import ModalWrapper from '../../../components/Common/Modal/Modal';
-// import Button from '../../../components/Common/Form/Button';
-// import FormUpdateManual from '../Forms/FormUpdateManual';
-// import { updateManual } from '../Manuals/Manual.api';
-// import { CategoryTypes } from '../Categories/Category.types';
-// import { ManualTypes } from '../Manuals/Manual.types';
+// import ModalWrapper from '@/components/Common/Modal/Modal';
+// import Button from '@/components/Common/Form/Button';
+// import FormUpdateManual from '@/Forms/FormUpdateManual';
+// import { updateManual } from '@/Manuals/Manual.api';
+// import { CategoryTypes } from '@/Categories/Category.types';
+// import { ManualTypes } from '@/Manuals/Manual.types';
 
 // interface ModalUpdateManualProps {
 //   manual: ManualTypes;

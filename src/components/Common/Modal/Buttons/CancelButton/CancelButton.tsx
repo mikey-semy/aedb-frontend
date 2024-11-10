@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../../../components';
+import { Button } from '@/components';
 import { MdCancel } from 'react-icons/md';
 import { CancelButtonContainer, CancelButtonIcon } from './CancelButton.styles';
 import { CancelButtonTypes } from './CancelButton.types';

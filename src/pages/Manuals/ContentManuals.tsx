@@ -3,7 +3,7 @@
 // import ToolbarManuals from './Actions/ToolbarManual';
 // import ActionManual from './Actions/ActionManual';
 // import { getManuals } from './ManualsPage.api';
-// // import { manualsApi } from '../../api';
+// // import { manualsApi } from '@/api';
 // import { CategoryTypes } from './Categories/Category.types';
 // import { GroupTypes } from './Groups/Group.types';
 // import { ManualTypes } from './Manuals/Manual.types';

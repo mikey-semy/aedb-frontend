@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Select from '../../../../components/Common/Form/Select';
-import { CategoryTypes } from '../../Categories/Category.types';
+import Select from '@/components/Common/Form/Select';
+import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
   
   interface SelectCategoryProps {
     categories: CategoryTypes[];

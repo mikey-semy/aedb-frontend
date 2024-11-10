@@ -1,4 +1,4 @@
-import api, { handleApiResponse, handleApiError}  from '../../../api';
+import api, { handleApiResponse, handleApiError}  from '@/api';
 import { GroupTypes } from './Group.types';
 
 export const getGroups = (): Promise<GroupTypes[]> =>

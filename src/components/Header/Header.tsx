@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderContainer } from './Header.styles';
 import { ThemeButton, CollapseButton } from './Buttons';
-import { useSidebar} from '../../contexts';
+import { useSidebar} from '@/contexts';
 
 const Header: React.FC = () => {
     const { isCollapsed } = useSidebar();

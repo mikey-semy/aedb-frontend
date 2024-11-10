@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EdgeTriggerContainer } from './EdgeTrigger.styles';
-import { useSidebar } from '../../../contexts';
+import { useSidebar } from '@/contexts';
 
 const EdgeTrigger: React.FC = () => {
     const { toggleSidebar } = useSidebar();

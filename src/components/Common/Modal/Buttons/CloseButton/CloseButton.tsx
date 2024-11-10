@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../../../components';
+import { Button } from '@/components';
 import { MdClose } from 'react-icons/md';
 import { CloseButtonContainer, CloseButtonIcon } from './CloseButton.styles';
 import { CloseButtonTypes } from './CloseButton.types';

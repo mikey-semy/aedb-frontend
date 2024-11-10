@@ -1,4 +1,4 @@
-import { ManualTypes } from "../Manuals/Manual.types";
+import { ManualTypes } from "@/pages/Manuals/Manuals/Manual.types";
 
 export interface GroupTypes {
     id: number;

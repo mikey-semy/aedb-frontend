@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestsData } from './Tests.data';
-import { Lists } from '../../../components';
+import { Lists } from '@/components';
 
 const TestsList: React.FC = () => {
     return (

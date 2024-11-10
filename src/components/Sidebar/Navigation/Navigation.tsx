@@ -9,7 +9,7 @@ import {
     ItemIcon,
     ItemLabel 
 } from './Navigation.styles';
-import { useSidebar } from '../../../contexts';
+import { useSidebar } from '@/contexts';
 const Navigation: React.FC = () => {
     const [items] = useState(NavigationData);
     const { isCollapsed, toggleSidebar } = useSidebar();

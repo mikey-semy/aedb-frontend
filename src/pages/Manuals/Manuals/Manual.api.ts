@@ -1,4 +1,4 @@
-import api, { handleApiResponse, handleApiError}  from '../../../api';
+import api, { handleApiResponse, handleApiError}  from '@/api';
 import { ManualTypes } from './Manual.types';
 
 export const addManual = (manual:ManualTypes): Promise<ManualTypes> =>

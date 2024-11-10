@@ -1,4 +1,4 @@
-import api, { handleApiResponse, handleApiError } from '../../../api';
+import api, { handleApiResponse, handleApiError } from '@/api';
 import { RegisterCredentials, RegisterResponse } from './Register.types';
 
 export const register = (credentials: RegisterCredentials): Promise<RegisterResponse> =>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Tree from '../../components/Common/Tree/Tree';
+import Tree from '@/components/Common/Tree';
 import { getManuals } from './ManualsPage.api';
 import { CategoryTypes } from './Categories/Category.types';
 import FormAddManual from './Modals/FormAddManual';
-import { useContentData } from '../../contexts';
+import { useContentData } from '@/contexts';
 import { MdAdd } from 'react-icons/md';
 import { ExtendedTreeItem } from './ManualsPage.types';
 const Manuals: React.FC = () => {

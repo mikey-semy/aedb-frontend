@@ -4,7 +4,7 @@ import {
     ContentHeaderButtonTitle
 } from './ContentHeaderButton.styles';
 import { ContentHeaderButtonTypes } from "./ContentHeaderButton.types";
-import { Button } from '../../../../../components';
+import { Button } from '@/components';
 export const ContentHeaderButton: React.FC<ContentHeaderButtonTypes> = (
     { icon, title, onClick }
 ) => {

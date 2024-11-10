@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../../../components';
+import { Button } from '@/components';
 import { OpenButtonTypes } from './OpenButton.types';
 
 const OpenButton: React.FC<OpenButtonTypes> = ({ as, iconAs, titleAs, onClick, icon, title }) => {

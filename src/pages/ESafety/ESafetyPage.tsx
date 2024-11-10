@@ -3,8 +3,8 @@ import DocumentsList from './Documents/Documents';
 import TestsList from './Tests/Tests';
 import QuestionsList from './Questions/Questions';
 import { MdQuiz } from 'react-icons/md';
-import { useContentData } from '../../contexts';
-import { Tabs } from '../../components';
+import { useContentData } from '@/contexts';
+import { Tabs } from '@/components';
 import { TestsData } from './Tests/Tests.data';
 
 const ESafety: React.FC = () => {

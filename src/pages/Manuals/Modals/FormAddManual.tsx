@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../components/Common/Modal/Modal';
+import Modal from '@/components/Common/Modal/Modal';
 
 const FormAddManual = React.forwardRef(function FormAddManual(
   {}, ref

@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
-import Select from '../../../../components/Common/Form/Select';
-import { GroupTypes } from '../../Groups/Group.types';
+import Select from '@/components/Common/Form/Select';
+import { GroupTypes } from '@/pages/Manuals/Groups/Group.types';
 
 interface SelectGroupProps {
     groups: GroupTypes[];

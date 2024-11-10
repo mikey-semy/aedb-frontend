@@ -1,4 +1,4 @@
-import { ButtonTypes } from '../../../Button/Button.types';
+import { ButtonTypes } from '@/components/Common/Button/Button.types';
 
 export interface SubmitButtonTypes extends ButtonTypes {
     onClick?: ButtonTypes['onClick'];

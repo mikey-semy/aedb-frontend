@@ -1,3 +1,3 @@
-import { ButtonTypes } from '../../../Button/Button.types';
+import { ButtonTypes } from '@/components/Common/Button/Button.types';
 
 export interface CloseButtonTypes extends ButtonTypes {}

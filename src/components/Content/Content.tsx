@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ContentContainer } from './Content.styles';
 import ContentHeader from './ContentHeader/ContentHeader';
-import { useContentData } from '../../contexts';
+import { useContentData } from '@/contexts';
 
 interface ContentProps {
   children: ReactNode; // Указываем, что children - это ReactNode

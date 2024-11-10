@@ -1,4 +1,4 @@
-import api, { handleApiResponse, handleApiError}  from '../../../api';
+import api, { handleApiResponse, handleApiError}  from '@/api';
 import { CategoryTypes } from './Category.types';
 
 export const getCategories = (): Promise<CategoryTypes[]> =>

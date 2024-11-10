@@ -1,4 +1,4 @@
-import { ListTypes } from '../Common/List';
+import { ListTypes } from '@/pages/ESafety/Common/List';
 
 export const DocumentsData: ListTypes[] = [
     {

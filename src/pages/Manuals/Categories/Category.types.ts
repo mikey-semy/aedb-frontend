@@ -1,4 +1,4 @@
-import { GroupTypes } from "../Groups/Group.types";
+import { GroupTypes } from "@/pages/Manuals/Groups/Group.types";
 
 export interface CategoryTypes {
     id: number;
