@@ -2,16 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
 
-    html, body {
+    /* html, body {
         overscroll-behavior-x: none;
         touch-action: pan-y pinch-zoom;
-    }
+    } */
 
     body {
         background-color: var(--background); //! Нужно создать переменную для тем
-        &.no-scroll {
+        /* &.no-scroll {
             overflow: hidden;
-        }
+        } */
     }
     
     a {

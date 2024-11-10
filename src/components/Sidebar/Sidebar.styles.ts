@@ -17,13 +17,13 @@ export const SidebarContainer = styled.aside<{ isCollapsed: boolean }>`
     background: var(--sidebar-background, #FFFFFF);
     box-shadow: var(--box-shadow-default, 0 0 0 1px #ccc);
     
-    overscroll-behavior: none; // Запрещаем нативный свайп
-    touch-action: none; // Разрешаем только вертикальный скролл
+    /* overscroll-behavior: none; // Запрещаем нативный свайп */
+    /* touch-action: none; // Разрешаем только вертикальный скролл */
     
-    pointer-events: ${props => props.isCollapsed ? 'none' : 'auto'};
+    /* pointer-events: ${props => props.isCollapsed ? 'none' : 'auto'};
     & * {
         pointer-events: auto; // Все дочерние элементы всегда могут принимать события
-    }
+    } */
     z-index: 1000;
     @media (max-width: 1024px) {
         position: fixed;
