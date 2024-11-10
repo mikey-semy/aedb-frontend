@@ -1,17 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { 
-  createBrowserRouter, 
-  RouterProvider 
+import {
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom';
-import ErrorPage from './error-page.tsx';
-import App from './App.tsx';
-import ESafety from './routes/ESafety.tsx';
-import Manuals from './routes/Manuals.tsx';
-
-
-import './assets/styles/main.sass';
-
+import ErrorPage from './pages/Error';
+import App from './App/App.tsx';
+import Dashboard from './pages/Dashboard/DashboardPage.tsx';
+import ESafety from './pages/ESafety/ESafetyPage.tsx';
+import Manuals from './pages/Manuals/ManualsPage.tsx';
 
 
 const router = createBrowserRouter([
@@ -22,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Manuals />
+        element: <Dashboard />
       },
       {
         path: "/esafety",
@@ -34,11 +31,15 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
+
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+
+      <RouterProvider 
+        router={router} 
+        future={{ v7_startTransition: true }}
+      />
   </StrictMode>,
 );
