@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { LoginForm } from './Login.types';
 import { login } from './Login.api';
 
-export const Login = () => {
+const Login = () => {
     const [formData, setFormData] = useState<LoginForm>({
         username: '',
         password: ''
@@ -34,3 +34,4 @@ export const Login = () => {
         </form>
     );
 };
+export default Login;

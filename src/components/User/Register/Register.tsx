@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { RegisterForm } from './Register.types';
 import { register } from './Register.api';
 
-export const Register = () => {
+const Register = () => {
     const [formData, setFormData] = useState<RegisterForm>({
         username: '',
         email: '',
@@ -42,3 +42,4 @@ export const Register = () => {
         </form>
     );
 };
+export default Register;
