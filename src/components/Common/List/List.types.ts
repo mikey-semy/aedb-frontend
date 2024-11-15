@@ -8,4 +8,5 @@ export interface ListTypes {
     footer?: React.ReactNode;
     bordered?: boolean;
     renderItem?: (item: listItem) => React.ReactNode;
+    listItemAs?: any;
 }

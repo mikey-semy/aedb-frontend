@@ -1,43 +1,43 @@
 export const lightTheme = {
     colors: {
-        primary: '#000000',
-        secondary: '#FFFFFF',
-        accent: '#7839CD',
-        background: '#F3F3F3',
-        sidebarBackground: '#FFFFFF',
-        logoColor: '#000000',
-        navLabelColor: '#474747',
-        navIconColor: '#000000',
-        navLabelActiveColor: '#7839CD',
-        navIconActiveColor: '#7839CD',
-        navLabelHoverColor: '#000000',
-        navIconHoverColor: '#000000',
-        navLinkActiveColor: '#7839CD',
-        navLinkActiveColorBackground:'#F1EEFE',
-        navItemHoverColorBackground: 'rgba(0,0,0,0.05)',
-        headerBackground: '#FFFFFF',
-        listItemHoverBackground: 'rgba(0,0,0,0.05)',
-        // headerColor:
-        // headerLinkColor: 
-        // headerLinkHoverColor: 
-        // headerLinkActiveColor: 
-        // headerLinkActiveColorBackground: 
-        // headerItemHoverColorBackground: 
-        // headerButtonColor: 
-        contentBackground: '#FFFFFF',
-        contentColor: '#000000',
-        contentHeaderColor: '#000000',
-        contentHeaderBackground: '#FFFFFF',
-        footerBackground: '#FFFFFF',
-        boxShadowColor: '#CCCCCC', 
-
-        linkColor: '#474747',
-        linkHoverColor: '#666666',
-        linkActiveColor: '#888888',
-        linkBackground: '#FFFFFF',
-        tabColor: '#474747',
-        tabActiveColor: '#7839CD',
-        tabHoverColor: '#666666',
+      primary: '#24292f',
+      secondary: '#ffffff',
+      accent: '#0969da',
+      background: '#f6f8fa',
+      sidebarBackground: '#ffffff',
+      logoColor: '#24292f',
+      navLabelColor: '#24292f',
+      navIconColor: '#57606a',
+      navLabelActiveColor: '#0969da',
+      navIconActiveColor: '#0969da', 
+      navLabelHoverColor: '#24292f',
+      navIconHoverColor: '#24292f',
+      navLinkActiveColor: '#0969da',
+      navLinkActiveColorBackground: '#f6f8fa',
+      navItemHoverColorBackground: '#f6f8fa',
+      headerBackground: '#ffffff',
+      listItemHoverBackground: '#f6f8fa',
+      buttonHeaderBgColor: '#2da44e',
+      buttonHeaderColor: '#ffffff',
+      tabBackground: '#ffffff',
+      contentBackground: '#ffffff',
+      contentColor: '#24292f',
+      contentHeaderColor: '#24292f',
+      contentHeaderBackground: '#ffffff',
+      footerBackground: '#ffffff',
+      boxShadowColor: '#d0d7de',
+      linkColor: '#0969da',
+      linkHoverColor: '#0969da',
+      linkActiveColor: '#0969da',
+      linkBackground: '#ffffff',
+      tabColor: '#24292f',
+      tabActiveColor: '#0969da',
+      tabHoverColor: '#0969da', 
+    },
+    scrollbar: {
+      thumbColor: '#d0d7de',
+      trackColor: '#f6f8fa',
+      thumbHoverColor: '#8b949e'
     }
-};
-export default lightTheme;
+  };
+  export default lightTheme;

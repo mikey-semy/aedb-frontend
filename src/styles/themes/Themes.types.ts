@@ -18,13 +18,9 @@ export type ThemeType = {
         navLinkActiveColorBackground: string;
         navItemHoverColorBackground: string;
         headerBackground: string;
-        // headerColor: string;
-        // headerLinkColor: string;
-        // headerLinkHoverColor: string;
-        // headerLinkActiveColor: string;
-        // headerLinkActiveColorBackground: string;
-        // headerItemHoverColorBackground: string;
-        // headerButtonColor: string;
+        buttonHeaderBgColor: string;
+        buttonHeaderColor: string;
+        tabBackground: string;
         contentBackground: string;
         contentColor: string;
         contentHeaderBackground: string;
@@ -39,6 +35,12 @@ export type ThemeType = {
         tabColor: string,
         tabActiveColor: string,
         tabHoverColor: string,
+        
+    },
+    scrollbar: {
+        thumbColor: string,
+        trackColor: string,
+        thumbHoverColor: string,
     }
 }
 

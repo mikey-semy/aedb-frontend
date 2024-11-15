@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const TabsContainer = styled.div`
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -11,7 +12,10 @@ export const TabItems = styled.ul`
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--tab-background, #FFFFFF);
     gap: 32px;
     height: 48px;
     width: 100%;
@@ -19,10 +23,17 @@ export const TabItems = styled.ul`
     border-top-right-radius: var(--border-radius-default, 5px);
     border-top-left-radius: var(--border-radius-default, 5px);
     box-shadow: var(--box-shadow-default);
-
+    z-index: 2;
     @media (max-width: 1024px) {
         border-radius: 0;
+        position: fixed;
+        top: 120px;
+        left: 0;
+        height: 50px;
+        margin-left: 10px;
+        gap: 20px;
     }
+    
 
 `;
 

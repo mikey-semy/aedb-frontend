@@ -5,7 +5,7 @@ export const ContentHeaderButtonContainer = styled(ButtonContainer)`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--button-add-bg-color, #7839CD);
+    background-color: var(--button-header-bg-color, #7839CD);
     border-radius: var(--border-radius-default, 5px);
     height: 48px;
     width: 218px;
@@ -23,9 +23,9 @@ export const ContentHeaderButtonContainer = styled(ButtonContainer)`
 `;
 
 export const ContentHeaderButtonTitle = styled(ButtonTitle)`
-    color: var(--button-add-color, #FFFFFF);
+    color: var(--button-header-color, #FFFFFF);
     font-family: var(--content-header-button-font, 'Inter');
-    font-size: var(--button-add-font-size, 14px);
+    font-size: var(--button-header-font-size, 14px);
     text-transform: uppercase;
 
     @media (max-width: 1024px) {
@@ -34,10 +34,10 @@ export const ContentHeaderButtonTitle = styled(ButtonTitle)`
 `;
 
 export const ContentHeaderButtonIcon = styled(ButtonIcon)`
-    color: var(--button-add-color, #FFFFFF);
-    font-size: var(--button-add-font-size, 18px);
-    min-width: var(--button-add-font-size, 14px);
-    min-height: var(--button-add-font-size, 14px);
+    color: var(--button-header-color, #FFFFFF);
+    font-size: var(--button-header-font-size, 18px);
+    min-width: var(--button-header-font-size, 14px);
+    min-height: var(--button-header-font-size, 14px);
     display: flex;
     align-items: center;
     justify-content: center;

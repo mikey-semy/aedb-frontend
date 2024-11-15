@@ -4,12 +4,9 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
-import ErrorPage from './pages/Error';
-import App from './App/App.tsx';
-import Dashboard from './pages/Dashboard/DashboardPage.tsx';
-import ESafety from './pages/ESafety/ESafetyPage.tsx';
-import Manuals from './pages/Manuals/ManualsPage.tsx';
 
+import App from './App/App.tsx';
+import { ErrorPage, Dashboard, ESafety, Files } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -26,8 +23,8 @@ const router = createBrowserRouter([
         element: <ESafety />
       },
       {
-        path: "/manuals",
-        element: <Manuals />
+        path: "/files",
+        element: <Files />
       },
     ],
   },

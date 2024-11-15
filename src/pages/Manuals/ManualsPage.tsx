@@ -1,15 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useContentData } from '@/contexts';
-import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
-import { GroupTypes } from "@/pages/Manuals/Groups/Group.types";
-import { ManualTypes } from "@/pages/Manuals/Manuals/Manual.types";
-import { listItem } from "@/components/Common/List/List.types";
 
 import { Lists } from '@/components';
 
 import { getManuals } from './ManualsPage.api';
-import { ExtendedTreeItem } from './ManualsPage.types';
-
+import { ManualListItem } from './ManualsPage.types';
 
 import FormAddManual from './Modals/FormAddManual';
 import { MdAdd } from 'react-icons/md';
@@ -18,7 +13,7 @@ import { MdAdd } from 'react-icons/md';
 
 const Manuals: React.FC = () => {
     const { setContentData } = useContentData();
-    // const [manuals, setManualItems] = useState<ExtendedTreeItem[]>([]);
+    const [manuals, setManualItems] = useState<ManualListItem[]>([]);
     
     const ref = useRef({ open: () => {} });
     
@@ -31,56 +26,36 @@ const Manuals: React.FC = () => {
         });
     }, [setContentData]);
     
-
-    // const fetchManualItems = async () => {
-    //     try {
-    //         const manuals: CategoryTypes[] = await getManuals();
+    const fetchManualItems = async () => {
+        try {
+            const manuals: ManualListItem[] = await getManuals();
             
+            setManualItems(manuals);
+        } catch (error) {
+            console.error('Ошибка при загрузке каталога:', error);
+        } 
+    };
+    
+    useEffect(() => {
+        fetchManualItems();
+    }, []);
+    
+    const allManuals = manuals.map((item) => ({
+        content: (
+            <>  
+                <div>
+                    <span>{item.category_name}</span>
+                    <span>{item.group_name}</span>
+                </div>
+                <a
+                    href={item.manual_url}
+                    target="_blank">
+                    <span>{item.manual_name}</span>
+                </a>
+            </>
+        ),
+    }));
 
-    //         const categoryItems: ExtendedTreeItem[] = manuals.map((category) => ({
-    //             id: category.id,
-    //             name: category.name,
-    //             groups: category.groups.map((group) => ({
-    //                 id: group.id,
-    //                 name: group.name,
-    //                 manuals: group.manuals.map((manual) => ({
-    //                     id: manual.id,
-    //                     name: manual.title,
-    //                     file_url: manual.file_url,
-    //                     group_id: group.id ?? 0,
-    //                     category_id: manual.category_id,
-    //                 })),
-    //             })),
-    //         }));
-    //         setManualItems(categoryItems);
-    //     } catch (error) {
-    //         console.error('Ошибка при загрузке каталога:', error);
-    //     } 
-    // };
-    
-    // useEffect(() => {
-    //     fetchManualItems();
-    //   }, []);
-    
-    const allManuals = manuals.flatMap((category: CategoryTypes) =>
-        category.groups.flatMap((group: GroupTypes) =>
-            group.manuals.map(manual: ManualTypes) => ({
-                content: (
-                    <>
-                        <span>{category.name}</span>
-                        <span>/</span>
-                        <span>{group.name}</span>
-                        <span>/</span>
-                        <a
-                            href={manual.file_url}
-                            target="_blank">
-                            <span>{manual.name}</span>
-                        </a>
-                    </>
-                )
-            }))
-        )
-    );
     return (
         <>  
             <FormAddManual ref={ref} />

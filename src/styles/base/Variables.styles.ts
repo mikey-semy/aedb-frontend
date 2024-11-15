@@ -19,6 +19,7 @@ export const Variables = createGlobalStyle`
     --nav-link-active-bg: ${({ theme }) => theme.colors.navLinkActiveColorBackground};
     --nav-item-hover-hover-bg: ${({ theme }) => theme.colors.navItemHoverColorBackground};
     --header-background: ${({ theme }) => theme.colors.headerBackground};
+    --tab-background: ${({ theme }) => theme.colors.tabBackground};
     --content-header-background: ${({ theme }) => theme.colors.contentHeaderBackground};
     --content-header-color: ${({ theme }) => theme.colors.contentHeaderColor};
     --content-background: ${({ theme }) => theme.colors.contentBackground};
@@ -33,7 +34,11 @@ export const Variables = createGlobalStyle`
     --tab-color: ${({ theme }) => theme.colors.tabColor};
     --tab-active-color: ${({ theme }) => theme.colors.tabActiveColor};
     --tab-hover-color: ${({ theme }) => theme.colors.tabHoverColor};
-    
+    --button-header-bg-color: ${({ theme }) => theme.colors.buttonHeaderBgColor};
+    --button-header-color: ${({ theme }) => theme.colors.buttonHeaderColor};
+    --scrollbar-thumb-color: ${props => props.theme.scrollbar.thumbColor};
+    --scrollbar-track-color: ${props => props.theme.scrollbar.trackColor};
+    --scrollbar-thumb-hover-color: ${props => props.theme.scrollbar.thumbHoverColor};
     // Sizes
     --header-height: 80px;
     --sidebar-width: 262px;

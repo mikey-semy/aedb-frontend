@@ -7,8 +7,8 @@ import { RiRobot2Line } from 'react-icons/ri';
 
 export const NavigationData: NavigationTypes[] = [
   {
-    path: '/manuals',
-    label: 'Доки',
+    path: '/files',
+    label: 'Файлы',
     icon: BsFileEarmarkText,
   },
   {

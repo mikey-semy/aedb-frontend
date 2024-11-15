@@ -1,42 +1,43 @@
 export const darkTheme = {
     colors: {
-        primary: '#000000', // Черный для текста
-        secondary: '#FFFFFF', // Белый для фона
-        accent: '#9B6BE3', // Оставим акцентный цвет
-        background: '#1A1A1A', // Темный фон
-        sidebarBackground: '#2A2A2A', // Темный фон для меню
-        logoColor: '#FFFFFF', // Белый для логотипа
-        navLabelColor: '#FFFFFF', // Белый для меток навигации
-        navIconColor: '#FFFFFF', // Белый для иконок навигации
-        navLabelActiveColor: '#7839CD', // Активная метка навигации
-        navIconActiveColor: '#7839CD', // Активная иконка навигации
-        navLabelHoverColor: '#FFFFFF', // Белый при наведении на метки
-        navIconHoverColor: '#FFFFFF', // Белый при наведении на иконки
-        navLinkActiveColor: '#7839CD', // Активная ссылка навигации
-        navLinkActiveColorBackground: '#1A1A1A', // Фон активной ссылки
-        navItemHoverColorBackground: '#2A2A2A', // Полупрозрачный белый при наведении
-        headerBackground: '#2A2A2A',
-        listItemHoverBackground: '#2A2A2A',
-        // headerColor:
-        // headerLinkColor: 
-        // headerLinkHoverColor: 
-        // headerLinkActiveColor: 
-        // headerLinkActiveColorBackground: 
-        // headerItemHoverColorBackground: 
-        // headerButtonColor: 
-        contentBackground: '#2A2A2A',
-        contentColor: '#FFFFFF',
-        contentHeaderColor: '#FFFFFF',
-        contentHeaderBackground: '#2A2A2A',
-        footerBackground: '#2A2A2A',
-        boxShadowColor: '#1A1A1A',
-        linkColor: '#FFFFFF',
-        linkHoverColor: '#CCCCCC',
-        linkActiveColor: '#AAAAAA',
-        linkBackground: '#333333',
-        tabColor: '#474747',
-        tabActiveColor: '#7839CD',
-        tabHoverColor: '#CCCCCC',
+      primary: '#c9d1d9',
+      secondary: '#0d1117',
+      accent: '#58a6ff',
+      background: '#010409',
+      sidebarBackground: '#0d1117',
+      logoColor: '#c9d1d9',
+      navLabelColor: '#c9d1d9',
+      navIconColor: '#8b949e',
+      navLabelActiveColor: '#58a6ff',
+      navIconActiveColor: '#58a6ff',
+      navLabelHoverColor: '#c9d1d9',
+      navIconHoverColor: '#c9d1d9',
+      navLinkActiveColor: '#58a6ff',
+      navLinkActiveColorBackground: '#21262d',
+      navItemHoverColorBackground: '#21262d',
+      headerBackground: '#0d1117',
+      listItemHoverBackground: '#21262d',
+      buttonHeaderBgColor: '#238636',
+      buttonHeaderColor: '#ffffff',
+      tabBackground: '#0d1117',
+      contentBackground: '#0d1117',
+      contentColor: '#c9d1d9',
+      contentHeaderColor: '#c9d1d9',
+      contentHeaderBackground: '#0d1117',
+      footerBackground: '#0d1117',
+      boxShadowColor: '#30363d',
+      linkColor: '#58a6ff',
+      linkHoverColor: '#58a6ff',
+      linkActiveColor: '#58a6ff',
+      linkBackground: '#0d1117',
+      tabColor: '#c9d1d9',
+      tabActiveColor: '#58a6ff',
+      tabHoverColor: '#58a6ff'
+    },
+    scrollbar: {
+        thumbColor: '#30363d',
+        trackColor: '#21262d', 
+        thumbHoverColor: '#58a6ff'
     }
-};
+  };
 export default darkTheme;

@@ -8,12 +8,13 @@ const List: React.FC<ListTypes> = ({
     footer,
     bordered,
     renderItem,
+    listItemAs,
   }) => {
     return (
       <ListContainer>
         {header && <ListHeader>{header}</ListHeader>}
         {listItems.map((item, index) => (
-          <ListItem key={index} bordered={bordered}>
+          <ListItem as={listItemAs} key={index} bordered={bordered}>
             {renderItem ? renderItem(item) : item.content}
           </ListItem>
         ))}

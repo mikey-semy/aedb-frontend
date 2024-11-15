@@ -10,12 +10,13 @@ export const ContentHeaderContainer = styled.div`
     background-color: var(--content-header-background, #FFFFFF);
     color: var(--content-header-color, #000000);
     box-shadow: var(--box-shadow-default);
+    z-index: 2;
     @media (max-width: 1024px) {
         position: fixed;
         top: 60px;
         left: 0;
         width: 100%;
-        height: 80px;
+        height: 60px;
     }
 `;
 export const ContentCaptionContainer = styled.div`
