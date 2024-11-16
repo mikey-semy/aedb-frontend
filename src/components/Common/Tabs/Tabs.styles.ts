@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 export const TabsContainer = styled.div`
-    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    
 `;
 
 export const TabItems = styled.ul`
@@ -17,19 +15,20 @@ export const TabItems = styled.ul`
     z-index: 1;
     background-color: var(--tab-background, #FFFFFF);
     gap: 32px;
-    height: 48px;
+    height: var(--tab-height, 48px);
     width: 100%;
     padding: 0 12px;
     border-top-right-radius: var(--border-radius-default, 5px);
     border-top-left-radius: var(--border-radius-default, 5px);
     box-shadow: var(--box-shadow-default);
     z-index: 2;
+
     @media (max-width: 1024px) {
         border-radius: 0;
         position: fixed;
-        top: 120px;
+        top: var(--tab-fixed-top-mobile, 180px);
         left: 0;
-        height: 50px;
+        height: var(--tab-height-mobile, 48px);
         margin-left: 10px;
         gap: 20px;
     }
@@ -37,7 +36,7 @@ export const TabItems = styled.ul`
 
 `;
 
-export const TabItem = styled.li`
+export const TabItem = styled.li<{ $isActive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,17 +48,15 @@ export const TabItem = styled.li`
     cursor: pointer;
     transition: all var(--transition-default);
     
+    color: ${props => props.$isActive ? 'var(--tab-active-color, #000000)' : 'var(--tab-color, #000000)'};
+    border-bottom: ${props => props.$isActive ? 'var(--tab-active-border)' : 'transparent'};
+    
     &:hover {
         color: var(--tab-hover-color, #424242);
     }
 `;
 
-export const ActiveTabItem = styled(TabItem)`
-    color: var(--tab-active-color, #000000);
-    border-bottom: var(--tab-active-border);
-`;
-
-export const TabContent = styled.div<{ isActiveTab: boolean }>`
-    display: ${props => props.isActiveTab ? 'block' : 'none'};
+export const TabContent = styled.div<{ $isActive: boolean }>`
+    display: ${props => props.$isActive ? 'block' : 'none'};
     padding: 20px;
 `;

@@ -5,4 +5,5 @@ export interface Tab {
 
 export interface TabsTypes {
     tabs: Tab[];
+    onTabChange?: (index: number) => void;
 }

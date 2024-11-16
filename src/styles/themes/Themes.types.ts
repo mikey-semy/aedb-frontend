@@ -25,6 +25,8 @@ export type ThemeType = {
         contentColor: string;
         contentHeaderBackground: string;
         contentHeaderColor: string;
+        contentToolbarBackground: string;
+        contentToolbarColor: string;
         boxShadowColor: string;
         footerBackground: string;
         listItemHoverBackground: string;
@@ -35,6 +37,8 @@ export type ThemeType = {
         tabColor: string,
         tabActiveColor: string,
         tabHoverColor: string,
+        searchColor: string,
+        searchBackground: string,
         
     },
     scrollbar: {

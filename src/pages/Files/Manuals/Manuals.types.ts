@@ -4,3 +4,7 @@ export interface ManualListItem {
   manual_name: string;
   manual_url: string;
 }
+
+export interface ManualsTypes {
+  searchValue: string;
+}

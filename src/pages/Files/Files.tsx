@@ -4,12 +4,26 @@ import Manuals from './Manuals';
 import Software from './Software';
 import { MdAdd } from 'react-icons/md';
 import { useContentData } from '@/contexts';
-import { Tabs } from '@/components';
-
+import { Tabs, Search } from '@/components';
 
 const Files: React.FC = () => {
   const { setContentData } = useContentData();
   const ref = useRef({ open: () => {} });
+  const [searchValue, setSearchValue] = React.useState('');
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  const getPlaceholder = () => {
+    switch (activeTab) {
+      case 0:
+        return 'Поиск по документациям';
+      case 1:
+        return 'Поиск по шпаргалкам';
+      case 2:
+        return 'Поиск по программам';
+      default:
+        return 'Поиск...';
+    }
+  };
 
   useEffect(() => {
     setContentData({
@@ -17,15 +31,34 @@ const Files: React.FC = () => {
         title: 'Добавить',
         icon: MdAdd,
         onClick: () => ref.current.open(),
+        isToolbar: true,
+        toolbarContent: (
+          <Search 
+            value={searchValue}
+            onChange={setSearchValue}
+            placeholder={getPlaceholder()}
+          />
+        )
     });
-}, [setContentData]);
+}, [setContentData, searchValue, activeTab]);
 
   return (
     <Tabs tabs={[
-      { label: 'Документация', content: <Manuals /> }, 
-      { label: 'Шпаргалки', content: <Cheatsheets /> }, 
-      { label: 'Программы', content: <Software /> }
-    ]} />
+      { 
+        label: 'Документация', 
+        content: <Manuals searchValue={searchValue} /> 
+      }, 
+      { 
+        label: 'Шпаргалки', 
+        content: <Cheatsheets searchValue={searchValue} /> 
+      }, 
+      { 
+        label: 'Программы', 
+        content: <Software searchValue={searchValue} /> 
+      }
+    ]} 
+      onTabChange={setActiveTab}
+    />
   );
 };
 

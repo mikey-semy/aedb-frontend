@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Lists } from '@/components';
 
 import { getManuals } from './Manuals.api';
-import { ManualListItem } from './Manuals.types';
+import { ManualsTypes, ManualListItem } from './Manuals.types';
 import { 
     ListItemManuals, 
     ListItemContentHeader, 
@@ -15,7 +15,7 @@ import {
 
 
 
-const Manuals: React.FC = () => {
+const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
 
     const [manuals, setManualItems] = useState<ManualListItem[]>([]);
     
@@ -29,11 +29,17 @@ const Manuals: React.FC = () => {
         } 
     };
     
+    const filteredManuals = manuals.filter(item => 
+        item.manual_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        item.category_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        item.group_name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
     useEffect(() => {
         fetchManualItems();
     }, []);
     
-    const allManuals = manuals.map((item) => ({
+    const allManuals = filteredManuals.map((item) => ({
         content: (
             <>  
                 <ListItemContentHeader>

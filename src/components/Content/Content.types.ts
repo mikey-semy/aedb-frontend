@@ -1,4 +1,3 @@
-export interface ContentContainerProps {
+export interface ContentProps {
     children: React.ReactNode;
-  }
-  
+}

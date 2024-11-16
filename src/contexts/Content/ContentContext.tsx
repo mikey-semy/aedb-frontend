@@ -1,24 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { IconType } from 'react-icons';
-
-export interface ContentData {
-    caption?: string;
-    title?: string;
-    icon?: IconType;
-    onClick?: () => void;
-}
-
-export interface ContentContextTypes {
-    contentData: ContentData;
-    setContentData: React.Dispatch<React.SetStateAction<ContentData>>;
-}
-
-const defaultContentData: ContentData = {
-    caption: '',
-    title: '',
-    icon: undefined,
-    onClick: undefined,
-};
+import { ContentData, ContentContextTypes, defaultContentData } from './ContentContext.types';
 
 const ContentDataContext = createContext<ContentContextTypes | undefined>(undefined);
 

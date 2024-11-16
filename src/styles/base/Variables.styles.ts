@@ -20,8 +20,12 @@ export const Variables = createGlobalStyle`
     --nav-item-hover-hover-bg: ${({ theme }) => theme.colors.navItemHoverColorBackground};
     --header-background: ${({ theme }) => theme.colors.headerBackground};
     --tab-background: ${({ theme }) => theme.colors.tabBackground};
+    --search-color: ${({ theme }) => theme.colors.searchColor};
+    --search-background: ${({ theme }) => theme.colors.searchBackground};
     --content-header-background: ${({ theme }) => theme.colors.contentHeaderBackground};
     --content-header-color: ${({ theme }) => theme.colors.contentHeaderColor};
+    --content-toolbar-background: ${({ theme }) => theme.colors.contentToolbarBackground};
+    --content-toolbar-color: ${({ theme }) => theme.colors.contentToolbarColor};
     --content-background: ${({ theme }) => theme.colors.contentBackground};
     --content-color: ${({ theme }) => theme.colors.contentColor};
     --footer-background: ${({ theme }) => theme.colors.footerBackground};
@@ -39,8 +43,26 @@ export const Variables = createGlobalStyle`
     --scrollbar-thumb-color: ${props => props.theme.scrollbar.thumbColor};
     --scrollbar-track-color: ${props => props.theme.scrollbar.trackColor};
     --scrollbar-thumb-hover-color: ${props => props.theme.scrollbar.thumbHoverColor};
+    
     // Sizes
-    --header-height: 80px;
+    --header-height: 60px;
+    --header-height-mobile: 60px;
+    --header-fixed-top-mobile: 0;
+    
+    --content-header-height: 60px;
+    --content-header-height-mobile: 60px;
+    --content-header-fixed-top-mobile: var(--header-height-mobile);
+    
+    --content-toolbar-height: 60px;
+    --content-toolbar-height-mobile: 60px;
+    
+    --tab-height: 48px;
+    --tab-height-mobile: 48px;
+    --tab-fixed-top-mobile: calc(var(--header-height-mobile) + var(--content-header-height-mobile) + (var(--has-toolbar) * var(--content-toolbar-height-mobile)));
+    
+    --has-toolbar: 0;
+    --content-margin-top: calc(var(--header-height-mobile) + var(--content-header-height-mobile) + var(--tab-height-mobile) + (var(--has-toolbar) * var(--content-toolbar-height-mobile)));
+    
     --sidebar-width: 262px;
     --sidebar-collapsed-width: 50px;
     --logo-container-height: 83px;

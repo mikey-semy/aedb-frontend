@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContentHeaderContainer = styled.div`
     padding: 0 24px;
-    height: 100px;
+    height: var(--content-header-height, 60px);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -11,12 +11,13 @@ export const ContentHeaderContainer = styled.div`
     color: var(--content-header-color, #000000);
     box-shadow: var(--box-shadow-default);
     z-index: 2;
+
     @media (max-width: 1024px) {
         position: fixed;
-        top: 60px;
+        top: var(--content-fixed-top-mobile, 60px);
         left: 0;
         width: 100%;
-        height: 60px;
+        height: var(--content-header-height-mobile, 60px);
     }
 `;
 export const ContentCaptionContainer = styled.div`

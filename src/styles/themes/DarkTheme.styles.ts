@@ -24,6 +24,8 @@ export const darkTheme = {
       contentColor: '#c9d1d9',
       contentHeaderColor: '#c9d1d9',
       contentHeaderBackground: '#0d1117',
+      contentToolbarBackground: '#0d1117',
+      contentToolbarColor: '#c9d1d9',
       footerBackground: '#0d1117',
       boxShadowColor: '#30363d',
       linkColor: '#58a6ff',
@@ -32,7 +34,9 @@ export const darkTheme = {
       linkBackground: '#0d1117',
       tabColor: '#c9d1d9',
       tabActiveColor: '#58a6ff',
-      tabHoverColor: '#58a6ff'
+      tabHoverColor: '#58a6ff',
+      searchColor: '#c9d1d9',
+      searchBackground: '#0d1117'
     },
     scrollbar: {
         thumbColor: '#30363d',

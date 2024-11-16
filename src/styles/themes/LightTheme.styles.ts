@@ -24,6 +24,8 @@ export const lightTheme = {
       contentColor: '#24292f',
       contentHeaderColor: '#24292f',
       contentHeaderBackground: '#ffffff',
+      contentToolbarBackground: '#ffffff',  
+      contentToolbarColor: '#24292f',
       footerBackground: '#ffffff',
       boxShadowColor: '#d0d7de',
       linkColor: '#0969da',
@@ -32,7 +34,9 @@ export const lightTheme = {
       linkBackground: '#ffffff',
       tabColor: '#24292f',
       tabActiveColor: '#0969da',
-      tabHoverColor: '#0969da', 
+      tabHoverColor: '#0969da',
+      searchColor: '#24292f',
+      searchBackground: '#f6f8fa'
     },
     scrollbar: {
       thumbColor: '#d0d7de',

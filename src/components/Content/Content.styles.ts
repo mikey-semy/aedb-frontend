@@ -12,9 +12,10 @@ export const ContentContainer = styled.main`
     flex-direction: column;
     flex: 1;
     height: calc(100% - 56px);
-    min-height: 80vh;
+    min-height: 50vh;
     overflow-y: auto;
     z-index: 1;
+
     & {
         scrollbar-width: thin;
         scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
@@ -41,7 +42,7 @@ export const ContentContainer = styled.main`
     
     @media (max-width: 1024px) {
 
-        margin: 170px 0 0 10px;
+        margin: var(--content-margin-top) 0 0 10px;
         border-radius: 0;
     }
 `;
