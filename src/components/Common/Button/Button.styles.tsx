@@ -9,6 +9,7 @@ export const ButtonContainer = styled.button`
     align-items: center;
     gap: 8px;
     transition: opacity 0.3s ease;
+    margin-left: 10px;
     
     &:hover {
         opacity: 0.7;

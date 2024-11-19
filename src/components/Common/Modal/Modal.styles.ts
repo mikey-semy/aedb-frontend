@@ -8,7 +8,7 @@ export const ModalContainer = styled.div<{ isOpen: boolean }>`
     justify-content: flex-start;
 
     height: 400px;
-    width: 300px;
+    width: 350px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -44,6 +44,7 @@ export const ModalBody = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: 10px;
     width: 100%;
     height: 100%;
     margin: 20px auto;

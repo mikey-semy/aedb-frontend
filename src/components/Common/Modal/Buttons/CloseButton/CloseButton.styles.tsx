@@ -8,5 +8,5 @@ export const CloseButtonContainer = styled.button`
 `;
 
 export const CloseButtonIcon = styled.span`
-    font-size: 24px;
+    font-size: 20px;
 `;

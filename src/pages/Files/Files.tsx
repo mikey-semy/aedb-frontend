@@ -5,6 +5,7 @@ import Software from './Software';
 import { MdAdd } from 'react-icons/md';
 import { useContentData } from '@/contexts';
 import { Tabs, Search } from '@/components';
+import { FormAddManual } from '@/pages/Files/Modals';
 
 const Files: React.FC = () => {
   const { setContentData } = useContentData();
@@ -43,22 +44,25 @@ const Files: React.FC = () => {
 }, [setContentData, searchValue, activeTab]);
 
   return (
-    <Tabs tabs={[
-      { 
-        label: 'Документация', 
-        content: <Manuals searchValue={searchValue} /> 
-      }, 
-      { 
-        label: 'Шпаргалки', 
-        content: <Cheatsheets searchValue={searchValue} /> 
-      }, 
-      { 
-        label: 'Программы', 
-        content: <Software searchValue={searchValue} /> 
-      }
-    ]} 
-      onTabChange={setActiveTab}
-    />
+    <>
+      <FormAddManual ref={ref} />
+      <Tabs tabs={[
+        { 
+          label: 'Документация', 
+          content: <Manuals searchValue={searchValue} /> 
+        }, 
+        { 
+          label: 'Шпаргалки', 
+          content: <Cheatsheets searchValue={searchValue} /> 
+        }, 
+        { 
+          label: 'Программы', 
+          content: <Software searchValue={searchValue} /> 
+        }
+      ]} 
+        onTabChange={setActiveTab}
+      />
+    </>
   );
 };
 

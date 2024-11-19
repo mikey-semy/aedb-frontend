@@ -20,5 +20,5 @@ export const defaultContentData: ContentData = {
     icon: undefined,
     onClick: undefined,
     isToolbar: false,
-    toolbarContent: ''
+    toolbarContent: '',
 };

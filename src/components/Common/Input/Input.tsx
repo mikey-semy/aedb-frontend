@@ -10,6 +10,8 @@ const Input: React.FC<InputTypes> = ({
     label,
     error,
     disabled = false,
+    accept,
+    multiple = false,
     onChange,
 }) => {
   return (
@@ -17,12 +19,15 @@ const Input: React.FC<InputTypes> = ({
         {label && <InputLabel>{label}</InputLabel>}
         <InputField
             type={type}
-            value={value}
+            value={type !== 'file' ? value : undefined}
             onChange={onChange}
             placeholder={placeholder}
             disabled={disabled}
             id={id}
             hasError={!!error}
+            accept={accept}
+            multiple={multiple}
+            required
         />
         {error && <ErrorText>{error}</ErrorText>}
     </InputContainer>
