@@ -3,6 +3,7 @@ import { SelectTypes } from './Select.types';
 import { SelectContainer, Option } from './Select.styles';
 
 const Select: React.FC<SelectTypes> = ({
+    id,
     options = [],
     value,
     onChange,
@@ -15,6 +16,7 @@ const Select: React.FC<SelectTypes> = ({
         <>
             {label && <label>{label}</label>} 
             <SelectContainer
+                id={id}
                 value={value !== null ? value.toString() : ''}
                 onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
                 disabled={disabled}

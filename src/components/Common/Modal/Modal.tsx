@@ -1,14 +1,14 @@
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import /*React, */{ useState, forwardRef, useImperativeHandle } from 'react';
 import { ModalTypes } from './Modal.types';
-import { Overlay, ModalContainer, ModalHeader, ModalBody, ModalFooter, ModalTitle } from './Modal.styles';
-import { OpenButton, CloseButton, CancelButton, SubmitButton } from './Buttons';
+import { Overlay, ModalContainer, ModalHeader, ModalBody, /*ModalFooter,*/ ModalTitle } from './Modal.styles';
+import { OpenButton, CloseButton, /*CancelButton, SubmitButton*/ } from './Buttons';
 
-const MyModal = forwardRef(function MyModal(
+const Modal = forwardRef(function MyModal(
   { title, children, onSubmit, renderOpenButton, ...props }: ModalTypes,
   ref
 ) {
   const [isOpen, setIsModalOpen] = useState(false);
-  const [data] = useState({});
+  // const [data] = useState({});
 
   useImperativeHandle(ref, () => ({
     open: () => {
@@ -33,14 +33,14 @@ const MyModal = forwardRef(function MyModal(
     setIsModalOpen(false);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    onSubmit(data);
-  };
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();
+  //   onSubmit(data);
+  // };
 
-  const handleCancel = () => {
-    onClose();
-  };
+  // const handleCancel = () => {
+  //   onClose();
+  // };
 
   return (
     <>
@@ -63,13 +63,13 @@ const MyModal = forwardRef(function MyModal(
         <ModalBody>
           {children}
         </ModalBody>
-        <ModalFooter>
+        {/* <ModalFooter>
           <SubmitButton onClick={handleSubmit} />
           <CancelButton onClick={handleCancel} />
-        </ModalFooter>
+        </ModalFooter> */}
       </ModalContainer>
     </>
   );
 });
 
-export default MyModal;
+export default Modal;
