@@ -59,4 +59,5 @@ export const TabItem = styled.li<{ $isActive: boolean }>`
 export const TabContent = styled.div<{ $isActive: boolean }>`
     display: ${props => props.$isActive ? 'block' : 'none'};
     padding: 20px;
+    width: 100%;
 `;

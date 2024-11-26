@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-
-import { Lists } from '@/components';
+import { Lists, Error, Empty, Loading } from '@/components';
 
 import { getManuals } from './Manuals.api';
 import { ManualsTypes, ManualListItem } from './Manuals.types';
@@ -13,20 +12,28 @@ import {
     ManualLink 
     } from './Manuals.styles';
 
-
-
 const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
 
     const [manuals, setManualItems] = useState<ManualListItem[]>([]);
-    
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+    const empty = manuals.length == 0;
+    const errorMessage = '';
+
     const fetchManualItems = async () => {
+        setError(null);
+        setLoading(true);
         try {
             const manuals: ManualListItem[] = await getManuals();
             
             setManualItems(manuals);
+
         } catch (error) {
             console.error('Ошибка при загрузке каталога:', error);
-        } 
+            setError(`Ошибка при загрузке каталога: ${error}`);
+        } finally {
+            setLoading(false);
+        }
     };
     
     const filteredManuals = manuals.filter(item => 
@@ -39,6 +46,17 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
         fetchManualItems();
     }, []);
     
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error error={errorMessage}/>;
+    }
+
+    if (empty) {
+        return <Empty />;
+    }
     const allManuals = filteredManuals.map((item) => ({
         content: (
             <>  
