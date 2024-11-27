@@ -4,6 +4,7 @@ export { default as Content } from './Content';
 export { default as Footer } from './Footer';
 
 export { Overlay } from './Sidebar/Sidebar.styles';
+
 export { default as Select } from './Common/Select/Select';
 export { default as Input } from './Common/Input/Input';
 export { default as Button } from './Common/Button/Button';
@@ -14,3 +15,6 @@ export { default as Search } from './Common/Search/Search';
 export { default as Error } from './Common/Error/Error';
 export { default as Empty } from './Common/Empty/Empty';
 export { default as Loading } from './Common/Loading/Loading';
+export { default as FormAction } from './Common/FormAction/FormAction';
+export { default as FormAddManual } from './Files/Forms/FormAddManual/FormAddManual';
+export { default as ModalAddManual } from './Files/Modals/ModalAddManual/ModalAddManual';

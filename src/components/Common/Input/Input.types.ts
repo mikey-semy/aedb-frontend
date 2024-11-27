@@ -1,6 +1,7 @@
 export interface InputTypes {
     id: string;
     type?: 'text' | 'password' | 'email' | 'number' | 'url' | 'file';
+    name?: string;
     value?: string;
     placeholder?: string;
     label?: string;

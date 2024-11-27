@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import FormAction from '@/components/Common/Form/Action';
+import FormAction from '@/components/Common/FormAction/FormAction';
 import SelectCategory from './Selects/SelectCategory';
 import SelectGroup from './Selects/SelectGroup';
 

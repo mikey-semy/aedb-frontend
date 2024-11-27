@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FormAddManualTypes } from './FormAddManual.types';
 import { FormContainer } from './FormAddManual.styles';
 
-import { Input, Select } from '@/components';
-import { SubmitButton, CancelButton } from '@/components/Common/Modal/Buttons';
+import { getCategories } from '@/pages/Manuals/Categories/Category.api';
+import { getGroupsByCategory } from '@/pages/Manuals/Groups/Group.api';
+import { GroupTypes } from '@/pages/Manuals/Groups/Group.types';
+import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
+
+import { Input, Select, FormAction } from '@/components';
+
 const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => {
     
+    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+    const [categories, setCategories] = useState<CategoryTypes[]>([]);
+    const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
+    const [groups, setGroups] = useState<GroupTypes[]>([])
+    const optionsCategory = categories.map(cat => ({ value: cat.id?.toString() ?? '', label: cat.name }))
+    const optionsGroup = groups.map(group => ({ value: group.id?.toString() ?? '', label: group.name }));
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
     const [manual, setManual] = useState({
@@ -17,11 +29,9 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
         category_id: 0,
     })
 
-    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-    const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>, selectedValue: number | null) => {
         const { id } = e.target;
-
+    
         if (selectedValue === null) {
             switch (id) {
                 case 'category':
@@ -32,11 +42,16 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
                     setError('Пожалуйста, выберите группу');
                     setSelectedGroup(null);
                     break;
-            }           
+            }          
         } else {
             setError(null);
-            setSelectedCategory(selectedValue);
-            setSelectedGroup(selectedValue);
+            if (id === 'category') {
+                setSelectedCategory(selectedValue);
+                setManual(prev => ({ ...prev, category_id: selectedValue }));
+            } else if (id === 'group') {
+                setSelectedGroup(selectedValue);
+                setManual(prev => ({ ...prev, group_id: selectedValue })); 
+            }
         }
     }
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,8 +65,41 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
         }
     }
 
+    const handleCancel = () => {
+        onCancel();
+    };
+
+    useEffect(() => {
+        if (selectedCategory && selectedGroup) {
+          setError(null);
+        }
+    }, [selectedCategory, selectedGroup]);
+
+    useEffect(() => {
+        setLoading(true);
+        getCategories()
+            .then(setCategories)
+            .catch(error => setError(`Ошибка при загрузке категорий: ${error.message}`))
+            .finally(() => setLoading(false));
+    }, []);
+    
+    useEffect(() => {
+        if (selectedCategory) {
+            setLoading(true);
+            getGroupsByCategory(selectedCategory)
+                .then(setGroups)
+                .catch(error => setError(`Ошибка при загрузке групп: ${error.message}`))
+                .finally(() => setLoading(false));
+        } else {
+            setGroups([]);
+        }
+        setSelectedGroup(0);
+    }, [selectedCategory]);
+
     return (
         <FormContainer>
+            {loading && <p>Загрузка...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <Select
                 id="category"
                 value={manual.category_id}
@@ -70,6 +118,7 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
             />
             <Input
                 id="title"
+                name="title"
                 value={manual.title}
                 onChange={handleInputChange}
                 placeholder="Название инструкции"
@@ -81,8 +130,12 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
                 placeholder="Выберите файл"
                 accept=".pdf"
             />
-            <SubmitButton onClick={handleSubmit} />
-            <CancelButton onClick={handleCancel} />
+            <FormAction
+                onRequestCancel={handleCancel}
+                contentCancel={{ title: 'Отмена' }}
+                contentSubmit={{ title: 'Отправить' }}
+                disabled={false}
+            />
         </FormContainer>
     );
 } 

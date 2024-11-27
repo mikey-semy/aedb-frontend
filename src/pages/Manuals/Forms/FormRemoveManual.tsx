@@ -1,5 +1,5 @@
 import React from 'react';
-import FormAction from '@/components/Common/Form/Action';
+import FormAction from '@/components/Common/FormAction/FormAction';
 
 interface FormRemoveManualProps {
   manualId: number;

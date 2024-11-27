@@ -42,12 +42,13 @@ export const ModalTitle = styled.h2`
 export const ModalBody = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     gap: 10px;
     width: 100%;
     height: 100%;
     margin: 20px auto;
+    margin-bottom: 0;
 `;
 
 export const ModalFooter = styled.div`

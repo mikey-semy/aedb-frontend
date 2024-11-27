@@ -13,6 +13,7 @@ export const InputField = styled.input<{ hasError?: boolean }>`
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
     font-size: 14px;
+    margin-bottom: 20px;
     
     &:focus {
         outline: none;

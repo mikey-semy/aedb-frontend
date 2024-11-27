@@ -1,6 +1,6 @@
 import React from 'react';
 import { SelectTypes } from './Select.types';
-import { SelectContainer, Option } from './Select.styles';
+import { SelectContainer, Select as SelectElement, Option, ErrorMessage } from './Select.styles';
 
 const Select: React.FC<SelectTypes> = ({
     id,
@@ -13,12 +13,12 @@ const Select: React.FC<SelectTypes> = ({
     label
 }) => {
     return (
-        <>
+        <SelectContainer>
             {label && <label>{label}</label>} 
-            <SelectContainer
+            <SelectElement
                 id={id}
                 value={value !== null ? value.toString() : ''}
-                onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
+                onChange={(e) => onChange(e, e.target.value ? Number(e.target.value) : null)}
                 disabled={disabled}
                 hasError={!!error}
             >
@@ -28,9 +28,9 @@ const Select: React.FC<SelectTypes> = ({
                         {option.label}
                     </Option>
                 ))}
-            </SelectContainer>
-            {error && <span>{error}</span>}
-        </>
+            </SelectElement>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+        </SelectContainer>
     );
 };
 

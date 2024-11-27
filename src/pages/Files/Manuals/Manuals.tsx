@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Lists, Error, Empty, Loading } from '@/components';
-
+import { RouteError } from '@/components/Common/Error/Error.types';
 import { getManuals } from './Manuals.api';
 import { ManualsTypes, ManualListItem } from './Manuals.types';
 import { 
@@ -16,7 +16,7 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
 
     const [manuals, setManualItems] = useState<ManualListItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<RouteError | null>(null);
     const empty = manuals.length == 0;
     
     const fetchManualItems = async () => {
@@ -29,7 +29,7 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
 
         } catch (error) {
             console.error('Ошибка при загрузке каталога:', error);
-            setError(`Ошибка при загрузке каталога: ${error}`);
+            setError({message: `Ошибка при загрузке каталога: ${error}`});
         } finally {
             setLoading(false);
         }

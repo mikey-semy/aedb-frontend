@@ -16,7 +16,8 @@ export interface ModalTypes {
     openButtonTitleStyle?: React.ComponentType;
     children: React.ReactNode;
     appendTo?: HTMLElement; // корневой элемент, к которому будет присоединено модальное окно
-    onSubmit: (data: any) => void;
+    onSubmit?: (data: any) => void;
+    onCancel?: () => void;
     renderOpenButton?: boolean;
 
     ref?: React.RefObject<ModalRef>;

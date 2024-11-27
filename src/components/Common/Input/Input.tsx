@@ -5,6 +5,7 @@ import { InputTypes } from './Input.types';
 const Input: React.FC<InputTypes> = ({
     id,
     type = "text",
+    name,
     value = '',
     placeholder,
     label,
@@ -19,6 +20,7 @@ const Input: React.FC<InputTypes> = ({
         {label && <InputLabel>{label}</InputLabel>}
         <InputField
             type={type}
+            name={name}
             value={type !== 'file' ? value : undefined}
             onChange={onChange}
             placeholder={placeholder}

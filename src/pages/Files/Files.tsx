@@ -4,8 +4,7 @@ import Manuals from './Manuals';
 import Software from './Software';
 import { MdAdd } from 'react-icons/md';
 import { useContentData } from '@/contexts';
-import { Tabs, Search } from '@/components';
-import { FormAddManual } from '@/pages/Files/Modals';
+import { Tabs, Search, ModalAddManual } from '@/components';
 
 const Files: React.FC = () => {
   const { setContentData } = useContentData();
@@ -45,7 +44,7 @@ const Files: React.FC = () => {
 
   return (
     <>
-      <FormAddManual ref={ref} />
+      <ModalAddManual ref={ref} />
       <Tabs tabs={[
         { 
           label: 'Документация', 
