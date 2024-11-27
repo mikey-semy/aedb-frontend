@@ -8,7 +8,7 @@ import {
     ErrorMessage
 } from "./Error.styles";
 
-const Error: React.FC<ErrorTypes> = ({error}) => {
+const Error: React.FC<ErrorTypes> = ({ error }) => {
     
     return (
         <ErrorContainer>
@@ -16,9 +16,7 @@ const Error: React.FC<ErrorTypes> = ({error}) => {
             <ErrorText>{errorMessages.title}</ErrorText>
             <ErrorText>
                 <ErrorMessage>
-                    {errorMessages.description ? 
-                    errorMessages.description : 
-                    'Ошибка: ' + error?.statusText || error?.message}
+                    {errorMessages.description} {error?.statusText || error?.message}
                 </ErrorMessage>
             </ErrorText>
         </ErrorContainer>

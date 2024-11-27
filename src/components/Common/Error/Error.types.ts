@@ -5,7 +5,6 @@ export interface RouteError {
 
 export interface ErrorTypes {
     error?: RouteError;
-    errorMessage?: string;
 }
 
 export interface ErrorMessages {

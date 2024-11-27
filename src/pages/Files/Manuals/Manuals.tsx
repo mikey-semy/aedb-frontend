@@ -18,8 +18,7 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const empty = manuals.length == 0;
-    const errorMessage = '';
-
+    
     const fetchManualItems = async () => {
         setError(null);
         setLoading(true);
@@ -51,7 +50,7 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
     }
 
     if (error) {
-        return <Error error={errorMessage}/>;
+        return <Error error={error}/>;
     }
 
     if (empty) {

@@ -6,25 +6,28 @@ import {
 } from 'react-router-dom';
 
 import App from './App/App.tsx';
-import { ErrorPage, Dashboard, ESafety, Files } from './pages';
+import { Dashboard, ESafety, Files, Error} from './pages';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
-        element: <Dashboard />
+        element: <Dashboard />,
+        errorElement: <Error />,
       },
       {
         path: "/esafety",
-        element: <ESafety />
+        element: <ESafety />,
+        errorElement: <Error />,
       },
       {
         path: "/files",
-        element: <Files />
+        element: <Files />,
+        errorElement: <Error />,
       },
     ],
   },
@@ -33,7 +36,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-
       <RouterProvider 
         router={router} 
         future={{ v7_startTransition: true }}
