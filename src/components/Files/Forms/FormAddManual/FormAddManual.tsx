@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
+import { Input, Select, FormAction } from '@/components';
 import { FormAddManualTypes } from './FormAddManual.types';
 import { FormContainer } from './FormAddManual.styles';
+import { ManualFormData, GroupTypes, CategoryTypes } from '@/pages/Files/Manuals/Manuals.types';
+import { getCategories, getGroupsByCategory } from '@/pages/Files/Manuals/Manuals.api';
 
-import { getCategories } from '@/pages/Manuals/Categories/Category.api';
-import { getGroupsByCategory } from '@/pages/Manuals/Groups/Group.api';
-import { GroupTypes } from '@/pages/Manuals/Groups/Group.types';
-import { CategoryTypes } from '@/pages/Manuals/Categories/Category.types';
-
-import { Input, Select, FormAction } from '@/components';
 
 const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => {
     
@@ -96,8 +92,25 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
         setSelectedGroup(0);
     }, [selectedCategory]);
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (selectedGroup && selectedCategory) {
+            setError(null);
+            onSubmit({
+                id: manual.id,
+                title: manual.title,
+                file: manual.file,
+                group_id: selectedGroup,
+                category_id: selectedCategory
+            } as ManualFormData);
+        } else {
+          // Обработка ошибки: группа или категория не выбраны
+          setError('Пожалуйста, выберите категорию и группу');
+        }
+    }
+
     return (
-        <FormContainer>
+        <FormContainer onSubmit={handleSubmit}>
             {loading && <p>Загрузка...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <Select

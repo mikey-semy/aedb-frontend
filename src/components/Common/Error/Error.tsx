@@ -16,7 +16,11 @@ const Error: React.FC<ErrorTypes> = ({ error }) => {
             <ErrorText>{errorMessages.title}</ErrorText>
             <ErrorText>
                 <ErrorMessage>
-                    {errorMessages.description} {error?.statusText || error?.message}
+                    {   
+                        errorMessages.description ? 
+                        errorMessages.description : 
+                        (error?.statusText || error?.message) 
+                    }
                 </ErrorMessage>
             </ErrorText>
         </ErrorContainer>

@@ -1,7 +1,16 @@
 import { useImperativeHandle, forwardRef, useRef} from "react";
 import { Modal, FormAddManual } from '@/components';
 import { ModalRef } from '@/components/Common/Modal/Modal.types';
-const ModalAddManual = forwardRef(function ModalAddManual({}, ref) {
+import { addManual } from "@/pages/Files/Manuals/Manuals.api";
+import { ModalAddManualTypes } from "./ModalAddManual.types";
+import { ManualFormData } from "@/pages/Files/Manuals/Manuals.types";
+
+const ModalAddManual = forwardRef(
+    function ModalAddManual(
+        { fetchManualItems }: ModalAddManualTypes, 
+        ref
+    ) 
+{
     const modalRef = useRef<ModalRef | null>(null);
     const formRef = useRef<{ open: () => void }>({ open: () => {} });
     
@@ -11,8 +20,12 @@ const ModalAddManual = forwardRef(function ModalAddManual({}, ref) {
         }
     }));
 
-    const handleSubmit = (manual: any) => {
-        console.log(manual);
+    const handleSubmit = (manual:  ManualFormData) => {
+        addManual(manual)
+        .then(() => {
+            fetchManualItems();
+            modalRef.current?.close();
+          })
     };
 
     const handleCancel = () => {

@@ -12,7 +12,7 @@ import {
     ManualLink 
     } from './Manuals.styles';
 
-const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
+const Manuals: React.FC<ManualsTypes> = ({ searchValue, onFetchManualItems }) => {
 
     const [manuals, setManualItems] = useState<ManualListItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -44,6 +44,12 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue }) => {
     useEffect(() => {
         fetchManualItems();
     }, []);
+    
+    useEffect(() => {
+        if (onFetchManualItems) {
+            onFetchManualItems(fetchManualItems);
+        }
+    }, [onFetchManualItems]);
     
     if (loading) {
         return <Loading />;
