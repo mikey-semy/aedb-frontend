@@ -4,7 +4,7 @@ import { MdSend } from 'react-icons/md';
 import { SubmitButtonContainer, SubmitButtonIcon } from './SubmitButton.styles';
 import { SubmitButtonTypes } from './SubmitButton.types';
 
-const SubmitButton: React.FC<SubmitButtonTypes> = ({ onClick }) => {
+const SubmitButton: React.FC<SubmitButtonTypes> = ({ onClick, ...props }) => {
 
     return (
         <Button
@@ -12,7 +12,7 @@ const SubmitButton: React.FC<SubmitButtonTypes> = ({ onClick }) => {
             as={SubmitButtonContainer}
             iconAs={SubmitButtonIcon}
             icon={ MdSend }
-            title="Отправить"
+            title={props.title}
             onClick={onClick}
         />
     );

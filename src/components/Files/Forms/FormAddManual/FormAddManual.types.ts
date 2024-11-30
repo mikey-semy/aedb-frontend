@@ -4,4 +4,5 @@ export interface FormAddManualTypes {
 	onSubmit: (data: any) => void
 	onCancel: () => void
 	ref: MutableRefObject<{ open: () => void; }>
+	externalError: string | null
 }

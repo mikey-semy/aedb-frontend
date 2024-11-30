@@ -4,5 +4,6 @@ export const FormActionContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-top: 20px;
+    
+    margin-top: auto;
 `;

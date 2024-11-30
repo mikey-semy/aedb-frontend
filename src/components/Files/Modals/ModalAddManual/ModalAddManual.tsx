@@ -1,4 +1,4 @@
-import { useImperativeHandle, forwardRef, useRef} from "react";
+import { useImperativeHandle, forwardRef, useRef, useState } from "react";
 import { Modal, FormAddManual } from '@/components';
 import { ModalRef } from '@/components/Common/Modal/Modal.types';
 import { addManual } from "@/pages/Files/Manuals/Manuals.api";
@@ -13,10 +13,12 @@ const ModalAddManual = forwardRef(
 {
     const modalRef = useRef<ModalRef | null>(null);
     const formRef = useRef<{ open: () => void }>({ open: () => {} });
-    
+    const [error, setError] = useState<string | null>(null);
+
     useImperativeHandle(ref, () => ({
         open: () => {
             modalRef.current?.open();
+            setError(null); 
         }
     }));
 
@@ -25,7 +27,11 @@ const ModalAddManual = forwardRef(
         .then(() => {
             fetchManualItems();
             modalRef.current?.close();
-          })
+        })
+        .catch((error) => {
+            setError(`Ошибка добавления инструкции: ${error.message}`)
+            console.error("Ошибка добавления инструкции:", error);
+        });
     };
 
     const handleCancel = () => {
@@ -42,6 +48,7 @@ const ModalAddManual = forwardRef(
                 onSubmit={handleSubmit}
                 onCancel={handleCancel}
                 ref={formRef}
+                externalError={error}
             />
         </Modal>
     );

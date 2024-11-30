@@ -7,7 +7,7 @@ export const ModalContainer = styled.div<{ isOpen: boolean }>`
     align-items: flex-start;
     justify-content: flex-start;
 
-    height: 400px;
+    height: 420px;
     width: 350px;
     position: fixed;
     top: 50%;

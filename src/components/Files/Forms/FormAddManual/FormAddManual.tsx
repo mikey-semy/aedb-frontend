@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Select, FormAction } from '@/components';
 import { FormAddManualTypes } from './FormAddManual.types';
-import { FormContainer } from './FormAddManual.styles';
+import { FormContainer, ErrorContainer, LoadingContainer, EmptyContainer } from './FormAddManual.styles';
 import { ManualFormData, GroupTypes, CategoryTypes } from '@/pages/Files/Manuals/Manuals.types';
 import { getCategories, getGroupsByCategory } from '@/pages/Files/Manuals/Manuals.api';
+import { BeatLoader } from 'react-spinners';
 
-
-const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => {
+const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, externalError }) => {
     
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
     const [categories, setCategories] = useState<CategoryTypes[]>([]);
@@ -16,7 +16,7 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
     const optionsGroup = groups.map(group => ({ value: group.id?.toString() ?? '', label: group.name }));
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-
+    
     const [manual, setManual] = useState({
         id: 0,
         title: '',
@@ -111,8 +111,7 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
 
     return (
         <FormContainer onSubmit={handleSubmit}>
-            {loading && <p>Загрузка...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            
             <Select
                 id="category"
                 value={manual.category_id}
@@ -143,10 +142,20 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel }) => 
                 placeholder="Выберите файл"
                 accept=".pdf"
             />
+            {
+                loading ? 
+                    <LoadingContainer><BeatLoader /></LoadingContainer> :
+                false ? 
+                    <ErrorContainer>{externalError}</ErrorContainer> :
+                error ? 
+                    <ErrorContainer>{error}</ErrorContainer> :
+                
+                    <EmptyContainer />
+            }
             <FormAction
                 onRequestCancel={handleCancel}
                 contentCancel={{ title: 'Отмена' }}
-                contentSubmit={{ title: 'Отправить' }}
+                contentSubmit={{ title: 'Добавить' }}
                 disabled={false}
             />
         </FormContainer>
