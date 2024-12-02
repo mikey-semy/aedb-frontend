@@ -29,10 +29,14 @@ export const InputField = styled.input<{ hasError?: boolean }>`
     }
 
     &[type="file"] {
-        padding: 8px 8px 8px 0;
+        position: relative;
+        padding: 8px 8px 8px 120px;
         box-shadow: none;
         background-color: var(--input-file-button-background);
         color: var(--input-file-button-color);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         
 
         &::-webkit-file-upload-button {
@@ -41,10 +45,15 @@ export const InputField = styled.input<{ hasError?: boolean }>`
         }
         &::before {
             content: 'Выбрать файл';
-            display: inline-block;
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
+            border: 1px solid var(--input-file-button-border-color);
+            border-radius: var(--border-radius-default);
             cursor: pointer;
         }
     }
