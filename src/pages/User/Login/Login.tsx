@@ -22,7 +22,7 @@ const Login = () => {
                 username: formData.username,
                 password: formData.password
             });
-            navigate('/');
+            navigate('/dashboard');
         } catch (err: any) {
             if (err.response?.data?.detail === 'User not found') {
                 setError('Пользователь не найден');
