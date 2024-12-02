@@ -7,6 +7,7 @@ const Cheatsheets: React.FC<CheatsheetsTypes> = ({ searchValue }) => {
     return (
         <>  
             <Empty />
+            { searchValue }
         </>
     );
 };

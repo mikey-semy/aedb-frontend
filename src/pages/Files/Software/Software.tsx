@@ -8,6 +8,7 @@ const Software: React.FC<SoftwareTypes> = ({ searchValue }) => {
     return (
         <>  
             <Empty />
+            { searchValue }
         </>
     );
 };
