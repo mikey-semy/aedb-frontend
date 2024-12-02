@@ -8,7 +8,7 @@ export const EmptyContainer = styled.div`
     height: 100%;
     padding: 0 20px;
     text-align: center;
-    color: #000;
+    color: var(--empty-color, #000000);
     margin: 20px;
 `;
 

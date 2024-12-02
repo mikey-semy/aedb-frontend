@@ -63,6 +63,7 @@ export type ThemeType = {
         inputFileButtonBackground: string;
         inputFileButtonColor: string;
         inputFileButtonBorderColor: string;
+        emptyColor: string;
         errorColor: string;
     },
     scrollbar: {

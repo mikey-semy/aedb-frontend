@@ -61,6 +61,7 @@ export const darkTheme = {
       inputFileButtonBackground: '#0d1117',
       inputFileButtonColor: '#c9d1d9',
       inputFileButtonBorderColor: '#30363d',
+      emptyColor: '#8b949e',
       errorColor: '#f85149',
     },
     scrollbar: {

@@ -47,7 +47,9 @@ export const TabItem = styled.li<{ $isActive: boolean }>`
     color: var(--tab-color, #000000);
     cursor: pointer;
     transition: all var(--transition-default);
-    
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
     color: ${props => props.$isActive ? 'var(--tab-active-color, #000000)' : 'var(--tab-color, #000000)'};
     border-bottom: ${props => props.$isActive ? 'var(--tab-active-border)' : 'transparent'};
     

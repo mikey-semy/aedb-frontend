@@ -62,12 +62,12 @@ export const Variables = createGlobalStyle`
     --input-focus-color: ${({ theme }) => theme.colors.inputFocusColor};
     --input-disabled-background: ${({ theme }) => theme.colors.inputDisabledBackground};
     --input-disabled-color: ${({ theme }) => theme.colors.inputDisabledColor};
-    --error-color: ${({ theme }) => theme.colors.errorColor};
     --input-file-button-background: ${({ theme }) => theme.colors.inputFileButtonBackground};
     --input-file-button-color: ${({ theme }) => theme.colors.inputFileButtonColor};
     --input-file-button-border-color: ${({ theme }) => theme.colors.inputFileButtonBorderColor};
     --input-label-color: ${({ theme }) => theme.colors.inputLabelColor};
-    
+    --empty-color: ${({ theme }) => theme.colors.emptyColor};
+    --error-color: ${({ theme }) => theme.colors.errorColor};
     // Sizes
     --header-height: 60px;
     --header-height-mobile: 60px;

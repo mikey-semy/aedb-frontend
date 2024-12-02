@@ -61,6 +61,7 @@ export const lightTheme = {
       inputFileButtonBackground: '#ffffff',
       inputFileButtonColor: '#24292f',
       inputFileButtonBorderColor: '#d0d7de',
+      emptyColor: '#57606a',
       errorColor: '#cf222e',
     },
     scrollbar: {
