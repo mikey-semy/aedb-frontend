@@ -9,5 +9,6 @@ export interface InputTypes {
     disabled?: boolean;
     accept?: string;
     multiple?: boolean;
+    hasError?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

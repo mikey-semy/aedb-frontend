@@ -63,6 +63,7 @@ export const darkTheme = {
       inputFileButtonBorderColor: '#30363d',
       emptyColor: '#8b949e',
       errorColor: '#f85149',
+      loaderColor: '#58a6ff',
     },
     scrollbar: {
         thumbColor: '#30363d',

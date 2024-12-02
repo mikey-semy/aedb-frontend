@@ -3,7 +3,7 @@ import { LoginCredentials, LoginResponse } from './Login.types';
 
 
 export const login = (credentials: LoginCredentials): Promise<LoginResponse> =>
-    api.post<LoginResponse>('/api/v1/auth', credentials)
+    api.post<LoginResponse>('/api/v1/token', credentials)
         .then(response => {
             const { access_token } = handleApiResponse(response);
             localStorage.setItem('token', access_token);

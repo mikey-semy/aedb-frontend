@@ -68,6 +68,8 @@ export const Variables = createGlobalStyle`
     --input-label-color: ${({ theme }) => theme.colors.inputLabelColor};
     --empty-color: ${({ theme }) => theme.colors.emptyColor};
     --error-color: ${({ theme }) => theme.colors.errorColor};
+    --loader-color: ${({ theme }) => theme.colors.loaderColor};
+
     // Sizes
     --header-height: 60px;
     --header-height-mobile: 60px;

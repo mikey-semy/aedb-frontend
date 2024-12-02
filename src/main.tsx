@@ -6,9 +6,14 @@ import {
 } from 'react-router-dom';
 
 import App from './App/App.tsx';
-import { Dashboard, ESafety, Files, Error} from './pages';
+import { Login, Dashboard, ESafety, Files, Error } from './pages';
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+    errorElement: <Error />
+  },
   {
     path: "/",
     element: <App />,

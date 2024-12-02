@@ -65,6 +65,7 @@ export type ThemeType = {
         inputFileButtonBorderColor: string;
         emptyColor: string;
         errorColor: string;
+        loaderColor: string;
     },
     scrollbar: {
         thumbColor: string,
