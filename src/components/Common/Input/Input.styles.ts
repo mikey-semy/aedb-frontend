@@ -14,7 +14,7 @@ export const InputField = styled.input<{ hasError?: boolean }>`
     box-shadow: var(--box-shadow-default);
     background-color: var(--input-background);
     color: var(--input-color);
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 20px;
     
     &:focus {

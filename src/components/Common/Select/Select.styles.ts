@@ -9,7 +9,7 @@ export const SelectContainer = styled.div`
 export const Select = styled.select<{ hasError?: boolean }>`
     width: 280px;
     padding: 8px 12px;
-    border: none;
+    border: 1px solid var(--input-border-color);
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
     background-color: var(--input-background);

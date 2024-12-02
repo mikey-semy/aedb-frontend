@@ -48,13 +48,28 @@ export const TabItem = styled.li<{ $isActive: boolean }>`
     cursor: pointer;
     transition: all var(--transition-default);
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
     color: ${props => props.$isActive ? 'var(--tab-active-color, #000000)' : 'var(--tab-color, #000000)'};
     border-bottom: ${props => props.$isActive ? 'var(--tab-active-border)' : 'transparent'};
     
+    &:active {
+        -webkit-touch-callout: none;
+    }
+
     &:hover {
         color: var(--tab-hover-color, #424242);
+    }
+
+    &::selection {
+        background: transparent;
     }
 `;
 
