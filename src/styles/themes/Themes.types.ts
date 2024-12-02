@@ -39,7 +39,10 @@ export type ThemeType = {
         tabHoverColor: string,
         searchColor: string,
         searchBackground: string,
-        
+        modalBackground: string;
+        modalColor: string;
+        modalHeaderColor: string;
+        modalOverlayColor: string;
     },
     scrollbar: {
         thumbColor: string,

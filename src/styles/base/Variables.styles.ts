@@ -43,7 +43,10 @@ export const Variables = createGlobalStyle`
     --scrollbar-thumb-color: ${props => props.theme.scrollbar.thumbColor};
     --scrollbar-track-color: ${props => props.theme.scrollbar.trackColor};
     --scrollbar-thumb-hover-color: ${props => props.theme.scrollbar.thumbHoverColor};
-    
+    --modal-background: ${({ theme }) => theme.colors.modalBackground};
+    --modal-color: ${({ theme }) => theme.colors.modalColor};
+    --modal-header-color: ${({ theme }) => theme.colors.modalHeaderColor};
+    --modal-overlay-color: ${({ theme }) => theme.colors.modalOverlayColor};
     // Sizes
     --header-height: 60px;
     --header-height-mobile: 60px;

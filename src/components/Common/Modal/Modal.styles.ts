@@ -15,11 +15,12 @@ export const ModalContainer = styled.div<{ isOpen: boolean }>`
     transform: translate(-50%, -50%);
     z-index: 1000;
     
-    background-color: var(--modal-background, #FFFFFF);
+    background-color: var(--modal-background, #ffffff);
+    color: var(--modal-color, #000000);
     border-radius: var(--border-radius-default, 5px);
-    box-shadow: 
-        var(--modal-box-shadow, 0 0 0px 1px var(--box-shadow-color)), 
-        var(--modal-box-shadow-2, 0 0 10px 5px rgba(0, 0, 0, 0.2));
+    box-shadow:
+        0 0 0px 1px var(--box-shadow-color),
+        0 0 10px 5px var(--modal-overlay-color);
     padding: 24px;
 
 `;
@@ -36,7 +37,7 @@ export const ModalTitle = styled.h2`
     font-family: var(--content-header-font, 'Inter');
     font-size: 18px;
     font-weight: 600;
-    color: var(--content-header-color, #000000);
+    color: var(--modal-header-color, #000000);
 `;
 
 export const ModalBody = styled.div`
@@ -65,7 +66,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--modal-overlay-color, rgba(0, 0, 0, 0.5));
     transition: all var(--transition-default);
     display: ${props => (props.isOpen ? 'block' : 'none')};
     z-index: 999;

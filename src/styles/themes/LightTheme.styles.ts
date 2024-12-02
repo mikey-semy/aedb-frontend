@@ -36,7 +36,11 @@ export const lightTheme = {
       tabActiveColor: '#0969da',
       tabHoverColor: '#0969da',
       searchColor: '#24292f',
-      searchBackground: '#f6f8fa'
+      searchBackground: '#f6f8fa',
+      modalBackground: '#ffffff',
+      modalColor: '#24292f',
+      modalHeaderColor: '#24292f',
+      modalOverlayColor: 'rgba(0, 0, 0, 0.5)',
     },
     scrollbar: {
       thumbColor: '#d0d7de',

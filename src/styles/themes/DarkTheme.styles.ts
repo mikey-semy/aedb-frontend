@@ -36,7 +36,11 @@ export const darkTheme = {
       tabActiveColor: '#58a6ff',
       tabHoverColor: '#58a6ff',
       searchColor: '#c9d1d9',
-      searchBackground: '#0d1117'
+      searchBackground: '#0d1117',
+      modalBackground: '#0d1117',
+      modalColor: '#c9d1d9',
+      modalHeaderColor: '#c9d1d9', 
+      modalOverlayColor: 'rgba(0, 0, 0, 0.7)',
     },
     scrollbar: {
         thumbColor: '#30363d',
