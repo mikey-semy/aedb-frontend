@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider } from '@/contexts';
 import { Header, Sidebar, Footer, Content } from '@/components';
-import { TypographyStyles, GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
+import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import { AppContainer, MainContainer } from './App.styles';
 
 const AppContent: React.FC = () => {
@@ -11,7 +11,6 @@ const AppContent: React.FC = () => {
 
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
-      <TypographyStyles />
       <GlobalStyles />
       <ResetStyles />
       <Variables />
