@@ -15,6 +15,19 @@ export const ContentHeaderButtonContainer = styled(ButtonContainer)`
     cursor: pointer;
     user-select: none;
 
+    &:hover {
+        background: var(--button-header-hover-background);
+        color: var(--button-header-hover-color);
+        opacity: 0.7;
+    }
+    &:active {
+        background: var(--button-header-active-background);
+        color: var(--button-header-active-color);
+    }
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
     @media (max-width: 1024px) {
         width: 140px;
         height: 40px;

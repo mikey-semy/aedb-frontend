@@ -12,16 +12,19 @@ export const Select = styled.select<{ hasError?: boolean }>`
     border: none;
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
+    background-color: var(--input-background);
+    color: var(--input-color);
     font-size: 14px;
     outline: none;
     margin-bottom: 20px;
 
     &:focus {
-        border-color: #007bff;
+        border-color: var(--input-focus-color);
     }
     
     &:disabled {
-        background-color: #f5f5f5;
+        background-color: var(--input-disabled-background);
+        color: var(--input-disabled-color);
         cursor: not-allowed;
     }
 `;
@@ -29,14 +32,15 @@ export const Select = styled.select<{ hasError?: boolean }>`
 export const Option = styled.option`
     padding: 8px;
     font-size: 14px;
+    background-color: var(--input-background);
+    color: var(--input-color);
 `;
 
 export const ErrorMessage = styled.span`
     position: absolute;
     display: block;
     bottom: 5px;
-
-    color: red;
+    color: var(--error-color);
     font-size: 10px;
     margin-top: 4px;
 `;

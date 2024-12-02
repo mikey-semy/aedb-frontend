@@ -40,6 +40,16 @@ export const Variables = createGlobalStyle`
     --tab-hover-color: ${({ theme }) => theme.colors.tabHoverColor};
     --button-header-bg-color: ${({ theme }) => theme.colors.buttonHeaderBgColor};
     --button-header-color: ${({ theme }) => theme.colors.buttonHeaderColor};
+    --button-header-hover-background: ${({ theme }) => theme.colors.buttonHeaderHoverBgColor};
+    --button-header-hover-color: ${({ theme }) => theme.colors.buttonHeaderHoverColor};
+    --button-header-active-background: ${({ theme }) => theme.colors.buttonHeaderActiveBgColor};
+    --button-header-active-color: ${({ theme }) => theme.colors.buttonHeaderActiveColor};
+    --button-background: ${({ theme }) => theme.colors.buttonBackground};
+    --button-color: ${({ theme }) => theme.colors.buttonColor};
+    --button-hover-background: ${({ theme }) => theme.colors.buttonHoverBackground};
+    --button-hover-color: ${({ theme }) => theme.colors.buttonHoverColor};
+    --button-active-background: ${({ theme }) => theme.colors.buttonActiveBackground};
+    --button-active-color: ${({ theme }) => theme.colors.buttonActiveColor};
     --scrollbar-thumb-color: ${props => props.theme.scrollbar.thumbColor};
     --scrollbar-track-color: ${props => props.theme.scrollbar.trackColor};
     --scrollbar-thumb-hover-color: ${props => props.theme.scrollbar.thumbHoverColor};
@@ -47,6 +57,17 @@ export const Variables = createGlobalStyle`
     --modal-color: ${({ theme }) => theme.colors.modalColor};
     --modal-header-color: ${({ theme }) => theme.colors.modalHeaderColor};
     --modal-overlay-color: ${({ theme }) => theme.colors.modalOverlayColor};
+    --input-background: ${({ theme }) => theme.colors.inputBackground};
+    --input-color: ${({ theme }) => theme.colors.inputColor};
+    --input-focus-color: ${({ theme }) => theme.colors.inputFocusColor};
+    --input-disabled-background: ${({ theme }) => theme.colors.inputDisabledBackground};
+    --input-disabled-color: ${({ theme }) => theme.colors.inputDisabledColor};
+    --error-color: ${({ theme }) => theme.colors.errorColor};
+    --input-file-button-background: ${({ theme }) => theme.colors.inputFileButtonBackground};
+    --input-file-button-color: ${({ theme }) => theme.colors.inputFileButtonColor};
+    --input-file-button-border-color: ${({ theme }) => theme.colors.inputFileButtonBorderColor};
+    --input-label-color: ${({ theme }) => theme.colors.inputLabelColor};
+    
     // Sizes
     --header-height: 60px;
     --header-height-mobile: 60px;

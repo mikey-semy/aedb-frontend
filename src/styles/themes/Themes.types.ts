@@ -20,6 +20,16 @@ export type ThemeType = {
         headerBackground: string;
         buttonHeaderBgColor: string;
         buttonHeaderColor: string;
+        buttonHeaderHoverBgColor: string;
+        buttonHeaderHoverColor: string;
+        buttonHeaderActiveBgColor: string;
+        buttonHeaderActiveColor: string;
+        buttonBackground: string;
+        buttonColor: string;
+        buttonHoverBackground: string;
+        buttonHoverColor: string;
+        buttonActiveBackground: string;
+        buttonActiveColor: string;
         tabBackground: string;
         contentBackground: string;
         contentColor: string;
@@ -43,6 +53,17 @@ export type ThemeType = {
         modalColor: string;
         modalHeaderColor: string;
         modalOverlayColor: string;
+        inputBackground: string;
+        inputColor: string;
+        inputBoxShadow: string;
+        inputFocusColor: string;
+        inputDisabledBackground: string;
+        inputDisabledColor: string;
+        inputLabelColor: string;
+        inputFileButtonBackground: string;
+        inputFileButtonColor: string;
+        inputFileButtonBorderColor: string;
+        errorColor: string;
     },
     scrollbar: {
         thumbColor: string,

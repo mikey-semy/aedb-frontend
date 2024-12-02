@@ -8,13 +8,18 @@ interface SidebarContextType {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(() => {
+        const saved = localStorage.getItem('sidebar');
+        return saved ? JSON.parse(saved) : false;
+    });
     const toggleScroll = () => {
         document.body.classList.toggle('no-scroll');
       };
     const toggleSidebar = () => {
         toggleScroll();
-        setIsCollapsed(prev => !prev);
+        const newValue = !isCollapsed;
+        setIsCollapsed(newValue);
+        localStorage.setItem('sidebar', JSON.stringify(newValue));
     };
 
     return (
