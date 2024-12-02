@@ -11,7 +11,7 @@ export const login = (credentials: LoginCredentials): Promise<LoginResponse> => 
     formData.append('client_id', 'string');
     formData.append('client_secret', 'string');
 
-    return api.post<LoginResponse>('/api/v1/token', formData, {
+    return api.post<LoginResponse>('/token', formData, {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }

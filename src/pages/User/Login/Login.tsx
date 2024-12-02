@@ -23,8 +23,12 @@ const Login = () => {
                 password: formData.password
             });
             navigate('/dashboard');
-        } catch (err) {
-            setError('Неверный логин или пароль');
+        } catch (err: any) {
+            if (err.response?.data?.detail === 'User not found') {
+                setError('Пользователь не найден');
+            } else {
+                setError('Ошибка авторизации');
+            }
         }
     };
 
