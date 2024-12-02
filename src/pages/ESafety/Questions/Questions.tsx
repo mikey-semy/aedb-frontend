@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Empty } from '@/components';
 // import { questions } from './Questions.data';
 
 // import { ListCaption, ListItems, ListItem } from '@/Common/List';
@@ -7,7 +7,7 @@ import React from 'react';
 const QuestionsList: React.FC = () => {
     return (
         <>
-
+            <Empty />
         </>
     );
 };

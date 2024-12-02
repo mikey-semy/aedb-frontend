@@ -1,7 +1,7 @@
 import React, {useEffect}  from 'react';
 import { useContentData } from '@/contexts';
 import { MdAdd } from 'react-icons/md';
-
+import { Empty } from '@/components';
 const Dashboard: React.FC = () => {
   const { setContentData } = useContentData();
   useEffect(() => {
@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
   }, [setContentData]);
   return (
     <>
-      
+      <Empty />
     </>
   );
 };
