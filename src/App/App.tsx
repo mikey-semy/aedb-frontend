@@ -13,7 +13,14 @@ const AppContent: React.FC = () => {
   const token = localStorage.getItem('token');
     
   if (!token) {
-    return <Login />;
+    return ( 
+      <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
+        <GlobalStyles />
+        <ResetStyles />
+        <Variables />
+        <Login />
+      </StyledThemeProvider>
+    );
   }
 
   return (
