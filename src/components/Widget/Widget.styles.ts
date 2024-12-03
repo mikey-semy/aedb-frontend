@@ -6,6 +6,6 @@ export const WidgetContainer = styled.div`
     padding: 16px;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    max-width: 320px;
+    max-width: 350px;
     margin: 20px auto;
 `;

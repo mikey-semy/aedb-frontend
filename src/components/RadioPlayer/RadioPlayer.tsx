@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { radioStations } from './RadioPlayer.data';
-import { RadioPlayerContainer, RadioPlaylist, RadioButton, Dropdown } from './RadioPlayer.styles';
+import { RadioPlayerContainer, /*RadioPlaylist, RadioButton,*/ Dropdown } from './RadioPlayer.styles';
 import { RadioStation } from './RadioPlayer.types';
 import { usePlayer } from '@/contexts';
 
@@ -41,7 +41,7 @@ const RadioPlayer: React.FC = () => {
                     </option>
                 ))}
             </Dropdown>
-            <RadioPlaylist>
+            {/* <RadioPlaylist>
                 {radioStations.map((station: RadioStation, index: number) => (
                     <RadioButton 
                         key={index} 
@@ -50,7 +50,7 @@ const RadioPlayer: React.FC = () => {
                         {station.name}
                     </RadioButton>
                 ))}
-            </RadioPlaylist>
+            </RadioPlaylist> */}
         </RadioPlayerContainer>
     );
 };
