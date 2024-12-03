@@ -5,8 +5,7 @@ import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider } from '@
 import { Header, Sidebar, Footer, Content } from '@/components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import { AppContainer, MainContainer } from './App.styles';
-import { Login } from '@/pages';
-
+import { Login } from '@/pages'
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
   const navigate = useNavigate();
@@ -36,7 +35,9 @@ const AppContent: React.FC = () => {
           <Footer />
         </MainContainer>
       </AppContainer>
-    ) : null}
+    ) : (
+      <Login />
+    )}
   </StyledThemeProvider>
 );
 };
