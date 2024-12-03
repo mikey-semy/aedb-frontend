@@ -41,43 +41,56 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     };
 
     const changeStation = async (newUrl: string) => {
-        localStorage.setItem('lastRadioUrl', newUrl);
-        const audio = audioRef.current;
-        
-        // Отменяем предыдущую загрузку если она есть
-        if (abortControllerRef.current) {
-            abortControllerRef.current.abort();
-        }
-        
-        if (loadingTimeoutRef.current) {
-            clearTimeout(loadingTimeoutRef.current);
-        }
+    localStorage.setItem('lastRadioUrl', newUrl);
+    const audio = audioRef.current;
 
-        // Создаем новый контроллер
-        abortControllerRef.current = new AbortController();
+    // Отменяем предыдущую загрузку если она есть
+    if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+    }
 
-       try {
-            setIsLoading(true);
-            setCurrentUrl(newUrl);
-            
-            audio.pause();
-            audio.src = newUrl;
-            
-            await audio.play();
-            setIsPlaying(true);
-            
-            // Задержка перед скрытием индикатора загрузки
-            loadingTimeoutRef.current = setTimeout(() => {
-                    setIsLoading(false);           
-            }, 1000);
-            
-        } catch (error: unknown) {
-            if (error instanceof Error && error.name !== 'AbortError') {
+    if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+    }
+
+    // Создаем новый контроллер
+    abortControllerRef.current = new AbortController();
+
+    try {
+        setIsLoading(true);
+        setCurrentUrl(newUrl);
+        
+        audio.pause();
+        audio.src = newUrl;
+
+        // Ждем, пока аудио не будет готово к воспроизведению
+        audio.oncanplaythrough = async () => {
+            try {
+                await audio.play();
+                setIsPlaying(true);
+            } catch (error) {
+                console.error('Ошибка воспроизведения:', error);
                 setIsPlaying(false);
+            } finally {
                 setIsLoading(false);
             }
+        };
+
+        // Обработка ошибок
+        audio.onerror = (error) => {
+            console.error('Ошибка аудио:', error);
+            setIsPlaying(false);
+            setIsLoading(false);
+        };
+
+    } catch (error: unknown) {
+        if (error instanceof Error && error.name !== 'AbortError') {
+            setIsPlaying(false);
+            setIsLoading(false);
         }
-    };
+    }
+};
+
 
     useEffect(() => {
         return () => {
