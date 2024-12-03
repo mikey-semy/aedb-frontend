@@ -696,6 +696,14 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.25.0.tgz#93415e7e707e4b156d77c5950b983b58f4bc33f3"
   integrity sha512-/RqrIFtLB926frMhZD0a5oDa4eFIbyNEwLLloMTEjmqfwZWXywwVVOVmwTsuyhC9HKkVEZcOOi+KV4U9wmOdlg==
 
+"@szhsin/react-menu@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-4.2.3.tgz#559cad6d0d9c3fed998aaffd1ad9433cf9a8b14a"
+  integrity sha512-pLbjaR1XNu8rnHnmkf7eCotKFheumcxVrLQUxRRJB+P8XAc7LusAv4Rd6krhkGbeI4NsLFxNCvNq+wmx3/y/Wg==
+  dependencies:
+    prop-types "^15.7.2"
+    react-transition-state "^2.1.2"
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
@@ -2273,6 +2281,11 @@ react-spinners@^0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.14.1.tgz#de7d7d6b3e6d4f29d9620c65495b502c7dd90812"
   integrity sha512-2Izq+qgQ08HTofCVEdcAQCXFEYfqTDdfeDQJeo/HHQiQJD4imOicNLhkfN2eh1NYEWVOX4D9ok2lhuDB0z3Aag==
+
+react-transition-state@^2.1.2:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-transition-state/-/react-transition-state-2.2.0.tgz#3a9f37c0553a865b6110ae8eaf7ed4db22633577"
+  integrity sha512-D3EyLku1Sdxrxq26Fo4Jh0q1BLEFQfDOxKKiSuyqWH84+hM6y0Guc0hcW2IXMXY5l5gQCgkOQ9y90xx6mNoj5w==
 
 react@^18.3.1:
   version "18.3.1"

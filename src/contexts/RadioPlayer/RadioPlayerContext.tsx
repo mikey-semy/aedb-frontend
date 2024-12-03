@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
 import { PlayerContextType } from './RadioPlayerContext.types';
-import { radioStations } from '@/components/RadioPlayer/Dropdown/RadioPlayerDropdown.data';
+import { radioStations } from '@/components/RadioPlayer/RadioPlayer.data';
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 

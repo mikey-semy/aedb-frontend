@@ -1,6 +1,6 @@
 import React from 'react';
-import { radioStations } from './RadioPlayerDropdown.data';
-import { Dropdown } from './RadioPlayerDropdown.styles';
+import { radioStations } from '../RadioPlayer.data';
+import { Dropdown, Option } from './RadioPlayerDropdown.styles';
 import { RadioStation } from './RadioPlayerDropdown.types';
 import { usePlayer } from '@/contexts';
 
@@ -13,11 +13,14 @@ const RadioPlayerDropdown: React.FC = () => {
     };
 
     return (
-        <Dropdown value={currentUrl} onChange={handleStationChange}>
+        <Dropdown 
+            value={currentUrl} 
+            onChange={handleStationChange}
+        >
             {radioStations.map((station: RadioStation, index: number) => (
-                <option key={index} value={station.url}>
+                <Option key={index} value={station.url}>
                     {station.name}
-                </option>
+                </Option>
             ))}
         </Dropdown>
     );

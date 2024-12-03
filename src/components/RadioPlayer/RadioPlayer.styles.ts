@@ -5,6 +5,7 @@ export const RadioPlayerContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 8px;
     background-color: var(--color-background-secondary);
     height: 100%;
     width: 240px;
@@ -19,15 +20,14 @@ export const RadioPlayerContainer = styled.div`
         height: 150%;
         box-shadow: var(--box-shadow-default);
         z-index: -1;
-
-        
     }
 
     @media (max-width: 768px) {
-        width: 50px;
+        width: 100%; /* Allow full width on smaller screens */
+        margin: 0; /* Remove side margins to prevent overlap */
 
         &::before {
-            display: none;
+            display: none; /* Hide the shadow on smaller screens */
         }    
     }
 `;

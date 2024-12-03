@@ -4,6 +4,7 @@ import { usePlayer, useTheme } from '@/contexts';
 import { MdPlayArrow, MdPause } from 'react-icons/md';
 import { RadioPlayerButtonContainer, RadioPlayerButtonIcon } from './RadioPlayerButton.styles';
 import { ScaleLoader } from 'react-spinners';
+
 const RadioPlayerButton: React.FC = () => {
     const { isPlaying, isLoading, togglePlay } = usePlayer();
     const { isDark } = useTheme();
