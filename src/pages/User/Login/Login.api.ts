@@ -21,7 +21,7 @@ export const login = (credentials: LoginCredentials): Promise<LoginResponse> => 
         const { access_token, token_type } = handleApiResponse(response);
         localStorage.setItem('token', access_token);
         localStorage.setItem('token_type', token_type);
-        navigate('/');
+        navigate('/files');
         return response.data;
     })
     .catch(handleApiError);
