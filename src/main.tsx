@@ -4,14 +4,31 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
-
+import { ThemeProvider, useTheme } from '@/contexts';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import App from './App/App.tsx';
 import { Login, Dashboard, ESafety, Files, Error } from './pages';
-
+const LoginWithTheme: React.FC = () => {
+  const { isDark } = useTheme();
+  
+  return (
+    <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
+      <GlobalStyles />
+      <ResetStyles />
+      <Variables />
+      <Login />
+    </StyledThemeProvider>
+  );
+};
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <ThemeProvider>
+        <LoginWithTheme />
+      </ThemeProvider>
+    ),
     errorElement: <Error />
   },
   {

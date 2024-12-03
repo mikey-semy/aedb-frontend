@@ -5,7 +5,7 @@ import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider } from '@
 import { Header, Sidebar, Footer, Content } from '@/components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import { AppContainer, MainContainer } from './App.styles';
-import { Login } from '@/pages'
+
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
   const navigate = useNavigate();
@@ -19,29 +19,29 @@ const AppContent: React.FC = () => {
 
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
-    <GlobalStyles />
-    <ResetStyles />
-    <Variables />
-    {token ? (
+      <GlobalStyles />
+      <ResetStyles />
+      <Variables />
       <AppContainer>
-        <Sidebar />
-        <MainContainer>
-          <Header /> 
-          <ContentDataProvider>     
-            <Content>
-              <Outlet />
-            </Content>
-          </ContentDataProvider>
-          <Footer />
-        </MainContainer>
+        {token ? (
+          <>
+            <Sidebar />
+            <MainContainer>
+              <Header />
+              <ContentDataProvider>    
+                <Content>
+                  <Outlet />
+                </Content>
+              </ContentDataProvider>
+              <Footer />
+            </MainContainer>
+          </>
+        ) : (
+          <Outlet />
+        )}
       </AppContainer>
-    ) : (
-      <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
-        <Login />
-      </StyledThemeProvider>
-    )}
-  </StyledThemeProvider>
-);
+    </StyledThemeProvider>
+  );
 };
 
 const App: React.FC = () => {
