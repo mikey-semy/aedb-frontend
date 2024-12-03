@@ -1,7 +1,7 @@
 import React, {useEffect}  from 'react';
 import { useContentData } from '@/contexts';
 import { MdAdd } from 'react-icons/md';
-import { WidgetContainer } from '@/components/Widget/Widget.styles'
+import { Empty } from '@/components';
 
 
 const Dashboard: React.FC = () => {
@@ -17,9 +17,7 @@ const Dashboard: React.FC = () => {
   }, [setContentData]);
   return (
     <>
-      <WidgetContainer>
-        
-      </WidgetContainer>
+       <Empty />
     </>
   );
 };
