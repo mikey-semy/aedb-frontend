@@ -36,7 +36,9 @@ const AppContent: React.FC = () => {
         </MainContainer>
       </AppContainer>
     ) : (
-      <Login />
+      <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
+        <Login />
+      </StyledThemeProvider>
     )}
   </StyledThemeProvider>
 );
