@@ -12,9 +12,14 @@ const RadioPlayer: React.FC = () => {
 
     const playStation = (url: string) => {
         if (audioRef.current) {
-            audioRef.current.src = url;
-            audioRef.current.play();
-            togglePlay();
+            if (isPlaying) {
+                audioRef.current.pause();
+                togglePlay();
+            } else {
+                audioRef.current.src = url;
+                audioRef.current.play();
+                togglePlay();
+            }
         }
     };
 
