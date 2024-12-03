@@ -1,4 +1,5 @@
 export const radioStations = [
+  { name: "Rock", url: "https://radiorecord.hostingradio.ru/rock96.aacp" },
   { name: "10's Dance", url: "https://radiorecord.hostingradio.ru/201096.aacp" },
   { name: "2-step", url: "https://radiorecord.hostingradio.ru/2step96.aacp" },
   { name: "60's Dance", url: "https://radiorecord.hostingradio.ru/cadillac96.aacp" },
@@ -73,7 +74,6 @@ export const radioStations = [
   { name: "Record Gold", url: "https://radiorecord.hostingradio.ru/gold96.aacp" },
   { name: "Reggae", url: "https://radiorecord.hostingradio.ru/reggae32.aacp" },
   { name: "Remix", url: "https://radiorecord.hostingradio.ru/rmx96.aacp" },
-  { name: "Rock", url: "https://radiorecord.hostingradio.ru/rock96.aacp" },
   { name: "Russian Gold", url: "https://radiorecord.hostingradio.ru/russiangold96.aacp" },
   { name: "Russian Hits", url: "https://radiorecord.hostingradio.ru/russianhits96.aacp" },
   { name: "Russian Mix", url: "https://radiorecord.hostingradio.ru/rus96.aacp" },
