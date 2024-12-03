@@ -13,8 +13,8 @@ const RadioPlayerButton: React.FC = () => {
             onClick={togglePlay}
             icon=
                 {isPlaying 
-                    ? <MdPause size={24} /> 
-                    : <MdPlayArrow size={24} />
+                    ? <MdPause /> 
+                    : <MdPlayArrow />
                 }
         />
     );
