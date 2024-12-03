@@ -46,13 +46,13 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <SidebarProvider>
-        <PlayerProvider>
+    <PlayerProvider>
+      <ThemeProvider>
+        <SidebarProvider>      
           <AppContent />
-        </PlayerProvider>
-      </SidebarProvider>
-    </ThemeProvider>
+        </SidebarProvider>
+      </ThemeProvider>
+    </PlayerProvider>
   );
 };
 export default App;
