@@ -29,6 +29,7 @@ export const lightTheme = {
       buttonHoverColor: '#0969da',
       buttonActiveBackground: '#eaeef2',
       buttonActiveColor: '#0969da',
+      buttonCollapseBgColor: '#ffffff',
       tabBackground: '#ffffff',
       contentBackground: '#ffffff',
       contentColor: '#24292f',

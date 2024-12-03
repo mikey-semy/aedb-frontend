@@ -44,6 +44,7 @@ export const Variables = createGlobalStyle`
     --button-header-hover-color: ${({ theme }) => theme.colors.buttonHeaderHoverColor};
     --button-header-active-background: ${({ theme }) => theme.colors.buttonHeaderActiveBgColor};
     --button-header-active-color: ${({ theme }) => theme.colors.buttonHeaderActiveColor};
+    --button-collapse-bg-color: ${({ theme }) => theme.colors.buttonCollapseBgColor};
     --button-background: ${({ theme }) => theme.colors.buttonBackground};
     --button-color: ${({ theme }) => theme.colors.buttonColor};
     --button-hover-background: ${({ theme }) => theme.colors.buttonHoverBackground};

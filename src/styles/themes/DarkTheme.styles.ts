@@ -23,6 +23,7 @@ export const darkTheme = {
       buttonHeaderHoverColor: '#ffffff',
       buttonHeaderActiveBgColor: '#238636',
       buttonHeaderActiveColor: '#ffffff',
+      buttonCollapseBgColor: '#21262d',
       buttonBackground: 'transparent',
       buttonColor: '#c9d1d9',
       buttonHoverBackground: '#21262d',

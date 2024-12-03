@@ -24,6 +24,7 @@ export type ThemeType = {
         buttonHeaderHoverColor: string;
         buttonHeaderActiveBgColor: string;
         buttonHeaderActiveColor: string;
+        buttonCollapseBgColor: string;
         buttonBackground: string;
         buttonColor: string;
         buttonHoverBackground: string;

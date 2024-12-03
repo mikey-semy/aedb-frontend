@@ -1,30 +1,14 @@
 import React from 'react';
-import { radioStations } from './RadioPlayer.data';
-import { RadioPlayerContainer, Dropdown } from './RadioPlayer.styles';
-import { RadioStation } from './RadioPlayer.types';
-import { usePlayer } from '@/contexts';
+import { RadioPlayerButton, RadioPlayerDropdown } from './index';
+import { RadioPlayerContainer } from './RadioPlayer.styles';
 
 const RadioPlayer: React.FC = () => {
-    
-    const { currentUrl, setCurrentUrl } = usePlayer();
-
-    const handleStationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedUrl = event.target.value;
-        setCurrentUrl(selectedUrl);
-        window.playRadioStation(selectedUrl);
-    };
 
     return (
-        <RadioPlayerContainer> 
-            <Dropdown value={currentUrl} onChange={handleStationChange}>
-                {radioStations.map((station: RadioStation, index: number) => (
-                    <option key={index} value={station.url}>
-                        {station.name}
-                    </option>
-                ))}
-            </Dropdown>
+        <RadioPlayerContainer>
+            <RadioPlayerButton />
+            <RadioPlayerDropdown />
         </RadioPlayerContainer>
     );
 };
-
 export default RadioPlayer;

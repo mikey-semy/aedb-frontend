@@ -1,7 +1,6 @@
 import React, {useEffect}  from 'react';
 import { useContentData } from '@/contexts';
 import { MdAdd } from 'react-icons/md';
-import { RadioPlayer } from '@/components';
 import { WidgetContainer } from '@/components/Widget/Widget.styles'
 
 
@@ -19,7 +18,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <WidgetContainer>
-        <RadioPlayer />
+        
       </WidgetContainer>
     </>
   );

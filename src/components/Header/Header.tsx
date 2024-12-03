@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeaderContainer, RightButtonsContainer } from './Header.styles';
-import { ThemeButton, CollapseButton, RadioPlayerButton } from './Buttons';
+import { ThemeButton, CollapseButton} from './Buttons';
+import { RadioPlayer } from '@/components';
 import { useSidebar } from '@/contexts';
 import { Logout } from '@/components';
 
@@ -11,7 +12,7 @@ const Header: React.FC = () => {
             <HeaderContainer>
                 <CollapseButton isCollapsed={isCollapsed}/>   
                 <RightButtonsContainer>
-                    <RadioPlayerButton />
+                    <RadioPlayer />
                     <ThemeButton />
                     <Logout />
                 </RightButtonsContainer>

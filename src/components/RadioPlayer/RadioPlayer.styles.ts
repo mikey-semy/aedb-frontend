@@ -1,49 +1,33 @@
 import styled from 'styled-components';
 
 export const RadioPlayerContainer = styled.div`
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    padding: 16px;
-    width: 300px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-`;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--color-background-secondary);
+    height: 100%;
+    width: 240px;
+    margin: 0 40px;
 
-export const RadioPlaylist = styled.div`
-    margin-top: 10px;
-`;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        width: 240px;
+        height: 150%;
+        box-shadow: var(--box-shadow-default);
+        z-index: -1;
 
-export const RadioButton = styled.button`
-    background-color: #ffffff;
-    border: 1px solid #e1e4e8;
-    border-radius: 4px;
-    padding: 8px;
-    margin: 4px 0;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-
-    &:hover {
-        background-color: #f1f8ff;
+        
     }
 
-    &:focus {
-        outline: none;
-        border-color: #0366d6;
-    }
-`;
+    @media (max-width: 768px) {
+        width: 50px;
 
-export const Dropdown = styled.select`
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
-    border: 1px solid #e1e4e8;
-    border-radius: 4px;
-    background-color: #ffffff;
-    cursor: pointer;
-
-    &:focus {
-        outline: none;
-        border-color: #0366d6;
+        &::before {
+            display: none;
+        }    
     }
 `;
