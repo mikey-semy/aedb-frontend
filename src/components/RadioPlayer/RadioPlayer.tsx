@@ -6,35 +6,17 @@ import { usePlayer } from '@/contexts';
 
 const RadioPlayer: React.FC = () => {
     
-    const audioRef = useRef<HTMLAudioElement | null>(null);
-    const { isPlaying, togglePlay, currentUrl, setCurrentUrl } = usePlayer();
-
-    useEffect(() => {
-        (window as any).playRadioStation = (url: string) => {
-            if (audioRef.current) {
-                if (isPlaying) {
-                    audioRef.current.pause();
-                } else {
-                    audioRef.current.src = url;
-                    audioRef.current.play();
-                }
-                togglePlay();
-            }
-        };
-    }, [isPlaying, togglePlay]);
+    const { isPlaying, currentUrl, setCurrentUrl } = usePlayer();
 
     const handleStationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedUrl = event.target.value;
         setCurrentUrl(selectedUrl);
-        (window as any).playRadioStation(selectedUrl);
+        window.playRadioStation(selectedUrl);
     };
 
 
     return (
-        <RadioPlayerContainer>
-            <audio ref={audioRef}>
-                Ваш браузер не поддерживает плеер.
-            </audio>
+        <RadioPlayerContainer> 
             <Dropdown value={currentUrl} onChange={handleStationChange}>
                 {radioStations.map((station: RadioStation, index: number) => (
                     <option key={index} value={station.url}>
