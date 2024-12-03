@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LoginContainer, FormLogin, LoginTitle, LoginButton, LoginButtonIcon } from './Login.styles';
+import { LoginContainer, FormLogin, LoginTitle, LoginButton, LoginButtonIcon, ErrorContainer, EmptyContainer } from './Login.styles';
+
 import { LoginForm } from './Login.types';
 import { login } from './Login.api';
 import { Input, Button } from '@/components';
@@ -53,7 +54,13 @@ const Login = () => {
                     placeholder="Пароль"
                     hasError={!!error}
                 />
-                {/* {error && <Error>{error}</Error>} */}
+                {
+                    error ? (
+                        <ErrorContainer>{error}</ErrorContainer>
+                    ) : (
+                        <EmptyContainer />
+                    )
+                }
                 <Button 
                     as={LoginButton}
                     iconAs={LoginButtonIcon}

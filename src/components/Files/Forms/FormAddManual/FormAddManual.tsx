@@ -143,14 +143,15 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
                 accept=".pdf"
             />
             {
-                loading ? 
-                    <LoadingContainer><BeatLoader /></LoadingContainer> :
-                false ? 
-                    <ErrorContainer>{externalError}</ErrorContainer> :
-                error ? 
-                    <ErrorContainer>{error}</ErrorContainer> :
-                
+                loading ? (
+                    <LoadingContainer><BeatLoader /></LoadingContainer>
+                ) : error ? (
+                    <ErrorContainer>{error}</ErrorContainer>
+                ) : externalError ? (
+                    <ErrorContainer>{externalError}</ErrorContainer>
+                ) : (
                     <EmptyContainer />
+                )
             }
             <FormAction
                 onRequestCancel={handleCancel}

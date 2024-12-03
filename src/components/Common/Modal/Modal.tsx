@@ -1,14 +1,13 @@
-import /*React, */{ useState, forwardRef, useImperativeHandle } from 'react';
+import { useState, forwardRef, useImperativeHandle } from 'react';
 import { ModalTypes } from './Modal.types';
-import { Overlay, ModalContainer, ModalHeader, ModalBody, /*ModalFooter,*/ ModalTitle } from './Modal.styles';
-import { OpenButton, CloseButton, /*CancelButton, SubmitButton*/ } from './Buttons';
+import { Overlay, ModalContainer, ModalHeader, ModalBody, ModalTitle } from './Modal.styles';
+import { OpenButton, CloseButton } from './Buttons';
 
 const Modal = forwardRef(function MyModal(
   { title, children, onSubmit, renderOpenButton, ...props }: ModalTypes,
   ref
 ) {
   const [isOpen, setIsModalOpen] = useState(false);
-  // const [data] = useState({});
 
   useImperativeHandle(ref, () => ({
     open: () => {
@@ -33,15 +32,6 @@ const Modal = forwardRef(function MyModal(
     setIsModalOpen(false);
   };
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   onSubmit(data);
-  // };
-
-  // const handleCancel = () => {
-  //   onClose();
-  // };
-
   return (
     <>
       {renderOpenButton && (
@@ -63,10 +53,6 @@ const Modal = forwardRef(function MyModal(
         <ModalBody>
           {children}
         </ModalBody>
-        {/* <ModalFooter>
-          <SubmitButton onClick={handleSubmit} />
-          <CancelButton onClick={handleCancel} />
-        </ModalFooter> */}
       </ModalContainer>
     </>
   );

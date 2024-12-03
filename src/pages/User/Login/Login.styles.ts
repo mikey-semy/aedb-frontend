@@ -49,3 +49,19 @@ export const LoginButton = styled.button`
 export const LoginButtonIcon = styled.span`
     display: none;
 `;
+
+export const ErrorContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    height: 40px;
+`;
+
+export const EmptyContainer = styled.div`
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 10px;
+    height: 40px;
+`;
