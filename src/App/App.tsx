@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Outlet, useNavigate } from "react-router-dom";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider } from '@/contexts';
+import { SidebarProvider, ThemeProvider, useTheme, ContentDataProvider, PlayerProvider } from '@/contexts';
 import { Header, Sidebar, Footer, Content } from '@/components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import { AppContainer, MainContainer } from './App.styles';
@@ -48,7 +48,9 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <SidebarProvider>
-        <AppContent />
+        <PlayerProvider>
+          <AppContent />
+        </PlayerProvider>
       </SidebarProvider>
     </ThemeProvider>
   );

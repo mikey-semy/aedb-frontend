@@ -20,3 +20,4 @@ export { default as FormAddManual } from './Files/Forms/FormAddManual/FormAddMan
 export { default as ModalAddManual } from './Files/Modals/ModalAddManual/ModalAddManual';
 export { default as Login } from './User/Login';
 export { default as Logout } from './User/Logout';
+export { default as RadioPlayer } from './RadioPlayer/RadioPlayer';

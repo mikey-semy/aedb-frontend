@@ -1,7 +1,9 @@
 import React, {useEffect}  from 'react';
 import { useContentData } from '@/contexts';
 import { MdAdd } from 'react-icons/md';
-import { Empty } from '@/components';
+import { RadioPlayer } from '@/components';
+import { WidgetContainer } from '@/components/Widget/Widget.styles'
+
 const Dashboard: React.FC = () => {
   const { setContentData } = useContentData();
   useEffect(() => {
@@ -14,7 +16,9 @@ const Dashboard: React.FC = () => {
   }, [setContentData]);
   return (
     <>
-      <Empty />
+      <WidgetContainer>
+        <RadioPlayer /> {/* Include the RadioPlayer component */}
+      </WidgetContainer>
     </>
   );
 };
