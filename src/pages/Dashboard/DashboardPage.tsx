@@ -4,8 +4,10 @@ import { MdAdd } from 'react-icons/md';
 import { RadioPlayer } from '@/components';
 import { WidgetContainer } from '@/components/Widget/Widget.styles'
 
+
 const Dashboard: React.FC = () => {
   const { setContentData } = useContentData();
+ 
   useEffect(() => {
     setContentData({
       caption: 'Главный экран',
@@ -17,7 +19,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <WidgetContainer>
-        <RadioPlayer /> {/* Include the RadioPlayer component */}
+        <RadioPlayer />
       </WidgetContainer>
     </>
   );

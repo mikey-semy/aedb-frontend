@@ -5,12 +5,17 @@ import { MdPlayArrow, MdPause } from 'react-icons/md';
 import { RadioPlayerButtonContainer, RadioPlayerButtonIcon} from './RadioPlayerButton.styles';
 
 const RadioPlayerButton: React.FC = () => {
-    const { isPlaying, togglePlay } = usePlayer();
+    const { isPlaying, currentUrl } = usePlayer();
+
+    const handleClick = () => {
+        (window as any).playRadioStation(currentUrl);
+    };
+
     return (
         <Button 
             as={RadioPlayerButtonContainer}
             iconAs={RadioPlayerButtonIcon}
-            onClick={togglePlay}
+            onClick={handleClick}
             icon=
                 {isPlaying 
                     ? <MdPause /> 
