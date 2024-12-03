@@ -18,10 +18,12 @@ const Login = () => {
         setError('');
         
         try {
-            await login({
+            const response = await login({
                 username: formData.username,
                 password: formData.password
             });
+            console.log('Login response:', response);
+
             navigate('/');
         } catch (err: any) {
             if (err.response?.data?.detail === 'User not found') {
