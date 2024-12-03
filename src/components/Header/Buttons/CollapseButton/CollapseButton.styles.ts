@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CollapseButtonContainer = styled.button<{ isCollapsed: boolean }>`
-    background-color: transparent;
+    background-color: var(--button-collapse-bg, #ffffff);
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
     border: none;
