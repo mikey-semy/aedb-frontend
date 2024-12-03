@@ -11,18 +11,28 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     
     useEffect(() => {
         const audio = audioRef.current;
+
         window.playRadioStation = async (url: string) => {
             try {
                 if (isPlaying) {
                     audio.pause();
+                    setIsPlaying(false);
                 } else {
                     audio.src = url;
-                    await audio.play();
+                    const playPromise = audio.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => {
+                                setIsPlaying(true);
+                            })
+                            .catch(() => {
+                                setIsPlaying(false);
+                            });
+                    }
                 }
-                setIsPlaying(!isPlaying);
             } catch (error) {
-                // Handling interrupted play requests
-                console.log('Playback state changed rapidly');
+                setIsPlaying(false);
             }
         };
 
