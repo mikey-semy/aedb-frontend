@@ -9,6 +9,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import App from './App/App.tsx';
 import { Login, Dashboard, ESafety, Files, Error } from './pages';
+
 const LoginWithTheme: React.FC = () => {
   const { isDark } = useTheme();
   

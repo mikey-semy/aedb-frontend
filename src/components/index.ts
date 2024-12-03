@@ -18,3 +18,5 @@ export { default as Loading } from './Common/Loading/Loading';
 export { default as FormAction } from './Common/FormAction/FormAction';
 export { default as FormAddManual } from './Files/Forms/FormAddManual/FormAddManual';
 export { default as ModalAddManual } from './Files/Modals/ModalAddManual/ModalAddManual';
+export { default as Login } from './User/Login';
+export { default as Logout } from './User/Logout';
