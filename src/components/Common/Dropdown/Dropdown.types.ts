@@ -1,6 +1,7 @@
 export interface Option {
     value: string;
     label: string;
+    disabled?: boolean;
 }
 
 export interface DropdownTypes {

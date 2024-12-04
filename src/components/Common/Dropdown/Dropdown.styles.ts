@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Option as OptionTypes} from './Dropdown.types';
 
-export const DropdownContainer = styled.select`
+export const DropdownContainer = styled.div`
     width: 150px;
     padding: 8px;
     margin-top: 10px;
@@ -73,13 +74,14 @@ export const OptionsList = styled.div`
     width: 100%;
 `;
 
-export const Option = styled.option`
+export const Option = styled.div<OptionTypes>`
     padding: 8px;
     font-size: 14px;
-    background-color: var(--option-selected-background);
-    color: var(--option-selected-color);
+    background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : 'var(--option-selected-background)')}; // Изменяем фон, если отключено
+    color: ${({ disabled }) => (disabled ? '#ccc' : 'var(--option-selected-color)')}; // Изменяем цвет текста, если отключено
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')}; // Изменяем курсор, если отключено
 
     &:hover {
-        background-color: #f0f0f0;
+        background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : '#e0e0e0')}; // Изменяем цвет при наведении, если не отключено
     }
 `;

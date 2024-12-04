@@ -6,8 +6,10 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
     const [isOpen, setIsOpen] = useState(false);
 
     const handleSelect = (option: Option) => {
-        onSelect(option);
-        setIsOpen(false);
+        if (!option.disabled) { // Проверяем, отключена ли опция
+            onSelect(option);
+            setIsOpen(false);
+        }
     };
 
     return (
@@ -21,6 +23,9 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
                         <OptionStyled 
                             key={option.value} 
                             onClick={() => handleSelect(option)}
+                            disabled={option.disabled} // Pass disabled prop
+                            value={option.value} // Pass value prop
+                            label={option.label} 
                         >
                             {option.label}
                         </OptionStyled>
