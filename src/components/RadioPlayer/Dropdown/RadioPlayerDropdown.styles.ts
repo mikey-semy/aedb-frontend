@@ -27,3 +27,4 @@ export const Option = styled.option<{ isSelected: boolean }>`
     font-size: 14px;
     background-color: var(--option-selected-background);
     color: var(--option-selected-color);
+`;
