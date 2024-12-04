@@ -9,7 +9,7 @@ export const EmptyContainer = styled.div`
     padding: 0 20px;
     text-align: center;
     color: var(--empty-color, #000000);
-    margin: 20px;
+    margin: 24px;
 `;
 
 export const EmptyIcon = styled.span`
