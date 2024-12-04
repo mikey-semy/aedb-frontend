@@ -75,7 +75,13 @@ export const OptionsList = styled.div`
 export const Option = styled.div<OptionTypes>`
     padding: 8px;
     font-size: 16px;
-    background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : 'var(--option-selected-background)')}; 
+    background-color: ${
+                        ({ disabled, isSelected }) => 
+                            isSelected 
+                            ? 'var(--option-selected-background)' 
+                            : (disabled ? '#f0f0f0' 
+                            : 'transparent')
+                        };
     color: ${({ disabled }) => (disabled ? '#ccc' : 'var(--option-selected-color)')}; 
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')}; 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { radioStations } from '../RadioPlayer.data';
 import { usePlayer } from '@/contexts';
 import { Dropdown } from '@/components';
@@ -7,15 +7,16 @@ const RadioPlayerDropdown: React.FC = () => {
     
     const { currentUrl, changeStation } = usePlayer();
     const [selectedOption, setSelectedOption] = useState<{ value: string; label: string } | null>(null);
+    const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
 
-    const options = useMemo(() => 
-        radioStations.map((station) => ({
+    useEffect(() => {
+        const newOptions = radioStations.map((station) => ({
             value: station.url,
             label: station.name,
-        })),
-        [radioStations]
-    );
-
+        }));
+        setOptions(newOptions);
+    }, [radioStations]);
+    
     useEffect(() => {
         const currentStation = options.find(option => option.value === currentUrl);
         setSelectedOption(currentStation || null);

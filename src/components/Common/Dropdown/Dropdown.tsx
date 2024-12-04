@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { DropdownContainer, Selected, OptionsList, Option as OptionStyled } from './Dropdown.styles';
 import { DropdownTypes, Option } from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const handleSelect = (option: Option) => {
         if (!option.disabled) {
@@ -12,10 +13,23 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
         }
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <DropdownContainer>
+        <DropdownContainer ref={dropdownRef}>
             <Selected onClick={() => setIsOpen(!isOpen)}>
-                {selectedOption ? selectedOption.label : 'Select an option'}
+                {selectedOption ? selectedOption.label : 'Выберите...'}
             </Selected>
             {isOpen && (
                 <OptionsList>
@@ -25,7 +39,8 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
                             onClick={() => handleSelect(option)}
                             disabled={option.disabled}
                             value={option.value}
-                            label={option.label} 
+                            label={option.label}
+                            isSelected={selectedOption?.value === option.value}
                         >
                             {option.label}
                         </OptionStyled>
