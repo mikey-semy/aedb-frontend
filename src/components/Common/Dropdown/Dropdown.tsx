@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DropdownContainer, Selected, OptionsList, Option as OptionStyled } from './Dropdown.styles';
+import { Selected, OptionsList, Option as OptionStyled } from './Dropdown.styles';
 import { DropdownTypes, Option } from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }) => {
@@ -13,7 +13,7 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
     };
 
     return (
-        <DropdownContainer>
+        <>
             <Selected onClick={() => setIsOpen(!isOpen)}>
                 {selectedOption ? selectedOption.label : 'Select an option'}
             </Selected>
@@ -32,7 +32,7 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
                     ))}
                 </OptionsList>
             )}
-        </DropdownContainer>
+        </>
     );
 };
 
