@@ -20,19 +20,6 @@ export const Dropdown = styled.select`
     @media (max-width: 768px) {
         width: 100px;
     }
-`;
-
-export const Option = styled.option<{ isSelected: boolean }>`
-    padding: 8px;
-    font-size: 14px;
-    background-color: var(--option-selected-background);
-    color: var(--option-selected-color);
-
-    ${({ isSelected }) => isSelected && `
-        font-weight: bold;
-        outline: 2px solid #0969da;
-        border-radius: 4px;
-    `}
 
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -63,4 +50,17 @@ export const Option = styled.option<{ isSelected: boolean }>`
     &::-webkit-scrollbar-thumb:hover {
         background-color: var(--scrollbar-thumb-hover-color);
     }
+`;
+
+export const Option = styled.option<{ isSelected: boolean }>`
+    padding: 8px;
+    font-size: 14px;
+    background-color: var(--option-selected-background);
+    color: var(--option-selected-color);
+
+    ${({ isSelected }) => isSelected && `
+        font-weight: bold;
+        outline: 2px solid #0969da;
+        border-radius: 4px;
+    `}
 `;
