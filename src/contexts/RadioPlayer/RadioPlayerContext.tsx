@@ -189,7 +189,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             setCurrentUrl,  // Функция для обновления текущего URL
             changeStation   // Функция для смены радиостанции
         }}>
-            {children}      // Рендерим дочерние компоненты
+            {children}      
         </PlayerContext.Provider>
     );
 };
