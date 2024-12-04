@@ -65,6 +65,10 @@ export const lightTheme = {
       emptyColor: '#57606a',
       errorColor: '#cf222e',
       loaderColor: '#0969da',
+      optionSelectedBackground: '#d3d3d3',
+      optionSelectedColor: '#000',
+      optionHoverBackground: '#f0f0f0',
+      optionHoverColor: '#24292f',
     },
     scrollbar: {
       thumbColor: '#d0d7de',

@@ -65,6 +65,10 @@ export const darkTheme = {
       emptyColor: '#8b949e',
       errorColor: '#f85149',
       loaderColor: '#58a6ff',
+      optionSelectedBackground: '#21262d',
+      optionSelectedColor: '#c9d1d9',
+      optionHoverBackground: '#30363d',
+      optionHoverColor: '#58a6ff',
     },
     scrollbar: {
         thumbColor: '#30363d',

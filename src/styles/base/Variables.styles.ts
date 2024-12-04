@@ -70,6 +70,10 @@ export const Variables = createGlobalStyle`
     --empty-color: ${({ theme }) => theme.colors.emptyColor};
     --error-color: ${({ theme }) => theme.colors.errorColor};
     --loader-color: ${({ theme }) => theme.colors.loaderColor};
+    --option-selected-background: ${({ theme }) => theme.colors.optionSelectedBackground};
+    --option-selected-color: ${({ theme }) => theme.colors.optionSelectedColor};
+    --option-hover-background: ${({ theme }) => theme.colors.optionHoverBackground};
+    --option-hover-color: ${({ theme }) => theme.colors.optionHoverColor};
 
     // Sizes
     --header-height: 60px;
