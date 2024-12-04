@@ -22,9 +22,11 @@ export const Dropdown = styled.select`
     }
 `;
 
-export const Option = styled.option`
+export const Option = styled.option<{ isSelected: boolean }>`
     padding: 8px;
     font-size: 14px;
-    background-color: var(--input-background);
-    color: var(--input-color);
+    // background-color: var(--input-background);
+    // color: var(--input-color);
+    background-color: ${({ isSelected }) => (isSelected ? '#d3d3d3' : 'transparent')};
+    color: ${({ isSelected }) => (isSelected ? '#000' : '#333')};
 `;

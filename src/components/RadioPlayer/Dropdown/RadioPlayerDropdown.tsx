@@ -18,7 +18,11 @@ const RadioPlayerDropdown: React.FC = () => {
             onChange={handleStationChange}
         >
             {radioStations.map((station: RadioStation, index: number) => (
-                <Option key={index} value={station.url}>
+                <Option 
+                    key={index} 
+                    value={station.url}
+                    isSelected={currentUrl === station.url}
+                >
                     {station.name}
                 </Option>
             ))}
