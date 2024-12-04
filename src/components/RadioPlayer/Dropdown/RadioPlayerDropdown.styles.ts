@@ -25,8 +25,5 @@ export const Dropdown = styled.select`
 export const Option = styled.option<{ isSelected: boolean }>`
     padding: 8px;
     font-size: 14px;
-    background-color: ${({ isSelected, theme }) => 
-        isSelected ? theme.colors.optionSelectedBackground : 'transparent'};
-    color: ${({ isSelected, theme }) => 
-        isSelected ? theme.colors.optionSelectedColor : theme.colors.secondary};
-`;
+    background-color: var(--option-selected-background);
+    color: var(--option-selected-color);
