@@ -27,4 +27,10 @@ export const Option = styled.option<{ isSelected: boolean }>`
     font-size: 14px;
     background-color: var(--option-selected-background);
     color: var(--option-selected-color);
+
+    ${({ isSelected }) => isSelected && `
+        font-weight: bold; // Жирный шрифт для выделения
+        outline: 2px solid #0969da; // Рамка для выделения
+        border-radius: 4px; // Скругление углов рамки
+    `}
 `;
