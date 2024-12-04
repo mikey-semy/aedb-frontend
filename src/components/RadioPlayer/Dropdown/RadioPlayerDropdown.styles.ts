@@ -58,6 +58,10 @@ export const Option = styled.option<{ isSelected: boolean }>`
     background-color: var(--option-selected-background);
     color: var(--option-selected-color);
 
+    border: 0;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-default);
+
     ${({ isSelected }) => isSelected && `
         font-weight: bold;
         outline: 2px solid #0969da;
