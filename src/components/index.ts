@@ -4,7 +4,7 @@ export { default as Content } from './Content';
 export { default as Footer } from './Footer';
 
 export { Overlay } from './Sidebar/Sidebar.styles';
-
+export { default as Dropdown } from './Common/Dropdown';
 export { default as Select } from './Common/Select/Select';
 export { default as Input } from './Common/Input/Input';
 export { default as Button } from './Common/Button/Button';

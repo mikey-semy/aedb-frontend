@@ -1,32 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { radioStations } from '../RadioPlayer.data';
-import { Dropdown, Option } from './RadioPlayerDropdown.styles';
-import { RadioStation } from './RadioPlayerDropdown.types';
 import { usePlayer } from '@/contexts';
+import { Dropdown } from '@/components';
 
 const RadioPlayerDropdown: React.FC = () => {
     
     const { currentUrl, changeStation } = usePlayer();
+    const [selectedOption, setSelectedOption] = useState<{ value: string; label: string } | null>(null);
 
-    const handleStationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        changeStation(event.target.value);
+    // Преобразуем radioStations в формат, подходящий для Dropdown
+    const options = radioStations.map((station) => ({
+        value: station.url,
+        label: station.name,
+    }));
+
+    useEffect(() => {
+        const currentStation = options.find(option => option.value === currentUrl);
+        setSelectedOption(currentStation || null);
+    }, [currentUrl, options]);
+
+    const handleStationChange = (station: { value: string; label: string }) => {
+        changeStation(station.value);
     };
 
     return (
         <Dropdown 
-            value={currentUrl} 
-            onChange={handleStationChange}
-        >
-            {radioStations.map((station: RadioStation, index: number) => (
-                <Option 
-                    key={index} 
-                    value={station.url}
-                    isSelected={currentUrl === station.url}
-                >
-                    {station.name}
-                </Option>
-            ))}
-        </Dropdown>
+            options={options} 
+            onSelect={handleStationChange} 
+            selectedOption={selectedOption}
+        />
     );
 };
 export default RadioPlayerDropdown;

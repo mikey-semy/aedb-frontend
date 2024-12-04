@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Dropdown = styled.select`
+export const DropdownContainer = styled.select`
     width: 150px;
     padding: 8px;
     margin-top: 10px;
@@ -52,15 +52,24 @@ export const Dropdown = styled.select`
     }
 `;
 
+export const OptionsList = styled.div`
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-default, 5px);
+    box-shadow: var(--box-shadow-default);
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+`;
+
 export const Option = styled.option<{ isSelected: boolean }>`
     padding: 8px;
     font-size: 14px;
     background-color: var(--option-selected-background);
     color: var(--option-selected-color);
 
-    border: 0;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-default);
 
     ${({ isSelected }) => isSelected && `
         font-weight: bold;
