@@ -9,7 +9,6 @@ export const AppContainer = styled.div`
     width: 100vw;
 
     @media (max-width: 1024px) {
-        height: 100%;
         width: 100%;
     }
 `;
