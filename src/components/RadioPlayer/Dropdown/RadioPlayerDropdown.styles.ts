@@ -29,8 +29,38 @@ export const Option = styled.option<{ isSelected: boolean }>`
     color: var(--option-selected-color);
 
     ${({ isSelected }) => isSelected && `
-        font-weight: bold; // Жирный шрифт для выделения
-        outline: 2px solid #0969da; // Рамка для выделения
-        border-radius: 4px; // Скругление углов рамки
+        font-weight: bold;
+        outline: 2px solid #0969da;
+        border-radius: 4px;
     `}
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: auto;
+
+
+    & {
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-thumb-color);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--scrollbar-track-color);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: var(--scrollbar-thumb-hover-color);
+    }
 `;
