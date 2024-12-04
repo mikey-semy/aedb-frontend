@@ -25,13 +25,8 @@ export const Dropdown = styled.select`
 export const Option = styled.option<{ isSelected: boolean }>`
     padding: 8px;
     font-size: 14px;
-    background-color: ${({ isSelected }) => 
-        isSelected ? 'transparent': 'var(--option-selected-background)' };
-    color: ${({ isSelected }) => 
-        isSelected ? '#000000': 'var(--option-selected-color)'};
-
-    &:hover {
-        background-color: var(--option-hover-background);
-        color: var(-option-hover-color);
-    }
+    background-color: ${({ isSelected, theme }) => 
+        isSelected ? theme.colors.optionSelectedBackground : 'transparent'};
+    color: ${({ isSelected, theme }) => 
+        isSelected ? theme.colors.optionSelectedColor : theme.colors.secondary};
 `;
