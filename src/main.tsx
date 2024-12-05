@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
-import { ThemeProvider, useTheme } from '@/contexts';
+import { AuthProvider, ThemeProvider, useTheme } from '@/contexts';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import App from './App/App.tsx';
@@ -26,9 +26,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <ThemeProvider>
-        <LoginWithTheme />
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <LoginWithTheme />
+        </ThemeProvider>
+      </AuthProvider>
     ),
     errorElement: <Error />
   },
