@@ -70,11 +70,21 @@ export const Variables = createGlobalStyle`
     --empty-color: ${({ theme }) => theme.colors.emptyColor};
     --error-color: ${({ theme }) => theme.colors.errorColor};
     --loader-color: ${({ theme }) => theme.colors.loaderColor};
-    --option-selected-background: ${({ theme }) => theme.colors.optionSelectedBackground};
-    --option-selected-color: ${({ theme }) => theme.colors.optionSelectedColor};
-    --option-hover-background: ${({ theme }) => theme.colors.optionHoverBackground};
-    --option-hover-color: ${({ theme }) => theme.colors.optionHoverColor};
-
+    --select-background: ${({ theme }) => theme.colors.selectBackground};
+    --select-color: ${({ theme }) => theme.colors.selectColor};
+    --option-list-background: ${({ theme }) => theme.colors.optionListBackground};
+    --option-list-color: ${({ theme }) => theme.colors.optionListColor};
+    --option-item-background: ${({ theme }) => theme.colors.optionItemBackground};
+    --option-item-color: ${({ theme }) => theme.colors.optionItemColor};
+    --option-item-hover-background: ${({ theme }) => theme.colors.optionItemHoverBackground};
+    --option-item-hover-color: ${({ theme }) => theme.colors.optionItemHoverColor};
+    --option-item-disabled-background: ${({ theme }) => theme.colors.optionItemDisabledBackground};
+    --option-item-disabled-color: ${({ theme }) => theme.colors.optionItemDisabledColor};
+    --option-item-selected-background: ${({ theme }) => theme.colors.optionItemSelectedBackground};
+    --option-item-selected-color: ${({ theme }) => theme.colors.optionItemSelectedColor};
+    --option-item-playing-background: ${({ theme }) => theme.colors.optionItemPlayingBackground};
+    --option-item-playing-color: ${({ theme }) => theme.colors.optionItemPlayingColor};
+    
     // Sizes
     --header-height: 60px;
     --header-height-mobile: 60px;

@@ -6,31 +6,43 @@ export const DropdownContainer = styled.div`
     cursor: pointer;
 `;
 
-export const Selected = styled.div`
+export const Select = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
     height: 100%;
+
+    background-color: var(--select-background);
+    color: var(--select-color);
+
     border: none;
-    background-color: var(--option-selected-background);
-    color: var(--option-selected-color);
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
+
     cursor: pointer;
+
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
 `;
 
 export const OptionsList = styled.div`
     position: absolute;
     z-index: 1;
-    background-color: var(--option-selected-background);
-    color: var(--option-selected-color);
+
+    background-color: var(--option-list-background);
+    color: var(--option-list-color);
+    
     border: none;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
-    max-height: 200px;
-    overflow-y: auto;
+    
+    max-height: 400px;
     width: 100%;
-
+    overflow-y: auto;
+    
+    padding-left: 15px;
 
     &:focus {
         outline: none;
@@ -73,19 +85,46 @@ export const OptionsList = styled.div`
 `;
 
 export const Option = styled.div<OptionTypes>`
-    padding: 8px;
+    padding: 10px;
     font-size: 16px;
+
+    cursor: ${({ disabled }) => (disabled 
+        ? 'not-allowed' 
+        : 'pointer')
+    }; 
+
     background-color: ${
                         ({ disabled, isSelected }) => 
                             isSelected 
-                            ? 'var(--option-selected-background)' 
-                            : (disabled ? '#f0f0f0' 
-                            : 'transparent')
+                            ? 'var(--option-item-selected-background)' 
+                            : (disabled ? 'var(--option-item-disabled-background)' 
+                            : 'var(--option-item-background)')
                         };
-    color: ${({ disabled }) => (disabled ? '#ccc' : 'var(--option-selected-color)')}; 
+    color: ${
+        ({ disabled, isSelected }) => 
+            isSelected 
+            ? 'var(--option-item-selected-color)' 
+            : (disabled ? 'var(--option-item-disabled-color)' 
+            : 'var(--option-item-color)')
+        };
+    
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')}; 
 
     &:hover {
-        background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : 'var(--option-hover-background)')}; 
+        background-color: ${
+            ({ disabled }) => (
+                    disabled 
+                    ? 'var(--option-item-disabled-background)' 
+                    : 'var(--option-item-hover-background)'
+                )
+            };
+        color: ${
+            ({ disabled }) => (
+                    disabled 
+                    ? 'var(--option-item-disabled-color)' 
+                    : 'var(--option-item-hover-color)'
+                )
+            }; 
     }
+
 `;

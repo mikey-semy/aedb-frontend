@@ -67,10 +67,20 @@ export type ThemeType = {
         emptyColor: string;
         errorColor: string;
         loaderColor: string;
-        optionSelectedBackground: string;
-        optionSelectedColor: string;
-        optionHoverBackground: string;
-        optionHoverColor: string;
+        selectBackground: string;
+        selectColor: string;
+        optionListBackground: string;
+        optionListColor: string;
+        optionItemBackground: string;
+        optionItemColor: string;
+        optionItemHoverBackground: string;
+        optionItemHoverColor: string;
+        optionItemDisabledBackground:string;
+        optionItemDisabledColor: string;
+        optionItemSelectedBackground: string;
+        optionItemSelectedColor: string;
+        optionItemPlayingBackground: string;
+        optionItemPlayingColor: string;
     },
     scrollbar: {
         thumbColor: string,

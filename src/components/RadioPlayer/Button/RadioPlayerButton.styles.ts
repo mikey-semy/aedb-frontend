@@ -7,6 +7,7 @@ export const RadioPlayerButtonContainer = styled(ButtonContainer)`
     text-align: center;
     transition: all var(--transition-default);
     box-shadow: none;
+    padding: 0 4px;
 `;
 
 export const RadioPlayerButtonTitle = styled(ButtonTitle)`

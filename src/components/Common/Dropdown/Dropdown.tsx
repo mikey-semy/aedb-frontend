@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { DropdownContainer, Selected, OptionsList, Option as OptionStyled } from './Dropdown.styles';
+import { DropdownContainer, Select, OptionsList, Option as OptionStyled } from './Dropdown.styles';
 import { DropdownTypes, Option } from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }) => {
@@ -28,9 +28,9 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
 
     return (
         <DropdownContainer ref={dropdownRef}>
-            <Selected onClick={() => setIsOpen(!isOpen)}>
+            <Select onClick={() => setIsOpen(!isOpen)}>
                 {selectedOption ? selectedOption.label : 'Выберите...'}
-            </Selected>
+            </Select>
             {isOpen && (
                 <OptionsList>
                     {options.map((option, index) => (
