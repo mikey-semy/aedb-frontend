@@ -1,5 +1,5 @@
 import api, { handleApiResponse, handleApiError } from '@/api';
-import { LoginCredentials, LoginResponse, User } from './Login.types';
+import { LoginCredentials, LoginResponse/*, User*/ } from './Login.types';
 
 
 export const login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
