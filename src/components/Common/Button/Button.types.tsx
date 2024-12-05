@@ -12,4 +12,6 @@ export interface ButtonTypes {
     as?: any;
     iconAs?: any;
     titleAs?: any;
+    loading?: boolean;
+    loadingIcon?: React.ReactNode;
 }

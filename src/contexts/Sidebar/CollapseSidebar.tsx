@@ -1,9 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-
-interface SidebarContextType {
-    isCollapsed: boolean;
-    toggleSidebar: () => void;
-}
+import { SidebarContextType } from './CollapseSidebar.types';
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 

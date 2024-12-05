@@ -13,18 +13,25 @@ const RadioPlayerButton: React.FC = () => {
             <Button 
                 as={RadioPlayerButtonContainer}
                 iconAs={RadioPlayerButtonIcon}
+                icon={
+                    isPlaying 
+                            ? <MdPause /> 
+                            : <MdPlayArrow />
+                    }
                 onClick={togglePlay}
                 disabled={isLoading}
-                icon={
-                    isLoading ? 
-                    <ScaleLoader 
-                        color={isDark ? '#c9d1d9' : '#24292f'} 
-                        height={20}
-                        width={2}
-                    /> 
-                    : isPlaying ? <MdPause /> 
-                    : <MdPlayArrow />
-                    }
+                
+                loading={isLoading}
+                loadingIcon={<ScaleLoader 
+                    color={
+                        isDark 
+                            ? '#c9d1d9' 
+                            : '#24292f'
+                        } 
+                    height={20}
+                    width={2}
+                    /> }
+                
             />
         </>
     );

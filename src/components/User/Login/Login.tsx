@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FormLogin, LoginTitle, LoginButton, LoginButtonIcon, ErrorContainer, EmptyContainer } from './Login.styles';
+import { 
+    FormLogin, 
+    LoginTitle, 
+    LoginButton, 
+    LoginButtonIcon, 
+    ErrorContainer, 
+    EmptyContainer 
+} from './Login.styles';
 
 import { LoginForm } from './Login.types';
 import { login } from './Login.api';
 import { Input, Button } from '@/components';
+import { useAuth } from '@/contexts'; 
 
 const Login = () => {
     const navigate = useNavigate();
+    const { setUser, setToken } = useAuth();
     const [error, setError] = useState('');
     const [formData, setFormData] = useState<LoginForm>({
         username: '',
@@ -23,8 +32,9 @@ const Login = () => {
                 username: formData.username,
                 password: formData.password
             });
+            setUser(response.user);
+            setToken(response.access_token);
             navigate('/');
-            console.log('Login response:', response);
         } catch (err: any) {
             if (err.response?.data?.detail === 'User not found') {
                 setError('Пользователь не найден');

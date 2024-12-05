@@ -26,16 +26,22 @@ const Button: React.FC<ButtonTypes> = ({
     as,
     iconAs,
     titleAs,
+    loading = false,
+    loadingIcon
   }) => {
   return (
     <ButtonContainer
       as={as}
       type={type} 
       onClick={onClick as any} 
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       <ButtonIcon as={iconAs}>
-        {Icon && (typeof Icon === 'function' ? <Icon /> : Icon)}
+        {loading ? (
+            loadingIcon || <span>Загрузка...</span>
+          ) : (
+            Icon && (typeof Icon === 'function' ? <Icon /> : Icon)
+          )}
       </ButtonIcon>
       <ButtonTitle as={titleAs}>
         {title}
