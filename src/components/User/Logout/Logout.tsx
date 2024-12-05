@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { MdLogout} from 'react-icons/md';
+import { IoExitOutline } from "react-icons/io5";
 import { LogoutButton } from './Logout.styles';
 import { useAuth } from '@/contexts';
 
@@ -16,7 +16,7 @@ const Logout: React.FC = () => {
 
     return (
         <LogoutButton onClick={handleLogout}>
-            <MdLogout />
+            <IoExitOutline size={20}/>
         </LogoutButton>
     );
 };

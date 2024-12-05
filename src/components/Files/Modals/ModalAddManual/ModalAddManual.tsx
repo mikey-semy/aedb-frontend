@@ -42,7 +42,7 @@ const ModalAddManual = forwardRef(
         <Modal
             title="Добавить инструкцию"
             ref={modalRef}
-            appendTo={document.body}
+            appendTo={document.getElementById('root')}
         >
             <FormAddManual 
                 onSubmit={handleSubmit}

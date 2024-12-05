@@ -8,6 +8,8 @@ export const CloseButtonContainer = styled.button`
     margin: 0 10px;
     width: 40px;
     box-shadow: none;
+    border: none;
+    background: transparent;
 `;
 
 export const CloseButtonIcon = styled.span`

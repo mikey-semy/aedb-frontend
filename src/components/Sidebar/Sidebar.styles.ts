@@ -40,9 +40,9 @@ export const Overlay = styled.div<{ isVisible: boolean }>`
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5); // Полупрозрачный черный фон
+        background: rgba(0, 0, 0, 0.5);
         transition: all var(--transition-default);
         display: ${props => (props.isVisible ? 'block' : 'none')};
-        z-index: 999; // Убедитесь, что оверлей находится под боковой панелью
+        z-index: 999;
     }
 `;

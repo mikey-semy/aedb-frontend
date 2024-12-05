@@ -42,7 +42,7 @@ export const OptionsList = styled.div`
     width: 100%;
     overflow-y: auto;
     
-    padding-left: 15px;
+    
 
     &:focus {
         outline: none;
@@ -85,9 +85,9 @@ export const OptionsList = styled.div`
 `;
 
 export const Option = styled.div<OptionTypes>`
-    padding: 10px;
+    
     font-size: 16px;
-
+    padding: 15px 20px;
     cursor: ${({ disabled }) => (disabled 
         ? 'not-allowed' 
         : 'pointer')

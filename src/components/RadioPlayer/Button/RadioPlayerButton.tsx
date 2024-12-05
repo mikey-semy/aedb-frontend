@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '@/components';
 import { usePlayer, useTheme } from '@/contexts';
-import { MdPlayArrow, MdPause } from 'react-icons/md';
+import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
 import { RadioPlayerButtonContainer, RadioPlayerButtonIcon } from './RadioPlayerButton.styles';
-import { ScaleLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 
 const RadioPlayerButton: React.FC = () => {
     const { isPlaying, isLoading, togglePlay } = usePlayer();
@@ -15,21 +15,20 @@ const RadioPlayerButton: React.FC = () => {
                 iconAs={RadioPlayerButtonIcon}
                 icon={
                     isPlaying 
-                            ? <MdPause /> 
-                            : <MdPlayArrow />
+                            ? <IoPauseOutline />
+                            : <IoPlayOutline />
                     }
                 onClick={togglePlay}
                 disabled={isLoading}
                 
                 loading={isLoading}
-                loadingIcon={<ScaleLoader 
+                loadingIcon={<ClipLoader
                     color={
                         isDark 
-                            ? '#c9d1d9' 
-                            : '#24292f'
-                        } 
-                    height={20}
-                    width={2}
+                            ? 'var(--loader-color)' 
+                            : 'var(--loader-color)'
+                        }
+                        size={20}
                     /> }
                 
             />

@@ -1,10 +1,11 @@
+import ReactDOM from 'react-dom';
 import { useState, forwardRef, useImperativeHandle } from 'react';
 import { ModalTypes } from './Modal.types';
 import { Overlay, ModalContainer, ModalHeader, ModalBody, ModalTitle } from './Modal.styles';
 import { OpenButton, CloseButton } from './Buttons';
 
 const Modal = forwardRef(function MyModal(
-  { title, children, onSubmit, renderOpenButton, ...props }: ModalTypes,
+  { title, children, onSubmit, renderOpenButton, appendTo, ...props }: ModalTypes,
   ref
 ) {
   const [isOpen, setIsModalOpen] = useState(false);
@@ -32,6 +33,8 @@ const Modal = forwardRef(function MyModal(
     setIsModalOpen(false);
   };
 
+  const portalContainer = appendTo || document.body;
+
   return (
     <>
       {renderOpenButton && (
@@ -44,6 +47,7 @@ const Modal = forwardRef(function MyModal(
           title={props.openButtonTitle}
         />
       )}
+      {isOpen && ReactDOM.createPortal(<>
       <Overlay isOpen={isOpen} onClick={onClose} />
       <ModalContainer isOpen={isOpen}>
         <ModalHeader>
@@ -54,7 +58,8 @@ const Modal = forwardRef(function MyModal(
           {children}
         </ModalBody>
       </ModalContainer>
-    </>
+    </>, portalContainer
+  )} </>
   );
 });
 

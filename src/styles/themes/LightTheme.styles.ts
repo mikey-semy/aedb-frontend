@@ -64,7 +64,7 @@ export const lightTheme = {
       inputFileButtonBorderColor: '#d0d7de',
       emptyColor: '#57606a',
       errorColor: '#cf222e',
-      loaderColor: '#0969da',
+      loaderColor: '#24292f',
       selectBackground: '#ffffff',
       selectColor: '#24292f',
       optionListBackground: '#ffffff',
