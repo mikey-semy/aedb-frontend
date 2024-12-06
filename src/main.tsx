@@ -8,7 +8,7 @@ import { AuthProvider, ThemeProvider, useTheme } from '@/contexts';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import App from './App/App.tsx';
-import { Login, Dashboard, ESafety, Files, Error } from './pages';
+import { Login, Dashboard, ESafety, Files, Devices, Error } from './pages';
 
 const LoginWithTheme: React.FC = () => {
   const { isDark } = useTheme();
@@ -52,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/files",
         element: <Files />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/devices",
+        element: <Devices />,
         errorElement: <Error />,
       },
     ],

@@ -4,8 +4,13 @@ import { BsFileEarmarkText } from 'react-icons/bs';
 import { MdOutlineElectricBolt } from "react-icons/md";
 import { MdQuiz } from 'react-icons/md';
 import { RiRobot2Line } from 'react-icons/ri';
-
+import { FaCog } from 'react-icons/fa';
 export const NavigationData: NavigationTypes[] = [
+  {
+    path: '/devices',
+    label: 'Оборудование',
+    icon: FaCog,
+  },
   {
     path: '/files',
     label: 'Файлы',
