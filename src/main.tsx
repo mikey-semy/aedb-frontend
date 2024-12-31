@@ -12,7 +12,7 @@ import { Login, Dashboard, ESafety, Files, Devices, Error } from './pages';
 
 const LoginWithTheme: React.FC = () => {
   const { isDark } = useTheme();
-  
+
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
       <GlobalStyles />
@@ -66,8 +66,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <RouterProvider 
-        router={router} 
+      <RouterProvider
+        router={router}
         future={{ v7_startTransition: true }}
       />
   </StrictMode>,

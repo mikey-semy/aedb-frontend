@@ -10,7 +10,7 @@ const AppContent: React.FC = () => {
   const { isDark } = useTheme();
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  
+
   useEffect(() => {
     if (!token) {
       navigate('/login'); // Перенаправляем на страницу входа, если токен отсутствует
@@ -28,7 +28,7 @@ const AppContent: React.FC = () => {
             <Sidebar />
             <MainContainer>
               <Header />
-              <ContentDataProvider>    
+              <ContentDataProvider>
                 <Content>
                   <Outlet />
                 </Content>
@@ -49,7 +49,7 @@ const App: React.FC = () => {
     <AuthProvider>
       <PlayerProvider>
         <ThemeProvider>
-          <SidebarProvider>      
+          <SidebarProvider>
             <AppContent />
           </SidebarProvider>
         </ThemeProvider>
