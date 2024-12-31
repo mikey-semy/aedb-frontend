@@ -1,13 +1,13 @@
 import api, { handleApiResponse, handleApiError}  from '@/api';
-import { 
-    ManualFormData, 
-    ManualListItem, 
-    CategoryTypes, 
-    GroupTypes 
+import {
+    ManualFormData,
+    ManualListItem,
+    CategoryTypes,
+    GroupTypes
 } from './Manuals.types';
 
 export const addManual = (manual: ManualFormData): Promise<ManualFormData> =>
-    api.post<ManualFormData>('/api/v1/manuals/add', manual)
+    api.post<ManualFormData>('/api/v1/manuals/', manual)
         .then(handleApiResponse)
         .catch(handleApiError);
 
@@ -25,7 +25,7 @@ export const removeManual = (manualId: number): Promise<number> =>
     api.delete<number>(`/api/v1/manuals/${manualId}`)
         .then(handleApiResponse)
         .catch(handleApiError);
-        
+
 export const getCategories = (): Promise<CategoryTypes[]> =>
     api.get<CategoryTypes[]>('/api/v1/manuals/categories')
         .then(handleApiResponse)
