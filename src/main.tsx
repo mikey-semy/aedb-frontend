@@ -7,7 +7,7 @@ import {
 import { AuthProvider, ThemeProvider, useTheme } from '@/contexts';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
-import App from './app/App.tsx';
+import App from './App.tsx';
 import { Login, Dashboard, ESafety, Files, Devices, Error } from './pages';
 
 const LoginWithTheme: React.FC = () => {
