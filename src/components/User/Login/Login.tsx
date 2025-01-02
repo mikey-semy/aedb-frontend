@@ -139,7 +139,7 @@ const Login = () => {
                     type="text"
                     value={formData.username}
                     onChange={(e) => setFormData({...formData, username: e.target.value})}
-                    placeholder="Логин"
+                    placeholder="Имя пользователя"
                     hasError={error?.includes('существует')}
                     required={false}
                 />
