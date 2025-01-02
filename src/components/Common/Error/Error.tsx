@@ -13,11 +13,10 @@ const Error: React.FC<ErrorTypes> = ({ error }) => {
 
     if (!navigator.onLine) {
         errorMessage = "Пожалуйста, проверьте ваше интернет-соединение.";
+    } else if (error) {
+        errorMessage = `${error.message || 'Неизвестная ошибка'}${error.status ? ` (Статус: ${error.status})` : ''}`;
     } else {
-        errorMessage = errorMessages.description || 
-                       (error && (error.statusText || error.message) ? 
-                           (error.statusText || error.message) : 
-                           "Неизвестная ошибка");
+        errorMessage = errorMessages.description || "Неизвестная ошибка";
     }
 
     return (

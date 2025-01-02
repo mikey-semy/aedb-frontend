@@ -1,6 +1,7 @@
 export interface RouteError {
-    statusText?: string;
     message?: string;
+    statusText?: string;
+    status?: number;
 }
 
 export interface ErrorTypes {
