@@ -6,8 +6,9 @@ export type ApiResponse<T> = {
 };
 
 export type ApiError = {
-    message: string;
-    status: number;
+    detail?: string;
+    message?: string;
+    status?: number;
 };
 
 export const handleApiError = (error: unknown): never => {
