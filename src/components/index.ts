@@ -20,4 +20,7 @@ export { default as FormAddManual } from './Files/Forms/FormAddManual/FormAddMan
 export { default as ModalAddManual } from './Files/Modals/ModalAddManual/ModalAddManual';
 export { default as Login } from './User/Login';
 export { default as Logout } from './User/Logout';
+export { default as Register } from './User/Register';
+export { default as ResetPassword } from './User/ResetPassword';
 export { default as RadioPlayer } from './RadioPlayer/RadioPlayer';
+export { default as ThemeButton } from './Header/Buttons/ThemeButton/ThemeButton';

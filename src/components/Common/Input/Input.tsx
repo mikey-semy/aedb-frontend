@@ -15,6 +15,7 @@ const Input: React.FC<InputTypes> = ({
     multiple = false,
     onChange,
     hasError = false,
+    required = true,
 }) => {
   return (
     <InputContainer>
@@ -27,10 +28,10 @@ const Input: React.FC<InputTypes> = ({
             placeholder={placeholder}
             disabled={disabled}
             id={id}
-            hasError={hasError}
+            $hasError={hasError}
             accept={accept}
             multiple={multiple}
-            required
+            required={required}
         />
         {error && <ErrorText>{error}</ErrorText>}
     </InputContainer>

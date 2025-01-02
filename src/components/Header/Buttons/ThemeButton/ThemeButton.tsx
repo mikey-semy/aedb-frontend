@@ -8,11 +8,11 @@ const ThemeButton: React.FC = () => {
     const { isDark, toggleTheme } = useTheme();
 
     return (
-        <Button 
+        <Button
             as={ThemeButtonContainer}
             iconAs={ThemeButtonIcon}
             onClick={toggleTheme}
-            icon={isDark ? BsMoon : BsSun }
+            icon={isDark ? BsSun : BsMoon}
         />
     );
 

@@ -41,4 +41,7 @@ export const ButtonTitle = styled.span`
     display: block;
     color: inherit;
     transition: all 0.3s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
 `;

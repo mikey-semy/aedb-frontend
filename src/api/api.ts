@@ -8,12 +8,24 @@ const api = axios.create({
   },
 });
 
-api.interceptors.request.use((config) => {
-  config.auth = {
-    username: import.meta.env.VITE_API_USERNAME,
-    password: import.meta.env.VITE_API_PASSWORD,
-  };
-  return config;
-});
+api.interceptors.request.use(config => {
+    const token = localStorage.getItem('token');
+    // Не добавляем токен для аутентификации
+    if (token && !config.url?.includes('/auth')) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  });
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+      if (error.response?.status === 401 && window.location.pathname !== '/login') {
+        localStorage.removeItem('token');
+        window.location.href = '/login';
+      }
+      return Promise.reject(error);
+    }
+  );
 
 export default api;

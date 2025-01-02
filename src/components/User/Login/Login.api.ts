@@ -4,7 +4,7 @@ import { LoginCredentials, LoginResponse/*, User*/ } from './Login.types';
 
 export const login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
     const formData = new URLSearchParams();
-    
+
     formData.append('username', credentials.username);
     formData.append('password', credentials.password);
     formData.append('grant_type', 'password');
@@ -13,7 +13,7 @@ export const login = async (credentials: LoginCredentials): Promise<LoginRespons
     formData.append('client_secret', 'string');
 
     try {
-        const response = await api.post<LoginResponse>('/api/v1/token', formData, {
+        const response = await api.post<LoginResponse>('/api/v1/auth', formData, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }

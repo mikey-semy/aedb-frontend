@@ -8,7 +8,7 @@ import { AuthProvider, ThemeProvider, useTheme } from '@/contexts';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '@/styles';
 import App from './App.tsx';
-import { Login, Dashboard, ESafety, Files, Devices, Error } from './pages';
+import { Login, ResetPassword, Dashboard, ESafety, Files, Devices, Error } from './pages';
 
 const LoginWithTheme: React.FC = () => {
   const { isDark } = useTheme();
@@ -22,6 +22,20 @@ const LoginWithTheme: React.FC = () => {
     </StyledThemeProvider>
   );
 };
+
+const ResetPasswordWithTheme: React.FC = () => {
+  const { isDark } = useTheme();
+
+  return (
+    <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
+      <GlobalStyles />
+      <ResetStyles />
+      <Variables />
+      <ResetPassword />
+    </StyledThemeProvider>
+  );
+}
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -29,6 +43,17 @@ const router = createBrowserRouter([
       <AuthProvider>
         <ThemeProvider>
           <LoginWithTheme />
+        </ThemeProvider>
+      </AuthProvider>
+    ),
+    errorElement: <Error />
+  },
+  {
+    path: "/reset-password",
+    element: (
+      <AuthProvider>
+        <ThemeProvider>
+          <ResetPasswordWithTheme />
         </ThemeProvider>
       </AuthProvider>
     ),
