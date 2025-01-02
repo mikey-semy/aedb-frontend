@@ -142,6 +142,8 @@ const Login = () => {
                     placeholder="Имя пользователя"
                     hasError={error?.includes('существует')}
                     required={false}
+                    minLength={4}
+                    maxLength={20}
                 />
                 <Input
                     id="password"
@@ -151,6 +153,7 @@ const Login = () => {
                     placeholder="Пароль"
                     hasError={error?.includes('пароль')}
                     required={false}
+                    minLength={4}
                 />
                 {error ? (
                     <ErrorContainer>{error}</ErrorContainer>
