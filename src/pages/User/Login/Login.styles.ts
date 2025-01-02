@@ -9,6 +9,7 @@ export const LoginContainer = styled.div`
     background: var(--background);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     z-index: 9999;
+    padding-top: 20px;
 `;
