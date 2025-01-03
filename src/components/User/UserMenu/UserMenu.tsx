@@ -7,14 +7,14 @@ import { ProfileForm } from '../Profile/Profile.types';
 
 const UserMenu: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { token } = useAuth();
+    const { user, token } = useAuth();
     const [userData, setUserData] = useState<ProfileForm>({
         id: user?.id || 0,
         name: user?.name || '',
         email: user?.email || '',
         avatar: user?.avatar || ''
     });
-
+    console.log(user);
     useEffect(() => {
         const fetchProfile = async () => {
             try {
