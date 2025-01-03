@@ -3,4 +3,5 @@ export interface InputTypes extends React.InputHTMLAttributes<HTMLInputElement> 
     label?: string;
     error?: string;
     $hasError?: boolean;
+    LabelComponent?: React.ComponentType<any>;
 }

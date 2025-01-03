@@ -40,7 +40,7 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
                             disabled={option.disabled}
                             value={option.value}
                             label={option.label}
-                            isSelected={selectedOption?.value === option.value}
+                            $isSelected={selectedOption?.value === option.value}
                         >
                             {option.label}
                         </OptionStyled>

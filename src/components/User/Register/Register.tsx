@@ -69,7 +69,7 @@ const Register = () => {
                 as={RegisterButton}
                 iconAs={RegisterButtonIcon}
                 type="submit"
-                title="Войти"
+                title="Зарегистрироваться"
             />
         </FormRegister>
     );

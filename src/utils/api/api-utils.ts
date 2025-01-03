@@ -15,11 +15,11 @@ export type ApiError = {
 export const handleApiError = (error: unknown): never => {
     if (error instanceof AxiosError) {
         console.log('Full API Response:', error.response?.data);
-        const apiError: ApiError = {
-            message: error.response?.data.detail || error.response?.data.message || 'Неизвестная ошибка',
-            status: error.response?.status || 500,
-            error_type: error.response?.data.error_type
-        };
+                const apiError: ApiError = {
+                    message: error.response?.data.detail || error.response?.data.message || 'Неизвестная ошибка',
+                    status: error.response?.status || 500,
+                    error_type: error.response?.data.error_type
+                };
         console.error('API Error:', apiError);
         throw apiError;
     }

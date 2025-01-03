@@ -3,5 +3,4 @@ export default api;
 export {
     handleApiError,
     handleApiResponse
- } from '@/utils/apiUtils';
-
+ } from '@/utils/api/api-utils';

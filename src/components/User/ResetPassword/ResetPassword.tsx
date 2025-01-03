@@ -14,7 +14,7 @@ import {
 } from './ResetPassword.styles';
 import { ThemeButton, Input, Button } from '@/components';
 import { resetPassword } from './ResetPassword.api';
-import { ApiError } from '@/utils/apiUtils';
+import { ApiError } from '@/utils';
 
 
 const ResetPassword = () => {

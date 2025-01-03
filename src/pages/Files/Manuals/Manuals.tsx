@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Lists, Error, Empty, Loading } from '@/components';
 import { RouteError } from '@/components/Common/Error/Error.types';
 import { getManuals } from './Manuals.api';
-import { ApiError } from '@/utils/apiUtils';
+import { ApiError } from '@/utils';
 
 import { ManualsTypes, ManualListItem } from './Manuals.types';
 import {

@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build --config vite.config.prod.ts",
     "serve": "serve -s dist -l 3000",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "create:component": "node scripts/create-component.js"
   },
   "dependencies": {
     "@szhsin/react-menu": "^4.2.3",

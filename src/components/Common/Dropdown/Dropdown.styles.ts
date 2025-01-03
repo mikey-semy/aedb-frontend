@@ -33,16 +33,16 @@ export const OptionsList = styled.div`
 
     background-color: var(--option-list-background);
     color: var(--option-list-color);
-    
+
     border: none;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
-    
+
     max-height: 400px;
     width: 100%;
     overflow-y: auto;
-    
-    
+
+
 
     &:focus {
         outline: none;
@@ -85,46 +85,46 @@ export const OptionsList = styled.div`
 `;
 
 export const Option = styled.div<OptionTypes>`
-    
+
     font-size: 16px;
     padding: 15px 20px;
-    cursor: ${({ disabled }) => (disabled 
-        ? 'not-allowed' 
+    cursor: ${({ disabled }) => (disabled
+        ? 'not-allowed'
         : 'pointer')
-    }; 
+    };
 
     background-color: ${
-                        ({ disabled, isSelected }) => 
-                            isSelected 
-                            ? 'var(--option-item-selected-background)' 
-                            : (disabled ? 'var(--option-item-disabled-background)' 
+                        ({ disabled, $isSelected }) =>
+                            $isSelected
+                            ? 'var(--option-item-selected-background)'
+                            : (disabled ? 'var(--option-item-disabled-background)'
                             : 'var(--option-item-background)')
                         };
     color: ${
-        ({ disabled, isSelected }) => 
-            isSelected 
-            ? 'var(--option-item-selected-color)' 
-            : (disabled ? 'var(--option-item-disabled-color)' 
+        ({ disabled, $isSelected }) =>
+            $isSelected
+            ? 'var(--option-item-selected-color)'
+            : (disabled ? 'var(--option-item-disabled-color)'
             : 'var(--option-item-color)')
         };
-    
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')}; 
+
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
     &:hover {
         background-color: ${
             ({ disabled }) => (
-                    disabled 
-                    ? 'var(--option-item-disabled-background)' 
+                    disabled
+                    ? 'var(--option-item-disabled-background)'
                     : 'var(--option-item-hover-background)'
                 )
             };
         color: ${
             ({ disabled }) => (
-                    disabled 
-                    ? 'var(--option-item-disabled-color)' 
+                    disabled
+                    ? 'var(--option-item-disabled-color)'
                     : 'var(--option-item-hover-color)'
                 )
-            }; 
+            };
     }
 
 `;

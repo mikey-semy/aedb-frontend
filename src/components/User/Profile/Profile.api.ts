@@ -1,21 +1,32 @@
 import api, { handleApiResponse, handleApiError } from '@/api';
-import { ProfileCredentials, ProfileResponse } from './Profile.types'; // Предполагается, что у вас есть типы для профиля
+import { ProfileForm, PasswordForm, ProfileResponse } from './Profile.types';
 
-// Получение профиля пользователя
-export const getUserProfile = (token: string): Promise<ProfileCredentials> =>
-    api.get<ProfileCredentials>('/api/v1/users/profile', {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+export const getUserProfile = (token: string): Promise<ProfileForm> =>
+    api.get('/api/v1/users/profile', {
+        headers: { Authorization: `Bearer ${token}` }
     })
     .then(handleApiResponse)
     .catch(handleApiError);
 
-// Обновление профиля пользователя
-export const updateUserProfile = (token: string, profileData: ProfileCredentials): Promise<ProfileResponse> =>
-    api.put<ProfileResponse>('/api/v1/users/profile', profileData, {
+export const updateUserProfile = (token: string, profileData: ProfileForm): Promise<ProfileResponse> =>
+    api.put('/api/v1/users/profile', profileData, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(handleApiResponse)
+    .catch(handleApiError);
+
+export const updatePassword = (token: string, passwordData: PasswordForm): Promise<ProfileResponse> =>
+    api.put('/api/v1/users/password', passwordData, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(handleApiResponse)
+    .catch(handleApiError);
+
+export const uploadAvatar = (token: string, formData: FormData): Promise<ProfileResponse> =>
+    api.post('/api/v1/users/avatar', formData, {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data'
         }
     })
     .then(handleApiResponse)

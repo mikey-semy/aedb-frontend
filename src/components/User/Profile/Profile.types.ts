@@ -1,20 +1,22 @@
 export interface ProfileForm {
-    username: string;
+    id: number;
+    name: string;
     email: string;
+    avatar: string;
   }
 
-export interface ProfileCredentials {
-    username: string;
-    email: string;
+export interface PasswordForm {
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
 }
+
+export interface AvatarForm {
+    avatar: File | null;
+}
+
 
 export interface ProfileResponse {
-    id: number;
-    username: string;
-    email: string;
-}
-
-export interface UpdateProfileResponse {
     success: boolean;
-    message?: string; // Сообщение об успешном обновлении или ошибке
+    message?: string;
 }

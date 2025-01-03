@@ -26,6 +26,7 @@ const Navigation: React.FC = () => {
                         <NavigationItem
                             key={index}
                             $isCollapsed={ $isCollapsed }
+                            title={ item.label }
                         >
                             <ItemLink
                                 as={item.path?.startsWith('http') ? 'a' : NavLink}

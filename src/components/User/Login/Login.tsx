@@ -18,7 +18,7 @@ import { LoginForm } from './Login.types';
 import { login } from './Login.api';
 import { Input, Button } from '@/components';
 import { useAuth } from '@/contexts';
-import { ApiError } from '@/utils/apiUtils';
+import { ApiError } from '@/utils';
 
 
 const Login = () => {

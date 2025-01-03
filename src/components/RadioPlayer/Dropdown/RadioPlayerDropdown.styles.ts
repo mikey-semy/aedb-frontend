@@ -8,7 +8,7 @@ export const DropdownContainer = styled.select`
     background-color: var(--input-background);
     color: var(--input-color);
     cursor: pointer;
-    
+
     &:focus {
         outline: none;
         border-color: #0366d6;
@@ -61,14 +61,14 @@ export const OptionsList = styled.div`
     width: 100%;
 `;
 
-export const Option = styled.option<{ isSelected: boolean }>`
+export const Option = styled.option<{ $isSelected: boolean }>`
     padding: 8px;
     font-size: 14px;
     background-color: var(--option-selected-background);
     color: var(--option-selected-color);
 
 
-    ${({ isSelected }) => isSelected && `
+    ${({ $isSelected }) => $isSelected && `
         font-weight: bold;
         outline: 2px solid #0969da;
         border-radius: 4px;

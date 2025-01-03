@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '@/components/Common/Button/Button.styles';
 
-export const LogoutButton = styled(ButtonContainer)`
+export const LogoutButtonContainer = styled(ButtonContainer)`
     height: 40px;
     width: 40px;
     text-align: center;
@@ -10,7 +10,9 @@ export const LogoutButton = styled(ButtonContainer)`
 `;
 
 export const LogoutButtonTitle = styled(ButtonTitle)`
-    display: 'none';
+    font-family: var(--font-default);
+    font-size: 14px;
+    font-weight: 600;
 `;
 
 export const LogoutButtonIcon = styled(ButtonIcon)`
