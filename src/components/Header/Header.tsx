@@ -6,17 +6,17 @@ import { useSidebar } from '@/contexts';
 import { Logout } from '@/components';
 
 const Header: React.FC = () => {
-    const { isCollapsed } = useSidebar();
+    const { $isCollapsed } = useSidebar();
     return (
         <>
             <HeaderContainer>
-                <CollapseButton isCollapsed={isCollapsed}/>  
-                
+                <CollapseButton $isCollapsed={$isCollapsed}/>
+
                 <CenterButtonContainer>
                     <RadioPlayer />
-                </CenterButtonContainer> 
+                </CenterButtonContainer>
                 <RightButtonsContainer>
-                    
+
                     <ThemeButton />
                     <Logout />
                 </RightButtonsContainer>

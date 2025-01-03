@@ -1,3 +1,3 @@
 export interface ModalAddManualTypes {
-    fetchManualItems: () => void;
+    fetchManualItems?: () => Promise<void> | void;
 }

@@ -12,15 +12,15 @@ export const ListContainer = styled.ul`
     }
 `;
 
-export const ListItem = styled.li<{ bordered?: boolean }>`
+export const ListItem = styled.li<{ $bordered?: boolean }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 12px;
     height: 52px;
 
-    border-bottom: ${ props => props.bordered ? '1px solid var(--box-shadow-color)' : 'none' };
-    
+    border-bottom: ${ props => props.$bordered ? '1px solid var(--box-shadow-color)' : 'none' };
+
     &:last-child {
         border-bottom: none;
     }

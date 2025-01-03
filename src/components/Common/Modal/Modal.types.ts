@@ -7,7 +7,7 @@ export interface ModalRef {
   close: () => void;
 }
 export interface ModalTypes {
-    isOpen?: boolean;
+    $isOpen?: boolean;
     title?: string;
     openButtonTitle?: string;
     openButtonIcon?: IconType;
@@ -22,5 +22,3 @@ export interface ModalTypes {
 
     ref?: React.RefObject<ModalRef>;
 }
-
-

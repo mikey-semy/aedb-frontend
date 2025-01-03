@@ -6,8 +6,13 @@ import { ManualFormData, GroupTypes, CategoryTypes } from '@/pages/Files/Manuals
 import { getCategories, getGroupsByCategory } from '@/pages/Files/Manuals/Manuals.api';
 import { BeatLoader } from 'react-spinners';
 
-const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, externalError }) => {
-    
+interface ModalRef {
+    open: () => void;
+  }
+
+const FormAddManual = React.forwardRef<ModalRef, FormAddManualTypes>((props, ref) => {
+    const { onSubmit, onCancel, externalError } = props;
+
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
     const [categories, setCategories] = useState<CategoryTypes[]>([]);
     const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
@@ -16,18 +21,31 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
     const optionsGroup = groups.map(group => ({ value: group.id?.toString() ?? '', label: group.name }));
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    
+
     const [manual, setManual] = useState({
         id: 0,
-        title: '',
+        name: '',
         file: null as File | null,
         group_id: 0,
         category_id: 0,
     })
 
+    const resetForm = () => {
+        setManual({
+            id: 0,
+            name: '',
+            file: null,
+            group_id: 0,
+            category_id: 0
+        });
+        setSelectedCategory(null);
+        setSelectedGroup(null);
+        setError(null);
+    };
+
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>, selectedValue: number | null) => {
         const { id } = e.target;
-    
+        setError(null);
         if (selectedValue === null) {
             switch (id) {
                 case 'category':
@@ -38,7 +56,7 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
                     setError('Пожалуйста, выберите группу');
                     setSelectedGroup(null);
                     break;
-            }          
+            }
         } else {
             setError(null);
             if (id === 'category') {
@@ -46,24 +64,45 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
                 setManual(prev => ({ ...prev, category_id: selectedValue }));
             } else if (id === 'group') {
                 setSelectedGroup(selectedValue);
-                setManual(prev => ({ ...prev, group_id: selectedValue })); 
+                setManual(prev => ({ ...prev, group_id: selectedValue }));
             }
         }
     }
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+        setError(null);
         setManual(prev => ({ ...prev, [name]: value }));
     }
-    
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setError(null);
         if (e.target.files && e.target.files[0]) {
           setManual(prev => ({ ...prev, file: e.target.files![0] }));
         }
     }
 
     const handleCancel = () => {
+        resetForm();
         onCancel();
     };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!manual.name || !manual.file || !selectedGroup || !selectedCategory) {
+            setError('Заполните все обязательные поля');
+            return;
+        }
+        setError(null);
+        onSubmit({
+            id: manual.id,
+            name: manual.name,
+            file: manual.file,
+            group_id: selectedGroup,
+            category_id: selectedCategory
+        } as ManualFormData);
+        resetForm();
+    }
 
     useEffect(() => {
         if (selectedCategory && selectedGroup) {
@@ -78,7 +117,7 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
             .catch(error => setError(`Ошибка при загрузке категорий: ${error.message}`))
             .finally(() => setLoading(false));
     }, []);
-    
+
     useEffect(() => {
         if (selectedCategory) {
             setLoading(true);
@@ -92,26 +131,9 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
         setSelectedGroup(0);
     }, [selectedCategory]);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (selectedGroup && selectedCategory) {
-            setError(null);
-            onSubmit({
-                id: manual.id,
-                title: manual.title,
-                file: manual.file,
-                group_id: selectedGroup,
-                category_id: selectedCategory
-            } as ManualFormData);
-        } else {
-          // Обработка ошибки: группа или категория не выбраны
-          setError('Пожалуйста, выберите категорию и группу');
-        }
-    }
-
     return (
         <FormContainer onSubmit={handleSubmit}>
-            
+
             <Select
                 id="category"
                 value={manual.category_id}
@@ -129,9 +151,9 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
                 error={error}
             />
             <Input
-                id="title"
-                name="title"
-                value={manual.title}
+                id="name"
+                name="name"
+                value={manual.name}
                 onChange={handleInputChange}
                 placeholder="Название инструкции"
             />
@@ -161,5 +183,5 @@ const FormAddManual: React.FC<FormAddManualTypes> = ({ onSubmit, onCancel, exter
             />
         </FormContainer>
     );
-} 
+});
 export default FormAddManual;

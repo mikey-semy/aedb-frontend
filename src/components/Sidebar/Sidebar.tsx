@@ -6,17 +6,17 @@ import EdgeTrigger from './Buttons';
 import { useSidebar } from '@/contexts';
 
 const Sidebar: React.FC = () => {
-    const { isCollapsed, toggleSidebar } = useSidebar();
-    
+    const { $isCollapsed, toggleSidebar } = useSidebar();
+
     return (
         <>
-            <Overlay isVisible={!isCollapsed} onClick={toggleSidebar}/>
+            <Overlay $isVisible={!$isCollapsed} onClick={toggleSidebar}/>
             <SidebarContainer
-                isCollapsed={isCollapsed}
+                $isCollapsed={$isCollapsed}
             >
-                <Logo isCollapsed={isCollapsed} />
+                <Logo $isCollapsed={$isCollapsed} />
                 <Navigation />
-                
+
             </SidebarContainer>
             <EdgeTrigger />
         </>

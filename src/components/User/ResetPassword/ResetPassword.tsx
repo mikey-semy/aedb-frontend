@@ -37,7 +37,7 @@ const ResetPassword = () => {
     };
 
     return (
-        <ResetPasswordForm onSubmit={handleSubmit} hasError={!!error}>
+        <ResetPasswordForm onSubmit={handleSubmit} $hasError={!!error}>
             <ResetPasswordFormTopAction>
                 <ThemeButton/>
             </ResetPasswordFormTopAction>
@@ -52,7 +52,7 @@ const ResetPassword = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Email"
-                        hasError={!!error}
+                        $hasError={!!error}
                         required={false}
                     />
                     {error ? (

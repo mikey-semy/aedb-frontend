@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CollapseButtonContainer = styled.button<{ isCollapsed: boolean }>`
+export const CollapseButtonContainer = styled.button<{ $isCollapsed: boolean }>`
     background-color: var(--button-collapse-bg-color, #ffffff);
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
@@ -26,22 +26,22 @@ export const CollapseButtonContainer = styled.button<{ isCollapsed: boolean }>`
     /* position: absolute;
     top: 3%;
 
-    left: ${({ isCollapsed }) => (isCollapsed ? '40px' : 'calc(var(--sidebar-width, 262px) + 10px)')}; */
+    left: ${({ $isCollapsed }) => ($isCollapsed ? '40px' : 'calc(var(--sidebar-width, 262px) + 10px)')}; */
 
     @media (max-width: 1024px) {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: ${({ isCollapsed }) => (isCollapsed ? '20px' : 'calc(var(--sidebar-width, 262px) + 10px)')};
+        left: ${({ $isCollapsed }) => ($isCollapsed ? '20px' : 'calc(var(--sidebar-width, 262px) + 10px)')};
     }
 `;
 
-export const CollapseButtonTitle = styled.span <{ isCollapsed: boolean }>``;
+export const CollapseButtonTitle = styled.span <{ $isCollapsed: boolean }>``;
 
-export const CollapseButtonIcon = styled.span <{ isCollapsed: boolean }>`
+export const CollapseButtonIcon = styled.span <{ $isCollapsed: boolean }>`
     color: var(--nav-icon-color);
     font-size: var(--nav-collapse-button-font-size, 26px);
-    transform: ${props => props.isCollapsed ? 'rotate(180deg)' : 'none'};
+    transform: ${props => props.$isCollapsed ? 'rotate(180deg)' : 'none'};
     transition: transform var(--transition-default);
     min-width: var(--nav-collapse-button-font-size, 26px);
     min-height: var(--nav-collapse-button-font-size, 26px);
@@ -52,4 +52,3 @@ export const CollapseButtonIcon = styled.span <{ isCollapsed: boolean }>`
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
 `;
-

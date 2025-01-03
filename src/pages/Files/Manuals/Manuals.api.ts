@@ -7,7 +7,11 @@ import {
 } from './Manuals.types';
 
 export const addManual = (manual: ManualFormData): Promise<ManualFormData> =>
-    api.post<ManualFormData>('/api/v1/manuals/', manual)
+    api.post<ManualFormData>('/api/v1/manuals/', manual, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
         .then(handleApiResponse)
         .catch(handleApiError);
 

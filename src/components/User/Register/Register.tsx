@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { RegisterForm } from './Register.types';
 import { register } from './Register.api';
-import { 
-    FormRegister, 
-    RegisterTitle, 
-    RegisterButton, 
-    RegisterButtonIcon, 
-    ErrorContainer, 
-    EmptyContainer 
+import {
+    FormRegister,
+    RegisterTitle,
+    RegisterButton,
+    RegisterButtonIcon,
+    ErrorContainer,
+    EmptyContainer
 } from './Register.styles';
 import { Input, Button } from '@/components';
 
@@ -28,7 +28,7 @@ const Register = () => {
             password: formData.password,
             email: formData.email
         });
-        
+
     };
 
     return (
@@ -40,7 +40,7 @@ const Register = () => {
                 value={formData.username}
                 onChange={(e) => setFormData({...formData, username: e.target.value})}
                 placeholder="Имя"
-                hasError={!!error}
+                $hasError={!!error}
             />
             <Input
                 id="email"
@@ -48,7 +48,7 @@ const Register = () => {
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                 placeholder="Почта"
-                hasError={!!error}
+                $hasError={!!error}
             />
             <Input
                 id="password"
@@ -56,7 +56,7 @@ const Register = () => {
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                 placeholder="Пароль"
-                hasError={!!error}
+                $hasError={!!error}
             />
             {
                     error ? (
@@ -65,10 +65,10 @@ const Register = () => {
                         <EmptyContainer />
                     )
                 }
-            <Button 
+            <Button
                 as={RegisterButton}
                 iconAs={RegisterButtonIcon}
-                type="submit" 
+                type="submit"
                 title="Войти"
             />
         </FormRegister>

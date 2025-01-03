@@ -4,7 +4,7 @@ import { SidebarContextType } from './CollapseSidebar.types';
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isCollapsed, setIsCollapsed] = useState(() => {
+    const [$isCollapsed, set$isCollapsed] = useState(() => {
         const saved = localStorage.getItem('sidebar');
         return saved ? JSON.parse(saved) : false;
     });
@@ -13,13 +13,13 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ child
       };
     const toggleSidebar = () => {
         toggleScroll();
-        const newValue = !isCollapsed;
-        setIsCollapsed(newValue);
+        const newValue = !$isCollapsed;
+        set$isCollapsed(newValue);
         localStorage.setItem('sidebar', JSON.stringify(newValue));
     };
 
     return (
-        <SidebarContext.Provider value={{ isCollapsed, toggleSidebar }}>
+        <SidebarContext.Provider value={{ $isCollapsed, toggleSidebar }}>
             {children}
         </SidebarContext.Provider>
     );

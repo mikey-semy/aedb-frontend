@@ -7,7 +7,7 @@ export interface ManualListItem {
 
 export interface ManualFormData {
   id: number;
-  title: string;
+  name: string;
   file: File | null;
   group_id: number;
   category_id: number;
@@ -20,7 +20,7 @@ export interface ManualsTypes {
 
 export interface ManualTypes {
   id: number;
-  title: string;
+  name: string;
   file_url: string;
   group_id: number;
   category_id: number;

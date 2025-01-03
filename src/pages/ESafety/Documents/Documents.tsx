@@ -19,7 +19,7 @@ const DocumentsList: React.FC = () => {
                     </>
                 ),
             }))}
-            bordered
+            $bordered
         />
     );
 };

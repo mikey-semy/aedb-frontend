@@ -6,7 +6,7 @@ export const SelectContainer = styled.div`
     flex-direction: column;
 `;
 
-export const Select = styled.select<{ hasError?: boolean }>`
+export const Select = styled.select<{ $hasError?: boolean }>`
     width: 280px;
     padding: 8px 12px;
     border: 1px solid var(--input-border-color);
@@ -21,7 +21,7 @@ export const Select = styled.select<{ hasError?: boolean }>`
     &:focus {
         border-color: var(--input-focus-color);
     }
-    
+
     &:disabled {
         background-color: var(--input-disabled-background);
         color: var(--input-disabled-color);

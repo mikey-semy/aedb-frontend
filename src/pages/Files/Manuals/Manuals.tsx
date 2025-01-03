@@ -90,7 +90,7 @@ const Manuals: React.FC<ManualsTypes> = ({ searchValue, onFetchManualItems }) =>
             <Lists
                 listItems={allManuals}
                 listItemAs={ListItemManuals}
-                bordered
+                $bordered
             />
         </>
     );

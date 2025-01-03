@@ -14,13 +14,13 @@ const Select: React.FC<SelectTypes> = ({
 }) => {
     return (
         <SelectContainer>
-            {label && <label>{label}</label>} 
+            {label && <label>{label}</label>}
             <SelectElement
                 id={id}
                 value={value !== null ? value.toString() : ''}
                 onChange={(e) => onChange(e, e.target.value ? Number(e.target.value) : null)}
                 disabled={disabled}
-                hasError={!!error}
+                $hasError={!!error}
             >
                 <Option value="">{placeholder}</Option>
                 {options?.map((option) => (

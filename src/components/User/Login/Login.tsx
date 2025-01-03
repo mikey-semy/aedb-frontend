@@ -128,7 +128,7 @@ const Login = () => {
             <FormLogin onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit(e);
-                }} hasError={!!error}>
+                }} $hasError={!!error}>
                 <FormLoginTopAction>
                     <ThemeButton/>
                 </FormLoginTopAction>
@@ -140,7 +140,7 @@ const Login = () => {
                     value={formData.username}
                     onChange={(e) => setFormData({...formData, username: e.target.value})}
                     placeholder="Имя пользователя"
-                    hasError={error?.includes('существует')}
+                    $hasError={error?.includes('существует')}
                     required={false}
                     minLength={4}
                     maxLength={20}
@@ -151,7 +151,7 @@ const Login = () => {
                     value={formData.password}
                     onChange={(e) => setFormData({...formData, password: e.target.value})}
                     placeholder="Пароль"
-                    hasError={error?.includes('пароль')}
+                    $hasError={error?.includes('пароль')}
                     required={false}
                     minLength={4}
                 />

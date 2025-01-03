@@ -6,7 +6,7 @@ export interface ListTypes {
     listItems: listItem[];
     header?: React.ReactNode;
     footer?: React.ReactNode;
-    bordered?: boolean;
+    $bordered?: boolean;
     renderItem?: (item: listItem) => React.ReactNode;
     listItemAs?: any;
 }

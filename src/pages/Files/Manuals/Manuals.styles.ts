@@ -15,7 +15,7 @@ export const ListItemContentHeader = styled.div`
 
 export const CategoryName = styled.span`
   color: var(--color-text-secondary);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   &:after {
     content: '→';
@@ -25,14 +25,15 @@ export const CategoryName = styled.span`
 
 export const GroupName = styled.span`
   color: var(--color-text-secondary);
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const ManualLink = styled.a`
   text-decoration: none;
   color: var(--color-primary);
+  font-size: 14px;
   font-weight: 500;
-  
+
   &:hover {
     text-decoration: underline;
   }

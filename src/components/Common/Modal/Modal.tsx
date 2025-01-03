@@ -8,7 +8,7 @@ const Modal = forwardRef(function MyModal(
   { title, children, onSubmit, renderOpenButton, appendTo, ...props }: ModalTypes,
   ref
 ) {
-  const [isOpen, setIsModalOpen] = useState(false);
+  const [$isOpen, setIsModalOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
     open: () => {
@@ -47,9 +47,9 @@ const Modal = forwardRef(function MyModal(
           title={props.openButtonTitle}
         />
       )}
-      {isOpen && ReactDOM.createPortal(<>
-      <Overlay isOpen={isOpen} onClick={onClose} />
-      <ModalContainer isOpen={isOpen}>
+      {$isOpen && ReactDOM.createPortal(<>
+      <Overlay $isOpen={$isOpen} onClick={onClose} />
+      <ModalContainer $isOpen={$isOpen}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
           <CloseButton onClick={onClose} />

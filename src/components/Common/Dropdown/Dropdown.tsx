@@ -3,19 +3,19 @@ import { DropdownContainer, Select, OptionsList, Option as OptionStyled } from '
 import { DropdownTypes, Option } from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [$isOpen, set$isOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const handleSelect = (option: Option) => {
         if (!option.disabled) {
             onSelect(option);
-            setIsOpen(false);
+            set$isOpen(false);
         }
     };
 
     const handleClickOutside = (event: MouseEvent) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-            setIsOpen(false);
+            set$isOpen(false);
         }
     };
 
@@ -28,13 +28,13 @@ const Dropdown: React.FC<DropdownTypes> = ({ options, onSelect, selectedOption }
 
     return (
         <DropdownContainer ref={dropdownRef}>
-            <Select onClick={() => setIsOpen(!isOpen)}>
+            <Select onClick={() => set$isOpen(!$isOpen)}>
                 {selectedOption ? selectedOption.label : 'Выберите...'}
             </Select>
-            {isOpen && (
+            {$isOpen && (
                 <OptionsList>
                     {options.map((option, index) => (
-                        <OptionStyled 
+                        <OptionStyled
                             key={`${option.value}-${index}`}
                             onClick={() => handleSelect(option)}
                             disabled={option.disabled}

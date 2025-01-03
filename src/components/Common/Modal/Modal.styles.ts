@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const ModalContainer = styled.div<{ isOpen: boolean }>`
+export const ModalContainer = styled.div<{ $isOpen: boolean }>`
 
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
+    display: ${props => (props.$isOpen ? 'flex' : 'none')};
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -14,7 +14,7 @@ export const ModalContainer = styled.div<{ isOpen: boolean }>`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    
+
     background-color: var(--modal-background, #ffffff);
     color: var(--modal-color, #000000);
     border-radius: var(--border-radius-default, 5px);
@@ -60,7 +60,7 @@ export const ModalFooter = styled.div`
     margin-top: auto;
 `;
 
-export const Overlay = styled.div<{ isOpen: boolean }>`
+export const Overlay = styled.div<{ $isOpen: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
@@ -68,6 +68,6 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
     bottom: 0;
     background: var(--modal-overlay-color, rgba(0, 0, 0, 0.5));
     transition: all var(--transition-default);
-    display: ${props => (props.isOpen ? 'block' : 'none')};
+    display: ${props => (props.$isOpen ? 'block' : 'none')};
     z-index: 999;
 `;

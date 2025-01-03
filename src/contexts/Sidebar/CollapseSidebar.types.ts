@@ -1,4 +1,4 @@
 export interface SidebarContextType {
-    isCollapsed: boolean;
+    $isCollapsed: boolean;
     toggleSidebar: () => void;
 }

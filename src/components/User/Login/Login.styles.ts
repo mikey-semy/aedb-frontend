@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormLogin = styled.form<{ hasError?: boolean }>`
+export const FormLogin = styled.form<{ $hasError?: boolean }>`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ export const FormLogin = styled.form<{ hasError?: boolean }>`
     padding: 40px;
     background: var(--content-background);
     border-radius: var(--border-radius-default);
-    box-shadow: ${props => props.hasError ?
+    box-shadow: ${props => props.$hasError ?
         '0 0 10px var(--error-color), var(--box-shadow-default)' :
         'var(--box-shadow-default)'};
     transition: box-shadow 0.6s ease;

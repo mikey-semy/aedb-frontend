@@ -6,7 +6,7 @@ export const ItemIcon = styled.span`
     font-size: var(--nav-icon-size, 20px);
 `;
 
-export const ItemLabel = styled.span<{ isCollapsed: boolean }>`
+export const ItemLabel = styled.span<{ $isCollapsed: boolean }>`
     display: block;
     font-family: var(--nav-label-font, 'Inter');
     font-weight: var(--nav-label-font-weight, 400);
@@ -15,13 +15,13 @@ export const ItemLabel = styled.span<{ isCollapsed: boolean }>`
     opacity: 1;
     user-select: none;
     -webkit-user-drag: none;
-    max-width: ${props => props.isCollapsed ? '0' : 'var(--nav-label-max-width, 200px)'};
+    max-width: ${props => props.$isCollapsed ? '0' : 'var(--nav-label-max-width, 200px)'};
     transition: max-width var(--transition-default);
     overflow: hidden;
     white-space: nowrap;
 
     & > span {
-        opacity: ${props => props.isCollapsed ? 0 : 1};
+        opacity: ${props => props.$isCollapsed ? 0 : 1};
         transition: opacity var(--transition-default);
     }
 `;
@@ -48,7 +48,7 @@ export const ItemLink = styled(NavLink)`
             border-radius: var(--border-radius-default, 5px);
             z-index: -1;
         }
-        
+
 
         ${ItemLabel} {
             color: var(--nav-label-active-color, #7839CD);
@@ -69,11 +69,11 @@ export const ItemLink = styled(NavLink)`
             }
         }
     }
-    
+
     &:visited {
         color: inherit;
     }
-    
+
     &:active {
         /* @media (min-width: 1024px) {
             transform: scale(0.98);
@@ -81,12 +81,12 @@ export const ItemLink = styled(NavLink)`
     }
 `;
 
-export const NavigationItem = styled.li<{ isCollapsed: boolean }>`
+export const NavigationItem = styled.li<{ $isCollapsed: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
-    padding: ${props => props.isCollapsed ? 
-        'var(--nav-item-collapsed-padding, 4px)' : 
+    padding: ${props => props.$isCollapsed ?
+        'var(--nav-item-collapsed-padding, 4px)' :
         'var(--nav-item-padding, 0 12px)'
     };
     height: 60px;

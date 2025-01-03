@@ -6,7 +6,7 @@ const Input: React.FC<InputTypes> = ({
     id,
     label,
     error,
-    hasError = false,
+    $hasError = false,
     ...inputProps
 }) => {
   return (
@@ -14,7 +14,7 @@ const Input: React.FC<InputTypes> = ({
         {label && <InputLabel>{label}</InputLabel>}
         <InputField
             id={id}
-            $hasError={hasError}
+            $hasError={$hasError}
             {...inputProps}
         />
         {error && <ErrorText>{error}</ErrorText>}

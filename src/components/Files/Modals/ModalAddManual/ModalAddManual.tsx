@@ -7,9 +7,9 @@ import { ManualFormData } from "@/pages/Files/Manuals/Manuals.types";
 
 const ModalAddManual = forwardRef(
     function ModalAddManual(
-        { fetchManualItems }: ModalAddManualTypes, 
+        { fetchManualItems }: ModalAddManualTypes,
         ref
-    ) 
+    )
 {
     const modalRef = useRef<ModalRef | null>(null);
     const formRef = useRef<{ open: () => void }>({ open: () => {} });
@@ -18,33 +18,35 @@ const ModalAddManual = forwardRef(
     useImperativeHandle(ref, () => ({
         open: () => {
             modalRef.current?.open();
-            setError(null); 
+            setError(null);
         }
     }));
 
-    const handleSubmit = (manual:  ManualFormData) => {
-        addManual(manual)
-        .then(() => {
-            fetchManualItems();
+    const handleSubmit = async (manual:  ManualFormData) => {
+        try {
+            await addManual(manual)
+            if (fetchManualItems) {
+                await fetchManualItems();
+            }
             modalRef.current?.close();
-        })
-        .catch((error) => {
-            setError(`Ошибка добавления инструкции: ${error.message}`)
+        } catch (err: any) {
+            const error = err as Error;
+            setError(`Ошибка добавления инструкции: ${error.message}`);
             console.error("Ошибка добавления инструкции:", error);
-        });
+        }
     };
 
     const handleCancel = () => {
         modalRef.current?.close();
     };
-    
+
     return (
         <Modal
             title="Добавить инструкцию"
             ref={modalRef}
             appendTo={document.getElementById('root')}
         >
-            <FormAddManual 
+            <FormAddManual
                 onSubmit={handleSubmit}
                 onCancel={handleCancel}
                 ref={formRef}

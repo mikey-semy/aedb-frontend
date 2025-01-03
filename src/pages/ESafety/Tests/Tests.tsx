@@ -19,8 +19,8 @@ const TestsList: React.FC = () => {
                     </>
                 ),
             }))}
-            bordered
-        />     
+            $bordered
+        />
     );
 };
 

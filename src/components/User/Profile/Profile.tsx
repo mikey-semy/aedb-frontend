@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { 
-    FormProfile, 
-    ProfileTitle, 
-    ProfileButton, 
-    ProfileButtonIcon, 
-    ErrorContainer, 
-    EmptyContainer 
+import {
+    FormProfile,
+    ProfileTitle,
+    ProfileButton,
+    ProfileButtonIcon,
+    ErrorContainer,
+    EmptyContainer
 } from './Profile.styles';
 import { useAuth } from '@/contexts';
 import { Input, Button } from '@/components';
@@ -42,7 +42,7 @@ const Profile: React.FC = () => {
         } catch (err) {
             setError('Ошибка при обновлении профиля');
         }
-        
+
     };
     return (
         <FormProfile onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ const Profile: React.FC = () => {
                 value={profileData.username}
                 onChange={(e) => setProfileData({...profileData, username: e.target.value})}
                 placeholder="Имя"
-                hasError={!!error}
+                $hasError={!!error}
             />
             <Input
                 id="email"
@@ -61,7 +61,7 @@ const Profile: React.FC = () => {
                 value={profileData.email}
                 onChange={(e) => setProfileData({...profileData, email: e.target.value})}
                 placeholder="Почта"
-                hasError={!!error}
+                $hasError={!!error}
             />
             {
                     error ? (
@@ -70,10 +70,10 @@ const Profile: React.FC = () => {
                         <EmptyContainer />
                     )
                 }
-            <Button 
+            <Button
                 as={ProfileButton}
                 iconAs={ProfileButtonIcon}
-                type="submit" 
+                type="submit"
                 title="Войти"
             />
         </FormProfile>
