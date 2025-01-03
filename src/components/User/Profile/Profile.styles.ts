@@ -86,8 +86,9 @@ export const AvatarLabel = styled.label`
     background: var(--button-background);
     color: var(--button-color);
     border-radius: var(--border-radius-default);
-    font-size: 14px;
-    font-weight: 500;
+    font-family: var(--logo-font);
+    font-size: 16px;
+    font-weight: 600;
     transition: opacity 0.2s;
 
     &:hover {
