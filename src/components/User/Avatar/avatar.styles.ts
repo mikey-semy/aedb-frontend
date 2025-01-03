@@ -24,7 +24,8 @@ export const DefaultAvatar = styled.div<{ size: number }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
+    font-family: var(--logo-font);
+    font-weight: 600;
     font-size: ${props => Math.max(props.size / 3, 12)}px;
     cursor: ${props => props.onClick ? 'pointer' : 'default'};
 `;
