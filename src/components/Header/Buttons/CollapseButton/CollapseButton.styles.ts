@@ -22,7 +22,7 @@ export const CollapseButtonContainer = styled.button<{ $isCollapsed: boolean }>`
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
-
+    z-index: 1000;
     /* position: absolute;
     top: 3%;
 
