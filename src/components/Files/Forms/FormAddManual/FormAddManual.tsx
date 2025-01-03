@@ -30,6 +30,12 @@ const FormAddManual = React.forwardRef<ModalRef, FormAddManualTypes>((props, ref
         category_id: 0,
     })
 
+    React.useImperativeHandle(ref, () => ({
+        open: () => {
+            resetForm();
+        }
+    }))
+
     const resetForm = () => {
         setManual({
             id: 0,
