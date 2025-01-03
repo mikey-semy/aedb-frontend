@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContentData } from '@/contexts';
 import { Tabs, Search, Profile, Empty } from '@/components';
 
