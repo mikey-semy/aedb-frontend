@@ -20,7 +20,7 @@ export { default as FormAction } from './Common/FormAction/FormAction';
 export { default as Empty } from './Common/Empty/Empty';
 export { default as Error } from './Common/Error/Error';
 export { default as Loading } from './Common/Loading/Loading';
-export { default as Toast } from './Common/Toast';
+export { Toast } from './Common/Toast';
 
 
 
