@@ -18,7 +18,7 @@ import {
 } from './Profile.styles';
 import { useAuth, useToast } from '@/contexts';
 import { Input, Button, Avatar as AvatarPreview } from '@/components';
-import { ProfileForm, PasswordForm } from './Profile.types'; // Предполагается, что у вас есть типы для профиля
+import { ProfileForm, PasswordForm } from './Profile.types';
 import {
     getUserProfile,
     updateUserProfile,
@@ -35,6 +35,9 @@ const Profile: React.FC = () => {
         email: user?.email || '',
         avatar: user?.avatar || ''
     });
+    const isProfileDataChanged =
+        profileData.name !== user?.name ||
+        profileData.email !== user?.email;
     const [passwordData, setPasswordData] = useState<PasswordForm>({
         old_password: '',
         new_password: '',
@@ -120,21 +123,30 @@ const Profile: React.FC = () => {
             });
         }
     };
-
+    const refreshProfileCache = async () => {
+        const profile = await getUserProfile(token);
+        setProfileCache(profile);
+    };
     const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
         try {
-            await updateCurrentUserAvatar(file);
-            setAvatar(file);
-            // Обновляем данные профиля чтобы получить новый URL аватара
+            const avatarUrl = await updateCurrentUserAvatar(file);
             const updatedProfile = await getUserProfile(token);
+
             setProfileData(updatedProfile);
+            setProfileCache(updatedProfile);
             setUser({
                 ...user,
-                avatar: updatedProfile.avatar
+                avatar: avatarUrl,
+                name: updatedProfile.name,
+                email: updatedProfile.email
             });
+
+            await refreshProfileCache();
+
+            setAvatar(null);
             setErrors({...errors, avatar: ''});
             addToast({
                 type: 'success',
@@ -211,6 +223,7 @@ const Profile: React.FC = () => {
                                 iconAs={ProfileButtonIcon}
                                 type="submit"
                                 title="Сохранить"
+                                disabled={!isProfileDataChanged || !profileData.name || !profileData.email}
                             />
                         </FormProfile>
                         <AvatarUpload>
@@ -276,6 +289,9 @@ const Profile: React.FC = () => {
                             iconAs={ProfileButtonIcon}
                             type="submit"
                             title="Изменить пароль"
+                            disabled={!passwordData.old_password
+                                    || !passwordData.new_password
+                                    || !passwordData.confirm_password}
                         />
                     </FormProfile>
                 </ProfileContent>

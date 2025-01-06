@@ -37,20 +37,22 @@ const Avatar: React.FC<AvatarTypes> = ({
                 const url = await getCurrentUserAvatar();
                 setAvatarUrl(url);
             } catch {
-                setAvatarUrl(undefined);
+                const fallbackUrl = UserData?.avatar || user?.avatar;
+                setAvatarUrl(fallbackUrl);
             } finally {
                 setIsLoading(false);
             }
         };
-        let isSubscribed = true;
+        // let isSubscribed = true;
 
-        if (isSubscribed) {
-            fetchAvatar();
-        }
-        return () => {
-            isSubscribed = false;
-        };
-    }, [currentUserId]);
+        // if (isSubscribed) {
+        //     fetchAvatar();
+        // }
+        // return () => {
+        //     isSubscribed = false;
+        // };
+        fetchAvatar();
+    }, [currentUserId, UserData?.avatar, user?.avatar]);
 
     if (!avatarUrl) {
         return (

@@ -29,13 +29,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     localStorage.removeItem('token');
                     setToken('');
                     setUser(null);
-                    setProfileCache(null);
+                   setProfileCache(null);
                 }
             }
         };
 
         loadUser();
-    }, []);
+    }, [user?.avatar]);
 
     return (
         <AuthContext.Provider value={{
