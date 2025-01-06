@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
-import { PlayerContextType } from './RadioPlayerContext.types';
+import { PlayerContextType } from './RadioPlayer.types';
 import { radioStations } from '@/components/RadioPlayer/RadioPlayer.data';
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -14,7 +14,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const [isLoading, setIsLoading] = useState(false);      // Состояние для отслеживания загрузки аудио
     const [isPlaying, setIsPlaying] = useState(false);      // Состояние для отслеживания, воспроизводится ли аудио в данный момент
     const [currentUrl, setCurrentUrl] = useState(() => {    // Состояние для хранения текущего URL аудио, инициализируется URL из localStorage или первой радиостанцией
-        return localStorage.getItem('lastRadioUrl') || radioStations[0].url; 
+        return localStorage.getItem('lastRadioUrl') || radioStations[0].url;
     });
     const audioRef = useRef<HTMLAudioElement>(new Audio(currentUrl));   // Ссылка для хранения элемента аудио
     // Возможное решение проблемы с прерыванием потока
@@ -39,10 +39,10 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         //     });
         // }
         const audio = audioRef.current;
-        
+
         try {
             setIsLoading(true); // Устанавливаем состояние загрузки
-            
+
             if (isPlaying) {
                 audio.pause();          // Приостанавливаем воспроизведение
                 audio.src = '';         // Освобождаем ресурс
@@ -105,7 +105,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     // Создаем новый контроллер для отмены загрузки
     abortControllerRef.current = new AbortController();
-    
+
     // ---------------------------------------------------------------------
     // Возможное решение проблемы с прерыванием потока
     // try {
@@ -131,7 +131,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     try {
         setIsLoading(true);         // Устанавливаем состояние загрузки
         setCurrentUrl(newUrl);      // Обновляем текущий URL
-        
+
         audio.pause();              // Приостанавливаем текущее воспроизведение
         audio.src = newUrl;         // Устанавливаем новый URL
 
@@ -181,7 +181,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }, []);
     // Предоставляем значение контекста дочерним компонентам
     return (
-        <PlayerContext.Provider value={{ 
+        <PlayerContext.Provider value={{
             isPlaying,      // Текущее состояние воспроизведения
             isLoading,      // Состояние загрузки
             togglePlay,     // Функция для переключения воспроизведения
@@ -189,7 +189,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             setCurrentUrl,  // Функция для обновления текущего URL
             changeStation   // Функция для смены радиостанции
         }}>
-            {children}      
+            {children}
         </PlayerContext.Provider>
     );
 };

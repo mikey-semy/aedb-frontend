@@ -28,3 +28,4 @@ export { default as Register } from './User/Register';
 export { default as ResetPassword } from './User/ResetPassword';
 export { default as ProfileButton } from './User/ProfileButton';
 export { default as Table } from './Common/Table';
+export { Toast } from './Common/Toast';

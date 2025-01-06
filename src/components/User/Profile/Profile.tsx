@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     ProfileContainer,
     ProfileSection,
@@ -13,20 +13,22 @@ import {
     AvatarInput,
     AvatarLabel,
     ProfileButton,
-    ProfileButtonIcon
+    ProfileButtonIcon,
+    ErrorContainer
 } from './Profile.styles';
-import { useAuth } from '@/contexts';
+import { useAuth, useToast } from '@/contexts';
 import { Input, Button, Avatar as AvatarPreview } from '@/components';
 import { ProfileForm, PasswordForm } from './Profile.types'; // Предполагается, что у вас есть типы для профиля
 import {
     getUserProfile,
     updateUserProfile,
-    updatePassword,
-    uploadAvatar
+    updatePassword
 } from './Profile.api';
+import { updateCurrentUserAvatar } from '@/components/User/Avatar/avatar.api';
 
 const Profile: React.FC = () => {
-    const { user, token } = useAuth(); // Получаем пользователя и токен из контекста
+    const { user, token, setUser, profileCache, setProfileCache } = useAuth();
+    const { addToast } = useToast();
     const [profileData, setProfileData] = useState<ProfileForm>({
         id: user?.id || 0,
         name: user?.name || '',
@@ -34,58 +36,88 @@ const Profile: React.FC = () => {
         avatar: user?.avatar || ''
     });
     const [passwordData, setPasswordData] = useState<PasswordForm>({
-        currentPassword: '',
-        newPassword: '',
-        confirmPassword: ''
+        old_password: '',
+        new_password: '',
+        confirm_password: ''
     });
     const [avatar, setAvatar] = useState<File | null>(null);
-    const [error, setError] = useState('');
-
-    useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                const data = await getUserProfile(token);
-                setProfileData(data);
-            } catch (err) {
-                setError('Ошибка при загрузке профиля');
-            }
-        };
-
-        fetchProfile();
-    }, [token]);
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        avatar: '',
+        old_password: '',
+        new_password: '',
+        confirm_password: ''
+    });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError('');
+        setErrors({...errors, name: '', email: ''});
 
         try {
             await updateUserProfile(token, profileData);
-            alert('Профиль обновлен успешно!');
-        } catch (err) {
-            setError('Ошибка при обновлении профиля');
+            setUser({
+                ...user,
+                name: profileData.name,
+                email: profileData.email
+            });
+            addToast({
+                type: 'success',
+                title: 'Успех',
+                message: 'Профиль обновлен успешно'
+            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const errorResponse = err as { response?: { data?: { error_type?: string } } };
+                if (errorResponse.response?.data?.error_type === 'name_exists') {
+                    setErrors({...errors, name: 'Такое имя уже существует'});
+                } else if (errorResponse.response?.data?.error_type === 'email_exists') {
+                    setErrors({...errors, email: 'Такой email уже существует'});
+                }
+            }
+            addToast({
+                type: 'error',
+                title: 'Ошибка',
+                message: 'Не удалось обновить профиль'
+            });
         }
-
     };
 
     const handlePasswordSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError('');
+        setErrors({...errors, old_password: '', new_password: '', confirm_password: ''});
 
-        if (passwordData.newPassword !== passwordData.confirmPassword) {
-            setError('Пароли не совпадают');
+        if (passwordData.new_password !== passwordData.confirm_password) {
+            setErrors({
+                ...errors,
+                confirm_password: 'Пароли не совпадают'
+            });
             return;
         }
 
         try {
             await updatePassword(token, passwordData);
             setPasswordData({
-                currentPassword: '',
-                newPassword: '',
-                confirmPassword: ''
+                old_password: '',
+                new_password: '',
+                confirm_password: ''
             });
-            alert('Пароль успешно изменен');
+            addToast({
+                type: 'success',
+                title: 'Успех',
+                message: 'Пароль успешно изменен'
+            });
+            setErrors({...errors, old_password: '', new_password: '', confirm_password: ''});
         } catch (err) {
-            setError('Ошибка при изменении пароля');
+            setErrors({
+                ...errors,
+                old_password: 'Неверный текущий пароль'
+            });
+            addToast({
+                type: 'error',
+                title: 'Ошибка',
+                message: 'Не удалось изменить пароль'
+            });
         }
     };
 
@@ -93,19 +125,55 @@ const Profile: React.FC = () => {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append('avatar', file);
-
         try {
-            await uploadAvatar(token, formData);
+            await updateCurrentUserAvatar(file);
             setAvatar(file);
             // Обновляем данные профиля чтобы получить новый URL аватара
             const updatedProfile = await getUserProfile(token);
             setProfileData(updatedProfile);
-        } catch (err) {
-            setError('Ошибка при загрузке аватара');
+            setUser({
+                ...user,
+                avatar: updatedProfile.avatar
+            });
+            setErrors({...errors, avatar: ''});
+            addToast({
+                type: 'success',
+                title: 'Успех',
+                message: 'Аватар успешно обновлен'
+            });
+        } catch (err: unknown) {
+            if (err instanceof Error && 'response' in err) {
+                setErrors({
+                    ...errors,
+                    avatar: (err as any).response?.data?.detail || 'Ошибка при загрузке аватара'
+                });
+            } else {
+                setErrors({
+                    ...errors,
+                    avatar: 'Ошибка при загрузке аватара'
+                });
+                addToast({
+                    type: 'error',
+                    title: 'Ошибка',
+                    message: 'Не удалось загрузить аватар'
+                });
+            }
         }
     };
+
+    useEffect(() => {
+        const loadProfile = async () => {
+            if (profileCache) {
+                setProfileData(profileCache);
+                return;
+            }
+            const profile = await getUserProfile(token);
+            setProfileData(profile);
+            setProfileCache(profile);
+        };
+
+        loadProfile();
+    }, [token]);
 
     return (
         <ProfileContainer>
@@ -118,14 +186,14 @@ const Profile: React.FC = () => {
                         <FormProfile onSubmit={handleSubmit}>
                             <InputGroup>
                                 <Input
-                                    id="username"
+                                    id="name"
                                     type="text"
                                     label="Имя"
                                     value={profileData.name}
                                     onChange={(e) => setProfileData({...profileData, name: e.target.value})}
                                     placeholder="Как вас называть?"
-                                    $hasError={!!error}
-                                    LabelComponent={ProfileInputLabel}
+                                    $hasError={!!errors.name}
+                                    $LabelComponent={ProfileInputLabel}
                                 />
                                 <Input
                                     id="email"
@@ -134,8 +202,8 @@ const Profile: React.FC = () => {
                                     value={profileData.email}
                                     onChange={(e) => setProfileData({...profileData, email: e.target.value})}
                                     placeholder="example@domain.com"
-                                    $hasError={!!error}
-                                    LabelComponent={ProfileInputLabel}
+                                    $hasError={!!errors.email}
+                                    $LabelComponent={ProfileInputLabel}
                                 />
                             </InputGroup>
                             <Button
@@ -159,6 +227,7 @@ const Profile: React.FC = () => {
                                 />
                                 Загрузить новый аватар
                             </AvatarLabel>
+                            {errors.avatar && <ErrorContainer>{errors.avatar}</ErrorContainer>}
                         </AvatarUpload>
                     </FormWithAvatar>
                 </ProfileContent>
@@ -172,25 +241,34 @@ const Profile: React.FC = () => {
                     <FormProfile onSubmit={handlePasswordSubmit}>
                         <InputGroup>
                             <Input
-                                id="currentPassword"
+                                id="old_password"
                                 type="password"
                                 label="Текущий пароль"
                                 placeholder="••••••••"
-                                LabelComponent={ProfileInputLabel}
+                                value={passwordData.old_password}
+                                onChange={(e) => setPasswordData({...passwordData, old_password: e.target.value})}
+                                $LabelComponent={ProfileInputLabel}
+                                $hasError={!!errors.old_password}
                             />
                             <Input
-                                id="newPassword"
+                                id="new_password"
                                 type="password"
                                 label="Новый пароль"
                                 placeholder="Минимум 8 символов"
-                                LabelComponent={ProfileInputLabel}
+                                value={passwordData.new_password}
+                                onChange={(e) => setPasswordData({...passwordData, new_password: e.target.value})}
+                                $LabelComponent={ProfileInputLabel}
+                                $hasError={!!errors.new_password}
                             />
                             <Input
-                                id="confirmPassword"
+                                id="confirm_password"
                                 type="password"
                                 label="Подтвердите пароль"
                                 placeholder="Повторите новый пароль"
-                                LabelComponent={ProfileInputLabel}
+                                value={passwordData.confirm_password}
+                                onChange={(e) => setPasswordData({...passwordData, confirm_password: e.target.value})}
+                                $LabelComponent={ProfileInputLabel}
+                                $hasError={!!errors.confirm_password}
                             />
                         </InputGroup>
                         <Button

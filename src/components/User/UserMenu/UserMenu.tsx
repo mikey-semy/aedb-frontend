@@ -1,46 +1,34 @@
-import { useEffect, useState } from 'react';
-import { UserMenuContainer, Menu, MenuItem } from './user-menu.styles';
+import { useState, useRef, useEffect } from 'react';
+import { UserMenuContainer, Menu, MenuItem } from './UserMenu.styles';
 import { Avatar, ProfileButton, LogoutButton } from '@/components';
-import { useAuth } from '@/contexts';
-import { getUserProfile } from '../Profile/Profile.api';
-import { ProfileForm } from '../Profile/Profile.types';
 
 const UserMenu: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user, token } = useAuth();
-    const [userData, setUserData] = useState<ProfileForm>({
-        id: user?.id || 0,
-        name: user?.name || '',
-        email: user?.email || '',
-        avatar: user?.avatar || ''
-    });
-    console.log(user);
+    const menuRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                const data = await getUserProfile(token);
-                setUserData(data);
-            } catch (err) {
-                console.error('Ошибка при загрузке профиля');
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
             }
         };
 
-        fetchProfile();
-    }, [token]);
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     return (
-        <UserMenuContainer>
+        <UserMenuContainer ref={menuRef}>
             <Avatar
-                UserData={userData}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
             {isMenuOpen && (
                 <Menu>
                     <MenuItem>
-                        <ProfileButton />
+                        <ProfileButton onClose={() => setIsMenuOpen(false)}/>
                     </MenuItem>
                     <MenuItem>
-                        <LogoutButton />
+                        <LogoutButton onClose={() => setIsMenuOpen(false)}/>
                     </MenuItem>
                 </Menu>
             )}

@@ -38,10 +38,12 @@ export const Overlay = styled.div<{ $isVisible: boolean }>`
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        transition: all var(--transition-default);
+        opacity: ${props => props.$isVisible ? 1 : 0};
+        visibility: ${props => props.$isVisible ? 'visible' : 'hidden'};
+        transition: opacity 0.3s, visibility 0.3s;
         display: ${props => (props.$isVisible ? 'block' : 'none')};
         z-index: 999;
     }

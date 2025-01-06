@@ -6,6 +6,14 @@ export const TabsContainer = styled.div`
     align-items: flex-start;
 `;
 
+export const TabContent = styled.div<{ $isActive: boolean }>`
+    display: ${props => props.$isActive ? 'block' : 'none'};
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+`;
+
 export const TabItems = styled.ul`
     display: inline-flex;
     align-items: center;
@@ -32,7 +40,7 @@ export const TabItems = styled.ul`
         margin-left: 10px;
         gap: 20px;
     }
-    
+
 
 `;
 
@@ -59,7 +67,7 @@ export const TabItem = styled.li<{ $isActive: boolean }>`
     -webkit-touch-callout: none;
     color: ${props => props.$isActive ? 'var(--tab-active-color, #000000)' : 'var(--tab-color, #000000)'};
     border-bottom: ${props => props.$isActive ? 'var(--tab-active-border)' : 'transparent'};
-    
+
     &:active {
         -webkit-touch-callout: none;
     }
@@ -71,10 +79,4 @@ export const TabItem = styled.li<{ $isActive: boolean }>`
     &::selection {
         background: transparent;
     }
-`;
-
-export const TabContent = styled.div<{ $isActive: boolean }>`
-    display: ${props => props.$isActive ? 'block' : 'none'};
-    padding: 20px;
-    width: 100%;
 `;

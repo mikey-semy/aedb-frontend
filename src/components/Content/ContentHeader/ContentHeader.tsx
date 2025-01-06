@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentData } from '@/contexts/Content/ContentContext.types';
+import { ContentData } from '@/contexts/Content/Content.types';
 import { ContentHeaderContainer, ContentCaptionContainer, ContentActionContainer,ContentCaption } from './ContentHeader.styles';
 import { ContentHeaderButton } from './Buttons/ContentHeaderButton/ContentHeaderButton';
 
@@ -19,10 +19,10 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ contentData }) => {
                     onClick={contentData.onClick}
                     icon={contentData.icon}
                     title={contentData.title}
-                /> 
+                />
                 }
             </ContentActionContainer>
-            
+
         </ContentHeaderContainer>
     );
 };

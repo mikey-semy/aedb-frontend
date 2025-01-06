@@ -3,8 +3,9 @@ import { IoExitOutline } from "react-icons/io5";
 import { LogoutButtonContainer, LogoutButtonTitle, LogoutButtonIcon } from './LogoutButton.styles';
 import { useAuth } from '@/contexts';
 import { logout } from "./LogoutButton.api";
+import { LogoutButtonTypes } from './LogoutButton.types';
 
-const LogoutButton: React.FC = () => {
+const LogoutButton: React.FC<LogoutButtonTypes> = ({ onClose }) => {
     const navigate = useNavigate();
     const { setUser, setToken } = useAuth();
 
@@ -21,6 +22,8 @@ const LogoutButton: React.FC = () => {
         setToken('');
         // Переходим на страницу входа
         navigate('/login');
+
+        onClose();
     };
 
     return (

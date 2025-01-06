@@ -7,6 +7,9 @@ export const AvatarContainer = styled.div<AvatarTypes>`
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const AvatarImage = styled.img`

@@ -1,1 +1,3 @@
-export interface ProfileButtonTypes {}
+export interface ProfileButtonTypes {
+    onClose: () => void;
+}

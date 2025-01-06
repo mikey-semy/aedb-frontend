@@ -1,33 +1,55 @@
 import { useState, useEffect } from 'react';
 import { AvatarTypes } from './avatar.types';
 import { AvatarContainer, AvatarImage, DefaultAvatar } from './avatar.styles';
-import { getAvatarUrl } from './avatar.api';
-import { useAuth } from '@/contexts';
+import { getCurrentUserAvatar, getTextAvatar } from './avatar.api';
+import { useAuth, useTheme } from '@/contexts';
+import { ClipLoader } from 'react-spinners';
 
 const Avatar: React.FC<AvatarTypes> = ({
     UserData,
     size = 40,
     onClick,
     previewFile,
+    loading = false
 }) => {
-    const [avatarUrl, setAvatarUrl] = useState<string | undefined>(undefined);
     const { user } = useAuth();
-
+    const { isDark } = useTheme();
+    const [avatarUrl, setAvatarUrl] = useState<string | undefined>(undefined);
     const currentUserId = UserData?.id || user?.id;
     const currentUserName = UserData?.name || user?.name;
+    const textAvatar = getTextAvatar(currentUserName || '');
+    const [isLoading, setIsLoading] = useState(loading);
+    const loadingIcon = isLoading ? (
+        <ClipLoader
+            color={isDark ? 'var(--loader-color)' : 'var(--loader-color)'}
+            size={40}
+        />
+    ) : null;
 
     useEffect(() => {
         const fetchAvatar = async () => {
-            if (!currentUserId) return;
-
+            if (!currentUserId) {
+                setAvatarUrl(undefined);
+                return;
+            }
+            setIsLoading(true);
             try {
-                const url = await getAvatarUrl(currentUserId);
+                const url = await getCurrentUserAvatar();
                 setAvatarUrl(url);
             } catch {
                 setAvatarUrl(undefined);
+            } finally {
+                setIsLoading(false);
             }
         };
-        fetchAvatar();
+        let isSubscribed = true;
+
+        if (isSubscribed) {
+            fetchAvatar();
+        }
+        return () => {
+            isSubscribed = false;
+        };
     }, [currentUserId]);
 
     if (!avatarUrl) {
@@ -35,8 +57,9 @@ const Avatar: React.FC<AvatarTypes> = ({
             <DefaultAvatar
                 size={size}
                 onClick={onClick}
+                style={{ background: textAvatar.background }}
             >
-                {currentUserName?.slice(0, 2).toUpperCase()}
+                {isLoading ? loadingIcon : textAvatar.initials}
             </DefaultAvatar>
         );
     }
@@ -44,20 +67,31 @@ const Avatar: React.FC<AvatarTypes> = ({
     if (previewFile) {
         return (
             <AvatarContainer size={size} onClick={onClick}>
-                <AvatarImage
-                    src={URL.createObjectURL(previewFile)}
-                    alt={UserData?.name}
-                />
+                {isLoading ? (
+                    loadingIcon
+                ) : (
+                    <AvatarImage
+                        src={URL.createObjectURL(previewFile)}
+                        alt={currentUserName}
+                    />
+                )}
             </AvatarContainer>
         );
     }
 
     return (
-        <AvatarContainer size={size} onClick={onClick}>
-            <AvatarImage
-                src={avatarUrl}
-                alt={currentUserName}
-            />
+        <AvatarContainer
+            size={size}
+            onClick={onClick}
+        >
+            {isLoading ? (
+                loadingIcon
+            ) : (
+                <AvatarImage
+                    src={avatarUrl}
+                    alt={currentUserName}
+                />
+            )}
         </AvatarContainer>
     );
 };

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { ContentData, ContentContextTypes, defaultContentData } from './ContentContext.types';
+import { ContentData, ContentContextTypes, defaultContentData } from './Content.types';
 
 const ContentDataContext = createContext<ContentContextTypes | undefined>(undefined);
 

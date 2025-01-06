@@ -6,9 +6,9 @@ export interface ProfileForm {
   }
 
 export interface PasswordForm {
-    currentPassword: string;
-    newPassword: string;
-    confirmPassword: string;
+    old_password: string;
+    new_password: string;
+    confirm_password: string;
 }
 
 export interface AvatarForm {

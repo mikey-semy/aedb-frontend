@@ -21,13 +21,3 @@ export const updatePassword = (token: string, passwordData: PasswordForm): Promi
     })
     .then(handleApiResponse)
     .catch(handleApiError);
-
-export const uploadAvatar = (token: string, formData: FormData): Promise<ProfileResponse> =>
-    api.post('/api/v1/users/avatar', formData, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then(handleApiResponse)
-    .catch(handleApiError);

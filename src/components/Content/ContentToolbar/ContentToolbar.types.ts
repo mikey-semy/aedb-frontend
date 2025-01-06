@@ -1,4 +1,4 @@
-import { ContentData } from '@/contexts/Content/ContentContext.types';
+import { ContentData } from '@/contexts/Content/Content.types';
 
 export interface ContentToolbarProps {
     contentData: ContentData;

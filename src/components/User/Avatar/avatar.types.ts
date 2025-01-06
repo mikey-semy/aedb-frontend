@@ -3,6 +3,7 @@ export interface AvatarTypes {
     UserData?: User;
     size?: number;
     previewFile?: File | null;
+    loading?: boolean;
 }
 
 export interface User {

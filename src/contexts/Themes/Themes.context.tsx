@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { ThemeContextType } from './ThemesContext.types';
+import { ThemeContextType } from './Themes.types';
 
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
@@ -22,4 +22,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useTheme must be used within a ThemeProvider');
+    }
+    return context;
+}

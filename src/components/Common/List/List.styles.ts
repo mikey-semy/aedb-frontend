@@ -8,7 +8,7 @@ export const ListContainer = styled.ul`
     width: 800px;
 
     @media (max-width: 1024px) {
-        width: 320px;
+        width: 100%;
     }
 `;
 

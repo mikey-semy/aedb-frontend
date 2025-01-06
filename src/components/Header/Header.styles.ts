@@ -8,6 +8,7 @@ export const HeaderContainer = styled.header`
     gap: 32px;
     padding: 0 24px;
     height: var(--header-height, 60px);
+    min-height: var(--header-height, 60px);
     width: 100%;
     background: var(--header-background, #FFFFFF);
     box-shadow: var(--box-shadow-default);
@@ -20,7 +21,7 @@ export const HeaderContainer = styled.header`
         width: 100%;
         height: var(--header-height-mobile, 60px);
         padding-left: 10px;
-        padding-right: 10px; 
+        padding-right: 10px;
     }
 `;
 
@@ -32,4 +33,3 @@ export const RightButtonsContainer = styled.div`
     display: flex;
     gap: 8px;
 `;
-

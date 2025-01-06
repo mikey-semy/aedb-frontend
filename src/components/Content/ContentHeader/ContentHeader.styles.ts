@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ContentHeaderContainer = styled.div`
     padding: 0 24px;
     height: var(--content-header-height, 60px);
+    min-height: var(--content-header-height, 60px);
     width: 100%;
     display: flex;
     justify-content: space-between;

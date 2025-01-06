@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { ButtonContainer, ButtonIcon, ButtonTitle } from '@/components/Common/Button/Button.styles';
 
 export const LogoutButtonContainer = styled(ButtonContainer)`
-    height: 40px;
-    width: 40px;
+    height: 100%;
+    width: 100%;
     text-align: center;
     transition: all var(--transition-default);
     box-shadow: none;
