@@ -1,19 +1,19 @@
 import { useState, useCallback, ReactNode } from 'react';
-import { TableTypes, PaginationParams, Column } from './table.types';
-import { 
-    TableContainer, 
-    TableHeader, 
-    TableRow, 
-    TableCell, 
+import { TableTypes, PaginationParams, Column } from './Table.types';
+import {
+    TableContainer,
+    TableHeader,
+    TableRow,
+    TableCell,
     PaginationContainer,
-    SearchContainer  
-} from './table.styles';
+    SearchContainer
+} from './Table.styles';
 
 const DEFAULT_PAGE_SIZE = 10;
 
 
-const Table = <T extends object>({ 
-    data, 
+const Table = <T extends object>({
+    data,
     columns,
     onParamsChange
   }: TableTypes<T>) => {
@@ -92,8 +92,8 @@ const Table = <T extends object>({
                         <TableRow key={index}>
                             {columns.map((column: Column) => (
                                 <TableCell key={column.key}>
-                                    {column.render 
-                                        ? column.render(row[column.key as keyof T], row) 
+                                    {column.render
+                                        ? column.render(row[column.key as keyof T], row)
                                         : String(row[column.key as keyof T]) as ReactNode}
                                 </TableCell>
                             ))}
@@ -102,7 +102,7 @@ const Table = <T extends object>({
                 </tbody>
             </table>
             <PaginationContainer>
-                <button 
+                <button
                     disabled={data.page === 1}
                     onClick={() => handlePageChange(data.page - 1)}
                 >
@@ -111,7 +111,7 @@ const Table = <T extends object>({
                 <span>
                     Страница {data.page} of {Math.ceil(data.total / data.size)}
                 </span>
-                <button 
+                <button
                   disabled={data.page >= Math.ceil(data.total / data.size)}
                   onClick={() => handlePageChange(data.page + 1)}
                 >

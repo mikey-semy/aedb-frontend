@@ -1,3 +1,3 @@
-export type { ToastType, ToastTypes } from './toast.types';
-export { ToastWrapper } from './toast.styles';
-export { default as Toast } from './Toast';
+export type { ToastType, ToastTypes } from './Toast.types';
+export { ToastWrapper } from './Toast.styles';
+export { default } from './Toast';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AvatarTypes } from './avatar.types';
+import { AvatarTypes } from './Avatar.types';
 
 export const AvatarContainer = styled.div<AvatarTypes>`
     width: ${props => props.size}px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { TOAST_COLORS } from './toast.constants';
-import { ToastType } from './toast.types';
+import { TOAST_COLORS } from './Toast.constants';
+import { ToastType } from './Toast.types';
 
 export const ToastContainer = styled.div<{$type: ToastType}>`
     position: relative;

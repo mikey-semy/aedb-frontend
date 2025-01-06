@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AvatarTypes } from './avatar.types';
+import { AvatarTypes } from './Avatar.types';
 import { AvatarContainer, AvatarImage, DefaultAvatar } from './avatar.styles';
 import { getCurrentUserAvatar, getTextAvatar } from './avatar.api';
 import { useAuth, useTheme } from '@/contexts';

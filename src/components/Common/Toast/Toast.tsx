@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ToastTypes } from './toast.types';
+import { ToastTypes } from './Toast.types';
 import {
     ToastContainer,
     IconWrapper,
@@ -7,8 +7,8 @@ import {
     Title,
     Message,
     CloseButton
-} from './toast.styles';
-import { TOAST_ICONS } from './toast.constants';
+} from './Toast.styles';
+import { TOAST_ICONS } from './Toast.constants';
 import { MdClose } from 'react-icons/md';
 
 const Toast: React.FC<ToastTypes & {onClose: () => void}> = ({

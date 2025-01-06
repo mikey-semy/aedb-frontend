@@ -10,7 +10,7 @@
 */
 import { useState } from 'react';
 import { Table } from '@/components';
-import { TableData, PaginationParams } from '@/components/Common/Table/table.types';
+import { TableData, PaginationParams } from '@/components/Common/Table/Table.types';
 
 /**
  * Интерфейс для данных пользователя

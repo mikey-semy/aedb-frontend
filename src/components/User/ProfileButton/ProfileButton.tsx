@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { ProfileButtonContainer, ProfileButtonTitle, ProfileButtonIcon } from './profile-button.styles';
+import { ProfileButtonContainer, ProfileButtonTitle, ProfileButtonIcon } from './ProfileButton.styles';
 import { CgProfile } from 'react-icons/cg';
-import { ProfileButtonTypes } from './profile-button.types';
+import { ProfileButtonTypes } from './ProfileButton.types';
 
 const ProfileButton: React.FC<ProfileButtonTypes> = ({ onClose }) => {
     const navigate = useNavigate();
