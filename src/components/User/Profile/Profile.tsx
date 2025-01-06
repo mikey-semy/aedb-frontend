@@ -24,7 +24,7 @@ import {
     updateUserProfile,
     updatePassword
 } from './Profile.api';
-import { updateCurrentUserAvatar } from '@/components/User/Avatar/avatar.api';
+import { updateCurrentUserAvatar } from '@/components/User/Avatar/Avatar.api';
 
 const Profile: React.FC = () => {
     const { user, token, setUser, profileCache, setProfileCache } = useAuth();
