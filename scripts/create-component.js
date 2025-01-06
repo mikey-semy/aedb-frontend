@@ -21,20 +21,14 @@ if (!process.argv[2]) {
 const componentName = process.argv[2];
 const componentDir = process.argv[3] || '';
 
-// Преобразование в kebab-case
-const kebabName = componentName
-    .split(/(?=[A-Z])/)
-    .join('-')
-    .toLowerCase();
-
 const componentPath = path.join(__dirname, '../src/components', componentDir, componentName);
 
 const templates = {
     'index.ts': `export { default } from './${componentName}';`,
 
     [`${componentName}.tsx`]: `
-import { ${componentName}Types } from './${kebabName}.types';
-import { ${componentName}Container } from './${kebabName}.styles';
+import { ${componentName}Types } from './${componentName}.types';
+import { ${componentName}Container } from './${componentName}.styles';
 
 const ${componentName}: React.FC<${componentName}Types> = () => {
     return (
@@ -46,21 +40,21 @@ const ${componentName}: React.FC<${componentName}Types> = () => {
 
 export default ${componentName};`,
 
-    [`${kebabName}.types.ts`]: `
+    [`${componentName}.types.ts`]: `
 export interface ${componentName}Types {
     children?: React.ReactNode;
 }`,
 
-    [`${kebabName}.styles.ts`]: `
+    [`${componentName}.styles.ts`]: `
 import styled from 'styled-components';
 
 export const ${componentName}Container = styled.div\`
     // styles
 \`;`,
 
-    [`${kebabName}.api.ts`]: `
+    [`${componentName}.api.ts`]: `
 import api, { handleApiResponse, handleApiError } from '@/api';
-import { ${componentName}Types } from './${kebabName}.types';
+import { ${componentName}Types } from './${componentName}.types';
 
 `
 };
