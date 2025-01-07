@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AvatarTypes } from './Avatar.types';
-import { AvatarContainer, AvatarImage, DefaultAvatar } from './avatar.styles';
-import { getCurrentUserAvatar, getTextAvatar } from './avatar.api';
+import { AvatarContainer, AvatarImage, DefaultAvatar } from './Avatar.styles';
+import { getCurrentUserAvatar, getTextAvatar } from './Avatar.api';
 import { useAuth, useTheme } from '@/contexts';
 import { ClipLoader } from 'react-spinners';
 
