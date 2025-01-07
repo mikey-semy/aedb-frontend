@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { RegisterForm } from './Register.types';
 import { register } from './Register.api';
 import {
+    RegisterContainer,
+    RegisterHeader,
+    RegisterSection,
+    RegisterContent,
     FormRegister,
     RegisterTitle,
     RegisterButton,
@@ -32,8 +36,15 @@ const Register = () => {
     };
 
     return (
-        <FormRegister onSubmit={handleSubmit}>
-            <RegisterTitle>Регистрация нового пользователя</RegisterTitle>
+        <RegisterContainer>
+            <RegisterSection>
+            <RegisterHeader>
+                <RegisterTitle>Регистрация нового пользователя</RegisterTitle>
+            </RegisterHeader>
+
+                <RegisterContent>
+            <FormRegister onSubmit={handleSubmit}>
+
             <Input
                 id="username"
                 type="text"
@@ -72,6 +83,9 @@ const Register = () => {
                 title="Зарегистрироваться"
             />
         </FormRegister>
+        </RegisterContent>
+            </RegisterSection>
+        </RegisterContainer>
     );
 };
 export default Register;

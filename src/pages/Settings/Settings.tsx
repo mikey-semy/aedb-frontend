@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContentData } from '@/contexts';
-import { Tabs, Search, Profile, Empty } from '@/components';
+import { Tabs, Search, Profile, Users, Register } from '@/components';
 
 /**
  * Компонент страницы файлов с вкладками для документации, шпаргалок и программ
@@ -40,12 +40,12 @@ const Settings: React.FC = () => {
                     content: <Profile />
                 },
                 {
-                    label: 'Параметры',
-                    content: <Empty />
+                    label: 'Регистрация',
+                    content: <Register />
                 },
                 {
-                    label: 'Интеграции',
-                    content: <Empty />
+                    label: 'Пользователи',
+                    content: <Users />
                 }
                 ]}
                 onTabChange={setActiveTab}
