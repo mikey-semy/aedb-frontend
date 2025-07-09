@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ListItem } from '@/Common/List';
+import { ListItem } from '@/pages/ESafety/Common/List';
 
 export const QuestionItem = styled(ListItem)`
     flex-direction: column;
