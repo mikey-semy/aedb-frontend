@@ -8,7 +8,7 @@ import {
     QuestionHeader,
     ThemeName,
     QuestionText,
-    AnswerText,
+    // AnswerText,
     ReferenceText
 } from './Questions.styles';
 
@@ -23,7 +23,7 @@ const QuestionsList: React.FC = () => {
                             <ThemeName>{item.theme}</ThemeName>
                         </QuestionHeader>
                         <QuestionText>{item.question}</QuestionText>
-                        <AnswerText>{item.answer}</AnswerText>
+                        {/* <AnswerText>{item.answer}</AnswerText> */}
                         <ReferenceText>{item.reference}</ReferenceText>
                     </QuestionItem>
                 ))}
