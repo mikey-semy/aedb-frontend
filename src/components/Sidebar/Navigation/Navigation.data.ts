@@ -22,7 +22,7 @@ export const NavigationData: NavigationTypes[] = [
     icon: MdOutlineElectricBolt,
   },
   {
-    path: 'https://pse.aedb.online',
+    path: 'https://pse.equiply.ru',
     label: 'ПСЭ',
     icon: MdQuiz,
   },
